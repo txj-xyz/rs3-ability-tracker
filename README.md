@@ -1,4 +1,10 @@
-# rs3-ability-tracker
+# RS3 Ability Tracker
 
+This application is written in Electron, the goal of this project is to provide a solution for all platforms aiming to deliver an Ability Tracker for Runescape 3
 
-This is just an example Electron app, initial builds coming soon.
+# TODO:
+ [  ] - Support for Keybinds
+ [  ] - Support `LocalStorage`
+ [  ] - Read the RS3 exe instance for detecting Abilities
+ [  ] - Image reader for live updates of ability cool downs
+ 
