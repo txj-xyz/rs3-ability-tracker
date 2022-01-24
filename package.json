@@ -1,0 +1,17 @@
+{
+  "name": "testing-rs-tracker-txj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron src/main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^16.0.7"
+  },
+  "dependencies": {
+    "input-event": "^1.2.6"
+  }
+}
