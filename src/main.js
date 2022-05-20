@@ -3,12 +3,12 @@ const { app, BrowserWindow } = require('electron')
 const prompt = require('custom-electron-prompt')
 
 function createWindow () {
-  const win = new BrowserWindow({
-    autoHideMenuBar: true,
-    resizable: false,
-    width: 300,
-    height: 200
-  })
+  // const win = new BrowserWindow({
+  //   autoHideMenuBar: true,
+  //   resizable: false,
+  //   width: 300,
+  //   height: 200
+  // })
   const kb = ($value, $label, $default) => { return { value: $value, label: $label, default: $default } };
     prompt({
       title: "Keybinds",
