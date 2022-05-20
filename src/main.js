@@ -1,6 +1,7 @@
 // const { GlobalKeyboardListener } = require('node-global-key-listener')
 const { app, BrowserWindow, globalShortcut } = require('electron')
 const prompt = require('custom-electron-prompt')
+const binds = [];
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -23,33 +24,44 @@ function createWindow () {
         kb("slot4", "Primary bar slot 4", ""),
         kb("slot5", "Primary bar slot 5", ""),
         kb("slot6", "Primary bar slot 6", ""),
+        kb("slot7", "Primary bar slot 7", ""),
+        kb("slot8", "Primary bar slot 8", ""),
+        kb("slot9", "Primary bar slot 9", ""),
+        kb("slot10", "Primary bar slot 10", ""),
+        kb("slot11", "Primary bar slot 11", ""),
+        kb("slot12", "Primary bar slot 12", ""),
+        kb("slot13", "Primary bar slot 13", ""),
+        kb("slot14", "Primary bar slot 14", ""),
+
       ],
       resizable: false,
     }, app).then(input => {
-      if (input)
-        input.forEach(obj => {
-          if(obj.accelerator == '') return;
-          console.log(obj)
-          const ret = globalShortcut.register(obj.accelerator, () => {})
-          if(!ret) return console.log('failed to register keybind')
+      if (input) {
+        console.log("input var: ", input)
+        input.forEach(key => {
+          if(key.accelerator !== ''){
+            // TODO: tie the listeners we are creating here to the ability values (instead of 'slot1-14' tie each entry to a select drop down that is searchable)
+            globalShortcut.register(key.accelerator, () => {
+              console.log('key pressed:', key.accelerator)
+            })
+          }
         })
-        console.log(input)
-        console.log("Pressed Cancel");
+      } else {
+        console.log('Cancelled prompt menu')
+      }
     })
    .catch(console.error)
+
+   
 }
 
 app.whenReady().then(() => {
   createWindow()
-  // app.on('activate', () => {
-  //   if (BrowserWindow.getAllWindows().length === 0) {
-  //     createWindow()
-  //   }
-  // })
 })
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
+    globalShortcut.unregisterAll()
   }
 })
