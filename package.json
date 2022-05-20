@@ -2,7 +2,7 @@
   "name": "testing-rs-tracker-txj",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
+  "type": "commonjs",
   "main": "src/main.js",
   "scripts": {
     "start": "electron src/main.js"
@@ -13,6 +13,8 @@
     "electron": "^16.0.7"
   },
   "dependencies": {
+    "custom-electron-prompt": "^1.5.0",
+    "electron-store": "^8.0.1",
     "node-global-key-listener": "^0.0.13"
   }
 }
