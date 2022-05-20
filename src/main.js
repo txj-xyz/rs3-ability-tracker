@@ -9,22 +9,19 @@ function createWindow () {
     width: 300,
     height: 200
   })
-  win.loadFile('index.html')
-}
-
-app.whenReady().then(() => {
-  createWindow()
-  
-    const kb = ($value, $label, $default) => { return { value: $value, label: $label, default: $default } };
+  const kb = ($value, $label, $default) => { return { value: $value, label: $label, default: $default } };
     prompt({
       title: "Keybinds",
       label: "Select keybind for each method",
       type: "keybind",
       value: "2", // Doesn't do anything here
       keybindOptions: [
-        { value: "volumeUp", label: "Increase Volume", default: "Shift+PageUp" },
-        kb("volumeDown", "Decrease Volume", "Shift+PageDown"),
-        kb("playPause", "Play / Pause") // (null || empty string || undefined) == no default
+        kb("volumeDown", "Primary bar slot 1", ""),
+        kb("volumeDown", "Primary bar slot 2", ""),
+        kb("volumeDown", "Primary bar slot 3", ""),
+        kb("volumeDown", "Primary bar slot 4", ""),
+        kb("volumeDown", "Primary bar slot 5", ""),
+        kb("volumeDown", "Primary bar slot 6", ""),
       ],
       resizable: false,
     }, app).then(input => {
@@ -34,6 +31,11 @@ app.whenReady().then(() => {
         console.log("Pressed Cancel");
     })
    .catch(console.error)
+  // win.loadFile('index.html')
+}
+
+app.whenReady().then(() => {
+  createWindow()
   // app.on('activate', () => {
   //   if (BrowserWindow.getAllWindows().length === 0) {
   //     createWindow()
