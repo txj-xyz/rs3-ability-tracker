@@ -37,7 +37,7 @@ function createWindow () {
       resizable: false,
     }, app).then(input => {
       if (input) {
-        console.log("input var: ", input)
+        console.log("inputs found from prompt: ", input)
         input.forEach(key => {
           if(key.accelerator !== ''){
             // TODO: tie the listeners we are creating here to the ability values (instead of 'slot1-14' tie each entry to a select drop down that is searchable)
