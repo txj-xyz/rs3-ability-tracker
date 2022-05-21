@@ -1,0 +1,37 @@
+body {
+    margin: 20px 0;
+}
+
+div[keys] > div {
+    display: flex;
+    padding: 5px 20px;
+}
+
+div[keys] > div input {
+    margin: 0 5px;
+    border: 0;
+    border-radius: 3px;
+}
+
+div[keys]> div input:focus {
+    outline: none;
+}
+
+div[remove], div[add] {
+    border-radius: 3px;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 7px 5px 7px;
+    margin: 0 5px;
+    line-height: 0.5;
+    background: var(--color);
+    color: var(--background);
+    cursor: pointer;
+}
+
+div[add] {
+    
+    line-height: 1;
+}

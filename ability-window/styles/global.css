@@ -1,0 +1,26 @@
+/* Dark theme. */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #1a1a1a;
+        --color: #fefefe;
+    }
+}
+
+/* Light theme. */
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: #fefefe;
+        --color: #1a1a1a;
+    }
+}
+
+* {
+    font: 15px system-ui;
+}
+
+body {
+    background: var(--background);
+    color: var(--color);
+    margin: 0;
+    padding: 0;
+}
