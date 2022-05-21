@@ -1,1550 +1,1550 @@
 [
     {
         "ability": "Affliction",
-        "key": null
+        "key": []
     },
     {
         "ability": "Aggression",
-        "key": null
+        "key": []
     },
     {
         "ability": "Aggressive_Stance",
-        "key": null
+        "key": []
     },
     {
         "ability": "Air_Blast_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Air_Bolt_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Air_Strike_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Air_Surge_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Air_Wave_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Anachronia_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Anguish",
-        "key": null
+        "key": []
     },
     {
         "ability": "Animate_Dead_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Annakarl_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Anticipation",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ape_Atoll_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ardougne_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Asphyxiate",
-        "key": null
+        "key": []
     },
     {
         "ability": "Assault",
-        "key": null
+        "key": []
     },
     {
         "ability": "Augury",
-        "key": null
+        "key": []
     },
     {
         "ability": "Backhand",
-        "key": null
+        "key": []
     },
     {
         "ability": "Bake_Pie_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Balanced_Stance",
-        "key": null
+        "key": []
     },
     {
         "ability": "Balanced_Strike",
-        "key": null
+        "key": []
     },
     {
         "ability": "Barbarian_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Barge",
-        "key": null
+        "key": []
     },
     {
         "ability": "Barricade",
-        "key": null
+        "key": []
     },
     {
         "ability": "Bash",
-        "key": null
+        "key": []
     },
     {
         "ability": "Berserk",
-        "key": null
+        "key": []
     },
     {
         "ability": "Berserker",
-        "key": null
+        "key": []
     },
     {
         "ability": "Bind_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Binding_Shot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Bladed_Dive",
-        "key": null
+        "key": []
     },
     {
         "ability": "Blood_Barrage_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Blood_Blitz_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Blood_Burst_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Blood_Rush_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Blood_Tendrils",
-        "key": null
+        "key": []
     },
     {
         "ability": "Bombardment",
-        "key": null
+        "key": []
     },
     {
         "ability": "Bones_to_Bananas_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Bones_to_Peaches_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Borrowed_Power_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Burst_of_Strength",
-        "key": null
+        "key": []
     },
     {
         "ability": "Camelot_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Carrallanger_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Catherby_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Cease",
-        "key": null
+        "key": []
     },
     {
         "ability": "Chain",
-        "key": null
+        "key": []
     },
     {
         "ability": "Charge",
-        "key": null
+        "key": []
     },
     {
         "ability": "Charge_Air_Orb_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Charge_Earth_Orb_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Charge_Fire_Orb_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Charge_Water_Orb_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Chivalry",
-        "key": null
+        "key": []
     },
     {
         "ability": "Chronicle_Attraction",
-        "key": null
+        "key": []
     },
     {
         "ability": "Clarity_of_Thought",
-        "key": null
+        "key": []
     },
     {
         "ability": "Cleave",
-        "key": null
+        "key": []
     },
     {
         "ability": "Combust",
-        "key": null
+        "key": []
     },
     {
         "ability": "Concentrated_Blast",
-        "key": null
+        "key": []
     },
     {
         "ability": "Confuse_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Corruption_Blast",
-        "key": null
+        "key": []
     },
     {
         "ability": "Corruption_Shot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Cure_Group_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Cure_Me_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Cure_Other_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Cure_Plant_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Curse_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Dareeyak_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Dark_Form",
-        "key": null
+        "key": []
     },
     {
         "ability": "Dazing_Shot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Deadshot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Deaths_Swiftness",
-        "key": null
+        "key": []
     },
     {
         "ability": "Debilitate",
-        "key": null
+        "key": []
     },
     {
         "ability": "Decimate",
-        "key": null
+        "key": []
     },
     {
         "ability": "Deep_Impact",
-        "key": null
+        "key": []
     },
     {
         "ability": "Defensive_Stance",
-        "key": null
+        "key": []
     },
     {
         "ability": "Deflect_Magic",
-        "key": null
+        "key": []
     },
     {
         "ability": "Deflect_Melee",
-        "key": null
+        "key": []
     },
     {
         "ability": "Deflect_Missiles",
-        "key": null
+        "key": []
     },
     {
         "ability": "Deflect_Summoning",
-        "key": null
+        "key": []
     },
     {
         "ability": "Demon_Slayer_(ability)",
-        "key": null
+        "key": []
     },
     {
         "ability": "Demoralise",
-        "key": null
+        "key": []
     },
     {
         "ability": "Desolation",
-        "key": null
+        "key": []
     },
     {
         "ability": "Destroy",
-        "key": null
+        "key": []
     },
     {
         "ability": "Detonate",
-        "key": null
+        "key": []
     },
     {
         "ability": "Devotion",
-        "key": null
+        "key": []
     },
     {
         "ability": "Dismember",
-        "key": null
+        "key": []
     },
     {
         "ability": "Disruption_Shield_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Divert",
-        "key": null
+        "key": []
     },
     {
         "ability": "Divine_Storm_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Dragon_Breath",
-        "key": null
+        "key": []
     },
     {
         "ability": "Dragon_Slayer_(ability)",
-        "key": null
+        "key": []
     },
     {
         "ability": "Dream_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Eagle_Eye",
-        "key": null
+        "key": []
     },
     {
         "ability": "Earth_Blast_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Earth_Bolt_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Earth_Strike_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Earth_Surge_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Earth_Wave_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Eat_Food",
-        "key": null
+        "key": []
     },
     {
         "ability": "Emerald_Aurora_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Enchant_Crossbow_Bolt_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Enfeeble_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Entangle_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Escape",
-        "key": null
+        "key": []
     },
     {
         "ability": "Essence_of_Finality",
-        "key": null
+        "key": []
     },
     {
         "ability": "Exsanguinate_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Falador_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fertile_Soil_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fire_Blast_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fire_Bolt_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fire_Strike_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fire_Surge_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fire_Urn_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fire_Wave_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fishing_Guild_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Flurry",
-        "key": null
+        "key": []
     },
     {
         "ability": "Forceful_Backhand",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fortitude",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fragmentation_Shot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Freedom",
-        "key": null
+        "key": []
     },
     {
         "ability": "Frenzy",
-        "key": null
+        "key": []
     },
     {
         "ability": "Fury",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ghorrock_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "God_Wars_Dungeon_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Golden_Touch",
-        "key": null
+        "key": []
     },
     {
         "ability": "Greater_Barge",
-        "key": null
+        "key": []
     },
     {
         "ability": "Greater_Chain",
-        "key": null
+        "key": []
     },
     {
         "ability": "Greater_Concentrated_Blast",
-        "key": null
+        "key": []
     },
     {
         "ability": "Greater_Dazing_Shot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Greater_Flurry",
-        "key": null
+        "key": []
     },
     {
         "ability": "Greater_Fury",
-        "key": null
+        "key": []
     },
     {
         "ability": "Greater_Ricochet",
-        "key": null
+        "key": []
     },
     {
         "ability": "Guthixs_Blessing",
-        "key": null
+        "key": []
     },
     {
         "ability": "Havoc",
-        "key": null
+        "key": []
     },
     {
         "ability": "Hawk_Eye",
-        "key": null
+        "key": []
     },
     {
         "ability": "Heal_Group_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Heal_Other_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "High_Level_Alchemy_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Home_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Horror",
-        "key": null
+        "key": []
     },
     {
         "ability": "House_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Humidify_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Hurricane",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ice_Asylum",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ice_Barrage_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ice_Blitz_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ice_Burst_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ice_Plateau_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ice_Rush_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Immortality",
-        "key": null
+        "key": []
     },
     {
         "ability": "Impact",
-        "key": null
+        "key": []
     },
     {
         "ability": "Improved_Reflexes",
-        "key": null
+        "key": []
     },
     {
         "ability": "Incendiary_Shot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Incite",
-        "key": null
+        "key": []
     },
     {
         "ability": "Incite_Fear_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Incredible_Reflexes",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ingenuity_of_the_Humans",
-        "key": null
+        "key": []
     },
     {
         "ability": "Intercept_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Kandarin_monastery_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Kharyrll_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Khazard_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Kick",
-        "key": null
+        "key": []
     },
     {
         "ability": "Kuradals_Favour",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lassar_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Leech_Adrenaline",
-        "key": null
+        "key": []
     },
     {
         "ability": "Leech_Attack",
-        "key": null
+        "key": []
     },
     {
         "ability": "Leech_Defence",
-        "key": null
+        "key": []
     },
     {
         "ability": "Leech_Energy",
-        "key": null
+        "key": []
     },
     {
         "ability": "Leech_Magic",
-        "key": null
+        "key": []
     },
     {
         "ability": "Leech_Magic_Strength",
-        "key": null
+        "key": []
     },
     {
         "ability": "Leech_Range_Strength",
-        "key": null
+        "key": []
     },
     {
         "ability": "Leech_Ranged",
-        "key": null
+        "key": []
     },
     {
         "ability": "Leech_Strength",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Combust",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Concentrated_Blast",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Dazing_Shot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Dismember",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Dragon_Breath",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Fragmentation_Shot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Havoc",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Needle_Strike",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Sever",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Smash",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Snipe",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lesser_Sonic_Wave",
-        "key": null
+        "key": []
     },
     {
         "ability": "Light_Form",
-        "key": null
+        "key": []
     },
     {
         "ability": "Limitless",
-        "key": null
+        "key": []
     },
     {
         "ability": "Low_Level_Alchemy_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lumbridge_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lvl_1_Enchant_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lvl_2_Enchant_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lvl_3_Enchant_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lvl_4_Enchant_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lvl_5_Enchant_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Lvl_6_Enchant_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Magic_Imbue_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Magma_Tempest",
-        "key": null
+        "key": []
     },
     {
         "ability": "Magma_Tempest_(Targeted)",
-        "key": null
+        "key": []
     },
     {
         "ability": "Make_Leather_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Malevolence",
-        "key": null
+        "key": []
     },
     {
         "ability": "Manor_farm_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Massacre",
-        "key": null
+        "key": []
     },
     {
         "ability": "Max_guild_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Mazcab_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Metamorphosis",
-        "key": null
+        "key": []
     },
     {
         "ability": "Meteor_Strike",
-        "key": null
+        "key": []
     },
     {
         "ability": "Monster_Examine_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Moonclan_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Mystic_Lore",
-        "key": null
+        "key": []
     },
     {
         "ability": "Mystic_Might",
-        "key": null
+        "key": []
     },
     {
         "ability": "Mystic_Will",
-        "key": null
+        "key": []
     },
     {
         "ability": "NPC_Contact_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Natural_Instinct",
-        "key": null
+        "key": []
     },
     {
         "ability": "Needle_Strike",
-        "key": null
+        "key": []
     },
     {
         "ability": "North_Ardougne_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Omnipower",
-        "key": null
+        "key": []
     },
     {
         "ability": "Onslaught",
-        "key": null
+        "key": []
     },
     {
         "ability": "Opal_Aurora_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ourania_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Overcharge",
-        "key": null
+        "key": []
     },
     {
         "ability": "Overpower",
-        "key": null
+        "key": []
     },
     {
         "ability": "Overpowering_Force",
-        "key": null
+        "key": []
     },
     {
         "ability": "Paddewwa_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Piercing_Shot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Piety",
-        "key": null
+        "key": []
     },
     {
         "ability": "Plank_Make_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Polypore_Strike_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Potion_Share_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Preparation",
-        "key": null
+        "key": []
     },
     {
         "ability": "Prism_of_Loyalty_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Prism_of_Restoration_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Prism_of_Salvation_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Protect_Item",
-        "key": null
+        "key": []
     },
     {
         "ability": "Protect_from_Magic",
-        "key": null
+        "key": []
     },
     {
         "ability": "Protect_from_Melee",
-        "key": null
+        "key": []
     },
     {
         "ability": "Protect_from_Missiles",
-        "key": null
+        "key": []
     },
     {
         "ability": "Protect_from_Summoning",
-        "key": null
+        "key": []
     },
     {
         "ability": "Provoke",
-        "key": null
+        "key": []
     },
     {
         "ability": "Pulverise",
-        "key": null
+        "key": []
     },
     {
         "ability": "Punish",
-        "key": null
+        "key": []
     },
     {
         "ability": "Quake",
-        "key": null
+        "key": []
     },
     {
         "ability": "Quiver_ammo_slot_1",
-        "key": null
+        "key": []
     },
     {
         "ability": "Quiver_ammo_slot_2",
-        "key": null
+        "key": []
     },
     {
         "ability": "Rapid_Fire",
-        "key": null
+        "key": []
     },
     {
         "ability": "Rapid_Heal",
-        "key": null
+        "key": []
     },
     {
         "ability": "Rapid_Renewal",
-        "key": null
+        "key": []
     },
     {
         "ability": "Rapid_Restore",
-        "key": null
+        "key": []
     },
     {
         "ability": "Redemption",
-        "key": null
+        "key": []
     },
     {
         "ability": "Reflect",
-        "key": null
+        "key": []
     },
     {
         "ability": "Regenerate",
-        "key": null
+        "key": []
     },
     {
         "ability": "Rejuvenate",
-        "key": null
+        "key": []
     },
     {
         "ability": "Remote_Farm_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Repair_Rune_Pouch_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Reprisal",
-        "key": null
+        "key": []
     },
     {
         "ability": "Resonance",
-        "key": null
+        "key": []
     },
     {
         "ability": "Retribution",
-        "key": null
+        "key": []
     },
     {
         "ability": "Revenge",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ricochet",
-        "key": null
+        "key": []
     },
     {
         "ability": "Rigour",
-        "key": null
+        "key": []
     },
     {
         "ability": "Rock_Skin",
-        "key": null
+        "key": []
     },
     {
         "ability": "Rout",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ruby_Aurora_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sacrifice",
-        "key": null
+        "key": []
     },
     {
         "ability": "Salt_the_Wound",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sap_Defence",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sap_Mage",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sap_Magic_Strength",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sap_Range_Strength",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sap_Ranger",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sap_Spirit",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sap_Strength",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sap_Warrior",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sapphire_Aurora_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Senntisten_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sever",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shadow_Barrage_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shadow_Blitz_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shadow_Burst_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shadow_Rush_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shadow_Tendrils",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sharp_Eye",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shatter",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shield_Dome_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shock",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Aggressive_Stance",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Balanced_Stance",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Blue_Egg",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Crackers",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Defensive_Stance",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Green_Egg",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Poisoned_Meat",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Poisoned_Tofu",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Poisoned_Worms",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Red_Egg",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Tofu",
-        "key": null
+        "key": []
     },
     {
         "ability": "Shout_Worms",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sift_Soil_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Siphon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Skeletal_horror_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Slaughter",
-        "key": null
+        "key": []
     },
     {
         "ability": "Slayers_Insight",
-        "key": null
+        "key": []
     },
     {
         "ability": "Slayer_Dart_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Slice",
-        "key": null
+        "key": []
     },
     {
         "ability": "Smash",
-        "key": null
+        "key": []
     },
     {
         "ability": "Smite",
-        "key": null
+        "key": []
     },
     {
         "ability": "Smoke_Barrage_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Smoke_Blitz_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Smoke_Burst_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Smoke_Cloud_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Smoke_Rush_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Smoke_Tendrils",
-        "key": null
+        "key": []
     },
     {
         "ability": "Snap_Shot",
-        "key": null
+        "key": []
     },
     {
         "ability": "Snare_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Snipe",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sonic_Wave",
-        "key": null
+        "key": []
     },
     {
         "ability": "Soul_Link",
-        "key": null
+        "key": []
     },
     {
         "ability": "Soul_Split",
-        "key": null
+        "key": []
     },
     {
         "ability": "South_Falador_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "South_Feldip_Hills_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Spellbook_Swap_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Spin_Flax_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Spiritual_Healing_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Stagger_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Stat_Spy_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Steel_Skin",
-        "key": null
+        "key": []
     },
     {
         "ability": "Stomp_(ability)",
-        "key": null
+        "key": []
     },
     {
         "ability": "Storm_Shards",
-        "key": null
+        "key": []
     },
     {
         "ability": "Storm_of_Armadyl_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "String_Jewellery_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Sunshine",
-        "key": null
+        "key": []
     },
     {
         "ability": "Super_Charge",
-        "key": null
+        "key": []
     },
     {
         "ability": "Superglass_Make_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Superheat_Form",
-        "key": null
+        "key": []
     },
     {
         "ability": "Superheat_Item_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Superhuman_Strength",
-        "key": null
+        "key": []
     },
     {
         "ability": "Surge",
-        "key": null
+        "key": []
     },
     {
         "ability": "Taverley_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Teamwork_Protection",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_group_Barbarian_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_group_Catherby_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_group_Fishing_Guild_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_group_Ice_Plateau_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_group_Khazard_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_group_Moonclan_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_group_Trollheim_Farm_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_group_Waterbirth_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_other_Camelot_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_other_Falador_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tele_other_Lumbridge_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Telekinetic_Grab_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Telekinetic_Grind_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Teleport_Block_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Thick_Skin",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tight_Bindings",
-        "key": null
+        "key": []
     },
     {
         "ability": "Torment",
-        "key": null
+        "key": []
     },
     {
         "ability": "Transfigure",
-        "key": null
+        "key": []
     },
     {
         "ability": "Trap_Telekinesis_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Trollheim_Farm_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Trollheim_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tsunami",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tune_Banite_Ore_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Turmoil",
-        "key": null
+        "key": []
     },
     {
         "ability": "Tuskas_Wrath",
-        "key": null
+        "key": []
     },
     {
         "ability": "Ultimate_Strength",
-        "key": null
+        "key": []
     },
     {
         "ability": "Undead_Slayer_(ability)",
-        "key": null
+        "key": []
     },
     {
         "ability": "Unload",
-        "key": null
+        "key": []
     },
     {
         "ability": "Unrelenting_Force",
-        "key": null
+        "key": []
     },
     {
         "ability": "Unstoppable_Force",
-        "key": null
+        "key": []
     },
     {
         "ability": "Unsullied",
-        "key": null
+        "key": []
     },
     {
         "ability": "Varrock_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Vengeance_Group_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Vengeance_Other_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Vengeance_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Vulnerability_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Wars_Retreat_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Watchtower_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Water_Blast_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Water_Bolt_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Water_Strike_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Water_Surge_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Water_Wave_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Waterbirth_Teleport_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Weaken_icon",
-        "key": null
+        "key": []
     },
     {
         "ability": "Weapon_Special_attack",
-        "key": null
+        "key": []
     },
     {
         "ability": "Wild_Magic",
-        "key": null
+        "key": []
     },
     {
         "ability": "Wrack",
-        "key": null
+        "key": []
     },
     {
         "ability": "Wrack_and_Ruin",
-        "key": null
+        "key": []
     },
     {
         "ability": "Wrath",
-        "key": null
+        "key": []
     }
 ]

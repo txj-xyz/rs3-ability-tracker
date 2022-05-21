@@ -5,7 +5,7 @@ module.exports = _ => {
         autoHideMenuBar: true,
         titleBarStyle: 'hidden',
         resizable: false,
-        width: 300,
+        width: 450,
         height: 200,
         webPreferences: {
             nodeIntegration: true,
@@ -21,6 +21,9 @@ module.exports = _ => {
             case 'keys': {
                 event.returnValue = keys
                 break
+            }
+            case 'binds': {
+
             }
         }
     })

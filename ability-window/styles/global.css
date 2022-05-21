@@ -3,6 +3,7 @@
     :root {
         --background: #1a1a1a;
         --color: #fefefe;
+        --lvlup: rgb(0, 0, 0, 0.1);
     }
 }
 
@@ -11,6 +12,7 @@
     :root {
         --background: #fefefe;
         --color: #1a1a1a;
+        --lvlup: rgb(255, 255, 255, 0.1);
     }
 }
 
