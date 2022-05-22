@@ -8,7 +8,7 @@ module.exports = _ => {
         // titleBarStyle: 'hidden',
         resizable: false,
         show: false,
-        width: 300,
+        width: 700,
         height: 200,
         webPreferences: {
             nodeIntegration: true,
