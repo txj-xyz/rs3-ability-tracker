@@ -5,8 +5,7 @@
   "type": "commonjs",
   "main": "src/index.js",
   "scripts": {
-    "start": "electron .",
-    "test": "node test.js"
+    "start": "electron ."
   },
   "author": "",
   "license": "ISC",

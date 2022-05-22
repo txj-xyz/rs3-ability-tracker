@@ -1,8 +1,9 @@
 const { BrowserWindow } = require('electron')
 const keybinds = require('./keybinds.js')
+let win
 
 module.exports = _ => {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         autoHideMenuBar: true,
         titleBarStyle: 'hidden',
         resizable: false,
@@ -15,6 +16,9 @@ module.exports = _ => {
         }
     })
     win.loadFile('./ability-window/html/index.html')
-    if (keys.filter(e => e.key.some(e => e)).length === 0) keybinds()
-    else win.on('ready-to-show', win.show)
+    keybinds()
+    // if (keys.filter(e => e.key.some(e => e)).length === 0) keybinds()
+    // else win.on('ready-to-show', win.show)
 }
+
+module.exports.show = _ => !win.isVisible() ? win.show() : void 0
