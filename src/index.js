@@ -1,6 +1,6 @@
 const { BrowserWindow, app } = require('electron')
 global.settings = require('./main.js')
-global.keys = require('../cfg/keybinds.json')
+global.keys = require('../cfg/abilities.json')
 
 app
     .on('ready', settings)

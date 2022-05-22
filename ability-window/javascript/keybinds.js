@@ -1,7 +1,7 @@
 const { ipcRenderer } = require('electron')
 ipcRenderer.request = query => ipcRenderer.sendSync('keybinds_request', query)
 let keybindList = ipcRenderer.request({ query: 'keys' })
-let abilities = keybindList.map(e => e.ability)
+let abilities = ipcRenderer.request({ query: 'abilities' })
 const modifiers = ['Shift', 'Control', 'Ctrl', 'Command', 'Cmd', 'Alt', 'AltGr', 'Super', 'Backspace']
 const keycodes = {
     ShiftLeft: 'Shift',
@@ -215,10 +215,11 @@ function remove(id) {
 function save() {
     const keys = document.querySelectorAll('div[keys] > div[id]')
     const binds = []
-    keys?.forEach(e => {
+    keys.forEach(e => {
         const ability = e.querySelector('div[ability] input').value.replace(/ /g, '_')
         const key = e.querySelector('input[key]').value
         binds.push({ ability, key })
     })
     ipcRenderer.request({ query: 'binds', binds })
+    new Notification('Keybinds Updated!', { body: 'New keybinds have been successfully stored', timeoutType: 'default' })
 }

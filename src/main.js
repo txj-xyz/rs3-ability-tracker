@@ -5,7 +5,7 @@ let win
 module.exports = _ => {
     win = new BrowserWindow({
         autoHideMenuBar: true,
-        titleBarStyle: 'hidden',
+        // titleBarStyle: 'hidden',
         resizable: false,
         show: false,
         width: 300,

@@ -1,4 +1,5 @@
 const { BrowserWindow, ipcMain, globalShortcut } = require('electron')
+const { existsSync, writeFileSync, exists } = require('fs')
 
 module.exports = _ => {
     const win = new BrowserWindow({
@@ -21,17 +22,21 @@ module.exports = _ => {
     ipcMain.on('keybinds_request', (event, param) => {
         switch (param.query) {
             case 'keys': {
+                event.returnValue = existsSync('./cfg/keybinds.json') ? require('./cfg/keybinds.json') : []
+                break
+            }
+            case 'abilities': {
                 event.returnValue = keys
                 break
             }
             case 'binds': {
-                keys.map(p => p.key = [])
+                keybindList = []
                 param.binds.map(k => {
-                    const req = keys.find(e => e.ability === k.ability)
+                    const req = keybindList.find(e => e.ability === k.ability)
                     if (req) req.key.push(k.key)
+                    else keybindList.push({ ability: k.ability, key: [k.key] })
                 })
-
-                require('fs').writeFileSync('./cfg/keybinds.json', JSON.stringify(keys, null, 4))
+                writeFileSync('./cfg/keybinds.json', JSON.stringify(keybindList, null, 4))
                 event.returnValue = null
                 break
             }
