@@ -22,7 +22,7 @@ module.exports = _ => {
     ipcMain.on('keybinds_request', (event, param) => {
         switch (param.query) {
             case 'keys': {
-                event.returnValue = existsSync('./cfg/keybinds.json') ? require('./cfg/keybinds.json') : []
+                event.returnValue = existsSync('./cfg/keybinds.json') ? require('../cfg/keybinds.json') : []
                 break
             }
             case 'abilities': {
