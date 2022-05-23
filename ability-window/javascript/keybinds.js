@@ -195,6 +195,7 @@ function update(id, ability) {
 
 keybindList.map(a => a.key.length > 0 ? a.key.map(k => copy(a.ability, k)) : void 0)
 
+
 function copy(ability, key) {
     const addElem = '<div addition><div onclick="copy()" add>+ New Bind</div><div onclick="save()" add>Save</div></div>'
     const randomID = (sections, phrase, join, random = a => a[Math.floor(Math.random() * a.length)]) => [...Array(sections)].map(_ => [...Array(phrase)].map(_ => random([...[...Array(26)].map((_, i) => String.fromCharCode(i + 65)), ...[...Array(26)].map((_, i) => String.fromCharCode(i + 65).toLowerCase()), ...[...Array(10).keys()]])).join('')).join(join ?? '-')

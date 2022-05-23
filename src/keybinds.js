@@ -1,5 +1,5 @@
 const { BrowserWindow, ipcMain, globalShortcut } = require('electron')
-const { existsSync, writeFileSync, exists } = require('fs')
+const { existsSync, writeFileSync } = require('fs')
 
 module.exports = _ => {
     const win = new BrowserWindow({
