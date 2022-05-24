@@ -100,3 +100,12 @@ div[dropdown] div {
 div[dropdown] div:hover {
     background: var(--hover);
 }
+
+/* Input box error styles. */
+input.error {
+    background: #F04747BF !important;
+}
+
+input.error::placeholder {
+    color: var(--color) !important;
+}

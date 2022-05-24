@@ -171,6 +171,11 @@ class Keybind {
 
     // Initialize keybind listener.
     init() {
+        this.input.addEventListener('focus', _ => {
+            this.input.classList.contains('error') ? this.input.classList.remove('error') : void 0;
+            this.input.setAttribute('placeholder', 'Listening...');
+        });
+        this.input.addEventListener('blur', _ => this.input.setAttribute('placeholder', 'Keybind'));
         this.input.addEventListener('keydown', e => {
 
             // Prevent default action.
@@ -231,7 +236,10 @@ class Dropdown {
         });
 
         // Show dropdown when input box is clicked.
-        this.input.addEventListener('focus', _ => this.dropdown.style.display = 'block');
+        this.input.addEventListener('focus', _ => {
+            this.dropdown.style.display = 'block';
+            this.input.classList.contains('error') ? this.input.classList.remove('error') : void 0;
+        });
 
         // Hide dropdown when input box focus is lost.
         this.input.addEventListener('blur', _ => setTimeout(_ => this.dropdown.style.display = 'none', 150));
@@ -282,16 +290,27 @@ function copy(ability, key) {
 // Save keybinds to file.
 function save() {
     // Declare variables.
+    let failed = false;
     const [keys, binds] = [document.querySelectorAll('div[keys] > div[id]'), []];
 
     // Fetch values from HTML.
-    keys.forEach(e => binds.push({ ability: e.querySelector('div[ability] input').value.replace(/ /g, '_'), key: e.querySelector('input[key]').value }));
+    keys.forEach(e => {
+        const [ability, key] = [e.querySelector('div[ability] input').value.replace(/ /g, '_'), e.querySelector('input[key]').value];
+        if (!key || !ability || !abilities.includes(ability)) {
+            failed = true;
+            if (!key) e.querySelector('input[key]').classList.toggle('error');
+            if (!ability || !abilities.includes(ability)) e.querySelector('div[ability] input').classList.toggle('error');
+            return new Notification('Missing or improper keybinds.', { body: 'Please fill in all fields properly before saving.', timeoutType: 'default' });
+        }
+        binds.push({ ability, key });
+    });
+    if (failed) return;
 
     // Send data to backend.
     ipcRenderer.request({ query: 'binds', binds });
 
     // Send a notification to the user.
-    new Notification('Keybinds Updated!', { body: 'New keybinds have been successfully stored', timeoutType: 'default' });
+    new Notification('Keybinds updated successfully!', { body: 'New keybinds have been successfully stored.', timeoutType: 'default' });
 
     // Set save button background.
     !saveToggle ? toggle() : void 0;
