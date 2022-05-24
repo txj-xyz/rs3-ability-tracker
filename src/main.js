@@ -1,24 +1,16 @@
-const { BrowserWindow } = require('electron')
-const keybinds = require('./keybinds.js')
-let win
+// Import dependencies.
+const { BrowserWindow } = require('electron');
 
 module.exports = _ => {
-    win = new BrowserWindow({
-        autoHideMenuBar: true,
-        // titleBarStyle: 'hidden',
-        resizable: false,
-        show: false,
-        width: 700,
-        height: 200,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false
-        }
-    })
-    win.loadFile('./ability-window/html/index.html')
-    // keybinds()
-    if (keybindsExist.length === 0) keybinds()
-    else win.on('ready-to-show', win.show)
-}
 
-module.exports.show = _ => !win.isVisible() ? win.show() : void 0
+    // Make main window globally reachable and set properties.
+    windows.settings = new BrowserWindow({ ...windows.properties, ...{ width: 700, height: 200 } });
+
+    // Load index file.
+    windows.settings.loadFile(pages('index'));
+
+    // If no keybinds have been set, show settings window, otherwise show main window.
+    keybinds() // NOTE: Remove once settings UI is finished.
+    // if (!keycache.length) keybinds();
+    // else windows.settings.on('ready-to-show', windows.settings.show);
+}

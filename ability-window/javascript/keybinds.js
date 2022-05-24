@@ -1,8 +1,15 @@
-const { ipcRenderer } = require('electron')
-ipcRenderer.request = query => ipcRenderer.sendSync('keybinds_request', query)
-let keybindList = ipcRenderer.request({ query: 'keys' })
-let abilities = ipcRenderer.request({ query: 'abilities' })
-const modifiers = ['Shift', 'Control', 'Ctrl', 'Command', 'Cmd', 'Alt', 'AltGr', 'Super', 'Backspace']
+
+// Import dependencies.
+const { ipcRenderer } = require('electron');
+
+// Frontend to backend communication.
+ipcRenderer.request = query => ipcRenderer.sendSync('keybinds', query);
+
+// Request data from backend.
+const [keycache, abilities] = ['keycache', 'abilities'].map(query => ipcRenderer.request({ query }));
+
+// Default values.
+const modifiers = ['Shift', 'Control', 'Ctrl', 'Command', 'Cmd', 'Alt', 'AltGr', 'Super', 'Backspace'];
 const keycodes = {
     ShiftLeft: 'Shift',
     ShiftRight: 'Shift',
@@ -125,102 +132,167 @@ const keycodes = {
     F22: 'F22',
     F23: 'F23',
     F24: 'F24'
-}
-const elemDefault = `
-        <div id="ID">
-            <div onclick="remove('ID')" remove>-</div>
-            <div ability>
-                <input type="text" placeholder="Ability" value="ABILITY" />
-                <div dropdown></div>
-            </div>
-            <input type="text" placeholder="Keybind" value="KEYBIND" key />
-        </div>`
+};
+const [keybinds, buttons] = [
+    '<div id="ID"><div onclick="remove(\'ID\')" style="background:#F04747" remove>-</div><div ability><input type="text" placeholder="Ability" value="ABILITY" /><div dropdown></div></div><input type="text" placeholder="Keybind" value="KEYBIND" key /></div>',
+    '<div manage><div onclick="copy()" style="background:#00A9FF" button>+ New Bind</div><div onclick="save()" button save>Save</div></div>'
+];
+let saveToggle = false;
 
+// Random ID generator.
+const randomID = (sections, phrase, join, random = a => a[Math.floor(Math.random() * a.length)]) => [...Array(sections)].map(_ => [...Array(phrase)].map(_ => random([...[...Array(26)].map((_, i) => String.fromCharCode(i + 65)), ...[...Array(26)].map((_, i) => String.fromCharCode(i + 65).toLowerCase()), ...[...Array(10).keys()]])).join('')).join(join ?? '-')
+
+// Update input box value from dropdown selection.
+const update = (id, ability, input = document.getElementById(id).querySelector('div[ability] input')) => input.value = ability;
+
+// Action for remove button.
+const remove = (id, div = document.getElementById(id)) => {
+    div.parentNode.removeChild(div);
+
+    // Update save button.
+    saveToggle ? toggle() : void 0;
+}
+
+// Toggle save button.
+const toggle = _ => {
+    saveToggle = !saveToggle;
+    const element = document.querySelector('div[save]')
+    element.style.background = saveToggle ? '#43B581' : 'var(--elements)';
+}
+
+// Kebind input manager class.
 class Keybind {
     constructor(input) {
-        this.key
-        this.modify = []
-        this.input = input
-        this.init()
+        this.key;
+        this.modify = [];
+        this.input = input;
+        this.init();
     }
 
+    // Initialize keybind listener.
     init() {
         this.input.addEventListener('keydown', e => {
-            e.preventDefault()
-            if (keycodes[e.code || e.key] === 'Backspace') this.key ? this.key = null : this.modify.pop()
-            else if (modifiers.includes(keycodes[e.code || e.key]) && this.modify.length < 2 && !this.modify.includes(keycodes[e.code || e.key])) this.modify.push(keycodes[e.code || e.key])
-            else if (!this.modify.includes(keycodes[e.code || e.key])) this.key = keycodes[e.code || e.key]
-            this.write()
+
+            // Prevent default action.
+            e.preventDefault();
+
+            // Update save button.
+            saveToggle ? toggle() : void 0;
+
+            // If backspace is pressed, remove from list.
+            if (keycodes[e.code || e.key] === 'Backspace') this.key ? this.key = null : this.modify.pop();
+
+            // Check if modifier is pressed.
+            else if (modifiers.includes(keycodes[e.code || e.key]) && this.modify.length < 2 && !this.modify.includes(keycodes[e.code || e.key])) this.modify.push(keycodes[e.code || e.key]);
+
+            // Check if key is pressed.
+            else if (!this.modify.includes(keycodes[e.code || e.key])) this.key = keycodes[e.code || e.key];
+
+            // Update frontend.
+            this.write();
         })
     }
 
+    // Update frontend.
     write() {
-        let result = ''
-        if (this.modify.length > 0) this.modify.map(e => result += e + ' + ')
+
+        // String builder.
+        let result = '';
+
+        // Add modifiers.
+        if (this.modify.length > 0) this.modify.map(e => result += e + ' + ');
+
+        // Add key.
         if (this.key) result += this.key
+
+        // Show result.
         this.input.value = result
     }
 }
 
+// Dropdown input manager class.
 class Dropdown {
     constructor(div) {
-        this.id = div.id
-        this.input = div.querySelector('div[ability] input')
-        this.dropdown = div.querySelector('div[dropdown]')
-        this.dropdown.innerHTML = this.search()
-        this.init()
+        this.id = div.id;
+        this.input = div.querySelector('div[ability] input');
+        this.dropdown = div.querySelector('div[dropdown]');
+        this.dropdown.innerHTML = this.search();
+        this.init();
     }
 
+    // Initialize dropdown listener.
     init() {
-        this.input.addEventListener('input', e => !modifiers.includes(e.key) ? this.dropdown.innerHTML = this.search(this.input.value) : void 0)
-        this.input.addEventListener('focus', _ => this.dropdown.style.display = 'block')
-        this.input.addEventListener('blur', _ => setTimeout(_ => this.dropdown.style.display = 'none', 200))
+        // When input is received from the input box, check if it is a valid character and then filter the list.
+        this.input.addEventListener('input', e => {
+            !modifiers.includes(e.key) ? this.dropdown.innerHTML = this.search(this.input.value) : void 0;
+
+            // Update save button.
+            saveToggle ? toggle() : void 0;
+        });
+
+        // Show dropdown when input box is clicked.
+        this.input.addEventListener('focus', _ => this.dropdown.style.display = 'block');
+
+        // Hide dropdown when input box focus is lost.
+        this.input.addEventListener('blur', _ => setTimeout(_ => this.dropdown.style.display = 'none', 150));
     }
-    
+
+    // Filter the list.
     search(query) {
-        let list = abilities.map(e => e.replace(/_/g, ' '))
-        list = query ? list.filter(e => e.toLowerCase().startsWith(query.toLowerCase())) : list
-        const result = []
-        list.map(e => {
-            result.push(`<div onclick="update('${this.id}', '${e}')">${e}</div>`)
-        })
-        return result.join('')
+
+        // Remove all underscores from the list.
+        let list = abilities.map(e => e.replace(/_/g, ' '));
+
+        // Filter the list.
+        list = query ? list.filter(e => e.toLowerCase().startsWith(query.toLowerCase())) : list;
+
+        // Convert string to HTML.
+        const result = [];
+        list.map(e => result.push(`<div onclick="update('${this.id}', '${e}')" title="${e}">${e}</div>`));
+
+        // Return list.
+        return result.join('');
     }
 }
 
-function update(id, ability) {
-    const input = document.getElementById(id).querySelector('div[ability] input')
-    input.value = ability
-}
+// Load saved keybinds from cache.
+keycache.map(a => a.key.length > 0 ? a.key.map(k => copy(a.ability.replace(/_/g, ' '), k)) : void 0);
+if (keycache.length) toggle();
 
-keybindList.map(a => a.key.length > 0 ? a.key.map(k => copy(a.ability, k)) : void 0)
-
-
+// Make a new keybind field.
 function copy(ability, key) {
-    const addElem = '<div addition><div onclick="copy()" add>+ New Bind</div><div onclick="save()" add>Save</div></div>'
-    const randomID = (sections, phrase, join, random = a => a[Math.floor(Math.random() * a.length)]) => [...Array(sections)].map(_ => [...Array(phrase)].map(_ => random([...[...Array(26)].map((_, i) => String.fromCharCode(i + 65)), ...[...Array(26)].map((_, i) => String.fromCharCode(i + 65).toLowerCase()), ...[...Array(10).keys()]])).join('')).join(join ?? '-')
-    const id = randomID(5, 5)
-    const field = elemDefault.replace(/ID/g, id).replace(/ABILITY/g, ability || '').replace(/KEYBIND/g, key || '')
-    const add = document.querySelector('div[addition]')
-    add.parentNode.removeChild(add)
-    document.querySelector('div[keys]').insertAdjacentHTML('beforeend', field + addElem)
-    new Dropdown(document.getElementById(id))
-    new Keybind(document.getElementById(id).querySelector('input[key]'))
+
+    // Declare varibales.
+    const [id, btns] = [randomID(5, 5), document.querySelector('div[manage]')];
+
+    // Update preset element string values.
+    const field = keybinds.replace(/ID/g, id).replace(/ABILITY/g, ability || '').replace(/KEYBIND/g, key || '');
+
+    // Remove buttons.
+    btns.parentNode.removeChild(btns);
+
+    // Add new element and buttons.
+    document.querySelector('div[keys]').insertAdjacentHTML('beforeend', field + buttons);
+
+    // Setup dropdown and keybind actions for new element.
+    new Dropdown(document.getElementById(id));
+    new Keybind(document.getElementById(id).querySelector('input[key]'));
 }
 
-function remove(id) {
-    const div = document.getElementById(id)
-    div.parentNode.removeChild(div)
-}
-
+// Save keybinds to file.
 function save() {
-    const keys = document.querySelectorAll('div[keys] > div[id]')
-    const binds = []
-    keys.forEach(e => {
-        const ability = e.querySelector('div[ability] input').value.replace(/ /g, '_')
-        const key = e.querySelector('input[key]').value
-        binds.push({ ability, key })
-    })
-    ipcRenderer.request({ query: 'binds', binds })
-    new Notification('Keybinds Updated!', { body: 'New keybinds have been successfully stored', timeoutType: 'default' })
+    // Declare variables.
+    const [keys, binds] = [document.querySelectorAll('div[keys] > div[id]'), []];
+
+    // Fetch values from HTML.
+    keys.forEach(e => binds.push({ ability: e.querySelector('div[ability] input').value.replace(/ /g, '_'), key: e.querySelector('input[key]').value }));
+
+    // Send data to backend.
+    ipcRenderer.request({ query: 'binds', binds });
+
+    // Send a notification to the user.
+    new Notification('Keybinds Updated!', { body: 'New keybinds have been successfully stored', timeoutType: 'default' });
+
+    // Set save button background.
+    !saveToggle ? toggle() : void 0;
 }

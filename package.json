@@ -4,6 +4,9 @@
   "description": "",
   "type": "commonjs",
   "main": "src/index.js",
+  "imports": {
+    "#manager": "./src/manager.js"
+  },
   "scripts": {
     "start": "electron ."
   },

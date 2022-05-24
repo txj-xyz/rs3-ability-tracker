@@ -1,44 +1,51 @@
-const { BrowserWindow, ipcMain, globalShortcut } = require('electron')
-const { existsSync, writeFileSync } = require('fs')
+// Import dependencies.
+const { BrowserWindow, ipcMain } = require('electron');
+const { writeFileSync } = require('fs');
 
 module.exports = _ => {
-    const win = new BrowserWindow({
-        autoHideMenuBar: true,
-        // titleBarStyle: 'hidden',
-        resizable: false,
-        width: 460,
-        height: 350,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false
-        }
-    })
-    win.loadFile('./ability-window/html/keybinds.html')
 
-    win.on('close', _ => settings.show())
+    // Make keybinds window globally reachable and set properties.
+    windows.keybinds = new BrowserWindow({ ...windows.properties, ...{ width: 460, height: 350 } });
+    
+    // Load keybinds file.
+    windows.keybinds.loadFile(pages('keybinds'));
 
-    globalShortcut.register('CommandOrControl+Shift+I', _ => win.webContents.openDevTools({ mode: 'undocked' }))
+    // Show the keybinds file when ready to show.
+    windows.keybinds.on('ready-to-show', windows.keybinds.show);
 
-    ipcMain.on('keybinds_request', (event, param) => {
+    // If the keybinds file is closed and the main window is hidden, show the main window.
+    windows.keybinds.on('close', _ => !windows.settings.isVisible() ? windows.settings.show() : void 0);
+
+    // Backend to frontend communication.
+    ipcMain.on('keybinds', (event, param) => {
         switch (param.query) {
-            case 'keys': {
-                event.returnValue = existsSync('./cfg/keybinds.json') ? require('../cfg/keybinds.json') : []
-                break
+
+            // Get the keybinds.
+            case 'keycache': {
+                event.returnValue = keycache;
+                break;
             }
+
+            // Get the ability list.
             case 'abilities': {
-                event.returnValue = keys
-                break
+                event.returnValue = abilities;
+                break;
             }
+
+            // Set/Update the keybinds.
             case 'binds': {
-                keybindList = []
+                const keybinds = [];
                 param.binds.map(k => {
-                    const req = keybindList.find(e => e.ability === k.ability)
-                    if (req) req.key.push(k.key)
-                    else keybindList.push({ ability: k.ability, key: [k.key] })
+                    const ability = keybinds.find(e => e.ability === k.ability);
+                    if (ability) ability.key.push(k.key);
+                    else keybinds.push({ ability: k.ability, key: [k.key] });
                 })
-                writeFileSync('./cfg/keybinds.json', JSON.stringify(keybindList, null, 4))
-                event.returnValue = null
-                break
+                keycache = keybinds;
+
+                // Save to cache.
+                writeFileSync('./cfg/keybinds.json', JSON.stringify(keybinds, null, 4));
+                event.returnValue = null;
+                break;
             }
         }
     })

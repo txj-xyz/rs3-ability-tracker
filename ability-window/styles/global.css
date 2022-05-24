@@ -1,50 +1,32 @@
 /* Dark theme. */
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: #1a1a1a;
-        --color: #fefefe;
-        --lvlup: rgb(0, 0, 0, 0.1);
+        --background: #1f1f1f;
+        --color: #f1f1f1;
+        --elements: #3f3f3f;
+        --hover: #5f5f5f;
     }
 }
 
 /* Light theme. */
 @media (prefers-color-scheme: light) {
     :root {
-        --background: #fefefe;
-        --color: #1a1a1a;
-        --lvlup: rgb(255, 255, 255, 0.1);
+        --background: #f1f1f1;
+        --color: #1f1f1f;
+        --elements: #c0c0c0;
+        --hover: #a9a9a9;
     }
 }
 
-* {
-    font: 15px system-ui;
+/* Globally hide scrollbar. */
+*::-webkit-scrollbar {
+    display: none;
 }
 
-p {
-    margin: 5px 5px;
-}
-
+/* Page defaults. */
 body {
     background: var(--background);
+    font: 15px system-ui;
     color: var(--color);
     margin: 0;
-    padding: 0;
-}
-
-div[settings], div[keybinds], div[start] {
-    text-align: center;
-    border-radius: 3px;
-    width: max-content;
-    user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3px 7px 5px 7px;
-    margin: 5px 5px;
-    line-height: 1;
-    background: var(--color);
-    color: var(--background);
-    cursor: pointer;
-    background: #3f3f3f;
-    color: white;
 }
