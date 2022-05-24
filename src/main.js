@@ -16,9 +16,9 @@ module.exports = _ => {
         }
     })
     win.loadFile('./ability-window/html/index.html')
-    keybinds()
-    // if (keys.filter(e => e.key.some(e => e)).length === 0) keybinds()
-    // else win.on('ready-to-show', win.show)
+    // keybinds()
+    if (keybindsExist.length === 0) keybinds()
+    else win.on('ready-to-show', win.show)
 }
 
 module.exports.show = _ => !win.isVisible() ? win.show() : void 0
