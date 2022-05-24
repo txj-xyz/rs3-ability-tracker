@@ -5,5 +5,8 @@ This application is written in Electron, the goal of this project is to provide 
 # TODO:
 - [x] - Support for Keybinds
 - [x] - Tie the keybinds to a `SelectMenu` instead of per slot so we can show the associated image
-- [ ] - Save keybinds to file
+- [x] - Save keybinds to file
 - [ ] - Setup `ipcRender` between all windows
+- [ ] - Make main pop up window for showing the pressed abilities
+- [ ] - Support custom keybinds + images
+- [ ] - Add images for each ability
