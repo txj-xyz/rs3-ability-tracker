@@ -1,6 +1,8 @@
 const { BrowserWindow, app } = require('electron')
+const { existsSync } = require('fs')
 global.settings = require('./main.js')
 global.keys = require('../cfg/abilities.json')
+global.keybindsExist = existsSync('./cfg/keybinds.json') ? require('../cfg/keybinds.json') : []
 
 app
     .on('ready', settings)
