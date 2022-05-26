@@ -1,0 +1,1550 @@
+[
+    {
+        "ability": "Affliction",
+        "icon": null
+    },
+    {
+        "ability": "Aggression",
+        "icon": null
+    },
+    {
+        "ability": "Aggressive_Stance",
+        "icon": null
+    },
+    {
+        "ability": "Air_Blast_icon",
+        "icon": null
+    },
+    {
+        "ability": "Air_Bolt_icon",
+        "icon": null
+    },
+    {
+        "ability": "Air_Strike_icon",
+        "icon": null
+    },
+    {
+        "ability": "Air_Surge_icon",
+        "icon": null
+    },
+    {
+        "ability": "Air_Wave_icon",
+        "icon": null
+    },
+    {
+        "ability": "Anachronia_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Anguish",
+        "icon": null
+    },
+    {
+        "ability": "Animate_Dead_icon",
+        "icon": null
+    },
+    {
+        "ability": "Annakarl_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Anticipation",
+        "icon": null
+    },
+    {
+        "ability": "Ape_Atoll_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Ardougne_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Asphyxiate",
+        "icon": null
+    },
+    {
+        "ability": "Assault",
+        "icon": null
+    },
+    {
+        "ability": "Augury",
+        "icon": null
+    },
+    {
+        "ability": "Backhand",
+        "icon": null
+    },
+    {
+        "ability": "Bake_Pie_icon",
+        "icon": null
+    },
+    {
+        "ability": "Balanced_Stance",
+        "icon": null
+    },
+    {
+        "ability": "Balanced_Strike",
+        "icon": null
+    },
+    {
+        "ability": "Barbarian_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Barge",
+        "icon": null
+    },
+    {
+        "ability": "Barricade",
+        "icon": null
+    },
+    {
+        "ability": "Bash",
+        "icon": null
+    },
+    {
+        "ability": "Berserk",
+        "icon": null
+    },
+    {
+        "ability": "Berserker",
+        "icon": null
+    },
+    {
+        "ability": "Bind_icon",
+        "icon": null
+    },
+    {
+        "ability": "Binding_Shot",
+        "icon": null
+    },
+    {
+        "ability": "Bladed_Dive",
+        "icon": null
+    },
+    {
+        "ability": "Blood_Barrage_icon",
+        "icon": null
+    },
+    {
+        "ability": "Blood_Blitz_icon",
+        "icon": null
+    },
+    {
+        "ability": "Blood_Burst_icon",
+        "icon": null
+    },
+    {
+        "ability": "Blood_Rush_icon",
+        "icon": null
+    },
+    {
+        "ability": "Blood_Tendrils",
+        "icon": null
+    },
+    {
+        "ability": "Bombardment",
+        "icon": null
+    },
+    {
+        "ability": "Bones_to_Bananas_icon",
+        "icon": null
+    },
+    {
+        "ability": "Bones_to_Peaches_icon",
+        "icon": null
+    },
+    {
+        "ability": "Borrowed_Power_icon",
+        "icon": null
+    },
+    {
+        "ability": "Burst_of_Strength",
+        "icon": null
+    },
+    {
+        "ability": "Camelot_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Carrallanger_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Catherby_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Cease",
+        "icon": null
+    },
+    {
+        "ability": "Chain",
+        "icon": null
+    },
+    {
+        "ability": "Charge",
+        "icon": null
+    },
+    {
+        "ability": "Charge_Air_Orb_icon",
+        "icon": null
+    },
+    {
+        "ability": "Charge_Earth_Orb_icon",
+        "icon": null
+    },
+    {
+        "ability": "Charge_Fire_Orb_icon",
+        "icon": null
+    },
+    {
+        "ability": "Charge_Water_Orb_icon",
+        "icon": null
+    },
+    {
+        "ability": "Chivalry",
+        "icon": null
+    },
+    {
+        "ability": "Chronicle_Attraction",
+        "icon": null
+    },
+    {
+        "ability": "Clarity_of_Thought",
+        "icon": null
+    },
+    {
+        "ability": "Cleave",
+        "icon": null
+    },
+    {
+        "ability": "Combust",
+        "icon": null
+    },
+    {
+        "ability": "Concentrated_Blast",
+        "icon": null
+    },
+    {
+        "ability": "Confuse_icon",
+        "icon": null
+    },
+    {
+        "ability": "Corruption_Blast",
+        "icon": null
+    },
+    {
+        "ability": "Corruption_Shot",
+        "icon": null
+    },
+    {
+        "ability": "Cure_Group_icon",
+        "icon": null
+    },
+    {
+        "ability": "Cure_Me_icon",
+        "icon": null
+    },
+    {
+        "ability": "Cure_Other_icon",
+        "icon": null
+    },
+    {
+        "ability": "Cure_Plant_icon",
+        "icon": null
+    },
+    {
+        "ability": "Curse_icon",
+        "icon": null
+    },
+    {
+        "ability": "Dareeyak_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Dark_Form",
+        "icon": null
+    },
+    {
+        "ability": "Dazing_Shot",
+        "icon": null
+    },
+    {
+        "ability": "Deadshot",
+        "icon": null
+    },
+    {
+        "ability": "Deaths_Swiftness",
+        "icon": null
+    },
+    {
+        "ability": "Debilitate",
+        "icon": null
+    },
+    {
+        "ability": "Decimate",
+        "icon": null
+    },
+    {
+        "ability": "Deep_Impact",
+        "icon": null
+    },
+    {
+        "ability": "Defensive_Stance",
+        "icon": null
+    },
+    {
+        "ability": "Deflect_Magic",
+        "icon": null
+    },
+    {
+        "ability": "Deflect_Melee",
+        "icon": null
+    },
+    {
+        "ability": "Deflect_Missiles",
+        "icon": null
+    },
+    {
+        "ability": "Deflect_Summoning",
+        "icon": null
+    },
+    {
+        "ability": "Demon_Slayer_(ability)",
+        "icon": null
+    },
+    {
+        "ability": "Demoralise",
+        "icon": null
+    },
+    {
+        "ability": "Desolation",
+        "icon": null
+    },
+    {
+        "ability": "Destroy",
+        "icon": null
+    },
+    {
+        "ability": "Detonate",
+        "icon": null
+    },
+    {
+        "ability": "Devotion",
+        "icon": null
+    },
+    {
+        "ability": "Dismember",
+        "icon": null
+    },
+    {
+        "ability": "Disruption_Shield_icon",
+        "icon": null
+    },
+    {
+        "ability": "Divert",
+        "icon": null
+    },
+    {
+        "ability": "Divine_Storm_icon",
+        "icon": null
+    },
+    {
+        "ability": "Dragon_Breath",
+        "icon": null
+    },
+    {
+        "ability": "Dragon_Slayer_(ability)",
+        "icon": null
+    },
+    {
+        "ability": "Dream_icon",
+        "icon": null
+    },
+    {
+        "ability": "Eagle_Eye",
+        "icon": null
+    },
+    {
+        "ability": "Earth_Blast_icon",
+        "icon": null
+    },
+    {
+        "ability": "Earth_Bolt_icon",
+        "icon": null
+    },
+    {
+        "ability": "Earth_Strike_icon",
+        "icon": null
+    },
+    {
+        "ability": "Earth_Surge_icon",
+        "icon": null
+    },
+    {
+        "ability": "Earth_Wave_icon",
+        "icon": null
+    },
+    {
+        "ability": "Eat_Food",
+        "icon": null
+    },
+    {
+        "ability": "Emerald_Aurora_icon",
+        "icon": null
+    },
+    {
+        "ability": "Enchant_Crossbow_Bolt_icon",
+        "icon": null
+    },
+    {
+        "ability": "Enfeeble_icon",
+        "icon": null
+    },
+    {
+        "ability": "Entangle_icon",
+        "icon": null
+    },
+    {
+        "ability": "Escape",
+        "icon": null
+    },
+    {
+        "ability": "Essence_of_Finality",
+        "icon": null
+    },
+    {
+        "ability": "Exsanguinate_icon",
+        "icon": null
+    },
+    {
+        "ability": "Falador_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Fertile_Soil_icon",
+        "icon": null
+    },
+    {
+        "ability": "Fire_Blast_icon",
+        "icon": null
+    },
+    {
+        "ability": "Fire_Bolt_icon",
+        "icon": null
+    },
+    {
+        "ability": "Fire_Strike_icon",
+        "icon": null
+    },
+    {
+        "ability": "Fire_Surge_icon",
+        "icon": null
+    },
+    {
+        "ability": "Fire_Urn_icon",
+        "icon": null
+    },
+    {
+        "ability": "Fire_Wave_icon",
+        "icon": null
+    },
+    {
+        "ability": "Fishing_Guild_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Flurry",
+        "icon": null
+    },
+    {
+        "ability": "Forceful_Backhand",
+        "icon": null
+    },
+    {
+        "ability": "Fortitude",
+        "icon": null
+    },
+    {
+        "ability": "Fragmentation_Shot",
+        "icon": null
+    },
+    {
+        "ability": "Freedom",
+        "icon": null
+    },
+    {
+        "ability": "Frenzy",
+        "icon": null
+    },
+    {
+        "ability": "Fury",
+        "icon": null
+    },
+    {
+        "ability": "Ghorrock_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "God_Wars_Dungeon_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Golden_Touch",
+        "icon": null
+    },
+    {
+        "ability": "Greater_Barge",
+        "icon": null
+    },
+    {
+        "ability": "Greater_Chain",
+        "icon": null
+    },
+    {
+        "ability": "Greater_Concentrated_Blast",
+        "icon": null
+    },
+    {
+        "ability": "Greater_Dazing_Shot",
+        "icon": null
+    },
+    {
+        "ability": "Greater_Flurry",
+        "icon": null
+    },
+    {
+        "ability": "Greater_Fury",
+        "icon": null
+    },
+    {
+        "ability": "Greater_Ricochet",
+        "icon": null
+    },
+    {
+        "ability": "Guthixs_Blessing",
+        "icon": null
+    },
+    {
+        "ability": "Havoc",
+        "icon": null
+    },
+    {
+        "ability": "Hawk_Eye",
+        "icon": null
+    },
+    {
+        "ability": "Heal_Group_icon",
+        "icon": null
+    },
+    {
+        "ability": "Heal_Other_icon",
+        "icon": null
+    },
+    {
+        "ability": "High_Level_Alchemy_icon",
+        "icon": null
+    },
+    {
+        "ability": "Home_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Horror",
+        "icon": null
+    },
+    {
+        "ability": "House_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Humidify_icon",
+        "icon": null
+    },
+    {
+        "ability": "Hurricane",
+        "icon": null
+    },
+    {
+        "ability": "Ice_Asylum",
+        "icon": null
+    },
+    {
+        "ability": "Ice_Barrage_icon",
+        "icon": null
+    },
+    {
+        "ability": "Ice_Blitz_icon",
+        "icon": null
+    },
+    {
+        "ability": "Ice_Burst_icon",
+        "icon": null
+    },
+    {
+        "ability": "Ice_Plateau_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Ice_Rush_icon",
+        "icon": null
+    },
+    {
+        "ability": "Immortality",
+        "icon": null
+    },
+    {
+        "ability": "Impact",
+        "icon": null
+    },
+    {
+        "ability": "Improved_Reflexes",
+        "icon": null
+    },
+    {
+        "ability": "Incendiary_Shot",
+        "icon": null
+    },
+    {
+        "ability": "Incite",
+        "icon": null
+    },
+    {
+        "ability": "Incite_Fear_icon",
+        "icon": null
+    },
+    {
+        "ability": "Incredible_Reflexes",
+        "icon": null
+    },
+    {
+        "ability": "Ingenuity_of_the_Humans",
+        "icon": null
+    },
+    {
+        "ability": "Intercept_icon",
+        "icon": null
+    },
+    {
+        "ability": "Kandarin_monastery_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Kharyrll_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Khazard_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Kick",
+        "icon": null
+    },
+    {
+        "ability": "Kuradals_Favour",
+        "icon": null
+    },
+    {
+        "ability": "Lassar_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Leech_Adrenaline",
+        "icon": null
+    },
+    {
+        "ability": "Leech_Attack",
+        "icon": null
+    },
+    {
+        "ability": "Leech_Defence",
+        "icon": null
+    },
+    {
+        "ability": "Leech_Energy",
+        "icon": null
+    },
+    {
+        "ability": "Leech_Magic",
+        "icon": null
+    },
+    {
+        "ability": "Leech_Magic_Strength",
+        "icon": null
+    },
+    {
+        "ability": "Leech_Range_Strength",
+        "icon": null
+    },
+    {
+        "ability": "Leech_Ranged",
+        "icon": null
+    },
+    {
+        "ability": "Leech_Strength",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Combust",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Concentrated_Blast",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Dazing_Shot",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Dismember",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Dragon_Breath",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Fragmentation_Shot",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Havoc",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Needle_Strike",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Sever",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Smash",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Snipe",
+        "icon": null
+    },
+    {
+        "ability": "Lesser_Sonic_Wave",
+        "icon": null
+    },
+    {
+        "ability": "Light_Form",
+        "icon": null
+    },
+    {
+        "ability": "Limitless",
+        "icon": null
+    },
+    {
+        "ability": "Low_Level_Alchemy_icon",
+        "icon": null
+    },
+    {
+        "ability": "Lumbridge_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Lvl_1_Enchant_icon",
+        "icon": null
+    },
+    {
+        "ability": "Lvl_2_Enchant_icon",
+        "icon": null
+    },
+    {
+        "ability": "Lvl_3_Enchant_icon",
+        "icon": null
+    },
+    {
+        "ability": "Lvl_4_Enchant_icon",
+        "icon": null
+    },
+    {
+        "ability": "Lvl_5_Enchant_icon",
+        "icon": null
+    },
+    {
+        "ability": "Lvl_6_Enchant_icon",
+        "icon": null
+    },
+    {
+        "ability": "Magic_Imbue_icon",
+        "icon": null
+    },
+    {
+        "ability": "Magma_Tempest",
+        "icon": null
+    },
+    {
+        "ability": "Magma_Tempest_(Targeted)",
+        "icon": null
+    },
+    {
+        "ability": "Make_Leather_icon",
+        "icon": null
+    },
+    {
+        "ability": "Malevolence",
+        "icon": null
+    },
+    {
+        "ability": "Manor_farm_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Massacre",
+        "icon": null
+    },
+    {
+        "ability": "Max_guild_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Mazcab_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Metamorphosis",
+        "icon": null
+    },
+    {
+        "ability": "Meteor_Strike",
+        "icon": null
+    },
+    {
+        "ability": "Monster_Examine_icon",
+        "icon": null
+    },
+    {
+        "ability": "Moonclan_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Mystic_Lore",
+        "icon": null
+    },
+    {
+        "ability": "Mystic_Might",
+        "icon": null
+    },
+    {
+        "ability": "Mystic_Will",
+        "icon": null
+    },
+    {
+        "ability": "NPC_Contact_icon",
+        "icon": null
+    },
+    {
+        "ability": "Natural_Instinct",
+        "icon": null
+    },
+    {
+        "ability": "Needle_Strike",
+        "icon": null
+    },
+    {
+        "ability": "North_Ardougne_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Omnipower",
+        "icon": null
+    },
+    {
+        "ability": "Onslaught",
+        "icon": null
+    },
+    {
+        "ability": "Opal_Aurora_icon",
+        "icon": null
+    },
+    {
+        "ability": "Ourania_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Overcharge",
+        "icon": null
+    },
+    {
+        "ability": "Overpower",
+        "icon": null
+    },
+    {
+        "ability": "Overpowering_Force",
+        "icon": null
+    },
+    {
+        "ability": "Paddewwa_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Piercing_Shot",
+        "icon": null
+    },
+    {
+        "ability": "Piety",
+        "icon": null
+    },
+    {
+        "ability": "Plank_Make_icon",
+        "icon": null
+    },
+    {
+        "ability": "Polypore_Strike_icon",
+        "icon": null
+    },
+    {
+        "ability": "Potion_Share_icon",
+        "icon": null
+    },
+    {
+        "ability": "Preparation",
+        "icon": null
+    },
+    {
+        "ability": "Prism_of_Loyalty_icon",
+        "icon": null
+    },
+    {
+        "ability": "Prism_of_Restoration_icon",
+        "icon": null
+    },
+    {
+        "ability": "Prism_of_Salvation_icon",
+        "icon": null
+    },
+    {
+        "ability": "Protect_Item",
+        "icon": null
+    },
+    {
+        "ability": "Protect_from_Magic",
+        "icon": null
+    },
+    {
+        "ability": "Protect_from_Melee",
+        "icon": null
+    },
+    {
+        "ability": "Protect_from_Missiles",
+        "icon": null
+    },
+    {
+        "ability": "Protect_from_Summoning",
+        "icon": null
+    },
+    {
+        "ability": "Provoke",
+        "icon": null
+    },
+    {
+        "ability": "Pulverise",
+        "icon": null
+    },
+    {
+        "ability": "Punish",
+        "icon": null
+    },
+    {
+        "ability": "Quake",
+        "icon": null
+    },
+    {
+        "ability": "Quiver_ammo_slot_1",
+        "icon": null
+    },
+    {
+        "ability": "Quiver_ammo_slot_2",
+        "icon": null
+    },
+    {
+        "ability": "Rapid_Fire",
+        "icon": null
+    },
+    {
+        "ability": "Rapid_Heal",
+        "icon": null
+    },
+    {
+        "ability": "Rapid_Renewal",
+        "icon": null
+    },
+    {
+        "ability": "Rapid_Restore",
+        "icon": null
+    },
+    {
+        "ability": "Redemption",
+        "icon": null
+    },
+    {
+        "ability": "Reflect",
+        "icon": null
+    },
+    {
+        "ability": "Regenerate",
+        "icon": null
+    },
+    {
+        "ability": "Rejuvenate",
+        "icon": null
+    },
+    {
+        "ability": "Remote_Farm_icon",
+        "icon": null
+    },
+    {
+        "ability": "Repair_Rune_Pouch_icon",
+        "icon": null
+    },
+    {
+        "ability": "Reprisal",
+        "icon": null
+    },
+    {
+        "ability": "Resonance",
+        "icon": null
+    },
+    {
+        "ability": "Retribution",
+        "icon": null
+    },
+    {
+        "ability": "Revenge",
+        "icon": null
+    },
+    {
+        "ability": "Ricochet",
+        "icon": null
+    },
+    {
+        "ability": "Rigour",
+        "icon": null
+    },
+    {
+        "ability": "Rock_Skin",
+        "icon": null
+    },
+    {
+        "ability": "Rout",
+        "icon": null
+    },
+    {
+        "ability": "Ruby_Aurora_icon",
+        "icon": null
+    },
+    {
+        "ability": "Sacrifice",
+        "icon": null
+    },
+    {
+        "ability": "Salt_the_Wound",
+        "icon": null
+    },
+    {
+        "ability": "Sap_Defence",
+        "icon": null
+    },
+    {
+        "ability": "Sap_Mage",
+        "icon": null
+    },
+    {
+        "ability": "Sap_Magic_Strength",
+        "icon": null
+    },
+    {
+        "ability": "Sap_Range_Strength",
+        "icon": null
+    },
+    {
+        "ability": "Sap_Ranger",
+        "icon": null
+    },
+    {
+        "ability": "Sap_Spirit",
+        "icon": null
+    },
+    {
+        "ability": "Sap_Strength",
+        "icon": null
+    },
+    {
+        "ability": "Sap_Warrior",
+        "icon": null
+    },
+    {
+        "ability": "Sapphire_Aurora_icon",
+        "icon": null
+    },
+    {
+        "ability": "Senntisten_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Sever",
+        "icon": null
+    },
+    {
+        "ability": "Shadow_Barrage_icon",
+        "icon": null
+    },
+    {
+        "ability": "Shadow_Blitz_icon",
+        "icon": null
+    },
+    {
+        "ability": "Shadow_Burst_icon",
+        "icon": null
+    },
+    {
+        "ability": "Shadow_Rush_icon",
+        "icon": null
+    },
+    {
+        "ability": "Shadow_Tendrils",
+        "icon": null
+    },
+    {
+        "ability": "Sharp_Eye",
+        "icon": null
+    },
+    {
+        "ability": "Shatter",
+        "icon": null
+    },
+    {
+        "ability": "Shield_Dome_icon",
+        "icon": null
+    },
+    {
+        "ability": "Shock",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Aggressive_Stance",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Balanced_Stance",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Blue_Egg",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Crackers",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Defensive_Stance",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Green_Egg",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Poisoned_Meat",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Poisoned_Tofu",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Poisoned_Worms",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Red_Egg",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Tofu",
+        "icon": null
+    },
+    {
+        "ability": "Shout_Worms",
+        "icon": null
+    },
+    {
+        "ability": "Sift_Soil_icon",
+        "icon": null
+    },
+    {
+        "ability": "Siphon",
+        "icon": null
+    },
+    {
+        "ability": "Skeletal_horror_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Slaughter",
+        "icon": null
+    },
+    {
+        "ability": "Slayers_Insight",
+        "icon": null
+    },
+    {
+        "ability": "Slayer_Dart_icon",
+        "icon": null
+    },
+    {
+        "ability": "Slice",
+        "icon": null
+    },
+    {
+        "ability": "Smash",
+        "icon": null
+    },
+    {
+        "ability": "Smite",
+        "icon": null
+    },
+    {
+        "ability": "Smoke_Barrage_icon",
+        "icon": null
+    },
+    {
+        "ability": "Smoke_Blitz_icon",
+        "icon": null
+    },
+    {
+        "ability": "Smoke_Burst_icon",
+        "icon": null
+    },
+    {
+        "ability": "Smoke_Cloud_icon",
+        "icon": null
+    },
+    {
+        "ability": "Smoke_Rush_icon",
+        "icon": null
+    },
+    {
+        "ability": "Smoke_Tendrils",
+        "icon": null
+    },
+    {
+        "ability": "Snap_Shot",
+        "icon": null
+    },
+    {
+        "ability": "Snare_icon",
+        "icon": null
+    },
+    {
+        "ability": "Snipe",
+        "icon": null
+    },
+    {
+        "ability": "Sonic_Wave",
+        "icon": null
+    },
+    {
+        "ability": "Soul_Link",
+        "icon": null
+    },
+    {
+        "ability": "Soul_Split",
+        "icon": null
+    },
+    {
+        "ability": "South_Falador_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "South_Feldip_Hills_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Spellbook_Swap_icon",
+        "icon": null
+    },
+    {
+        "ability": "Spin_Flax_icon",
+        "icon": null
+    },
+    {
+        "ability": "Spiritual_Healing_icon",
+        "icon": null
+    },
+    {
+        "ability": "Stagger_icon",
+        "icon": null
+    },
+    {
+        "ability": "Stat_Spy_icon",
+        "icon": null
+    },
+    {
+        "ability": "Steel_Skin",
+        "icon": null
+    },
+    {
+        "ability": "Stomp_(ability)",
+        "icon": null
+    },
+    {
+        "ability": "Storm_Shards",
+        "icon": null
+    },
+    {
+        "ability": "Storm_of_Armadyl_icon",
+        "icon": null
+    },
+    {
+        "ability": "String_Jewellery_icon",
+        "icon": null
+    },
+    {
+        "ability": "Sunshine",
+        "icon": null
+    },
+    {
+        "ability": "Super_Charge",
+        "icon": null
+    },
+    {
+        "ability": "Superglass_Make_icon",
+        "icon": null
+    },
+    {
+        "ability": "Superheat_Form",
+        "icon": null
+    },
+    {
+        "ability": "Superheat_Item_icon",
+        "icon": null
+    },
+    {
+        "ability": "Superhuman_Strength",
+        "icon": null
+    },
+    {
+        "ability": "Surge",
+        "icon": null
+    },
+    {
+        "ability": "Taverley_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Teamwork_Protection",
+        "icon": null
+    },
+    {
+        "ability": "Tele_group_Barbarian_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tele_group_Catherby_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tele_group_Fishing_Guild_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tele_group_Ice_Plateau_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tele_group_Khazard_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tele_group_Moonclan_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tele_group_Trollheim_Farm_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tele_group_Waterbirth_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tele_other_Camelot_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tele_other_Falador_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tele_other_Lumbridge_icon",
+        "icon": null
+    },
+    {
+        "ability": "Telekinetic_Grab_icon",
+        "icon": null
+    },
+    {
+        "ability": "Telekinetic_Grind_icon",
+        "icon": null
+    },
+    {
+        "ability": "Teleport_Block_icon",
+        "icon": null
+    },
+    {
+        "ability": "Thick_Skin",
+        "icon": null
+    },
+    {
+        "ability": "Tight_Bindings",
+        "icon": null
+    },
+    {
+        "ability": "Torment",
+        "icon": null
+    },
+    {
+        "ability": "Transfigure",
+        "icon": null
+    },
+    {
+        "ability": "Trap_Telekinesis_icon",
+        "icon": null
+    },
+    {
+        "ability": "Trollheim_Farm_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Trollheim_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Tsunami",
+        "icon": null
+    },
+    {
+        "ability": "Tune_Banite_Ore_icon",
+        "icon": null
+    },
+    {
+        "ability": "Turmoil",
+        "icon": null
+    },
+    {
+        "ability": "Tuskas_Wrath",
+        "icon": null
+    },
+    {
+        "ability": "Ultimate_Strength",
+        "icon": null
+    },
+    {
+        "ability": "Undead_Slayer_(ability)",
+        "icon": null
+    },
+    {
+        "ability": "Unload",
+        "icon": null
+    },
+    {
+        "ability": "Unrelenting_Force",
+        "icon": null
+    },
+    {
+        "ability": "Unstoppable_Force",
+        "icon": null
+    },
+    {
+        "ability": "Unsullied",
+        "icon": null
+    },
+    {
+        "ability": "Varrock_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Vengeance_Group_icon",
+        "icon": null
+    },
+    {
+        "ability": "Vengeance_Other_icon",
+        "icon": null
+    },
+    {
+        "ability": "Vengeance_icon",
+        "icon": null
+    },
+    {
+        "ability": "Vulnerability_icon",
+        "icon": null
+    },
+    {
+        "ability": "Wars_Retreat_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Watchtower_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Water_Blast_icon",
+        "icon": null
+    },
+    {
+        "ability": "Water_Bolt_icon",
+        "icon": null
+    },
+    {
+        "ability": "Water_Strike_icon",
+        "icon": null
+    },
+    {
+        "ability": "Water_Surge_icon",
+        "icon": null
+    },
+    {
+        "ability": "Water_Wave_icon",
+        "icon": null
+    },
+    {
+        "ability": "Waterbirth_Teleport_icon",
+        "icon": null
+    },
+    {
+        "ability": "Weaken_icon",
+        "icon": null
+    },
+    {
+        "ability": "Weapon_Special_attack",
+        "icon": null
+    },
+    {
+        "ability": "Wild_Magic",
+        "icon": null
+    },
+    {
+        "ability": "Wrack",
+        "icon": null
+    },
+    {
+        "ability": "Wrack_and_Ruin",
+        "icon": null
+    },
+    {
+        "ability": "Wrath",
+        "icon": null
+    }
+]
