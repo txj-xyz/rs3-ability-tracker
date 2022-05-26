@@ -1,3 +1,8 @@
+/* Page styles. */
+body {
+    overflow: hidden;
+}
+
 /* Page header styles. */
 div[header] {
     margin-top: 15px;

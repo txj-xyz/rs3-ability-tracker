@@ -15,19 +15,19 @@
     <div header>RS3 Ability Tracker</div>
     <main>
         <div buttons>
-            <div onclick="openWindow('start')">Start Tracker</div>
+            <div onclick="initialize()" ability>Start Tracker</div>
             <div onclick="openWindow('keybinds')">Keybinds</div>
             <div onclick="openWindow('bars')">Bars</div>
             <div style="background:#F04747" onclick="openWindow('quit')">Quit</div>
         </div>
         <div toggle>
             <label title="Track Cooldowns?" switch="" cooldown>
-                <input type="checkbox" onclick="toggleSwitch('cooldown')">
+                <input type="checkbox" onclick="updateConfig('cooldown')">
                 <span slider=""></span>
                 Track Cooldowns?
             </label>
             <label title="Keep on Top?" switch="" ontop>
-                <input type="checkbox" onclick="toggleSwitch('top')">
+                <input type="checkbox" onclick="updateConfig('top')">
                 <span slider=""></span>
                 Keep on Top?
             </label>

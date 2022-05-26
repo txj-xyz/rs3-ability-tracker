@@ -24,6 +24,9 @@ module.exports = {
     // Keybinds window file.
     keybinds: require('./keybinds.js'),
 
+    // Ability window file.
+    ability: require('./ability.js'),
+
     // Window properties + window storage.
     windows: {
         properties: {

@@ -1,0 +1,16 @@
+main {
+    overflow: hidden;
+    margin: 5px;
+    display: flex;
+    height: calc(100vh - 10px);
+    -webkit-app-region: drag;
+}
+
+main>div {
+    background: url(../assets/bg.png) no-repeat;
+    background-size: cover;
+}
+
+body {
+    background: transparent;
+}

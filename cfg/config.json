@@ -1,5 +1,11 @@
 {
-    "alwaysOnTop": false,
+    "alwaysOnTop": true,
     "trackCooldowns": true,
-    "numberOfIcons": 10
+    "numberOfIcons": 7,
+    "abilityWindow": {
+        "width": null,
+        "height": null,
+        "startX": null,
+        "startY": null
+    }
 }
