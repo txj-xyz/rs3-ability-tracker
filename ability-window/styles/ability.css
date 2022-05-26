@@ -1,4 +1,5 @@
 main {
+    pointer-events: none;
     overflow: hidden;
     margin: 5px;
     display: flex;

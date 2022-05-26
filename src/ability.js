@@ -27,6 +27,8 @@ module.exports = _ => {
     });
 
     windows.ability.setAspectRatio((80 * config.numberOfIcons + 10) / 90);
+    windows.ability.setAlwaysOnTop(true, "screen-saver");
+    windows.ability.setVisibleOnAllWorkspaces(true);
 
     // Load keybinds file.
     windows.ability.loadFile(pages('ability'));
