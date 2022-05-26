@@ -1,5 +1,5 @@
 // Import dependencies.
-const { BrowserWindow, ipcMain, app } = require('electron');
+const { BrowserWindow, ipcMain, app, Tray, Menu: { buildFromTemplate } } = require('electron');
 const { writeFileSync } = require('fs');
 
 module.exports = _ => {
@@ -9,12 +9,26 @@ module.exports = _ => {
 
     // Load index file.
     windows.main.loadFile(pages('index'));
+    windows.tray = new Tray(windows.properties.icon);
+    windows.tray.setToolTip('Ability Tracker')
+    windows.tray.on('click', _ => {
+        if (!windows.main.isVisible()) {
+            windows.main.show()
+            windows.main.focus()
+            menu()
+        }
+    })
 
     windows.main.on('close', _ => app.emit('window-all-closed'))
 
+
     // If no keybinds have been set, show main window, otherwise show main window.
     if (!keycache.length) keybinds();
-    else windows.main.on('ready-to-show', windows.main.show);
+    else windows.main.on('ready-to-show', _ => {
+        windows.main.show()
+        windows.main.focus()
+        menu()
+    });
 
     // Backend to frontend communication.
     ipcMain.on('open', (event, param) => {
@@ -29,6 +43,10 @@ module.exports = _ => {
             }
             default: {
                 !windows[param] && global[param] ? global[param]() : void 0;
+                if (param === 'ability') {
+                    windows.main.hide()
+                    menu()
+                }
                 break;
             }
         }
@@ -63,4 +81,31 @@ module.exports = _ => {
             }
         }
     })
+
+    function menu() {
+        windows.tray.setContextMenu(buildFromTemplate([
+            {
+                label: windows.main.isVisible() ? 'Hide Menu' : 'Show Menu',
+                click: _ => {
+                    windows.main.isVisible() ? windows.main.hide() : windows.main.show()
+                    menu()
+                }
+            },
+            {
+                label: windows.ability ? 'Stop Tracker' : 'Start Tracker',
+                click: _ => {
+                    if (windows.ability) {
+                        windows.ability.close()
+                        if (!windows.main.isVisible()) windows.main.show()
+                    } else {
+                        ability();
+                        if (windows.main.isVisible()) windows.main.hide()
+                    }
+                    menu()
+                }
+            },
+            { label: 'Configure Keybinds', click: keybinds },
+            { label: 'Quit', click: _ => app.emit('window-all-closed') }
+        ]))
+    }
 }

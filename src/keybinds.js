@@ -4,6 +4,12 @@ const { writeFileSync } = require('fs');
 
 module.exports = _ => {
 
+    if (windows.keybinds) {
+        windows.keybinds.show();
+        windows.keybinds.focus();
+        return
+    }
+
     // Make keybinds window globally reachable and set properties.
     windows.keybinds = new BrowserWindow({ ...windows.properties, ...{ width: 460, height: 350 } });
     
