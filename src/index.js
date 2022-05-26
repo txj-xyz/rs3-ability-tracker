@@ -1,13 +1,13 @@
 // Import dependencies.
 const { BrowserWindow, app } = require('electron');
-const { abilities, keycache, windows, pages, settings, keybinds } = require('#manager');
+const manager = require('#manager');
 
 // Make globally usable variables.
-Object.mergify(global, { abilities, keycache, windows, pages, settings, keybinds });
+for (const property in manager) global[property] = manager[property];
 
 app
     // App ready event.
-    .on('ready', settings)
+    .on('ready', main)
 
     // App start event (Run if app is not ready).
     .on('activate', _ => !BrowserWindow.getAllWindows().length ? app.emit('ready') : void 0)

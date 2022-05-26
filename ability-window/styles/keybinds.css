@@ -65,10 +65,6 @@ div[button] {
     cursor: pointer;
 }
 
-div[button] {
-    background-color: attr(button) !important;
-}
-
 /* Dropdown styles. */
 div[dropdown] {
     font-size: 13px;

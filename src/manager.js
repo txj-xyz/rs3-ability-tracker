@@ -15,8 +15,11 @@ module.exports = {
     // Keybinds list.
     keycache: file('../cfg/keybinds.json'),
 
+    // Config.
+    config: file('../cfg/config.json'),
+
     // Main window file.
-    settings: require('./main.js'),
+    main: require('./main.js'),
 
     // Keybinds window file.
     keybinds: require('./keybinds.js'),

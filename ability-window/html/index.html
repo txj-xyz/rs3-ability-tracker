@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RS3 Ability Tracker</title>
-        <link rel="stylesheet" href="../styles/global.css" />
-        <script src="../javascript/index.js" async></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/index.css" />
+    <script src="../javascript/index.js" async></script>
+    <title>RS3 Ability Tracker</title>
+</head>
 
 <body>
-    <div container>
-        <div start>Start Ability Tracker</div>
-        <div settings onclick="settings()">Settings</div>
-        <div keybinds onclick="keybinds()">Keybinds</div> 
-    </div>
+    <div header>RS3 Ability Tracker</div>
+    <main>
+        <div buttons>
+            <div onclick="openWindow('start')">Start Tracker</div>
+            <div onclick="openWindow('keybinds')">Keybinds</div>
+            <div onclick="openWindow('bars')">Bars</div>
+            <div style="background:#F04747" onclick="openWindow('quit')">Quit</div>
+        </div>
+        <div toggle>
+            <label title="Track Cooldowns?" switch="" cooldown>
+                <input type="checkbox" onclick="toggleSwitch('cooldown')">
+                <span slider=""></span>
+                Track Cooldowns?
+            </label>
+            <label title="Keep on Top?" switch="" ontop>
+                <input type="checkbox" onclick="toggleSwitch('top')">
+                <span slider=""></span>
+                Keep on Top?
+            </label>
+            <div slider>Number of Icons: <p></p></div>
+            <input type="range" min="4" max="14" step="1">
+        </div>
+        <div bars>
+            Available Bars:
+            <br />
+            <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </div>
+    </main>
 </body>
 
 </html>

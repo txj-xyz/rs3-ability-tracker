@@ -1,4 +1,3 @@
-
 // Import dependencies.
 const { ipcRenderer } = require('electron');
 
@@ -298,8 +297,8 @@ function save() {
         const [ability, key] = [e.querySelector('div[ability] input').value.replace(/ /g, '_'), e.querySelector('input[key]').value];
         if (!key || !ability || !abilities.includes(ability)) {
             failed = true;
-            if (!key) e.querySelector('input[key]').classList.toggle('error');
-            if (!ability || !abilities.includes(ability)) e.querySelector('div[ability] input').classList.toggle('error');
+            if (!key) e.querySelector('input[key]').classList.add('error');
+            if (!ability || !abilities.includes(ability)) e.querySelector('div[ability] input').classList.add('error');
             return new Notification('Missing or improper keybinds.', { body: 'Please fill in all fields properly before saving.', timeoutType: 'default' });
         }
         binds.push({ ability, key });

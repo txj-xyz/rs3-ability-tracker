@@ -10,11 +10,13 @@ module.exports = _ => {
     // Load keybinds file.
     windows.keybinds.loadFile(pages('keybinds'));
 
-    // Show the keybinds file when ready to show.
     windows.keybinds.on('ready-to-show', windows.keybinds.show);
 
     // If the keybinds file is closed and the main window is hidden, show the main window.
-    windows.keybinds.on('close', _ => !windows.settings.isVisible() ? windows.settings.show() : void 0);
+    windows.keybinds.on('close', _ => {
+        !windows.main.isVisible() ? windows.main.show() : void 0;
+        delete windows.keybinds;
+    });
 
     // Backend to frontend communication.
     ipcMain.on('keybinds', (event, param) => {
