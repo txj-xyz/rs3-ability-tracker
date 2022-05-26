@@ -30,7 +30,7 @@ module.exports = {
     // Window properties + window storage.
     windows: {
         properties: {
-            icon: `${__dirname}/../ability-window/assets/icon.ico`,
+            icon: `${__dirname}/icons/icon.png`,
             autoHideMenuBar: true,
             resizable: false,
             show: false,

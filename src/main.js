@@ -1,5 +1,5 @@
 // Import dependencies.
-const { BrowserWindow, ipcMain, app, Tray, Menu: { buildFromTemplate } } = require('electron');
+const { BrowserWindow, ipcMain, app, Tray, Menu: { buildFromTemplate }, nativeImage: { createFromPath } } = require('electron');
 const { writeFileSync } = require('fs');
 
 module.exports = _ => {
@@ -9,7 +9,7 @@ module.exports = _ => {
 
     // Load index file.
     windows.main.loadFile(pages('index'));
-    windows.tray = new Tray(windows.properties.icon);
+    windows.tray = new Tray(`${__dirname}/icons/icon.png`);
     windows.tray.setToolTip('Ability Tracker')
     windows.tray.on('click', _ => {
         if (!windows.main.isVisible()) {
@@ -20,7 +20,6 @@ module.exports = _ => {
     })
 
     windows.main.on('close', _ => app.emit('window-all-closed'))
-
 
     // If no keybinds have been set, show main window, otherwise show main window.
     if (!keycache.length) keybinds();
