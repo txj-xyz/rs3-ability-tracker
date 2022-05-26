@@ -299,7 +299,7 @@ function save() {
             failed = true;
             if (!key) e.querySelector('input[key]').classList.add('error');
             if (!ability || !abilities.includes(ability)) e.querySelector('div[ability] input').classList.add('error');
-            return new Notification('Missing or improper keybinds.', { body: 'Please fill in all fields properly before saving.', timeoutType: 'default' });
+            return notify('Missing or improper keybinds.', true)
         }
         binds.push({ ability, key });
     });
@@ -309,8 +309,27 @@ function save() {
     ipcRenderer.request({ query: 'binds', binds });
 
     // Send a notification to the user.
-    new Notification('Keybinds updated successfully!', { body: 'New keybinds have been successfully stored.', timeoutType: 'default' });
+    !saveToggle ? notify('Keybinds updated successfully!') : void 0;
 
     // Set save button background.
     !saveToggle ? toggle() : void 0;
 }
+
+function notify(msg, failed) {  
+    const id = randomID(5, 5);
+    let [notification, parent] = [document.createElement('div'), document.querySelector('div[notify]')]
+
+    // Notification properties.
+    if (failed) notification.classList.add('failed')
+    notification.id = id
+    notification.innerHTML = `<div onclick="removeNotif('${id}')">x</div>${msg}`
+    parent.insertBefore(notification, parent.childNodes[0])
+
+    // Notification timeout case.
+    setTimeout(_ => {
+        if (!notification.classList.contains('deleted')) notification?.classList?.add('deleted')
+        setTimeout(_ => notification.parentNode.removeChild(notification), 490)
+    }, 4000)
+}
+
+const removeNotif = id => document.getElementById(id)?.classList?.add('deleted');

@@ -105,3 +105,77 @@ input.error {
 input.error::placeholder {
     color: var(--color) !important;
 }
+
+/* Notification styles. */
+
+div[notify] {
+    position: fixed;
+    z-index: 1;
+    opacity: 0.9;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: block !important;
+    max-height: 80px;
+    overflow: scroll;
+}
+
+div[notify]>div {
+    white-space: nowrap;
+    display: flex !important;
+    background: #43B581;
+    display: block;
+    margin: 5px 0;
+    border-radius: 3px;
+    animation: fadeIn 0.5s forwards;
+    padding-right: 5px;
+    align-items: center;
+    line-height: 1;
+    width: auto;
+}
+
+div[notify]>div>div {
+    border-radius: 3px 0 0 3px;
+    cursor: pointer;
+    padding: 3px 7px 5px 7px;
+    margin-right: 3px;
+    background: var(--hover);
+    font-weight: bold;
+}
+
+div[notify]>div>div:hover {
+    background: #F04747BF;
+}
+
+div[notify]>div.deleted {
+    animation: fadeOut 0.5s forwards;
+}
+
+div[notify]>div.failed {
+    background: #F04747;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
