@@ -258,7 +258,7 @@ class Dropdown {
         list.map(e => result.push(`<div onclick="update('${this.id}', '${e}')" title="${e}">${e}</div>`));
 
         // Return list.
-        return result.join('');
+        return result.length ?  result.join('') : '<div>No results</div>';
     }
 }
 
