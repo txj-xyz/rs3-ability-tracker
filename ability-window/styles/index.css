@@ -3,18 +3,8 @@ body {
     overflow: hidden;
 }
 
-/* Page header styles. */
-div[header] {
-    margin-top: 15px;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    user-select: none;
-}
-
 main {
-    margin: 20px 10px;
+    margin: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
 }
@@ -28,7 +18,7 @@ div[buttons]>div {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3px 7px 4px 7px;
+    padding: 7px 7px 10px 7px;
     line-height: 1;
     background: var(--elements);
     color: var(--color);
@@ -115,11 +105,8 @@ div[slider] p {
     font-weight: bold;
 }
 
-input[type="range"] {
-    margin: 0 0 10px 20px;
-}
 input[type='range'] {
-    width: calc(100%);
+    width: calc(100% - 5px);
     -webkit-appearance: none;
     background-color: #43B581;
     border-radius: 2px;
@@ -150,7 +137,7 @@ div[dropdown] {
     position: absolute;
     z-index: 1;
     background-color: var(--elements);
-    max-height: 40px;
+    max-height: 85px;
     width: 240px;
     border-radius: 0 0 3px 3px;
     margin: 22px 0;

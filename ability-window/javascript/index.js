@@ -47,7 +47,7 @@ ipcRenderer.on('closeAbility', _ => {
 
 let i = 0;
 document.querySelectorAll('div[toggle] label').forEach(element => {
-    element.style.marginTop = `${i * 27}px`;
+    element.style.marginTop = `${i * 30}px`;
     i++
 })
 
