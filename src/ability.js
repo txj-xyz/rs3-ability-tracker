@@ -1,13 +1,23 @@
 // Import dependencies.
-const { BrowserWindow, ipcMain } = require('electron');
+const { BrowserWindow, screen } = require('electron');
+const { writeFileSync } = require('fs');
+const updateConfig = _ => {
+    if (JSON.stringify(config.abilityWindow) !== JSON.stringify(windows.ability.getBounds())) {
+        config.abilityWindow = windows.ability.getBounds();
+        windows.ability.setAspectRatio((((config.abilityWindow.height - 10) * config.numberOfIcons) + 10) / config.abilityWindow.height);
+        writeFileSync('./cfg/config.json', JSON.stringify(config, null, 4));
+    }
+}
 
 module.exports = _ => {
 
     // Make keybinds window globally reachable and set properties.
     windows.ability = new BrowserWindow({
         ...windows.properties, ...{
-            width: 80 * config.numberOfIcons + 10,
-            height: 90,
+            width: config.abilityWindow.width,
+            height: config.abilityWindow.height,
+            x: config.abilityWindow.x ?? (screen.getPrimaryDisplay().workArea.width - config.abilityWindow.width) / 2,
+            y: config.abilityWindow.y ?? (screen.getPrimaryDisplay().workArea.height - config.abilityWindow.height) / 2,
             fullscreenable: false,
             titleBarStyle: 'hidden',
             frame: false,
@@ -26,7 +36,8 @@ module.exports = _ => {
         delete windows.ability;
     });
 
-    windows.ability.setAspectRatio((80 * config.numberOfIcons + 10) / 90);
+    windows.ability.on('moved', updateConfig)
+    windows.ability.on('resize', updateConfig)
     windows.ability.setAlwaysOnTop(config.alwaysOnTop, "screen-saver");
     windows.ability.setVisibleOnAllWorkspaces(true);
 

@@ -80,8 +80,9 @@ module.exports = _ => {
                 }
                 else if (!isNaN(parseInt(param))) {
                     config.numberOfIcons = parseInt(param);
+                    config.abilityWindow.width = ((config.abilityWindow.height - 10) * config.numberOfIcons) + 10
                     if (windows.ability) {
-                        windows.ability.setSize(80 * config.numberOfIcons + 10, 80 + 10);
+                        windows.ability.setSize(config.abilityWindow.width, config.abilityWindow.height);
                         windows.ability.webContents.send('refresh', config.numberOfIcons);
                     }
                     writeFileSync('./cfg/config.json', JSON.stringify(config, null, 4));
