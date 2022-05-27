@@ -14,7 +14,7 @@ module.exports = _ => {
             transparent: true,
             hasShadow: false,
             resizable: true,
-            alwaysOnTop: true,
+            alwaysOnTop: config.alwaysOnTop,
             show: true
         }
     });
@@ -27,7 +27,7 @@ module.exports = _ => {
     });
 
     windows.ability.setAspectRatio((80 * config.numberOfIcons + 10) / 90);
-    windows.ability.setAlwaysOnTop(true, "screen-saver");
+    windows.ability.setAlwaysOnTop(config.alwaysOnTop, "screen-saver");
     windows.ability.setVisibleOnAllWorkspaces(true);
 
     // Load keybinds file.

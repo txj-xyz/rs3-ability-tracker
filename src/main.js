@@ -42,7 +42,7 @@ module.exports = _ => {
             }
             default: {
                 !windows[param] && global[param] ? global[param]() : void 0;
-                if (param === 'ability') {
+                if (param === 'ability' && config.minimizeToTray) {
                     windows.main.hide()
                     menu()
                 }
@@ -62,6 +62,12 @@ module.exports = _ => {
             }
             case 'top': {
                 config.alwaysOnTop = !config.alwaysOnTop;
+                writeFileSync('./cfg/config.json', JSON.stringify(config, null, 4));
+                event.returnValue = null;
+                break;
+            }
+            case 'tray': {
+                config.minimizeToTray = !config.minimizeToTray;
                 writeFileSync('./cfg/config.json', JSON.stringify(config, null, 4));
                 event.returnValue = null;
                 break;
@@ -98,7 +104,7 @@ module.exports = _ => {
                         if (!windows.main.isVisible()) windows.main.show()
                     } else {
                         ability();
-                        if (windows.main.isVisible()) windows.main.hide()
+                        if (windows.main.isVisible() && config.minimizeToTray) windows.main.hide()
                     }
                     menu()
                 }

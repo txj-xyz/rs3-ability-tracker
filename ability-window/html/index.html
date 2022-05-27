@@ -31,10 +31,15 @@
                 <span slider=""></span>
                 Keep on Top?
             </label>
-            <div slider>Number of Icons: <p></p></div>
-            <input type="range" min="4" max="14" step="1">
+            <label title="Keep on Top?" switch="" tray>
+                <input type="checkbox" onclick="updateConfig('tray')">
+                <span slider=""></span>
+                Minimize to Tray?
+            </label>
         </div>
         <div bars>
+            <div slider>Number of Icons on Tracker: <p></p></div>
+            <input type="range" min="4" max="14" step="1">
             Available Bars:
             <br />
             <select>

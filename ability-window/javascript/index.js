@@ -12,6 +12,7 @@ const initialData = ipcRenderer.sendSync('updateConfig');
 
 document.querySelector('label[cooldown] input').checked = initialData.trackCooldowns;
 document.querySelector('label[ontop] input').checked = initialData.alwaysOnTop;
+document.querySelector('label[tray] input').checked = initialData.minimizeToTray;
 
 const slider = document.querySelector('input[type="range"]');
 const label = document.querySelector('div[slider] p')
@@ -40,4 +41,10 @@ function initialize() {
 ipcRenderer.on('closeAbility', _ => {
     abilityWindow = false;
     document.querySelector('div[ability]').innerHTML = 'Start Tracker';
+})
+
+let i = 0;
+document.querySelectorAll('div[toggle] label').forEach(element => {
+    element.style.marginTop = `${i * 27}px`;
+    i++
 })

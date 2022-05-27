@@ -1,6 +1,7 @@
 {
     "alwaysOnTop": true,
     "trackCooldowns": true,
+    "minimizeToTray": true,
     "numberOfIcons": 10,
     "abilityWindow": {
         "width": null,

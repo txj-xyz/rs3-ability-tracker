@@ -39,9 +39,14 @@ div[buttons]>div:hover {
     background: var(--hover);
 }
 
+div[toggle] {
+    margin-top: 1px;
+}
+
 /* Bars dropdown styles. */
 div[bars] {
     margin-left: 40px;
+    margin-right: 40px;
     font-size: 15px;
 }
 
@@ -63,9 +68,6 @@ label[switch] input {
     margin-right: 40px;
 }
 
-label[switch]:not(:first-child) {
-    margin-top: 30px !important;
-}
 
 span[slider] {
     position: absolute;
@@ -102,7 +104,6 @@ input:checked+span[slider]:before {
 
 /* Slider styles. */
 div[slider] {
-    margin: 60px 0 0 20px;
     font-size: 15px;
     display: flex;
 }
@@ -115,7 +116,7 @@ div[slider] p {
 }
 
 input[type="range"] {
-    margin-left: 20px;
+    margin: 0 0 10px 20px;
 }
 input[type='range'] {
     width: calc(100%);
