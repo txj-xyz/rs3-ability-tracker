@@ -3,6 +3,7 @@
     "trackCooldowns": true,
     "minimizeToTray": true,
     "numberOfIcons": 10,
+    "barsSelection": "",
     "abilityWindow": {
         "width": null,
         "height": null,

@@ -73,7 +73,12 @@ module.exports = _ => {
                 break;
             }
             default: {
-                if (!isNaN(parseInt(param))) {
+                if (param?.startsWith('bars-')) {
+                    config.barsSelection = param.slice(5);
+                    writeFileSync('./cfg/config.json', JSON.stringify(config, null, 4));
+                    event.returnValue = null;
+                }
+                else if (!isNaN(parseInt(param))) {
                     config.numberOfIcons = parseInt(param);
                     if (windows.ability) {
                         windows.ability.setSize(80 * config.numberOfIcons + 10, 80 + 10);

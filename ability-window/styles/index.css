@@ -142,3 +142,78 @@ input[type='range']::-webkit-slider-thumb {
     background: #434343;
     border-radius: 3px;
 }
+
+/* Dropdown styles. */
+div[dropdown] {
+    font-size: 13px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: var(--elements);
+    max-height: 40px;
+    width: 240px;
+    border-radius: 0 0 3px 3px;
+    margin: 22px 0;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-top: 1px solid var(--hover);
+}
+
+div[dropdown] div {
+    white-space: nowrap;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    padding: 5px 0 5px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+}
+
+div[dropdown] div:hover {
+    background: var(--hover);
+}
+
+
+/* Input styles. */
+div[selector] {
+    display: flex;
+}
+
+div[selector]:after {
+    content: '\276F';
+    background: inherit;
+    padding: 0 6px;
+    border-radius: 0 5px 5px;
+    margin: 1px 0 0 -21px;
+    transform: rotate(90deg);
+    color: var(--color);
+}
+
+div[selector] div[dropdown]:after {
+    display: none;
+}
+
+div[selector] input:first-child:focus {
+    border-radius: 3px 3px 0 0;
+}
+
+div[selector] input:focus {
+    outline: none;
+}
+
+div[selector] {
+    margin: 5px 0;
+}
+
+div[selector] input {
+    border: 0;
+    border-radius: 3px;
+    padding: 1px 5px;
+    height: 20px;
+    width: 250px;
+    background: var(--elements);
+    color: var(--color);
+}
