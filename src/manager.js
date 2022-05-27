@@ -1,6 +1,20 @@
 // Check if given file exists.
-const { existsSync } = require('fs');
-const file = path => existsSync(path.slice(1)) ? require(path) : [];
+const { existsSync, writeFileSync } = require('fs');
+const file = (path, data, failed = false) => {
+    if (existsSync(path.slice(1))) {
+        try {
+            data = require(path)
+        } catch (e) {
+            failed = true;
+        }
+
+        if (!failed) return data;
+    }
+
+    const defaultData = require(`${path.slice(0, path.lastIndexOf('/'))}/.default.${path.slice(path.lastIndexOf('/') + 1)}`);
+    writeFileSync(path.slice(1), JSON.stringify(defaultData, null, 4));
+    return defaultData;
+}
 
 // Merge two objects.
 Object.mergify = (obj1, obj2) => Object.keys(obj2).map(key => obj1[key] = obj2[key]);

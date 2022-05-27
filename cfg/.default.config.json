@@ -5,9 +5,9 @@
     "numberOfIcons": 10,
     "barsSelection": "",
     "abilityWindow": {
-        "width": null,
-        "height": null,
-        "startX": null,
-        "startY": null
+        "x": null,
+        "y": null,
+        "width": 810,
+        "height": 90
     }
 }
