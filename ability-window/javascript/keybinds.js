@@ -315,6 +315,7 @@ function save() {
     !saveToggle ? toggle() : void 0;
 }
 
+// Notification triggers.
 function notify(msg, failed) {  
     const id = randomID(5, 5);
     let [notification, parent] = [document.createElement('div'), document.querySelector('div[notify]')]
@@ -332,4 +333,5 @@ function notify(msg, failed) {
     }, 4000)
 }
 
+// Remove notification.
 const removeNotif = id => document.getElementById(id)?.classList?.add('deleted');

@@ -1,13 +1,12 @@
 // Import dependencies.
 const { BrowserWindow, ipcMain } = require('electron');
-const { writeFileSync } = require('fs');
 
 module.exports = _ => {
 
+    // If the keybinds window already exists, show it instead of creating a new one.
     if (windows.keybinds) {
         windows.keybinds.show();
-        windows.keybinds.focus();
-        return
+        return windows.keybinds.focus();
     }
 
     // Make keybinds window globally reachable and set properties.
@@ -16,6 +15,7 @@ module.exports = _ => {
     // Load keybinds file.
     windows.keybinds.loadFile(pages('keybinds'));
 
+    // Show keybinds window when it's ready.
     windows.keybinds.on('ready-to-show', windows.keybinds.show);
 
     // If the keybinds file is closed and the main window is hidden, show the main window.
@@ -51,7 +51,7 @@ module.exports = _ => {
                 keycache = keybinds;
 
                 // Save to cache.
-                writeFileSync('./cfg/keybinds.json', JSON.stringify(keybinds, null, 4));
+                write.keys();
                 event.returnValue = null;
                 break;
             }

@@ -1,19 +1,44 @@
 // Check if given file exists.
 const { existsSync, writeFileSync } = require('fs');
+
+// File import logic.
 const file = (path, data, failed = false) => {
+
+    // Check if file exists.
     if (existsSync(path.slice(1))) {
+
+        // Check if file data is corrupted.
         try {
-            data = require(path)
+            data = require(path);
         } catch (e) {
             failed = true;
         }
 
+        // If not corrupted, return data.
         if (!failed) return data;
     }
 
-    const defaultData = require(`${path.slice(0, path.lastIndexOf('/'))}/.default.${path.slice(path.lastIndexOf('/') + 1)}`);
-    writeFileSync(path.slice(1), JSON.stringify(defaultData, null, 4));
-    return defaultData;
+    const raw = {
+        keybinds: [],
+        config: {
+            alwaysOnTop: true,
+            trackCooldowns: true,
+            minimizeToTray: true,
+            numberOfIcons: 10,
+            barsSelection: '',
+            abilityWindow: {
+                x: null,
+                y: null,
+                width: 810,
+                height: 90
+            }
+        }
+    }
+
+    // In any other case, load default data.
+    const defaults = raw[path.slice(path.lastIndexOf('/') + 1).replace(/\.json/g, '')] || void 0;
+    if (defaults) writeFileSync(path.slice(1), JSON.stringify(defaults));
+    return defaults;
 }
 
 // Merge two objects.
@@ -40,6 +65,12 @@ module.exports = {
 
     // Ability window file.
     ability: require('./ability.js'),
+
+    // File writer.
+    write: {
+        keys: _ => writeFileSync('./cfg/keybinds.json', JSON.stringify(keycache)),
+        config: _ => writeFileSync('./cfg/config.json', JSON.stringify(config)),
+    },
 
     // Window properties + window storage.
     windows: {

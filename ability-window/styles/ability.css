@@ -1,3 +1,4 @@
+/* Contents styles. */
 main {
     pointer-events: none;
     overflow: hidden;
@@ -7,11 +8,13 @@ main {
     -webkit-app-region: drag;
 }
 
+/* Cell styles. */
 main>div {
     background: url(../assets/bg.png) no-repeat;
     background-size: cover;
 }
 
+/* Make the HTML mount transparent. */
 body {
     background: transparent;
 }

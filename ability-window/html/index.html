@@ -13,36 +13,60 @@
 
 <body>
     <main>
+        <!-- Buttons section. -->
         <div buttons>
+            <!-- Start/Stop Tracker. -->
             <div onclick="initialize()" ability>Start Tracker</div>
+
+            <!-- Open Keybinds window. -->
             <div onclick="openWindow('keybinds')">Keybinds</div>
+
+            <!-- Open Bars window. -->
             <div onclick="openWindow('bars')">Bars</div>
+
+            <!-- Quit application. -->
             <div style="background:#F04747" onclick="openWindow('quit')">Quit</div>
         </div>
+
+        <!-- Toggles section. -->
         <div toggle>
+
+            <!-- Toggle track cooldowns. -->
             <label title="Track Cooldowns?" switch="" cooldown>
                 <input type="checkbox" onclick="updateConfig('cooldown')">
                 <span slider=""></span>
                 Track Cooldowns?
             </label>
+
+            <!-- Toggle always on top. -->
             <label title="Keep on Top?" switch="" ontop>
                 <input type="checkbox" onclick="updateConfig('top')">
                 <span slider=""></span>
                 Keep on Top?
             </label>
+
+            <!-- Toggle minimize to tray. -->
             <label title="Minimize the menu window on tracker start." switch="" tray>
                 <input type="checkbox" onclick="updateConfig('tray')">
                 <span slider=""></span>
                 Minimize on Start?
             </label>
         </div>
+
+        <!-- Other properties. -->
         <div bars>
+
+            <!-- Bars selection. -->
             Available Bars:
             <div selector>
                 <input type="text" placeholder="Bars">
                 <div dropdown></div>
             </div>
-            <div slider>Number of Icons on Tracker: <p></p></div>
+
+            <!-- Number of icons slider. -->
+            <div slider>
+                Number of Icons on Tracker: <p></p>
+            </div>
             <input type="range" min="4" max="14" step="1">
         </div>
     </main>

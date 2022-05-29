@@ -6,27 +6,32 @@ let abilityWindow = false
 
 // Frontend to backend communication.
 const openWindow = query => ipcRenderer.sendSync('open', query);
-
 const updateConfig = query => ipcRenderer.sendSync('updateConfig', query);
 
+// Get data.
 const initialData = ipcRenderer.sendSync('updateConfig');
 
+// Update frontend content with data.
 document.querySelector('label[cooldown] input').checked = initialData.trackCooldowns;
 document.querySelector('label[ontop] input').checked = initialData.alwaysOnTop;
 document.querySelector('label[tray] input').checked = initialData.minimizeToTray;
 if (initialData.barsSelection) document.querySelector('div[selector] input').value = initialData.barsSelection;
 
+// Get input types.
 const slider = document.querySelector('input[type="range"]');
 const label = document.querySelector('div[slider] p')
 
+// Set vales.
 slider.value = initialData.numberOfIcons;
 label.innerHTML = initialData.numberOfIcons;
 
+// Listen for updates.
 slider.addEventListener('input', _ => {
     label.innerHTML = slider.value;
     updateConfig(slider.value);
 })
 
+// Tracker triggers.
 function initialize() {
     const element = document.querySelector('div[ability]');
     if (!abilityWindow) {
@@ -40,11 +45,13 @@ function initialize() {
     }
 }
 
+// Stop tracker.
 ipcRenderer.on('closeAbility', _ => {
     abilityWindow = false;
     document.querySelector('div[ability]').innerHTML = 'Start Tracker';
 })
 
+// Spacing for toggles.
 let i = 0;
 document.querySelectorAll('div[toggle] label').forEach(element => {
     element.style.marginTop = `${i * 30}px`;
@@ -94,8 +101,10 @@ class Dropdown {
     }
 }
 
+// Dropdown for bar selection.
 new Dropdown(document.querySelector('div[bars]'));
 
+// Update the config for bar selection.
 const update = query => {
     document.querySelector('div[selector] input').value = query;
     updateConfig(`bars-${query}`);
