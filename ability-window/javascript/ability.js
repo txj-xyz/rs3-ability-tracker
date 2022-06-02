@@ -4,6 +4,7 @@ const initialData = ipcRenderer.sendSync('updateConfig');
 
 // Declare global count variable.
 let $COUNT = initialData.numberOfIcons;
+const $ICONS = [];
 
 // Initial load of cells.
 const main = document.querySelector('main');
@@ -40,3 +41,10 @@ const refresh = param => {
 
 // Backend trigger to update number of icons.
 ipcRenderer.on('refresh', (event, param) => refresh(param));
+
+ipcRenderer.on('trigger', (event, param) => {
+    $ICONS.push(`../ability-icons/${param.ability}.png`);
+    if ($ICONS.length > $COUNT) while ($ICONS.length > $COUNT) $ICONS.shift();
+    else if ($ICONS.length < $COUNT) while ($ICONS.length < $COUNT) $ICONS.unshift('');
+    $ICONS.forEach((icon, i) => document.getElementById(`icon-${$ICONS.length - i}`).innerHTML = `<img src="${icon}">`);
+})

@@ -11,7 +11,7 @@ module.exports = _ => {
 
     // Make keybinds window globally reachable and set properties.
     windows.keybinds = new BrowserWindow({ ...windows.properties, ...{ width: 460, height: 350 } });
-    
+
     // Load keybinds file.
     windows.keybinds.loadFile(pages('keybinds'));
 
@@ -52,6 +52,9 @@ module.exports = _ => {
 
                 // Save to cache.
                 write.keys();
+
+                // Reinitialize the keybind listener.
+                triggers();
                 event.returnValue = null;
                 break;
             }

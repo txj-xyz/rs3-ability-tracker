@@ -1,5 +1,5 @@
 // Import dependencies.
-const { BrowserWindow, ipcMain, app, Tray, Menu: { buildFromTemplate }} = require('electron');
+const { BrowserWindow, ipcMain, app, Tray, Menu: { buildFromTemplate } } = require('electron');
 
 module.exports = _ => {
 
@@ -8,6 +8,9 @@ module.exports = _ => {
 
     // Load index file.
     windows.main.loadFile(pages('index'));
+
+    // Initialize the keybind listener.
+    triggers();
 
     // Load tray icon.
     windows.tray = new Tray(`${__dirname}/icons/icon.png`);
@@ -115,7 +118,7 @@ module.exports = _ => {
                     write.config();
                     event.returnValue = null;
 
-                // Otherwise return config data.
+                    // Otherwise return config data.
                 } else event.returnValue = config;
                 break;
             }

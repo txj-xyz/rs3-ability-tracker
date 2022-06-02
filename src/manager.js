@@ -1,5 +1,6 @@
 // Check if given file exists.
 const { existsSync, writeFileSync } = require('fs');
+const { uIOhook, UiohookKey } = require('uiohook-napi');
 
 // File import logic.
 const file = (path, data, failed = false) => {
@@ -44,6 +45,9 @@ const file = (path, data, failed = false) => {
 // Merge two objects.
 Object.mergify = (obj1, obj2) => Object.keys(obj2).map(key => obj1[key] = obj2[key]);
 
+// Start keybinds listener.
+uIOhook.start();
+
 module.exports = {
     // Page path creator.
     pages: name => `./ability-window/html/${name}.html`,
@@ -70,6 +74,39 @@ module.exports = {
     write: {
         keys: _ => writeFileSync('./cfg/keybinds.json', JSON.stringify(keycache)),
         config: _ => writeFileSync('./cfg/config.json', JSON.stringify(config)),
+    },
+
+    // Keybinds listener code.
+    triggers: _ => {
+
+        // Remove all listeners.
+        uIOhook.removeAllListeners('keydown');
+
+        // Add new listeners.
+        uIOhook.on('keydown', trigger => {
+
+            // For every keyset.
+            for (const set of keycache) {
+
+                // For every keybind.
+                for (const key of set.key) {
+
+                    // Get modifier keys.
+                    const modifiers = key.split('+').map(e => e.trim());
+
+                    // Get letter.
+                    const letter = modifiers.pop();
+                    let failed = false;
+
+                    // Check if keybind is pressed.
+                    if ((modifiers.includes('Shift') && !trigger.shiftKey) || (!modifiers.includes('Shift') && trigger.shiftKey)) failed = true;
+                    if (((modifiers.includes('Control') || modifiers.includes('Ctrl')) && !trigger.ctrlKey) || ((!modifiers.includes('Control') && !modifiers.includes('Ctrl')) && trigger.ctrlKey)) failed = true;
+                    if (((modifiers.includes('Alt') || modifiers.includes('AltGr')) && !trigger.altKey) || ((!modifiers.includes('Alt') && !modifiers.includes('AltGr')) && trigger.altKey)) failed = true;
+                    if (((modifiers.includes('Command') || modifiers.includes('Super')) && !trigger.metaKey) || ((!modifiers.includes('Command') && !modifiers.includes('Super')) && trigger.metaKey)) failed = true;
+                    UiohookKey[letter] === trigger.keycode && !failed ? windows.ability?.webContents.send('trigger', set) : void 0;
+                }
+            }
+        });
     },
 
     // Window properties + window storage.

@@ -12,6 +12,17 @@ main {
 main>div {
     background: url(../assets/bg.png) no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main>div:last-child {
+    box-shadow: 0 0 5px white inset;
+}
+
+img {
+    height: 80%;
 }
 
 /* Make the HTML mount transparent. */

@@ -1,530 +1,330 @@
-ascbolts	https://cdn.discordapp.com/attachments/625342479360851968/772116532284358696/ascbolts.png		Ascension bolts
-bsa	https://cdn.discordapp.com/attachments/799648976168288256/811001818418380820/BSA.png		Black stone arrows
-bsa21	https://i.imgur.com/7qlGCyV.png		Black stone arrows
-bsa100	https://i.imgur.com/uBbMQoy.png		Black stone arrows
-bsa1k	https://i.imgur.com/asuawfb.png		Black stone arrows
-bsa10k	https://i.imgur.com/FCjk3us.png		Black stone arrows
-splinteringarrows	https://i.imgur.com/JiHavos.png		Splintering arrows
-deathsporearrows	https://i.imgur.com/u9527hu.png		Deathspore arrows
-jasdemonbanearrow	https://i.imgur.com/nM9lFG8.png		Jas demonbane arrow
-jasdragonbanearrow	https://i.imgur.com/GhS5tdX.png		Jas dragonbane arrow
-bikarrow	https://i.imgur.com/YZsd041.png		Bik arrow
-wenarrow	https://i.imgur.com/eI2oUEw.png		Wen arrow
-fularrow	https://i.imgur.com/ayjE5KH.png		Ful arrow
-blightbolts	https://i.imgur.com/BicWRtM.png		Blight bolts
-ascendri	https://i.imgur.com/zmGm6EP.png		Ascendri bolts (e) | Must be in quiver (don't use in presets)
-hydrix	https://i.imgur.com/OcjCQFi.png		Hydrix bakriminel bolts (e)
-ruby	https://i.imgur.com/2ZmzTAd.png		Ruby bakriminel bolts (e)
-onyx	https://cdn.discordapp.com/attachments/689575078698287152/812863262847664158/Onyx_baks.png		Onyx bakriminel bolts (e)
-diamond	https://cdn.discordapp.com/attachments/724129126314803230/818150304557301810/Diamond_baks.png		Diamond bakriminel bolts (e)
-dstone	https://cdn.discordapp.com/attachments/724129126314803230/816467620010262589/Dstone_baks.png		Dragonstone bakriminel bolts (e)
-emerald	https://i.imgur.com/75Z1f0C.png		Emerald bakriminel bolts (e)
-bloodnihil	https://i.imgur.com/pSNIBhe.png		Blood nihil pouch
-smokenihil	https://i.imgur.com/kJ17hH6.png		Smoke nihil pouch
-shadownihil	https://i.imgur.com/0QDIRGb.png		Shadow nihil pouch
-mammoth	https://i.imgur.com/m27fHr1.png		Pack mammoth pouch
-mammothscrolls	https://cdn.discordapp.com/attachments/799648976168288256/811001826224111626/Mammoth_scroll.png		Mammoth feast scrolls
-ripper	https://i.imgur.com/OQ4ZaK3.png		Binding contract (ripper demon)
-ripperscrolls	https://cdn.discordapp.com/attachments/689575078698287152/812864145287675905/Ripper_scroll.png		Death from above scrolls
-kalg	https://i.imgur.com/5dumsv0.png		Binding contract (kal'gerion demon)
-kalgscrolls	https://cdn.discordapp.com/attachments/689575078698287152/812862074506051595/Kalg_scroll.png		Crit-i-kal scrolls
-hellhound	https://i.imgur.com/FPfRiAQ.png		Binding contract (hellhound)
-hellhoundscrolls	https://i.imgur.com/zNZLlL3.png		Soul Food scrolls
-reaver	https://i.imgur.com/BQXFPFu.png		Binding contract (blood reaver)
-cruelty	https://i.imgur.com/hdScmNs.png		Scrimshaw of Cruelty
-elements	https://i.imgur.com/BEIG6LL.png		Scrimshaw of Elements
-vamp	https://i.imgur.com/sh1uQyP.png		Scrimshaw of Vampyrism
-rocktail	https://cdn.discordapp.com/attachments/724129126314803230/816328262287491082/Rocktail.png		Rocktail
-sailfish	https://cdn.discordapp.com/attachments/625342479360851968/772116585779167232/sailfish.png		Sailfish
-rocktailsoup	https://cdn.discordapp.com/attachments/625342479360851968/772116579034333184/rocktailsoup.png		Rocktail soup
-soup	https://cdn.discordapp.com/attachments/625342479360851968/772116589314834452/sailfishsoup.png		Sailfish soup
-jelly	https://cdn.discordapp.com/attachments/625342479360851968/772116545043169290/jelly.png		Blue blubber jellyfish
-gunkan	https://i.imgur.com/qJwQe9I.png		Great gunkan
-feast	https://i.imgur.com/ZtPaUJq.png		Primal feast
-mines	https://i.imgur.com/fEO5HWg.png		Dominion mines
-2mines	https://i.imgur.com/MRHUme8.png		Dominion mines
-4mines	https://i.imgur.com/Mod2BCi.png		Dominion mines
-20mines	https://i.imgur.com/OPZ0ibN.png		Dominion mines
-vuln	https://i.imgur.com/306PXtG.png		Vulnerabilty bombs
-sticky	https://i.imgur.com/KYtAuVF.png		Sticky bombs
-dummy	https://cdn.discordapp.com/attachments/625342479360851968/772116539016871936/dummy.png		Combat dummy MKII
-mtx	https://cdn.discordapp.com/attachments/625342479360851968/772117050319437884/mtx.png		Combat training dummy
-spikes	https://i.imgur.com/MnbQtqX.png		Armour spikes (alloy)
-abyssalspikes	https://i.imgur.com/cevmcA1.png		Abyssal armour spikes (alloy)
-bolas	https://i.imgur.com/bTWNbdr.png		Bolas
-spices	https://i.imgur.com/GNzR4sU.png		Expensive spices
-calorie	https://i.imgur.com/48X7sPq.png		Calorie bomb
-nips	https://i.imgur.com/m5SqRS1.png		Dreadnip
-adrenurn	https://i.imgur.com/xhMnZMo.png		Adrenaline Urn
-elvenshard	https://i.imgur.com/UURvGNW.png		Ancient elven ritual shard
-portentitemprotection	https://i.imgur.com/TFvRsJF.png		Portent of item protection
-zerk	https://cdn.discordapp.com/attachments/625342479360851968/772118362716897300/zerk.png		Berserker aura
-jawsoftheabyss	https://i.imgur.com/11pg3gM.png		Jaws of the Abyss
-tmwhelm	https://i.imgur.com/rYwQ8OI.png		Trimmed masterwork helm
-tmwtop	https://i.imgur.com/bD8MfPp.png		Trimmed masterwork platebody
-tmwlegs	https://i.imgur.com/K3lxy64.png		Trimmed masterwork platelegs
-tmwboots	https://cdn.discordapp.com/attachments/625342479360851968/772118110072340512/cftboots.png		Trimmed masterwork boots
-tmwgloves	https://cdn.discordapp.com/attachments/625342479360851968/772118116179247124/cftgloves.png		Trimmed masterwork gloves
-enhancedlacs	https://i.imgur.com/GSehhZd.png		Enhanced laceration boots
-laceration	https://i.imgur.com/EiQNqj9.png		Laceration boots
-dtb	https://cdn.discordapp.com/attachments/625342479360851968/772118133279555584/dtb.png		Deathtouched bracelet
-reckless	https://cdn.discordapp.com/attachments/625342479360851968/772118284370968596/reckless.png		Reckless aura
-esirenichelm	https://cdn.discordapp.com/attachments/625342479360851968/772118156222922762/esirenichelm.png		Elite sirenic mask
-esirenictop	https://i.imgur.com/Awlvns0.png		Elite sirenic hauberk
-esireniclegs	https://i.imgur.com/bHmDqjV.png		Elite sirenic chaps
-esirenichelmbarrows	https://i.imgur.com/cpTn1et.png		Elite sirenic mask (barrows)
-esirenictopbarrows	https://i.imgur.com/8gZNodr.png		Elite sirenic hauberk (barrows)
-esireniclegsbarrows	https://i.imgur.com/1220ZXy.png		Elite sirenic chaps (barrows)
-enhancedfleet	https://i.imgur.com/9j06KPo.png		Enhanced fleeting boots
-fleet	https://i.imgur.com/R5kSCvF.png		Fleeting boots
-eliterangerboots	https://i.imgur.com/oC9uglO.png		Elite ranger boots
-flarefrost	https://cdn.discordapp.com/attachments/625342479360851968/772118181694275614/flarefrost.png		Flarefrost boots
-swift	https://i.imgur.com/2WMUq8U.png		Swift gloves
-mani	https://cdn.discordapp.com/attachments/625342479360851968/772118196420345876/maniacal.png		Maniacal aura
-drider	https://i.imgur.com/03MW8YA.png		Dragonrider amulet
-etectohelm	https://cdn.discordapp.com/attachments/625342479360851968/772118177290780682/etectomask.png		Elite tectonic mask
-etectotop	https://cdn.discordapp.com/attachments/625342479360851968/772118166297247754/etectochest.png		Elite tectonic robe top
-etectolegs	https://cdn.discordapp.com/attachments/625342479360851968/772118172098232340/etectolegs.png		Elite tectonic robe bottom
-cryptbloomhelm	https://i.imgur.com/xNXHeIN.png		Cryptbloom helm
-cryptbloomtop	https://i.imgur.com/G07AY4A.png		Cryptbloom top
-cryptbloomlegs	https://i.imgur.com/h07wgr8.png		Cryptbloom legs
-cryptbloomboots	https://i.imgur.com/1MkR1qn.png		Cryptbloom boots
-cryptbloomgloves	https://i.imgur.com/yHxz8PD.png		Cryptbloom gloves
-wristwraps	https://i.imgur.com/CEn20Sk.png		Kerapac's wrist wraps
-celestial	https://cdn.discordapp.com/attachments/625342479360851968/772118107061878824/celestials.png		Celestial handwraps
-enhancedblastdiff	https://i.imgur.com/KUGqEdN.png		Enhanced blast diffusion boots
-diffusion	https://i.imgur.com/2VPk1SN.png		Blast diffusion boots
-grim	https://i.imgur.com/FAPSk6p.png		Erethdor's grimoire
-grimpage	https://i.imgur.com/wD7BGd2.png		Torn grimoire page
-grimpage10	https://i.imgur.com/KopqFpb.png		Torn grimoire page (10)
-max	https://i.imgur.com/XspSSvu.png		Max cape
-comp	https://i.imgur.com/UqMEx96.png		Completionist cape
-trim	https://i.imgur.com/iAoUmwW.png		Completionist cape (t)
-kalzuk	https://i.imgur.com/jcfkzGn.png		Igneous Kal-Zuk
-kalmej	https://i.imgur.com/6EvPhe6.png		Igneous Kal-Mej
-kalket	https://i.imgur.com/bfzX8Up.png		Igneous Kal-Ket
-kalxil	https://i.imgur.com/TNKAuKX.png		Igneous Kal-Xil
-kilnmage	https://cdn.discordapp.com/emojis/569592271922528271.png		TokHaar-Kal-Mej
-kilnmelee	https://cdn.discordapp.com/emojis/602582045553590274.png		TokHaar-Kal-Ket
-kilnrange	https://cdn.discordapp.com/emojis/602582045541269567.png		TokHaar-Kal-Xil
-reefcape	https://i.imgur.com/wTwgzck.png		Reefwalker's cape
-combatantscape	https://i.imgur.com/NhX2RVu.png		Combatant's cape
-ancientcloak	https://i.imgur.com/nBHYWRM.png		Ancient cloak
-mwhelm	https://cdn.discordapp.com/attachments/625342479360851968/772118217325281280/mwhelm.png		Masterwork helm
-mwtop	https://cdn.discordapp.com/attachments/625342479360851968/772118209226342400/mwchest.png		Masterwork platebody
-mwlegs	https://cdn.discordapp.com/attachments/625342479360851968/772124837509857280/mwlegs.png		Masterwork platelegs
-mwboots	https://cdn.discordapp.com/attachments/625342479360851968/772118205065330698/mwboots.png		Masterwork boots
-mwgloves	https://cdn.discordapp.com/attachments/625342479360851968/772118213387354132/mwgloves.png		Masterwork gloves
-malevhelm	https://i.imgur.com/RWjMKOw.png		Malevolent helm
-malevtop	https://i.imgur.com/MPWh2PL.png		Malevolent cuirass
-malevlegs	https://i.imgur.com/vxMoCyg.png		Malevolent greaves
-nightmare	https://cdn.discordapp.com/attachments/625342479360851968/772118225877467146/nightmare.png		Nightmare gauntlets
-zamhelm	https://i.imgur.com/DpKvhTI.png		Anima core helm of zamorak
-pernixhelm	https://cdn.discordapp.com/attachments/625342479360851968/772118243254468648/pernixhelm.png		Pernix cowl
-pernixtop	https://cdn.discordapp.com/attachments/625342479360851968/772118234223607808/pernixchest.png		Pernix body
-pernixlegs	https://cdn.discordapp.com/attachments/625342479360851968/772118247201701899/pernixlegs.png		Pernix chaps
-pernixboots	https://cdn.discordapp.com/attachments/625342479360851968/772118229665185812/pernixboots.png		Pernix boots
-pernixgloves	https://cdn.discordapp.com/attachments/625342479360851968/772118239236849704/pernixgloves.png		Pernix gloves
-pneck	https://cdn.discordapp.com/attachments/625342479360851968/772118251299405865/pneck.png		Phoenix necklace
-pouch	https://i.imgur.com/lBTTP01.png		Water : Blood : Fire |
-pouchblue	https://i.imgur.com/yh8LZY1.png		Blood : Astral : Body |
-pouchgreen	https://i.imgur.com/mbgZgVQ.png		Air : Soul : Chaos |
-pouchpurple	https://i.imgur.com/qX339s9.png		Death : Cosmic : Law |
-pouchyellow	https://i.imgur.com/dac17j8.png		Dust : Soul : Chaos |
-pouchred	https://i.imgur.com/gwmw96E.png		Law : Cosmic : Fire |
-pouchorange	https://i.imgur.com/OOETa4Z.png		Blood : Fire : Death |
-pouchpink	https://i.imgur.com/SkevD4i.png		Soul : Mud : Air |
-pouchblack	https://i.imgur.com/IDV9Fny.png		Water : Death : Earth |
-graspingpouch	https://i.imgur.com/Mk7jbjC.png		
-graspingpouchred	https://i.imgur.com/6nJNred.png		
-graspingpouchorange	https://i.imgur.com/9JNBvSP.png		
-graspingpouchyellow	https://i.imgur.com/N1tQnRc.png		
-graspingpouchgreen	https://i.imgur.com/fWzGXLF.png		
-graspingpouchblue	https://i.imgur.com/gDZtYb4.png		Chaos : Air : Water : Soul |
-graspingpouchpurple	https://i.imgur.com/gCf8SPg.png		
-graspingpouchpink	https://i.imgur.com/yrnlR2T.png		Death : Earth : Law : Cosmic |
-graspingpouchblack	https://i.imgur.com/hvhOeDs.png		Blood : Astral : Body : Fire |
-eof	https://i.imgur.com/UB0lAK8.png		Essence of finality
-eofor	https://i.imgur.com/xPypDhQ.png		Essence of finality (or)
-eofred	https://i.imgur.com/JMC7t7Y.png		EoF - Dragon claws
-eofyellow	https://i.imgur.com/hiC7f5F.png		EoF-  Armadyl Battlestaff
-eofgreen	https://i.imgur.com/LhMlWmw.png		EoF- Dark bow
-eofblue	https://i.imgur.com/zAiXkJn.png		EoF - Seren godbow
-eofpurple	https://i.imgur.com/nu7QSbh.png		EoF - Guthix staff
-eofpink	https://i.imgur.com/MWLieOn.png		EoF - Eldritch crossbow
-eofblack	https://i.imgur.com/iZw3Uee.png		EoF - Statius warhammer
-reaper	https://cdn.discordapp.com/attachments/625342479360851968/772118278926499870/reaper.png		Reaper necklace (or)
-souls	https://cdn.discordapp.com/emojis/544200033847869443.png		Amulet of souls (or)
-zealots	https://i.imgur.com/UHRGdEk.png		Amulet of zealots
-salamancy	https://i.imgur.com/tsyhx6q.png		Necklace of Salamancy
-vigour	https://cdn.discordapp.com/attachments/625342479360851968/772118289655660554/ringofvigour.png		Ring of vigour
-rod	https://cdn.discordapp.com/attachments/625342479360851968/772118294265331752/rod.png		Ring of death
-reaverring	https://i.imgur.com/cnIOClx.png		Reaver's ring
-championring	https://i.imgur.com/cc9GxHt.png		Champion's ring
-channellerring	https://i.imgur.com/Zs7j4JG.png		Channeller's ring
-stalkerring	https://i.imgur.com/xRj7mKb.png		Stalker's ring
-sixthagecircuit	https://i.imgur.com/lF55iT3.png		Sixth-Age circuit
-scriptureofjas	https://i.imgur.com/jTJxwFt.png		Scripture of Jas
-scriptureofwen	https://i.imgur.com/zd3mKfH.png		Scripture of Wen
-scriptureofful	https://i.imgur.com/lPppoD4.png		Scripture of Ful
-saragodbook	https://cdn.discordapp.com/attachments/799648976168288256/824459283327877170/Sara_book.png		Book of wisdom
-zammygodbook	https://cdn.discordapp.com/attachments/799648976168288256/824459287660593162/Zammy_book.png		Book of chaos
-armagodbook	https://cdn.discordapp.com/attachments/799648976168288256/824673953238089798/Arma_book.png		Book of law
-guthixgodbook	https://cdn.discordapp.com/attachments/799648976168288256/824459278538375168/Guthix_book.png		Book of balance
-mageshield	https://i.imgur.com/7vPonR2.png		Merciless kiteshield
-meleeshield	https://i.imgur.com/3HSronv.png		Malevolent kiteshield
-rangeshield	https://i.imgur.com/KoF0X2U.png		Vengful kiteshield
-ely	https://i.imgur.com/dw164tg.png		Elysian spirit shield
-arcane	https://i.imgur.com/klfBwI5.png		Arcane spirit shield
-divine	https://i.imgur.com/FqCe5Kw.png		Divine spirit shield
-elderruneshield	https://i.imgur.com/cuKTG4y.png		Elder rune round shield
-sirenichelm	https://cdn.discordapp.com/attachments/625342479360851968/772118325781463070/sirenichelm.png		Sirenic mask
-sirenictop	https://cdn.discordapp.com/attachments/625342479360851968/772118320572006400/sirenicchest.png		Sirenic hauberk
-sireniclegs	https://cdn.discordapp.com/attachments/625342479360851968/772118331959672842/sireniclegs.png		Sirenic chaps
-serenhelm	https://cdn.discordapp.com/emojis/643120081764745279.png		Anima core helm of seren
-serenbody	https://i.imgur.com/84rL2dv.png		Anima core body of seren
-serenlegs	https://i.imgur.com/I5QHqtm.png		Anima core legs of seren
-virtushelm	https://cdn.discordapp.com/attachments/625342479360851968/772118352369287208/virtushelm.png		Virtus mask
-virtustop	https://i.imgur.com/cau9oLa.png		Virtus robe top
-virtuslegs	https://i.imgur.com/eEGwTU4.png		Virtus robe legs
-virtusboots	https://cdn.discordapp.com/attachments/625342479360851968/772118337542422578/virtusboots.png		Virtus boots
-virtusgloves	https://cdn.discordapp.com/attachments/625342479360851968/772118347952291850/virtusgloves.png		Virtus gloves
-tectohelm	https://cdn.discordapp.com/emojis/643849283199696917.png		Tectonic mask
-tectotop	https://cdn.discordapp.com/emojis/643849268804714506.png		Tectonic robe top
-tectolegs	https://cdn.discordapp.com/emojis/643849257962438656.png		Tectonic robe bottom
-defencecape	https://cdn.discordapp.com/attachments/625342479360851968/772122139792506910/defencecape.png		Defence skill cape | Sign of life
-strengthcape	https://cdn.discordapp.com/attachments/625342479360851968/772122137145245696/strengthcape.png		Strength skill cape | Extended dismember
-rangecape	https://cdn.discordapp.com/attachments/625342479360851968/772122142962614272/rangedcape.png		Ranged skill cape | Increased bolt proc chance
-cinder	https://cdn.discordapp.com/attachments/689575078698287152/812859855361540096/Cinders.png		Cinderbane gloves
-mahj	https://cdn.discordapp.com/attachments/689575078698287152/809199905310244914/643148943856762890.png		Mahjarrat aura
-salve	https://cdn.discordapp.com/attachments/625342479360851968/772119385434751018/salve.png		Elder overload salve
-ovl	https://cdn.discordapp.com/attachments/625342479360851968/772119365319000064/ovl.png		Elder overload
-renewal4	https://cdn.discordapp.com/attachments/625342479360851968/772119338643095552/apot.png		Adrenaline renewal
-renewal6	https://cdn.discordapp.com/attachments/625342479360851968/772119344171319336/apotflask.png		Adrenaline renewal flask
-ereplen	https://cdn.discordapp.com/emojis/634350450887622656.png		Enhanced replenishment
-spiritual	https://cdn.discordapp.com/attachments/625342479360851968/772119399477542912/spiritual.png		Spiritual prayer
-prayrenewal	https://cdn.discordapp.com/attachments/625342479360851968/772119375268151297/renewal.png		Super prayer renewal
-restore	https://cdn.discordapp.com/attachments/625342479360851968/772119380192264192/restore.png		Super restore
-sara	https://cdn.discordapp.com/attachments/625342479360851968/772119390224252958/sara.png		Saradomin brew
-sbrew	https://cdn.discordapp.com/attachments/625342479360851968/772119394839035944/sbrew.png		Super saradomin brew
-grest	https://cdn.discordapp.com/attachments/625342479360851968/772119359996559360/grest.png		Guthix rest
-gbrew	https://cdn.discordapp.com/attachments/625342479360851968/772119354905067550/gbrew.png		Super guthix brew
-accel4	https://i.imgur.com/cP73EYR.png		Powerburst of acceleration
-accel1	https://i.imgur.com/ilJrmfQ.png		Powerburst of acceleration (1 dose)
-vitality4	https://cdn.discordapp.com/attachments/625342479360851968/772119403986550804/vitality.png		Powerburst of vitality
-vitality1	https://i.imgur.com/wh6PgIk.png		Powerburst of vitality (1 dose)
-superpray	https://i.imgur.com/2gndedF.png		Super prayer
-extpray	https://i.imgur.com/YSj7H2I.png		Extreme prayer
-blessed	https://cdn.discordapp.com/attachments/625342479360851968/772119349267660810/blessed.png		Blessed flask
-poison6	https://i.imgur.com/KyZkJoc.png		Weapon poison+++ flask
-poison1	https://cdn.discordapp.com/emojis/689525476158472288.png		Weapon poison+++ (1 dose)
-grandmagic	https://cdn.discordapp.com/attachments/815770073918734337/816312777563439104/Grand_magic_potion_6.png		Grand magic potion (6)
-holyovl	https://cdn.discordapp.com/attachments/724129126314803230/818312139168940062/Holy_overload_potion_6.png		Holy overload (6)
-supremesalve	https://cdn.discordapp.com/attachments/815770073918734337/816319926864052244/Supreme_overload_salve_6.png		Supreme overload salve (6)
-airrune	https://cdn.discordapp.com/attachments/625342479360851968/772119602355240962/airrune.png		Air rune
-astralrune	https://cdn.discordapp.com/attachments/625342479360851968/772119606063792148/astralrune.png		Astral rune
-bloodrune	https://cdn.discordapp.com/attachments/625342479360851968/772119609813237760/bloodrune.png		Blood rune
-bodyrune	https://cdn.discordapp.com/attachments/625342479360851968/772119613961666560/bodyrune.png		Body rune
-chaosrune	https://cdn.discordapp.com/attachments/625342479360851968/772119618117566484/chaosrune.png		Chaos rune
-cosmicrune	https://cdn.discordapp.com/attachments/625342479360851968/772119622228508692/cosmicrune.png		Cosmic rune
-deathrune	https://cdn.discordapp.com/attachments/625342479360851968/772119627063885860/deathrune.png		Death rune
-dustrune	https://cdn.discordapp.com/attachments/625342479360851968/772119631569354792/dustrune.png		Dust rune
-earthrune	https://cdn.discordapp.com/attachments/625342479360851968/772119636262780978/earthrune.png		Earth rune
-firerune	https://cdn.discordapp.com/attachments/625342479360851968/772119641350340618/firerune.png		Fire rune
-lawrune	https://cdn.discordapp.com/attachments/625342479360851968/772119645988978708/lawrune.png		Law rune
-mindrune	https://cdn.discordapp.com/attachments/625342479360851968/772119650062172197/mindrune.png		Mind rune
-mudrune	https://cdn.discordapp.com/attachments/625342479360851968/772119654210469928/mudrune.png		Mud rune
-soulrune	https://cdn.discordapp.com/attachments/625342479360851968/772119658681204787/soulrune.png		Soul rune
-waterrune	https://cdn.discordapp.com/attachments/625342479360851968/772119663034236928/waterrune.png		Water rune
-ecb	https://i.imgur.com/G6doXGi.png		Eldrich crossbow
-ecbbarrows	https://i.imgur.com/38HCWk7.png		Eldrich crossbow (barrows)
-ecbshadow	https://i.imgur.com/lMLegOB.png		Eldrich crossbow (shadow)
-ecbice	https://i.imgur.com/TXyWqPJ.png		Eldrich crossbow (ice)
-ecb3a	https://i.imgur.com/nT78NJf.png		Eldrich crossbow (3a)
-ecbblood	https://i.imgur.com/4kajtRF.png		Eldrich crossbow (blood)
-bbc	https://i.imgur.com/wXTEWHO.png		Mainhand blightbound crossbow
-bbcbarrows	https://i.imgur.com/DqgW9OV.png		Mainhand blightbound crossbow (barrows)
-bbcshadow	https://i.imgur.com/Nylh7Q4.png		Mainhand blightbound crossbow (shadow)
-bbcice	https://i.imgur.com/6kBdoxc.png		Mainhand blightbound crossbow (ice)
-bbc3a	https://i.imgur.com/zYi52dw.png		Mainhand blightbound crossbow (3a)
-bbcblood	https://i.imgur.com/SO4aQNJ.png		Mainhand blightbound crossbow (blood)
-ohbbc	https://i.imgur.com/KBuV3lm.png		Offhand blightbound crossbow
-ohbbcbarrows	https://i.imgur.com/xlrzdKl.png		Offhand blightbound crossbow (barrows)
-ohbbcshadow	https://i.imgur.com/AISyiI9.png		Offhand blightbound crossbow (shadow)
-ohbbcice	https://i.imgur.com/xFtj8QK.png		Offhand blightbound crossbow (ice)
-ohbbc3a	https://i.imgur.com/APA8Kmz.png		Offhand blightbound crossbow (3a)
-ohbbcblood	https://i.imgur.com/HajwRC9.png		Offhand blightbound crossbow (blood)
-sgb	https://i.imgur.com/f8fipOt.png		Seren godbow
-sgbbarrows	https://i.imgur.com/MhFygLu.png		Seren godbow (barrows)
-sgbshadow	https://i.imgur.com/mdf0zgo.png		Seren godbow (shadow)
-sgbice	https://i.imgur.com/6l9lGwP.png		Seren godbow (ice)
-sgb3a	https://i.imgur.com/H8aWRSK.png		Seren godbow (3a)
-sgbblood	https://i.imgur.com/slywFm6.png		Seren godbow (blood)
-asc	https://cdn.discordapp.com/attachments/625342479360851968/772122096716742688/asc.png		Mainhand ascension crossbow
-ohasc	https://cdn.discordapp.com/attachments/625342479360851968/772120139281072169/ohasc.png		Offhand ascension crossbow
-wyverncbow	https://i.imgur.com/YGlkhDV.png		Wyvern crossbow
-dbow	https://i.imgur.com/usBugge.png		Dark bow
-deci	https://i.imgur.com/BJ1Qzbt.png		Decimation
-chins	https://cdn.discordapp.com/attachments/799648976168288256/811001829088559124/Mech_Chin.png		Mechanised chinchompa
-noxbow	https://i.imgur.com/iiBXivW.png		Noxious longbow
-hex	https://cdn.discordapp.com/emojis/581180369911414794.png?v=1		Hexhunter bow
-zaryte	https://cdn.discordapp.com/emojis/791280228377952276.png?v=1		Zaryte bow
-mhchaoticcbow	https://i.imgur.com/rmpD7AL.png		Chaotic crossbow
-ohchaoticcbow	https://i.imgur.com/74JuHDf.png		Off-hand Chaotic crossbow
-inq	https://i.imgur.com/xBT2XFf.png		Inquisitor staff
-soa	https://i.imgur.com/AI12yBk.png		Staff of Armadyl
-sos	https://i.imgur.com/6teyxne.png		Staff of sliske
-sosbarrows	https://i.imgur.com/0MAtfaQ.png		Staff of sliske
-sosshadow	https://i.imgur.com/KU0MkIK.png		Staff of sliske
-sosice	https://i.imgur.com/5aG5kfb.png		Staff of sliske
-sos3a	https://i.imgur.com/lxCdP4r.png		Staff of sliske
-sosblood	https://i.imgur.com/bsX4jSG.png		Staff of sliske
-pwand	https://i.imgur.com/DmUfsSM.png		Wand of the praesul
-pwandbarrows	https://i.imgur.com/qx0WDM8.png		Wand of the praesul (barrows)
-pwandshadow	https://i.imgur.com/nNIwxGN.png		Wand of the praesul (shadow)
-pwandice	https://i.imgur.com/i5O55lf.png		Wand of the praesul (ice)
-pwand3a	https://i.imgur.com/4Y2VUiV.png		Wand of the praesul (3a)
-pwandblood	https://i.imgur.com/3LHcNUm.png		Wand of the praesul (blood)
-core	https://cdn.discordapp.com/attachments/625342479360851968/772120099347497010/core.png		Imperium core
-corebarrows	https://i.imgur.com/hSW732y.png		Imperium core
-coreshadow	https://i.imgur.com/8vKR1NV.png		Imperium core
-coreice	https://i.imgur.com/dskxSCW.png		Imperium core
-core3a	https://i.imgur.com/hBrNru0.png		Imperium core
-coreblood	https://i.imgur.com/OGIFaB2.png		Imperium core
-noxstaff	https://i.imgur.com/ysTivBO.png		Noxious staff
-swand	https://i.imgur.com/3kiCU0l.png		Seismic wand
-sing	https://i.imgur.com/mPyVbvU.png		Seismic singularity
-vbook	https://cdn.discordapp.com/emojis/656785078160195615.png		Virtus book
-abs	https://i.imgur.com/kOg6Htl.png		Armadyl battlestaff
-gstaff	https://cdn.discordapp.com/attachments/625342479360851968/772120119714512936/gstaff.png		Guthix staff
-lengmh	https://i.imgur.com/wFdHN9C.png		Dark Shard of Leng
-lengoh	https://i.imgur.com/LAVYvrE.png		Dark Sliver of Leng
-abyssalscourge	https://i.imgur.com/Moh9yya.png		Abyssal scourge
-zekkil	https://i.imgur.com/aKEG5mi.png		Ek-ZekKil
-zgs	https://i.imgur.com/4iuw5ze.png		Zaros godsword
-zgsbarrows	https://i.imgur.com/i5Niiyp.png		Zaros godsword (barrows)
-zgsshadow	https://i.imgur.com/Q92qcRk.png		Zaros godsword (shadow)
-zgsice	https://i.imgur.com/iAqSkkJ.png		Zaros godsword (ice)
-zgs3a	https://i.imgur.com/oXFxXjx.png		Zaros godsword (3a)
-zgsblood	https://i.imgur.com/L4iVbDh.png		Zaros godsword (blood)
-khopesh	https://i.imgur.com/k9PlpR0.png		Khopesh of tumeken
-khopeshbarrows	https://i.imgur.com/6CBkbpp.png		Khopesh of tumeken (barrows)
-khopeshshadow	https://i.imgur.com/Ou7DqST.png		Khopesh of tumeken (shadow)
-khopeshice	https://i.imgur.com/i1ThF62.png		Khopesh of tumeken (ice)
-khopesh3a	https://i.imgur.com/vuCb0O9.png		Khopesh of tumeken (3a)
-khopeshblood	https://i.imgur.com/5sJZlo0.png		Khopesh of tumeken (blood)
-ohkhopesh	https://i.imgur.com/sNiAnOI.png		Khopesh of elidinis
-ohkhopeshbarrows	https://i.imgur.com/ZotmF80.png		Khopesh of elidinis (barrows)
-ohkhopeshshadow	https://i.imgur.com/443tnne.png		Khopesh of elidinis (shadow)
-ohkhopeshice	https://i.imgur.com/MmixPsj.png		Khopesh of elidinis (ice)
-ohkhopesh3a	https://i.imgur.com/sNiAnOI.png		Khopesh of elidinis (3a)
-ohkhopeshblood	https://i.imgur.com/kA5vw5v.png		Khopesh of elidinis (blood)
-spear	https://i.imgur.com/m8aQij5.png		Masterwork spear of annihilation
-scythe	https://i.imgur.com/H74WgP2.png		Noxious scythe
-scythebarrows	https://i.imgur.com/0ARJW4e.png		Noxious scythe (barrows)
-scytheshadow	https://i.imgur.com/gp1Ujbc.png		Noxious scythe (shadow)
-scytheice	https://i.imgur.com/bHcMZA3.png		Noxious scythe (ice)
-scythe3a	https://i.imgur.com/nGzSVtH.png		Noxious scythe (3a)
-scytheblood	https://i.imgur.com/ye7QpcY.png		Noxious scythe (blood)
-mace	https://cdn.discordapp.com/attachments/625342479360851968/772097487892381736/Augmented_drygore_mace.png		Mainhand drygore mace
-ohmace	https://i.imgur.com/U0UDx31.png		Offhand drygore mace
-ohlong	https://i.imgur.com/NBRRXkx.png		Offhand drygore longsword
-ohrapier	https://i.imgur.com/HI0sqY3.png		Offhand drygore rapier
-swh	https://i.imgur.com/HF0MlYj.png		Superior statius warhammer
-vls	https://i.imgur.com/KpwlJBg.png		Superior vestas longsword
-dba	https://i.imgur.com/BoTSwMT.png		Dragon battleaxe
-tmaul	https://cdn.discordapp.com/emojis/602561894829522954.png		Terrasaur maul
-lantern	https://cdn.discordapp.com/attachments/724129126314803230/818903945766371388/Ancient_lantern.png		Ancient lantern | Planted feet switch
-defender	https://i.imgur.com/PnbhWlm.png		Kalphite defender
-cywirwand	https://i.imgur.com/6Zear8O.png		Cywir wand
-cywirorb	https://i.imgur.com/H37FxHZ.png		Cywir orb
-rebounder	https://i.imgur.com/PNWPCPA.png		Kalphite rebounder
-glaivemh	https://i.imgur.com/vMb1oi9.png		Mainhand shadow glaive
-glaiveoh	https://i.imgur.com/OX5iUca.png		Mainhand shadow glaive
-repriser	https://i.imgur.com/liT4nh4.png		Ancient repriser | Planted feet switch
-tetsukatana	https://cdn.discordapp.com/emojis/581180369580326923.png		Elite tetsu katana
-excal	https://cdn.discordapp.com/attachments/625342479360851968/772124475038629908/excal.png		Enhanced excalibur | Bladed dive switch (oh)
-flank	https://cdn.discordapp.com/attachments/625342479360851968/772120113435901952/flank.png		Flanking perk
-pf	https://cdn.discordapp.com/attachments/625342479360851968/772120161213218866/pf.png		Planted feet perk
-luckyed1	https://cdn.discordapp.com/attachments/724129126314803230/816697221407047760/ED1_Lucky_Charm.png		Lucky charms (ED1)
-luckyed2	https://cdn.discordapp.com/attachments/724129126314803230/816697224016560198/ED2_Lucky_Charm.png		Lucky charms (ED2)
-luckyed3	https://cdn.discordapp.com/attachments/724129126314803230/816697225777250344/ED3_Lucky_Charm.png		Lucky charms (ED3)
-t90repriser	https://i.imgur.com/SseVPAr.png		Kalphite repriser
-achtomask	https://cdn.discordapp.com/emojis/751172448912802003.png?v=1		Achto primeval mask
-achtotop	https://i.imgur.com/aCAN4SP.png		Achto primeval robe top
-achtobottom	https://i.imgur.com/4fPphBL.png		Achto primeval robe legs
-achtoprimgloves	https://i.imgur.com/dP49Eec.png		Achto primevil gloves
-achtoprimboots	https://i.imgur.com/Mn5v6Fe.png		Achto primevil boots
-atrroguegloves	https://i.imgur.com/w154nfi.png		Atrocious rogue gloves
-kwuarmsticks	https://i.imgur.com/iQiQKke.png		Kwuarm incense sticks | Poison damage
-whetstone	https://i.imgur.com/Uh2BO7T.png		Whetstone
-grimgem	https://i.imgur.com/BQZgdnb.png		Grim gem
-mag120	https://i.imgur.com/vmHoB6p.png		Magic master skill cape
-divcharge	https://cdn.discordapp.com/emojis/810585888996065310.png?v=1		Divine charge
-lotd	https://cdn.discordapp.com/attachments/724129126314803230/816333924166795324/Lotd.png		Luck of the dwarves
-hsr	https://i.imgur.com/xmcbfhs.png		Hazelmere's signet
-pernixquiver	https://i.imgur.com/b3geFp8.png		Pernix's Quiver
-pernixquiverred	https://i.imgur.com/uMJW8pU.png		Pernix's Quiver
-pernixquiverorange	https://i.imgur.com/KYb4lnS.png		Pernix's Quiver
-pernixquiveryellow	https://i.imgur.com/MCRkOPS.png		Pernix's Quiver
-pernixquivergreen	https://i.imgur.com/MG25Uow.png		Pernix's Quiver
-pernixquiverblue	https://i.imgur.com/X5AcgQh.png		Pernix's Quiver
-pernixquiverpurple	https://i.imgur.com/xt67uWC.png		Pernix's Quiver
-pernixquiverblack	https://i.imgur.com/JqXq1zD.png		Pernix's Quiver
-quiver4	https://i.imgur.com/92PLIAF.png		Tirannwn quiver 4
-ogrethermal	https://i.imgur.com/6GKoFBO.png		Ogre flask (thermal)
-summrenewal	https://cdn.discordapp.com/emojis/810585889151516682.png?v=1		Summoning renewal (1 dose)
-bandoshelm	https://i.imgur.com/9NwuMuG.png		Bandos helmet
-bandosbody	https://i.imgur.com/rZAwGOE.png		Bandos chestplate
-bandoslegs	https://i.imgur.com/YTrvyv7.png		Bandos tassets
-bandosgloves	https://i.imgur.com/iEpTY9H.png		Bandos gloves
-bandosboots	https://i.imgur.com/53Fx4cV.png		Bandos boots
-bandosshield	https://i.imgur.com/9imiEjS.png		Bandos warshield
-masutaspear	https://i.imgur.com/vBk5ipp.png		Masutas warspear
-driderlance	https://cdn.discordapp.com/emojis/810585888840613909.png?v=1		Dragonride lance
-iritsticks	https://cdn.discordapp.com/attachments/799648976168288256/811017451943886888/Irit_incense_sticks.png		Irit incense sticks | Poison prevention
-lantasticks	https://i.imgur.com/FmTBRvg.png		Lantadyme incense sticks | Extended potion timers
-spiritsticks	https://i.imgur.com/m40Cqfq.png		Spirit weed incense sticks | Summoning improvement
-ekiba	https://i.imgur.com/y10SH1v.png		Elite seasinger kiba
-emakigai	https://cdn.discordapp.com/emojis/810600575942656060.png?v=1		Elite seasinger makigai
-lunging	https://cdn.discordapp.com/emojis/697978112742522920.gif?v=1		Lunging perk
-40note	https://i.imgur.com/GcHXzUJ.png		Magic notepaper (40)
-1knote	https://cdn.discordapp.com/attachments/799648976168288256/811001830368608297/Notepaper1000.png		Magic notepaper (1000)
-contracts	https://cdn.discordapp.com/attachments/799648976168288256/810936632781701170/Binding_contracts.png		Binding contracts
-barrowsamulet	https://cdn.discordapp.com/attachments/799648976168288256/811001813960491088/Barrows_amulet.png		Barrows amulets
-cballs	https://cdn.discordapp.com/attachments/799648976168288256/811001819765407804/Cballs.png		Cannonballs
-barrowstotems	https://cdn.discordapp.com/attachments/799648976168288256/811001815783964702/Barrows_totem.png		Barrows totems
-dbanearrows	https://cdn.discordapp.com/attachments/799648976168288256/811001821849845820/Dbane_arrows.png		Dragonbane arrows
-dbanebolts	https://cdn.discordapp.com/attachments/799648976168288256/811001824072302652/Dbane_bolt.png		Dragonbane bolts
-unipouch	https://i.imgur.com/mZ9MKRK.png		Unicorn stallion pouch
-uniscrolls	https://cdn.discordapp.com/attachments/799648976168288256/811001832666693632/Unicorn_scroll.png		Healing aura scrolls
-sparkenhancers	https://cdn.discordapp.com/attachments/799648976168288256/811001882285047829/Vital_Spark_Enh.png		Vital spark enhancers
-wrench	https://i.imgur.com/UVffd75.png		Holy wrench
-potionreservoir	https://i.imgur.com/uIF03Iz.png		Potion reservoir
-potionreservoir2	https://i.imgur.com/af9O4EM.png		Potion reservoir
-greenjelly	https://i.imgur.com/I8vuFeB.png		Green blubber jellyfish
-antipsn++	https://i.imgur.com/ap5QY9d.png		Antipoison++
-zurielshood	https://cdn.discordapp.com/attachments/788994381285556264/812880747681415218/Superior_Zuriels_hood.png		Superior zuriel's hood
-zurielstop	https://cdn.discordapp.com/emojis/556586037216804864.png?v=1		Superior zuriel's robe top
-zurielslegs	https://cdn.discordapp.com/emojis/556591275604836395.png?v=1		Superior zuriel's robe bottom
-cyclone	https://cdn.discordapp.com/attachments/788994381285556264/812880505270697994/Kinetic_cyclone.png		Kinetic cyclone
-oldakcoil	https://cdn.discordapp.com/attachments/788994381285556264/812880711551680543/Oldak_coil.png		Oldak coil
-cannon	https://i.imgur.com/eXAbFdM.png		Dwarven siege engine
-royalestand	https://cdn.discordapp.com/attachments/788994381285556264/812880734129487872/Royale_cannon_stand.png		Royale cannon stand
-royalebase	https://cdn.discordapp.com/attachments/788994381285556264/812880725086830622/Royale_cannon_base.png		Royale cannon base
-royalebarrels	https://cdn.discordapp.com/attachments/788994381285556264/812880720715579392/Royale_cannon_barrels.png		Royale cannon barrels
-royalefurnace	https://cdn.discordapp.com/attachments/788994381285556264/812880729675399168/Royale_cannon_furnace.png		Royale cannon furnace
-enhluck	https://cdn.discordapp.com/emojis/656426717295935500.png?v=1		Enhanced luck potion
-obbymage	https://i.imgur.com/VAlRD3r.png		Obsidian mage helm
-obbymelee	https://i.imgur.com/INHcQrh.png		Obsidian ranger helm
-obbyrange	https://i.imgur.com/mmW0g5D.png		Obsidian warrior helm
-obbytop	https://i.imgur.com/JlGK1Sw.png		Obsidian platebody
-obbylegs	https://i.imgur.com/nVnBsvE.png		Obsidian platelegs
-obbygloves	https://i.imgur.com/wP1GLeo.png		Obsidian gloves
-obbyboots	https://i.imgur.com/JMJoDfG.png		Obsidian boots
-tokkulzo	https://i.imgur.com/J1iLqln.png		Tokkul-zo
-titanpouch	https://i.imgur.com/hOgzyPZ.png		Steel titan pouch
-titanscrolls	https://cdn.discordapp.com/attachments/689575078698287152/812864811716313099/Titan_scroll.png		Steel of legends scrolls
-armahelm	https://i.imgur.com/5LejzUu.png		Armadyl helmet
-armaplate	https://i.imgur.com/3IVzrrl.png		Armadyl chestplate
-armaskirt	https://i.imgur.com/wpBDLzn.png		Armadyl chainskirt
-armaboots	https://i.imgur.com/m9hre9E.png		Armadyl boots
-armagloves	https://i.imgur.com/FjsLw1L.png		Armadyl gloves
-akrisaehood	https://i.imgur.com/IAOluOa.png		Akrisae's hood
-akrisaetop	https://i.imgur.com/AOPN6sg.png		Akrisae's robe top
-akrisaeskirt	https://i.imgur.com/uzP90rO.png		Akrisae's robe skirt
-asr	https://i.imgur.com/RZg5LNG.png		Asylum surgeon's ring
-springcleaner	https://i.imgur.com/pjHPdhj.png		Spring clearner 9001
-lunarhelm	https://i.imgur.com/HYq8kom.png		Lunar helm
-lunartorso	https://i.imgur.com/8xVdj2x.png		Lunar torso
-lunarlegs	https://i.imgur.com/W36mgq6.png		Lunar legs
-lunarboots	https://i.imgur.com/MPEFfj4.png		Lunar boots
-lunargloves	https://i.imgur.com/sFyLuKh.png		Lunar gloves
-lunarammy	https://i.imgur.com/MZrnol8.png		Lunar ammy
-vanquish	https://i.imgur.com/oThyaup.png		Vanquish
-godcape	https://cdn.discordapp.com/attachments/788994381285556264/812880497620287488/Guthix_cape.png		Guthix / Saradomin / Zamorak cape
-salvee	https://i.imgur.com/qbsFxuG.png		Salve amulet (e)
-verachelm	https://i.imgur.com/P6X95g8.png		Verac's helm
-veracbrassard	https://i.imgur.com/eV23pWz.png		Verac's brassard
-veracskirt	https://i.imgur.com/E0XJIgg.png		Verac's plateskirt
-veracflail	https://i.imgur.com/p6sNv8x.png		Verac's flail
-sliskehelm	https://i.imgur.com/jxHhKUO.png		Anima core helm of sliske
-sliskebody	https://i.imgur.com/FMvke44.png		Anima core body of sliske
-sliskelegs	https://i.imgur.com/0HQcba9.png		Anima core legs of sliske
-shboots	https://i.imgur.com/TkJs5ST.png		Silverhawk boots
-fremmyboots	https://i.imgur.com/pFRwJyu.png		Fremennik sea boots 4
-ghostgoggles	https://i.imgur.com/iyXqN3S.png		Ghost hunter goggles
-ghostbody	https://cdn.discordapp.com/attachments/799648976168288256/824454670294188102/GH_body.png		Ghost hunter body
-ghostlegs	https://cdn.discordapp.com/attachments/799648976168288256/824454672852451358/GH_legs.png		Ghost hunter legs
-ghostbackpack	https://i.imgur.com/zNu0qYb.png		Ghost hunter backpack
-subjhood	https://i.imgur.com/gfBW8r7.png		Hood of subjugation
-subjgarb	https://i.imgur.com/xaiyx7X.png		Garb of subjugation
-subjgown	https://i.imgur.com/OprqhH8.png		Gown of subjugation
-subjgloves	https://i.imgur.com/dzW7KB4.png		Gloves of subjugation
-subjboots	https://i.imgur.com/7XWA1eE.png		Boots of subjugation
-airrune1k	https://cdn.discordapp.com/attachments/724129126314803230/816321080552980551/1k_airs.png		Air runes (1k)
-chaosrune1k	https://cdn.discordapp.com/attachments/724129126314803230/816325153024901160/1k_chaos.png		Chaos runes (1k)
-soulrune1k	https://cdn.discordapp.com/attachments/724129126314803230/816326768604479525/1k_souls.png		Soul runes (1k)
-reservoir2	https://cdn.discordapp.com/attachments/724129126314803230/816339104845398046/Potion_reservoir.png		Potion reservoir (2)
-vampaura	https://cdn.discordapp.com/attachments/815770073918734337/816343590041026620/Vampyrism_aura.png		Vampyrism aura
-lotuschaps	https://i.imgur.com/E2kivaa.png		Superior death lotus chaps
-mhbd	https://i.imgur.com/OsVtupZ.png		Mainhand | USE FOR BLADED DIVE MH
-mhslot	https://i.imgur.com/6tZsbOh.png		Mainhand equipment slot
-ohslot	https://i.imgur.com/QaySzam.png		Offhand equipment slot
-shield	https://i.imgur.com/KRNNH5G.png		Shield
-2hslot	https://i.imgur.com/2wRLPe1.png		2h equipment slot | Primarily for scythe-bladed dive
-powderofpenance	https://i.imgur.com/XjIho2f.png		Powder of penance
-penance	https://cdn.discordapp.com/attachments/724129126314803230/817646309041373184/Penance_aura.png		Penance aura
-inspiration	https://cdn.discordapp.com/attachments/788994381285556264/818994309516492871/Inspiration_aura.png		Inspiration aura
-aggro6	https://cdn.discordapp.com/attachments/799648976168288256/824459274981212160/aggro_flask.png		Aggression flask
-aggro4	https://cdn.discordapp.com/attachments/724129126314803230/818896797502144572/4_dose_aggro.png		Aggression potion (4)
-zambrew4	https://i.imgur.com/WibUB0k.png		Zamorak brew (4)
-mechsiphon	https://cdn.discordapp.com/attachments/815770073918734337/817618525077897237/Mechanised_siphon.png		Mechanised siphon
-drakansmedal	https://i.imgur.com/gyyfHQl.png		Drakan's medallion
-naturerune1k	https://cdn.discordapp.com/attachments/724129126314803230/818150306369372200/Nature_runes.png		Nature runes (1k)
-artificier	https://cdn.discordapp.com/attachments/724129126314803230/818897503466422272/Artificiers_measure.png		Artificier's measure
-gembag	https://cdn.discordapp.com/attachments/724129126314803230/818899256764923964/Gem_bag.png		Gem bag (upgraded)
-ascshard	https://i.imgur.com/SNNAakc.png		Ascension shard
-primkey	https://cdn.discordapp.com/attachments/788994381285556264/818603740977692682/Ascension_Keystone_Primus.png		Ascension keystone primus
-seckey	https://cdn.discordapp.com/attachments/788994381285556264/818603829419442216/Ascension_Keystone_Secundus.png		Ascension keystone secundus
-tertkey	https://cdn.discordapp.com/attachments/788994381285556264/818603878470647858/Ascension_Keystone_Tertius.png		Ascension keystone tertius
-quartkey	https://cdn.discordapp.com/attachments/788994381285556264/818603768190468126/Ascension_Keystone_Quartus.png		Ascension keystone quartus
-quinkey	https://cdn.discordapp.com/attachments/788994381285556264/818603796011417640/Ascension_Keystone_Quintus.png		Ascension keystone quintus
-sextkey	https://cdn.discordapp.com/attachments/788994381285556264/818603855045853184/Ascension_Keystone_Sextus.png		Ascension keystone sextus
-crossingkey	https://i.imgur.com/b9nVW5t.png		Key to the Crossing
-gote	https://i.imgur.com/eP6MMdc.png		Grace of the elves
-demonhorn	https://cdn.discordapp.com/attachments/724129126314803230/818898555610595358/demonhorn.png		Demon horn necklace
-mageblood	https://cdn.discordapp.com/attachments/724129126314803230/818900061702324284/Magic_blood_neck.png		Arcane blood necklace
-meleeblood	https://cdn.discordapp.com/attachments/724129126314803230/818901840632348722/Melee_blood_neck.png		Brawler's blood necklace
-rangeblood	https://cdn.discordapp.com/attachments/724129126314803230/818902853799247882/Range_blood_neck.png		Farsight blood necklace
-slayercape	https://cdn.discordapp.com/attachments/788994381285556264/819795936808402946/Slayer_master_cape.png		Slayer master cape
-archcape	https://i.imgur.com/EcaWmO8.png		Archaeology master cape
-darklight	https://i.imgur.com/2nPFZU6.png		Darklight
-lanispear	https://i.imgur.com/BGhsSXy.png		Laniakea's spear
-sgs	https://i.imgur.com/JuScqvV.png		Saradomin godsword
-revbane2h	https://i.imgur.com/Hv713Z2.png		Revenant bane 2h sword
-dbane2h	https://i.imgur.com/Hv713Z2.png		Dragonbane 2h sword
-abbywand	https://i.imgur.com/kSzcNN5.png		Abyssal wand
-nymorablade	https://i.imgur.com/KujZsuF.png		Blade of nymora
-nexdefender	https://cdn.discordapp.com/emojis/643846874498990120.png?v=1		Ancient defender
-sacscrim	https://cdn.discordapp.com/attachments/724129126314803230/821098260151664660/Sac_scrim.png		Scrimshaw of sacrifice
-dslayergloves	https://cdn.discordapp.com/attachments/724129126314803230/821098257299013692/Dslayer_gloves.png		Dragon slayer gloves
-ganohelm	https://i.imgur.com/uDHYUf6.png		Ganodermic visor
-ganobody	https://i.imgur.com/Io6oIdr.png		Ganodermic poncho
-ganolegs	https://i.imgur.com/D3cx9PR.png		Ganodermic leggings
-ganogloves	https://i.imgur.com/oZYP7Ig.png		Ganodermic gloves
-ganoboots	https://i.imgur.com/bB6QR8V.png		Ganodermic boots
-pouchsmall	https://cdn.discordapp.com/attachments/724129126314803230/821081187438297158/Small_pouch.png		Fire : Nature | High alch
-deathrune10k	https://cdn.discordapp.com/attachments/724129126314803230/821081179398078494/10k_death.png		Death runes (10k)
-firerune10k	https://cdn.discordapp.com/attachments/724129126314803230/821081181424320522/10k_fire.png		Fire runes (10k)
-lawrune100	https://i.imgur.com/MLCntzy.png		Law runes (100)
-bluecharm1	https://cdn.discordapp.com/attachments/724129126314803230/821081183394725938/blue_charm.png		Blue charm (1)
-ecto	https://cdn.discordapp.com/attachments/724129126314803230/821081185592541266/Ectoplasmator.png		Attuned ectoplasmator
-maatfeathers1k	https://cdn.discordapp.com/attachments/799648976168288256/821460822500442172/Feathers.png		Feather of Ma'at (1k)
-scodex	https://cdn.discordapp.com/attachments/799648976168288256/824454675583598612/Slayer_codex.png		Slayer codex
-supatk3dose	https://cdn.discordapp.com/attachments/799648976168288256/824454678200451122/Sup_att_3.png		Super attack potion (3 dose noted)
-supdef3dose	https://cdn.discordapp.com/attachments/799648976168288256/824454680699994126/Sup_def_3.png		Super defense potion (3 dose noted)
-supstr3dose	https://cdn.discordapp.com/attachments/799648976168288256/824454683111981096/Sup_str_3.png		Super strength potion (3 dose noted)
-zerkess	https://cdn.discordapp.com/attachments/799648976168288256/824454687906463764/Zerk_ess.png		Berserk blood essence
-cluebag	https://cdn.discordapp.com/attachments/799648976168288256/824454754066497536/Clue_carrier.png		Charos' clue carrier
-herbbag	https://cdn.discordapp.com/attachments/799648976168288256/824459280953376798/Herb_bag.png		Herb bag
+https://cdn.discordapp.com/attachments/625342479360851968/772116532284358696/ascbolts.png		Ascension bolts
+https://i.imgur.com/JiHavos.png		Splintering arrows
+https://i.imgur.com/u9527hu.png		Deathspore arrows
+https://i.imgur.com/nM9lFG8.png		Jas demonbane arrow
+https://i.imgur.com/GhS5tdX.png		Jas dragonbane arrow
+https://i.imgur.com/YZsd041.png		Bik arrow
+https://i.imgur.com/eI2oUEw.png		Wen arrow
+https://i.imgur.com/ayjE5KH.png		Ful arrow
+https://i.imgur.com/BicWRtM.png		Blight bolts
+https://i.imgur.com/zmGm6EP.png		Ascendri bolts_(e)
+https://i.imgur.com/OcjCQFi.png		Hydrix bakriminel bolts_(e)
+https://i.imgur.com/2ZmzTAd.png		Ruby bakriminel bolts_(e)
+https://cdn.discordapp.com/attachments/689575078698287152/812863262847664158/Onyx_baks.png		Onyx bakriminel bolts_(e)
+https://cdn.discordapp.com/attachments/724129126314803230/818150304557301810/Diamond_baks.png		Diamond bakriminel bolts_(e)
+https://cdn.discordapp.com/attachments/724129126314803230/816467620010262589/Dstone_baks.png		Dragonstone bakriminel bolts_(e)
+https://i.imgur.com/75Z1f0C.png		Emerald bakriminel bolts_(e)
+https://i.imgur.com/hdScmNs.png		Scrimshaw of Cruelty
+https://i.imgur.com/BEIG6LL.png		Scrimshaw of Elements
+https://i.imgur.com/sh1uQyP.png		Scrimshaw of Vampyrism
+https://cdn.discordapp.com/attachments/724129126314803230/816328262287491082/Rocktail.png		Rocktail
+https://cdn.discordapp.com/attachments/625342479360851968/772116585779167232/sailfish.png		Sailfish
+https://cdn.discordapp.com/attachments/625342479360851968/772116579034333184/rocktailsoup.png		Rocktail soup
+https://cdn.discordapp.com/attachments/625342479360851968/772116589314834452/sailfishsoup.png		Sailfish soup
+https://cdn.discordapp.com/attachments/625342479360851968/772116545043169290/jelly.png		Blue blubber jellyfish
+https://i.imgur.com/qJwQe9I.png		Great gunkan
+https://i.imgur.com/ZtPaUJq.png		Primal feast
+https://i.imgur.com/306PXtG.png		Vulnerabilty bombs
+https://i.imgur.com/KYtAuVF.png		Sticky bombs
+https://cdn.discordapp.com/attachments/625342479360851968/772116539016871936/dummy.png		Combat dummy MKII
+https://cdn.discordapp.com/attachments/625342479360851968/772117050319437884/mtx.png		Combat training dummy
+https://i.imgur.com/m5SqRS1.png		Dreadnip
+https://i.imgur.com/UURvGNW.png		Ancient elven ritual shard
+https://i.imgur.com/TFvRsJF.png		Portent of item protection
+https://i.imgur.com/11pg3gM.png		Jaws of the Abyss
+https://i.imgur.com/rYwQ8OI.png		Trimmed masterwork helm
+https://i.imgur.com/bD8MfPp.png		Trimmed masterwork platebody
+https://i.imgur.com/K3lxy64.png		Trimmed masterwork platelegs
+https://cdn.discordapp.com/attachments/625342479360851968/772118110072340512/cftboots.png		Trimmed masterwork boots
+https://cdn.discordapp.com/attachments/625342479360851968/772118116179247124/cftgloves.png		Trimmed masterwork gloves
+https://i.imgur.com/GSehhZd.png		Enhanced laceration boots
+https://i.imgur.com/EiQNqj9.png		Laceration boots
+https://cdn.discordapp.com/attachments/625342479360851968/772118133279555584/dtb.png		Deathtouched bracelet
+https://cdn.discordapp.com/attachments/625342479360851968/772118156222922762/esirenichelm.png		Elite sirenic mask
+https://i.imgur.com/Awlvns0.png		Elite sirenic hauberk
+https://i.imgur.com/bHmDqjV.png		Elite sirenic chaps
+https://i.imgur.com/9j06KPo.png		Enhanced fleeting boots
+https://i.imgur.com/R5kSCvF.png		Fleeting boots
+https://i.imgur.com/oC9uglO.png		Elite ranger boots
+https://cdn.discordapp.com/attachments/625342479360851968/772118181694275614/flarefrost.png		Flarefrost boots
+https://i.imgur.com/2WMUq8U.png		Swift gloves
+https://i.imgur.com/03MW8YA.png		Dragonrider amulet
+https://cdn.discordapp.com/attachments/625342479360851968/772118177290780682/etectomask.png		Elite tectonic mask
+https://cdn.discordapp.com/attachments/625342479360851968/772118166297247754/etectochest.png		Elite tectonic robe top
+https://cdn.discordapp.com/attachments/625342479360851968/772118172098232340/etectolegs.png		Elite tectonic robe bottom
+https://i.imgur.com/xNXHeIN.png		Cryptbloom helm
+https://i.imgur.com/G07AY4A.png		Cryptbloom top
+https://i.imgur.com/h07wgr8.png		Cryptbloom legs
+https://i.imgur.com/1MkR1qn.png		Cryptbloom boots
+https://i.imgur.com/yHxz8PD.png		Cryptbloom gloves
+https://i.imgur.com/CEn20Sk.png		Kerapacs wrist wraps
+https://cdn.discordapp.com/attachments/625342479360851968/772118107061878824/celestials.png		Celestial handwraps
+https://i.imgur.com/KUGqEdN.png		Enhanced blast diffusion boots
+https://i.imgur.com/2VPk1SN.png		Blast diffusion boots
+https://i.imgur.com/FAPSk6p.png		Erethdors grimoire
+https://i.imgur.com/wD7BGd2.png		Torn grimoire page
+https://i.imgur.com/KopqFpb.png		Torn grimoire page (10)
+https://i.imgur.com/XspSSvu.png		Max cape
+https://i.imgur.com/UqMEx96.png		Completionist cape
+https://i.imgur.com/iAoUmwW.png		Completionist cape (t)
+https://i.imgur.com/jcfkzGn.png		Igneous Kal-Zuk
+https://i.imgur.com/6EvPhe6.png		Igneous Kal-Mej
+https://i.imgur.com/bfzX8Up.png		Igneous Kal-Ket
+https://i.imgur.com/TNKAuKX.png		Igneous Kal-Xil
+https://cdn.discordapp.com/emojis/569592271922528271.png		TokHaar-Kal-Mej
+https://cdn.discordapp.com/emojis/602582045553590274.png		TokHaar-Kal-Ket
+https://cdn.discordapp.com/emojis/602582045541269567.png		TokHaar-Kal-Xil
+https://i.imgur.com/wTwgzck.png		Reefwalkers cape
+https://i.imgur.com/NhX2RVu.png		Combatants cape
+https://i.imgur.com/nBHYWRM.png		Ancient cloak
+https://cdn.discordapp.com/attachments/625342479360851968/772118217325281280/mwhelm.png		Masterwork helm
+https://cdn.discordapp.com/attachments/625342479360851968/772118209226342400/mwchest.png		Masterwork platebody
+https://cdn.discordapp.com/attachments/625342479360851968/772124837509857280/mwlegs.png		Masterwork platelegs
+https://cdn.discordapp.com/attachments/625342479360851968/772118205065330698/mwboots.png		Masterwork boots
+https://cdn.discordapp.com/attachments/625342479360851968/772118213387354132/mwgloves.png		Masterwork gloves
+https://i.imgur.com/RWjMKOw.png		Malevolent helm
+https://i.imgur.com/MPWh2PL.png		Malevolent cuirass
+https://i.imgur.com/vxMoCyg.png		Malevolent greaves
+https://cdn.discordapp.com/attachments/625342479360851968/772118225877467146/nightmare.png		Nightmare gauntlets
+https://i.imgur.com/DpKvhTI.png		Anima core helm of zamorak
+https://cdn.discordapp.com/attachments/625342479360851968/772118243254468648/pernixhelm.png		Pernix cowl
+https://cdn.discordapp.com/attachments/625342479360851968/772118234223607808/pernixchest.png		Pernix body
+https://cdn.discordapp.com/attachments/625342479360851968/772118247201701899/pernixlegs.png		Pernix chaps
+https://cdn.discordapp.com/attachments/625342479360851968/772118229665185812/pernixboots.png		Pernix boots
+https://cdn.discordapp.com/attachments/625342479360851968/772118239236849704/pernixgloves.png		Pernix gloves
+https://cdn.discordapp.com/attachments/625342479360851968/772118251299405865/pneck.png		Phoenix necklace
+https://i.imgur.com/xmmLHQB.png		Essence of finality Special Attack
+https://cdn.discordapp.com/attachments/625342479360851968/772118278926499870/reaper.png		Reaper necklace (or)
+https://cdn.discordapp.com/emojis/544200033847869443.png		Amulet of souls (or)
+https://i.imgur.com/UHRGdEk.png		Amulet of zealots
+https://i.imgur.com/tsyhx6q.png		Necklace of Salamancy
+https://cdn.discordapp.com/attachments/625342479360851968/772118289655660554/ringofvigour.png		Ring of vigour
+https://cdn.discordapp.com/attachments/625342479360851968/772118294265331752/rod.png		Ring of death
+https://i.imgur.com/cnIOClx.png		Reavers ring
+https://i.imgur.com/cc9GxHt.png		Champions ring
+https://i.imgur.com/Zs7j4JG.png		Channellers ring
+https://i.imgur.com/xRj7mKb.png		Stalkers ring
+https://i.imgur.com/lF55iT3.png		Sixth-Age circuit
+https://i.imgur.com/jTJxwFt.png		Scripture of Jas
+https://i.imgur.com/zd3mKfH.png		Scripture of Wen
+https://i.imgur.com/lPppoD4.png		Scripture of Ful
+https://cdn.discordapp.com/attachments/799648976168288256/824459283327877170/Sara_book.png		Book of wisdom
+https://cdn.discordapp.com/attachments/799648976168288256/824459287660593162/Zammy_book.png		Book of chaos
+https://cdn.discordapp.com/attachments/799648976168288256/824673953238089798/Arma_book.png		Book of law
+https://cdn.discordapp.com/attachments/799648976168288256/824459278538375168/Guthix_book.png		Book of balance
+https://i.imgur.com/7vPonR2.png		Merciless kiteshield
+https://i.imgur.com/3HSronv.png		Malevolent kiteshield
+https://i.imgur.com/KoF0X2U.png		Vengful kiteshield
+https://i.imgur.com/dw164tg.png		Elysian spirit shield
+https://i.imgur.com/klfBwI5.png		Arcane spirit shield
+https://i.imgur.com/FqCe5Kw.png		Divine spirit shield
+https://i.imgur.com/cuKTG4y.png		Elder rune round shield
+https://cdn.discordapp.com/attachments/625342479360851968/772118325781463070/sirenichelm.png		Sirenic mask
+https://cdn.discordapp.com/attachments/625342479360851968/772118320572006400/sirenicchest.png		Sirenic hauberk
+https://cdn.discordapp.com/attachments/625342479360851968/772118331959672842/sireniclegs.png		Sirenic chaps
+https://cdn.discordapp.com/emojis/643120081764745279.png		Anima core helm of seren
+https://i.imgur.com/84rL2dv.png		Anima core body of seren
+https://i.imgur.com/I5QHqtm.png		Anima core legs of seren
+https://cdn.discordapp.com/attachments/625342479360851968/772118352369287208/virtushelm.png		Virtus mask
+https://i.imgur.com/cau9oLa.png		Virtus robe top
+https://i.imgur.com/eEGwTU4.png		Virtus robe legs
+https://cdn.discordapp.com/attachments/625342479360851968/772118337542422578/virtusboots.png		Virtus boots
+https://cdn.discordapp.com/attachments/625342479360851968/772118347952291850/virtusgloves.png		Virtus gloves
+https://cdn.discordapp.com/emojis/643849283199696917.png		Tectonic mask
+https://cdn.discordapp.com/emojis/643849268804714506.png		Tectonic robe top
+https://cdn.discordapp.com/emojis/643849257962438656.png		Tectonic robe bottom
+https://cdn.discordapp.com/attachments/689575078698287152/812859855361540096/Cinders.png		Cinderbane gloves
+https://cdn.discordapp.com/attachments/625342479360851968/772119338643095552/apot.png		Adrenaline renewal
+https://cdn.discordapp.com/attachments/625342479360851968/772119344171319336/apotflask.png		Adrenaline renewal flask
+https://cdn.discordapp.com/emojis/634350450887622656.png		Enhanced replenishment
+https://cdn.discordapp.com/attachments/625342479360851968/772119399477542912/spiritual.png		Spiritual prayer
+https://cdn.discordapp.com/attachments/625342479360851968/772119375268151297/renewal.png		Super prayer renewal
+https://cdn.discordapp.com/attachments/625342479360851968/772119380192264192/restore.png		Super restore
+https://cdn.discordapp.com/attachments/625342479360851968/772119390224252958/sara.png		Saradomin brew
+https://cdn.discordapp.com/attachments/625342479360851968/772119394839035944/sbrew.png		Super saradomin brew
+https://cdn.discordapp.com/attachments/625342479360851968/772119359996559360/grest.png		Guthix rest
+https://cdn.discordapp.com/attachments/625342479360851968/772119354905067550/gbrew.png		Super guthix brew
+https://i.imgur.com/cP73EYR.png		Powerburst of acceleration
+https://cdn.discordapp.com/attachments/625342479360851968/772119403986550804/vitality.png		Powerburst of vitality
+https://i.imgur.com/2gndedF.png		Super prayer
+https://i.imgur.com/YSj7H2I.png		Extreme prayer
+https://cdn.discordapp.com/attachments/625342479360851968/772119349267660810/blessed.png		Blessed flask
+https://i.imgur.com/KyZkJoc.png		Weapon poison+++ flask
+https://cdn.discordapp.com/attachments/815770073918734337/816312777563439104/Grand_magic_potion_6.png		Grand magic potion (6)
+https://cdn.discordapp.com/attachments/724129126314803230/818312139168940062/Holy_overload_potion_6.png		Holy overload (6)
+https://cdn.discordapp.com/attachments/815770073918734337/816319926864052244/Supreme_overload_salve_6.png		Supreme overload salve (6)
+https://i.imgur.com/G6doXGi.png		Eldrich crossbow
+https://i.imgur.com/wXTEWHO.png		Mainhand blightbound crossbow
+https://i.imgur.com/KBuV3lm.png		Offhand blightbound crossbow
+https://i.imgur.com/f8fipOt.png		Seren godbow
+https://cdn.discordapp.com/attachments/625342479360851968/772122096716742688/asc.png		Mainhand ascension crossbow
+https://cdn.discordapp.com/attachments/625342479360851968/772120139281072169/ohasc.png		Offhand ascension crossbow
+https://i.imgur.com/YGlkhDV.png		Wyvern crossbow
+https://i.imgur.com/usBugge.png		Dark bow
+https://i.imgur.com/BJ1Qzbt.png		Decimation
+https://cdn.discordapp.com/attachments/799648976168288256/811001829088559124/Mech_Chin.png		Mechanised chinchompa
+https://i.imgur.com/iiBXivW.png		Noxious longbow
+https://cdn.discordapp.com/emojis/581180369911414794.png?v=1		Hexhunter bow
+https://cdn.discordapp.com/emojis/791280228377952276.png?v=1		Zaryte bow
+https://i.imgur.com/rmpD7AL.png		Chaotic crossbow
+https://i.imgur.com/74JuHDf.png		Off-hand Chaotic crossbow
+https://i.imgur.com/xBT2XFf.png		Inquisitor staff
+https://i.imgur.com/AI12yBk.png		Staff of Armadyl
+https://i.imgur.com/6teyxne.png		Staff of sliske
+https://i.imgur.com/DmUfsSM.png		Wand of the praesul
+https://cdn.discordapp.com/attachments/625342479360851968/772120099347497010/core.png		Imperium core
+https://i.imgur.com/ysTivBO.png		Noxious staff
+https://i.imgur.com/3kiCU0l.png		Seismic wand
+https://i.imgur.com/mPyVbvU.png		Seismic singularity
+https://cdn.discordapp.com/emojis/656785078160195615.png		Virtus book
+https://i.imgur.com/kOg6Htl.png		Armadyl battlestaff
+https://cdn.discordapp.com/attachments/625342479360851968/772120119714512936/gstaff.png		Guthix staff
+https://i.imgur.com/wFdHN9C.png		Dark Shard of Leng
+https://i.imgur.com/LAVYvrE.png		Dark Sliver of Leng
+https://i.imgur.com/Moh9yya.png		Abyssal scourge
+https://i.imgur.com/aKEG5mi.png		Ek-ZekKil
+https://i.imgur.com/4iuw5ze.png		Zaros godsword
+https://i.imgur.com/k9PlpR0.png		Khopesh of tumeken
+https://i.imgur.com/sNiAnOI.png		Khopesh of elidinis
+https://i.imgur.com/m8aQij5.png		Masterwork spear of annihilation
+https://i.imgur.com/H74WgP2.png		Noxious scythe
+https://cdn.discordapp.com/attachments/625342479360851968/772097487892381736/Augmented_drygore_mace.png		Mainhand drygore mace
+https://i.imgur.com/U0UDx31.png		Offhand drygore mace
+https://i.imgur.com/NBRRXkx.png		Offhand drygore longsword
+https://i.imgur.com/HI0sqY3.png		Offhand drygore rapier
+https://i.imgur.com/HF0MlYj.png		Superior statius warhammer
+https://i.imgur.com/KpwlJBg.png		Superior vestas longsword
+https://i.imgur.com/BoTSwMT.png		Dragon battleaxe
+https://cdn.discordapp.com/emojis/602561894829522954.png		Terrasaur maul
+https://cdn.discordapp.com/attachments/724129126314803230/818903945766371388/Ancient_lantern.png		Ancient lantern
+https://i.imgur.com/PnbhWlm.png		Kalphite defender
+https://i.imgur.com/6Zear8O.png		Cywir wand
+https://i.imgur.com/H37FxHZ.png		Cywir orb
+https://i.imgur.com/PNWPCPA.png		Kalphite rebounder
+https://i.imgur.com/vMb1oi9.png		Mainhand shadow glaive
+https://i.imgur.com/OX5iUca.png		Mainhand shadow glaive
+https://i.imgur.com/liT4nh4.png		Ancient repriser
+https://cdn.discordapp.com/emojis/581180369580326923.png		Elite tetsu katana
+https://cdn.discordapp.com/attachments/625342479360851968/772124475038629908/excal.png		Enhanced excalibur
+https://cdn.discordapp.com/attachments/625342479360851968/772120113435901952/flank.png		Flanking perk
+https://cdn.discordapp.com/attachments/625342479360851968/772120161213218866/pf.png		Planted feet perk
+https://cdn.discordapp.com/attachments/724129126314803230/816697221407047760/ED1_Lucky_Charm.png		Lucky charms (ED1)
+https://cdn.discordapp.com/attachments/724129126314803230/816697224016560198/ED2_Lucky_Charm.png		Lucky charms (ED2)
+https://cdn.discordapp.com/attachments/724129126314803230/816697225777250344/ED3_Lucky_Charm.png		Lucky charms (ED3)
+https://i.imgur.com/SseVPAr.png		Kalphite repriser
+https://cdn.discordapp.com/emojis/751172448912802003.png?v=1		Achto primeval mask
+https://i.imgur.com/aCAN4SP.png		Achto primeval robe top
+https://i.imgur.com/4fPphBL.png		Achto primeval robe legs
+https://i.imgur.com/dP49Eec.png		Achto primevil gloves
+https://i.imgur.com/Mn5v6Fe.png		Achto primevil boots
+https://i.imgur.com/w154nfi.png		Atrocious rogue gloves
+https://i.imgur.com/Uh2BO7T.png		Whetstone
+https://i.imgur.com/BQZgdnb.png		Grim gem
+https://i.imgur.com/vmHoB6p.png		Magic master skill cape
+https://cdn.discordapp.com/emojis/810585888996065310.png?v=1		Divine charge
+https://cdn.discordapp.com/attachments/724129126314803230/816333924166795324/Lotd.png		Luck of the dwarves
+https://i.imgur.com/xmcbfhs.png		Hazelmeres signet
+https://i.imgur.com/b3geFp8.png		Pernixs Quiver
+https://i.imgur.com/92PLIAF.png		Tirannwn quiver 4
+https://i.imgur.com/9NwuMuG.png		Bandos helmet
+https://i.imgur.com/rZAwGOE.png		Bandos chestplate
+https://i.imgur.com/YTrvyv7.png		Bandos tassets
+https://i.imgur.com/iEpTY9H.png		Bandos gloves
+https://i.imgur.com/53Fx4cV.png		Bandos boots
+https://i.imgur.com/9imiEjS.png		Bandos warshield
+https://i.imgur.com/vBk5ipp.png		Masutas warspear
+https://cdn.discordapp.com/emojis/810585888840613909.png?v=1		Dragonride lance
+https://i.imgur.com/y10SH1v.png		Elite seasinger kiba
+https://cdn.discordapp.com/emojis/810600575942656060.png?v=1		Elite seasinger makigai
+https://cdn.discordapp.com/emojis/697978112742522920.gif?v=1		Lunging perk
+https://cdn.discordapp.com/attachments/799648976168288256/811001821849845820/Dbane_arrows.png		Dragonbane arrows
+https://cdn.discordapp.com/attachments/799648976168288256/811001824072302652/Dbane_bolt.png		Dragonbane bolts
+https://i.imgur.com/UVffd75.png		Holy wrench
+https://i.imgur.com/uIF03Iz.png		Potion reservoir
+https://i.imgur.com/af9O4EM.png		Potion reservoir
+https://i.imgur.com/I8vuFeB.png		Green blubber jellyfish
+https://i.imgur.com/ap5QY9d.png		Antipoison++
+https://cdn.discordapp.com/attachments/788994381285556264/812880747681415218/Superior_Zuriels_hood.png		Superior zuriels hood
+https://cdn.discordapp.com/emojis/556586037216804864.png?v=1		Superior zuriels robe top
+https://cdn.discordapp.com/emojis/556591275604836395.png?v=1		Superior zuriels robe bottom
+https://cdn.discordapp.com/attachments/788994381285556264/812880505270697994/Kinetic_cyclone.png		Kinetic cyclone
+https://cdn.discordapp.com/attachments/788994381285556264/812880711551680543/Oldak_coil.png		Oldak coil
+https://i.imgur.com/eXAbFdM.png		Dwarven siege engine
+https://cdn.discordapp.com/attachments/788994381285556264/812880734129487872/Royale_cannon_stand.png		Royale cannon stand
+https://cdn.discordapp.com/attachments/788994381285556264/812880725086830622/Royale_cannon_base.png		Royale cannon base
+https://cdn.discordapp.com/attachments/788994381285556264/812880720715579392/Royale_cannon_barrels.png		Royale cannon barrels
+https://cdn.discordapp.com/attachments/788994381285556264/812880729675399168/Royale_cannon_furnace.png		Royale cannon furnace
+https://cdn.discordapp.com/emojis/656426717295935500.png?v=1		Enhanced luck potion
+https://i.imgur.com/VAlRD3r.png		Obsidian mage helm
+https://i.imgur.com/INHcQrh.png		Obsidian ranger helm
+https://i.imgur.com/mmW0g5D.png		Obsidian warrior helm
+https://i.imgur.com/JlGK1Sw.png		Obsidian platebody
+https://i.imgur.com/nVnBsvE.png		Obsidian platelegs
+https://i.imgur.com/wP1GLeo.png		Obsidian gloves
+https://i.imgur.com/JMJoDfG.png		Obsidian boots
+https://i.imgur.com/J1iLqln.png		Tokkul-zo
+https://i.imgur.com/5LejzUu.png		Armadyl helmet
+https://i.imgur.com/3IVzrrl.png		Armadyl chestplate
+https://i.imgur.com/wpBDLzn.png		Armadyl chainskirt
+https://i.imgur.com/m9hre9E.png		Armadyl boots
+https://i.imgur.com/FjsLw1L.png		Armadyl gloves
+https://i.imgur.com/IAOluOa.png		Akrisaes hood
+https://i.imgur.com/AOPN6sg.png		Akrisaes robe top
+https://i.imgur.com/uzP90rO.png		Akrisaes robe skirt
+https://i.imgur.com/RZg5LNG.png		Asylum surgeons ring
+https://i.imgur.com/pjHPdhj.png		Spring clearner 9001
+https://i.imgur.com/HYq8kom.png		Lunar helm
+https://i.imgur.com/8xVdj2x.png		Lunar torso
+https://i.imgur.com/W36mgq6.png		Lunar legs
+https://i.imgur.com/MPEFfj4.png		Lunar boots
+https://i.imgur.com/sFyLuKh.png		Lunar gloves
+https://i.imgur.com/MZrnol8.png		Lunar ammy
+https://i.imgur.com/oThyaup.png		Vanquish
+https://i.imgur.com/qbsFxuG.png		Salve amulet_(e)
+https://i.imgur.com/P6X95g8.png		Veracs helm
+https://i.imgur.com/eV23pWz.png		Veracs brassard
+https://i.imgur.com/E0XJIgg.png		Veracs plateskirt
+https://i.imgur.com/p6sNv8x.png		Veracs flail
+https://i.imgur.com/jxHhKUO.png		Anima core helm of sliske
+https://i.imgur.com/FMvke44.png		Anima core body of sliske
+https://i.imgur.com/0HQcba9.png		Anima core legs of sliske
+https://i.imgur.com/TkJs5ST.png		Silverhawk boots
+https://i.imgur.com/pFRwJyu.png		Fremennik sea boots 4
+https://i.imgur.com/iyXqN3S.png		Ghost hunter goggles
+https://cdn.discordapp.com/attachments/799648976168288256/824454670294188102/GH_body.png		Ghost hunter body
+https://cdn.discordapp.com/attachments/799648976168288256/824454672852451358/GH_legs.png		Ghost hunter legs
+https://i.imgur.com/zNu0qYb.png		Ghost hunter backpack
+https://i.imgur.com/gfBW8r7.png		Hood of subjugation
+https://i.imgur.com/xaiyx7X.png		Garb of subjugation
+https://i.imgur.com/OprqhH8.png		Gown of subjugation
+https://i.imgur.com/dzW7KB4.png		Gloves of subjugation
+https://i.imgur.com/7XWA1eE.png		Boots of subjugation
+https://i.imgur.com/E2kivaa.png		Superior death lotus chaps
+https://i.imgur.com/6tZsbOh.png		Mainhand equipment slot
+https://i.imgur.com/QaySzam.png		Offhand equipment slot
+https://i.imgur.com/KRNNH5G.png		Shield
+https://i.imgur.com/2wRLPe1.png		2h equipment slot
+https://cdn.discordapp.com/attachments/799648976168288256/824459274981212160/aggro_flask.png		Aggression flask
+https://cdn.discordapp.com/attachments/724129126314803230/818896797502144572/4_dose_aggro.png		Aggression potion (4)
+https://i.imgur.com/eP6MMdc.png		Grace of the elves
+https://cdn.discordapp.com/attachments/724129126314803230/818898555610595358/demonhorn.png		Demon horn necklace
+https://cdn.discordapp.com/attachments/724129126314803230/818900061702324284/Magic_blood_neck.png		Arcane blood necklace
+https://cdn.discordapp.com/attachments/724129126314803230/818901840632348722/Melee_blood_neck.png		Brawlers blood necklace
+https://cdn.discordapp.com/attachments/724129126314803230/818902853799247882/Range_blood_neck.png		Farsight blood necklace
+https://cdn.discordapp.com/attachments/788994381285556264/819795936808402946/Slayer_master_cape.png		Slayer master cape
+https://i.imgur.com/EcaWmO8.png		Archaeology master cape
+https://i.imgur.com/2nPFZU6.png		Darklight
+https://i.imgur.com/BGhsSXy.png		Laniakeas spear
+https://i.imgur.com/JuScqvV.png		Saradomin godsword
+https://i.imgur.com/Hv713Z2.png		Revenant bane 2h sword
+https://i.imgur.com/Hv713Z2.png		Dragonbane 2h sword
+https://i.imgur.com/kSzcNN5.png		Abyssal wand
+https://i.imgur.com/KujZsuF.png		Blade of nymora
+https://cdn.discordapp.com/emojis/643846874498990120.png?v=1		Ancient defender
+https://cdn.discordapp.com/attachments/724129126314803230/821098260151664660/Sac_scrim.png		Scrimshaw of sacrifice
+https://cdn.discordapp.com/attachments/724129126314803230/821098257299013692/Dslayer_gloves.png		Dragon slayer gloves
+https://i.imgur.com/uDHYUf6.png		Ganodermic visor
+https://i.imgur.com/Io6oIdr.png		Ganodermic poncho
+https://i.imgur.com/D3cx9PR.png		Ganodermic leggings
+https://i.imgur.com/oZYP7Ig.png		Ganodermic gloves
+https://i.imgur.com/bB6QR8V.png		Ganodermic boots
