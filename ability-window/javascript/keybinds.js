@@ -24,16 +24,16 @@ const keycodes = {
     NumpadSubtract: 'NumSub',
     NumpadAdd: 'NumAdd',
     NumpadDecimal: 'NumDec ',
-    Numpad0: 'Num0',
-    Numpad1: 'Num1',
-    Numpad2: 'Num2',
-    Numpad3: 'Num3',
-    Numpad4: 'Num4',
-    Numpad5: 'Num5',
-    Numpad6: 'Num6',
-    Numpad7: 'Num7',
-    Numpad8: 'Num8',
-    Numpad9: 'Num9',
+    Numpad0: '0',
+    Numpad1: '1',
+    Numpad2: '2',
+    Numpad3: '3',
+    Numpad4: '4',
+    Numpad5: '5',
+    Numpad6: '6',
+    Numpad7: '7',
+    Numpad8: '8',
+    Numpad9: '9',
     Digit0: '0',
     Digit1: '1',
     Digit2: '2',
@@ -133,7 +133,7 @@ const keycodes = {
     F24: 'F24'
 };
 const [keybinds, buttons] = [
-    '<div id="ID"><div onclick="remove(\'ID\')" style="background:#F04747" remove>-</div><div ability><input type="text" placeholder="Ability" value="ABILITY" /><div dropdown></div></div><input type="text" placeholder="Keybind" value="KEYBIND" key /></div>',
+    '<div id="ID"><div onclick="remove(\'ID\')" style="background:#F04747" remove>-</div><div ability id="Ability"><input type="text" placeholder="Ability" value="ABILITY" /><div dropdown></div></div><div keybinds id="Keybind"><input type="text" placeholder="Keybind" value="KEYBIND" key /></div><div bars id="Bar Name"><input type="text" placeholder="Bar Name" value="BARNAME" /><div dropdown></div></div></div>',
     '<div manage><div onclick="copy()" style="background:#00A9FF" button>+ New Bind</div><div onclick="save()" button save>Save</div></div>'
 ];
 let saveToggle = false;
@@ -215,7 +215,7 @@ class Keybind {
 }
 
 // Dropdown input manager class.
-class Dropdown {
+class Ability {
     constructor(div) {
         this.id = div.id;
         this.input = div.querySelector('div[ability] input');
@@ -262,6 +262,11 @@ class Dropdown {
     }
 }
 
+
+class Bar {
+
+}
+
 // Load saved keybinds from cache.
 keycache.map(a => a.key.length > 0 ? a.key.map(k => copy(a.ability.replace(/_/g, ' '), k)) : void 0);
 if (keycache.length) toggle();
@@ -282,8 +287,10 @@ function copy(ability, key) {
     document.querySelector('div[keys]').insertAdjacentHTML('beforeend', field + buttons);
 
     // Setup dropdown and keybind actions for new element.
-    new Dropdown(document.getElementById(id));
+    new Ability(document.getElementById(id));
     new Keybind(document.getElementById(id).querySelector('input[key]'));
+
+    window.scrollTo(0, document.body.scrollHeight);
 }
 
 // Save keybinds to file.

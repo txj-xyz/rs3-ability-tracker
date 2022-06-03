@@ -10,7 +10,7 @@ const updateConfig = _ => {
 
         // Update aspect ratio to prevent buggy resize.
         windows.ability.setAspectRatio((((config.abilityWindow.height - 10) * config.numberOfIcons) + 10) / config.abilityWindow.height);
-        write.config();
+        update();
     }
 }
 

@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 /* Page header styles. */
 div[header] {
     margin: 15px 0;
@@ -22,20 +26,43 @@ div[keys]>div {
 /* Input styles. */
 div[keys]>div input {
     border: 0;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     border-radius: 3px;
     padding: 1px 5px;
-    height: 20px;
+    height: 22px;
     width: 160px;
     background: var(--elements);
     color: var(--color);
 }
 
-div[keys]>div input:first-child {
-    margin-left: 5px;
+div[ability]:before,
+div[keybinds]:before,
+div[bars]:before {
+    content: attr(id);
+    pointer-events: auto;
+    position: absolute;
+    font-size: 9px;
+    margin: -10px 10px;
+    padding: 2px 5px;
+    background: var(--background);
+    border-radius: 3px;
+    opacity: 0;
+    transition-duration: 0.5s;
+    margin-top: -14px;
 }
 
-div[keys]>div input:first-child:focus {
+div[ability]:hover:before,
+div[keybinds]:hover:before,
+div[bars]:hover:before {
+    opacity: 1;
+    margin-top: -10px;
+}
+
+div[keys]>div input {
+    margin-left: 5px !important;
+}
+
+div[keys]>div input:nth-child(odd):focus {
     border-radius: 3px 3px 0 0;
 }
 
@@ -44,19 +71,25 @@ div[keys]>div input:focus {
 }
 
 /* Allow input styles to match. */
-div[keys] div[ability] {
+div[keys] div[ability],
+div[keys] div[bars] {
     display: flex;
 }
 
-div[ability]:after {
+div[ability]:after,
+div[bars]:after {
     content: '\276F';
-    background: inherit;
+    background: var(--elements);
     padding: 0 6px;
 
     border-radius: 0 5px 5px;
-    margin: 1px 0 0 -21px;
+    margin: 1px 6px 0 -21px;
     transform: rotate(90deg);
     color: var(--color);
+}
+
+div[bars] {
+    margin-left: 4px;
 }
 
 div[ability] div[dropdown]:after {
@@ -72,12 +105,16 @@ div[button] {
     justify-content: center;
     align-items: center;
     padding: 3px 7px 4px 7px;
-    min-width: 10px;
+    min-width: 12px;
     margin: 0 5px;
     line-height: 1;
     background: var(--elements);
     color: var(--color);
     cursor: pointer;
+}
+
+div[manage] {
+    margin-bottom: 135px;
 }
 
 /* Dropdown styles. */

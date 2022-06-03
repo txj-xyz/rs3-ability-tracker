@@ -10,7 +10,7 @@ module.exports = _ => {
     }
 
     // Make keybinds window globally reachable and set properties.
-    windows.keybinds = new BrowserWindow({ ...windows.properties, ...{ width: 460, height: 350 } });
+    windows.keybinds = new BrowserWindow({ ...windows.properties, ...{ width: 635, height: 350 } });
 
     // Load keybinds file.
     windows.keybinds.loadFile(pages('keybinds'));
@@ -30,7 +30,7 @@ module.exports = _ => {
 
             // Get the keybinds.
             case 'keycache': {
-                event.returnValue = keycache;
+                event.returnValue = config.referenceStorage.keybinds;
                 break;
             }
 
@@ -48,10 +48,10 @@ module.exports = _ => {
                     if (ability) ability.key.push(k.key);
                     else keybinds.push({ ability: k.ability, key: [k.key] });
                 })
-                keycache = keybinds;
+                config.referenceStorage.keybinds = keybinds;
 
                 // Save to cache.
-                write.keys();
+                update();
 
                 // Reinitialize the keybind listener.
                 triggers();

@@ -27,7 +27,7 @@ module.exports = _ => {
     windows.main.on('close', _ => app.emit('window-all-closed'))
 
     // If no keybinds have been set, show main window, otherwise show main window.
-    if (!keycache.length) keybinds();
+    if (!config.referenceStorage.keybinds.length) keybinds();
     else windows.main.on('ready-to-show', _ => {
         windows.main.show()
         windows.main.focus()
@@ -72,24 +72,24 @@ module.exports = _ => {
             // Update 'trackCooldowns' value.
             case 'cooldown': {
                 config.trackCooldowns = !config.trackCooldowns;
-                write.config();
-                event.returnValue = null;
                 break;
             }
 
             // Update 'alwaysOnTop' value.
             case 'top': {
                 config.alwaysOnTop = !config.alwaysOnTop;
-                write.config();
-                event.returnValue = null;
                 break;
             }
 
             // Update 'minimizeToTray' value.
             case 'tray': {
                 config.minimizeToTray = !config.minimizeToTray;
-                write.config();
-                event.returnValue = null;
+                break;
+            }
+
+            // Update 'toggleSwitching' value.
+            case 'bars': {
+                config.toggleSwitching = !config.toggleSwitching;
                 break;
             }
 
@@ -97,11 +97,8 @@ module.exports = _ => {
             default: {
 
                 // Update 'barsSelection' value.
-                if (param?.startsWith('bars-')) {
-                    config.barsSelection = param.slice(5);
-                    write.config();
-                    event.returnValue = null;
-                }
+                if (param?.startsWith('bars-')) config.barsSelection = param.slice(5);
+
 
                 // Update 'numberOfIcons' value.
                 else if (!isNaN(parseInt(param))) {
@@ -115,14 +112,15 @@ module.exports = _ => {
                         windows.ability.webContents.send('refresh', config.numberOfIcons);
                         windows.ability.setSize(config.abilityWindow.width, config.abilityWindow.height);
                     }
-                    write.config();
-                    event.returnValue = null;
 
                     // Otherwise return config data.
                 } else event.returnValue = config;
                 break;
             }
         }
+
+        update();
+        if (!event.returnValue) event.returnValue = null;
     })
 
     // Tray menu update and events controller.

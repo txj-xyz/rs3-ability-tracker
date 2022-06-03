@@ -51,13 +51,20 @@
                 <span slider=""></span>
                 Minimize on Start?
             </label>
+
+            <!-- Toggle switching. -->
+            <label title="Allow bar to autoswitch" switch="" bars>
+                <input type="checkbox" onclick="updateConfig('bars')">
+                <span slider=""></span>
+                Toggle Switching?
+            </label>
         </div>
 
         <!-- Other properties. -->
         <div bars>
 
             <!-- Bars selection. -->
-            Available Bars:
+            Default Bar:
             <div selector>
                 <input type="text" placeholder="Bars">
                 <div dropdown></div>
