@@ -1,0 +1,84 @@
+/* Page header styles. */
+div[header] {
+    margin: 15px 0;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    user-select: none;
+}
+
+/* Content styles. */
+div[keys] {
+    margin-bottom: 40px;
+}
+
+/* Keybind styles. */
+div[keys]>div {
+    display: flex;
+    padding: 5px 30px;
+}
+
+/* Input styles. */
+div[keys]>div input {
+    border: 0;
+    margin: 0 auto;
+    border-radius: 3px;
+    padding: 1px 5px;
+    height: 22px;
+    width: 160px;
+    background: var(--elements);
+    color: var(--color);
+}
+
+div[keys]>div input {
+    margin-left: 4px;
+}
+
+/* Action styles. */
+div[remove],
+div[button] {
+    border-radius: 3px;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 7px 4px 7px;
+    min-width: 12px;
+    margin: 0 5px;
+    line-height: 1;
+    background: var(--elements);
+    color: var(--color);
+    cursor: pointer;
+}
+
+/* Input box error styles. */
+input.error {
+    background: #F04747BF !important;
+}
+
+input.error::placeholder {
+    color: var(--color) !important;
+}
+
+div[keys]>div input:focus {
+    outline: none;
+}
+
+p {
+    margin-block-end: 0;
+    margin-block-start: 0;
+    padding: 3px;
+    white-space: nowrap;
+}
+
+p:after {
+    content: "linked icon(s)";
+    margin-left: 2px;
+}
+
+div[disabled] {
+    opacity: 0.5;
+    user-select: none !important;
+    pointer-events: none;
+}

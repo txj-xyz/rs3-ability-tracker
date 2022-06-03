@@ -19,31 +19,29 @@ const file = (path, data, failed = false) => {
         if (!failed) return data;
     }
 
-    const raw = {
-        keybinds: [],
-        config: {
-            alwaysOnTop: true,
-            trackCooldowns: true,
-            minimizeToTray: true,
-            numberOfIcons: 10,
-            barsSelection: '',
-            abilityWindow: {
-                x: null,
-                y: null,
-                width: 810,
-                height: 90
-            }
+    const config = {
+        alwaysOnTop: true,
+        trackCooldowns: true,
+        minimizeToTray: true,
+        toggleSwitching: false,
+        numberOfIcons: 10,
+        barsSelection: '',
+        abilityWindow: {
+            x: null,
+            y: null,
+            width: 810,
+            height: 90
+        },
+        referenceStorage: {
+            keybinds: [],
+            bars: []
         }
     }
 
     // In any other case, load default data.
-    const defaults = raw[path.slice(path.lastIndexOf('/') + 1).replace(/\.json/g, '')] || void 0;
-    if (defaults) writeFileSync(path.slice(1), JSON.stringify(defaults));
-    return defaults;
+    writeFileSync(path.slice(1), JSON.stringify(config));
+    return config;
 }
-
-// Merge two objects.
-Object.mergify = (obj1, obj2) => Object.keys(obj2).map(key => obj1[key] = obj2[key]);
 
 // Start keybinds listener.
 uIOhook.start();
@@ -53,10 +51,7 @@ module.exports = {
     pages: name => `./ability-window/html/${name}.html`,
 
     // Ability list.
-    abilities: file('../cfg/abilities.json'),
-
-    // Keybinds list.
-    keycache: file('../cfg/keybinds.json'),
+    abilities: require('../cfg/abilities.json'),
 
     // Config.
     config: file('../cfg/config.json'),
@@ -67,14 +62,14 @@ module.exports = {
     // Keybinds window file.
     keybinds: require('./keybinds.js'),
 
+    // Bars window file.
+    bars: require('./bars.js'),
+
     // Ability window file.
     ability: require('./ability.js'),
 
     // File writer.
-    write: {
-        keys: _ => writeFileSync('./cfg/keybinds.json', JSON.stringify(keycache)),
-        config: _ => writeFileSync('./cfg/config.json', JSON.stringify(config)),
-    },
+    update: _ => writeFileSync('./cfg/config.json', JSON.stringify(config)),
 
     // Keybinds listener code.
     triggers: _ => {
@@ -86,7 +81,7 @@ module.exports = {
         uIOhook.on('keydown', trigger => {
 
             // For every keyset.
-            for (const set of keycache) {
+            for (const set of config.referenceStorage.keybinds) {
 
                 // For every keybind.
                 for (const key of set.key) {
