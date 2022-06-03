@@ -27,6 +27,7 @@ const refresh = param => {
         for (let i = 0; i < $COUNT - param; i++) {
             const node = document.getElementById([...document.querySelectorAll('main > div')][0].id);
             node.parentNode.removeChild(node);
+            $ICONS.shift()
         }
     }
 
