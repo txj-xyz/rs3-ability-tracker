@@ -20,13 +20,12 @@ div[keys] {
 /* Keybind styles. */
 div[keys]>div {
     display: flex;
-    padding: 5px 30px;
+    padding: 5px 27px;
 }
 
 /* Input styles. */
 div[keys]>div input {
     border: 0;
-    /* margin: 0 auto; */
     border-radius: 3px;
     padding: 1px 5px;
     height: 22px;
@@ -118,7 +117,7 @@ div[manage] {
 }
 
 /* Dropdown styles. */
-div[dropdown] {
+div[dropdown], div[barselect] {
     font-size: 13px;
     display: none;
     position: absolute;
@@ -134,7 +133,8 @@ div[dropdown] {
     border-top: 1px solid var(--hover);
 }
 
-div[dropdown] div {
+div[dropdown] div,
+div[barselect] div {
     white-space: nowrap;
     overflow-y: hidden;
     text-overflow: ellipsis;
@@ -146,16 +146,17 @@ div[dropdown] div {
     user-select: none;
 }
 
-div[dropdown] div:hover {
+div[dropdown] div:hover,
+div[barselect] div:hover {
     background: var(--hover);
 }
 
 /* Input box error styles. */
-input.error {
-    background: #F04747BF !important;
+div.error input, div.error:after {
+    background: #F04747 !important;
 }
 
-input.error::placeholder {
+div.error input::placeholder {
     color: var(--color) !important;
 }
 
@@ -164,7 +165,6 @@ input.error::placeholder {
 div[notify] {
     position: fixed;
     z-index: 1;
-    opacity: 0.9;
     bottom: 5px;
     left: 50%;
     transform: translate(-50%, 0);

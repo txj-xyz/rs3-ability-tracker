@@ -41,38 +41,51 @@ div[bars] {
 }
 
 /* Toggle mode. */
-label[switch] {
+label {
     position: absolute;
     display: flex;
-    margin: 3px 20px;
+    margin: 3px 18px;
     width: 35px;
     height: 21px;
     white-space: nowrap;
     user-select: none;
 }
 
-label[switch] input {
+label input {
     opacity: 0;
     width: 0;
     height: 0;
     margin-right: 40px;
 }
 
+label div[info] {
+    display: flex;
+    align-items: center;
+    content: "?";
+    margin: -5px 0 0 2px;
+    font-weight: bold;
+    color: var(--background);
+    padding: 0 4px 0 4px;
+    border-radius: 50%;
+    height: 14px;
+    font-size: 10px;
+    background: #00A9FF;
+}
 
-span[slider] {
+label span {
     position: absolute;
     cursor: pointer;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--hover);
+    background-color: var(--elements);
     -webkit-transition: 0.4s;
     transition: 0.4s;
     border-radius: 3px;
 }
 
-span[slider]:before {
+label span:before {
     position: absolute;
     content: "";
     height: 15px;
@@ -84,11 +97,11 @@ span[slider]:before {
     border-radius: 3px;
 }
 
-input:checked+span[slider] {
+input:checked+span {
     background: #43B581;
 }
 
-input:checked+span[slider]:before {
+input:checked+span:before {
     transform: translateX(14px);
 }
 
@@ -126,8 +139,13 @@ input[type='range']::-webkit-slider-thumb {
     height: 15px;
     overflow: visible;
     cursor: ew-resize;
-    background: #434343;
+    background: var(--elements);
     border-radius: 3px;
+}
+
+/* Bars style. */
+div[bars] {
+    margin: 0 auto;
 }
 
 /* Dropdown styles. */
