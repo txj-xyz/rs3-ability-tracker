@@ -4,7 +4,7 @@ const { BrowserWindow, ipcMain, app, Tray, Menu: { buildFromTemplate } } = requi
 module.exports = _ => {
 
     // Make main window globally reachable and set properties.
-    windows.main = new BrowserWindow({ ...windows.properties, ...{ width: 700, height: 200 } });
+    windows.main = new BrowserWindow({ ...windows.properties, ...{ width: 700, height: 190 } });
 
     // Load index file.
     windows.main.loadFile(pages('index'));
@@ -97,7 +97,7 @@ module.exports = _ => {
             default: {
 
                 // Update 'barsSelection' value.
-                if (param?.startsWith('bars-')) config.barsSelection = param.slice(5);
+                if (Array.isArray(param)) config.barsSelection = param[0];
 
 
                 // Update 'numberOfIcons' value.
@@ -152,6 +152,9 @@ module.exports = _ => {
 
             // Open keybinds window.
             { label: 'Configure Keybinds', click: keybinds },
+
+            // Open bars window.
+            { label: 'Configure Bars', click: bars },
 
             // Quit application.
             { label: 'Quit', click: _ => app.emit('window-all-closed') }
