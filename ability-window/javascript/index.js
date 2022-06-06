@@ -11,6 +11,8 @@ const updateConfig = query => ipcRenderer.sendSync('updateConfig', query);
 // Get data.
 const initialData = ipcRenderer.sendSync('updateConfig');
 
+let bars = ['Global', ...initialData.referenceStorage.bars];
+
 // Update frontend content with data.
 document.querySelector('label[cooldown] input').checked = initialData.trackCooldowns;
 document.querySelector('label[ontop] input').checked = initialData.alwaysOnTop;
@@ -70,10 +72,13 @@ class Dropdown {
 
     // Initialize dropdown listener.
     init() {
+
+        this.input.value = initialData.barsSelection
+
         // When input is received from the input box, check if it is a valid character and then filter the list.
         this.input.addEventListener('input', e => {
             !modifiers.includes(e.key) ? this.dropdown.innerHTML = this.search(this.input.value) : void 0;
-            updateConfig(`bars-${this.input.value}`);
+            updateConfig([this.input.value]);
         });
 
         // Show dropdown when input box is clicked.
@@ -87,7 +92,7 @@ class Dropdown {
     search(query) {
 
         // NOTE: TEMP LIST.... REMOVE WHEN DONE.
-        let list = ['alpha', 'beta', 'query', 'theta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu', 'nu', 'xi', 'omicron', 'pi', 'rho', 'sigma', 'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega'];
+        let list = bars;
 
         // Filter the list.
         list = query ? list.filter(e => e.toLowerCase().startsWith(query.toLowerCase())) : list;
@@ -102,7 +107,12 @@ class Dropdown {
 }
 
 // Dropdown for bar selection.
-new Dropdown(document.querySelector('div[bars]'));
+let bar = new Dropdown(document.querySelector('div[bars]'));
+
+ipcRenderer.on('passToKeys', (event, arg) => {
+    bars = [...new Set(['Global', ...arg.filter(e => e)])]
+    bar.dropdown.innerHTML = bar.search();
+})
 
 // Update the config for bar selection.
 const update = query => {

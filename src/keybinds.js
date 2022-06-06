@@ -24,6 +24,11 @@ module.exports = _ => {
         delete windows.keybinds;
     });
 
+    ipcMain.on('passToBars', (event, arg) => {
+        windows.bars?.webContents.send('passToBars', arg);
+        event.returnValue = null;
+    })
+
     // Backend to frontend communication.
     ipcMain.on('keybinds', (event, param) => {
         switch (param.query) {
@@ -40,15 +45,21 @@ module.exports = _ => {
                 break;
             }
 
+            case 'bars': {
+                event.returnValue = config.referenceStorage.bars;
+                break;
+            }
+
             // Set/Update the keybinds.
             case 'binds': {
                 const keybinds = [];
                 param.binds.map(k => {
                     const ability = keybinds.find(e => e.ability === k.ability);
                     if (ability) ability.key.push(k.key);
-                    else keybinds.push({ ability: k.ability, key: [k.key] });
+                    else keybinds.push({ ability: k.ability, key: [k.key], bar: k.bar });
                 })
                 config.referenceStorage.keybinds = keybinds;
+                windows.bars?.webContents.send('passToBars', config.referenceStorage.keybinds.map(e => e.bar));
 
                 // Save to cache.
                 update();

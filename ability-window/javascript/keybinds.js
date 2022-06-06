@@ -5,7 +5,9 @@ const { ipcRenderer } = require('electron');
 ipcRenderer.request = query => ipcRenderer.sendSync('keybinds', query);
 
 // Request data from backend.
-const [keycache, abilities] = ['keycache', 'abilities'].map(query => ipcRenderer.request({ query }));
+let [keycache, abilities, bars] = ['keycache', 'abilities', 'bars'].map(query => ipcRenderer.request({ query }));
+
+bars.unshift('Global');
 
 // Default values.
 const modifiers = ['Shift', 'Control', 'Ctrl', 'Command', 'Cmd', 'Alt', 'AltGr', 'Super', 'Backspace'];
@@ -133,7 +135,7 @@ const keycodes = {
     F24: 'F24'
 };
 const [keybinds, buttons] = [
-    '<div id="ID"><div onclick="remove(\'ID\')" style="background:#F04747" remove>-</div><div ability id="Ability"><input type="text" placeholder="Ability" value="ABILITY" /><div dropdown></div></div><div keybinds id="Keybind"><input type="text" placeholder="Keybind" value="KEYBIND" key /></div><div bars id="Bar Name"><input type="text" placeholder="Bar Name" value="BARNAME" /><div dropdown></div></div></div>',
+    '<div id="ID"><div onclick="remove(\'ID\')" style="background:#F04747" remove>-</div><div ability id="Ability"><input type="text" placeholder="Ability" value="ABILITY" /><div dropdown></div></div><div keybinds id="Keybind"><input type="text" placeholder="Keybind" value="KEYBIND" key /></div><div bars id="Bar Name"><input type="text" placeholder="Bar Name" value="BARNAME" /><div barselect></div></div></div>',
     '<div manage><div onclick="copy()" style="background:#00A9FF" button>+ New Bind</div><div onclick="save()" button save>Save</div></div>'
 ];
 let saveToggle = false;
@@ -142,11 +144,21 @@ let saveToggle = false;
 const randomID = (sections, phrase, join, random = a => a[Math.floor(Math.random() * a.length)]) => [...Array(sections)].map(_ => [...Array(phrase)].map(_ => random([...[...Array(26)].map((_, i) => String.fromCharCode(i + 65)), ...[...Array(26)].map((_, i) => String.fromCharCode(i + 65).toLowerCase()), ...[...Array(10).keys()]])).join('')).join(join ?? '-')
 
 // Update input box value from dropdown selection.
-const update = (id, ability, input = document.getElementById(id).querySelector('div[ability] input')) => input.value = ability;
+const update = (id, ability, input = document.getElementById(id).querySelector('div[ability] input')) => {
+    input.value = ability;
+    saveToggle ? toggle() : void 0;
+}
+const updateBar = (id, ability) => {
+    document.getElementById(id).querySelector('div[bars] input').value = ability;
+    sendBars()
+    saveToggle ? toggle() : void 0;
+};
 
 // Action for remove button.
 const remove = (id, div = document.getElementById(id)) => {
     div.parentNode.removeChild(div);
+
+    sendBars();
 
     // Update save button.
     saveToggle ? toggle() : void 0;
@@ -171,7 +183,7 @@ class Keybind {
     // Initialize keybind listener.
     init() {
         this.input.addEventListener('focus', _ => {
-            this.input.classList.contains('error') ? this.input.classList.remove('error') : void 0;
+            this.input.parentNode.classList.contains('error') ? this.input.parentNode.classList.remove('error') : void 0;
             this.input.setAttribute('placeholder', 'Listening...');
         });
         this.input.addEventListener('blur', _ => this.input.setAttribute('placeholder', 'Keybind'));
@@ -217,6 +229,7 @@ class Keybind {
 // Dropdown input manager class.
 class Ability {
     constructor(div) {
+        this.div = div;
         this.id = div.id;
         this.input = div.querySelector('div[ability] input');
         this.dropdown = div.querySelector('div[dropdown]');
@@ -237,7 +250,7 @@ class Ability {
         // Show dropdown when input box is clicked.
         this.input.addEventListener('focus', _ => {
             this.dropdown.style.display = 'block';
-            this.input.classList.contains('error') ? this.input.classList.remove('error') : void 0;
+            this.input.parentNode.classList.contains('error') ? this.input.parentNode.classList.remove('error') : void 0;
         });
 
         // Hide dropdown when input box focus is lost.
@@ -258,27 +271,75 @@ class Ability {
         list.map(e => result.push(`<div onclick="update('${this.id}', '${e}')" title="${e}">${e}</div>`));
 
         // Return list.
-        return result.length ?  result.join('') : '<div>No results</div>';
+        return result.length ? result.join('') : '<div>No results</div>';
     }
 }
 
 
 class Bar {
+    constructor(div) {
+        this.id = div.id;
+        this.input = div.querySelector('div[bars] input');
+        this.dropdown = div.querySelector('div[barselect]');
+        this.dropdown.innerHTML = this.search();
+        this.init();
+    }
 
+    // Initialize dropdown listener.
+    init() {
+        // When input is received from the input box, check if it is a valid character and then filter the list.
+        this.input.addEventListener('input', e => {
+            !modifiers.includes(e.key) ? this.dropdown.innerHTML = this.search(this.input.value) : void 0;
+
+            sendBars()
+
+            // Update save button.
+            saveToggle ? toggle() : void 0;
+        });
+
+        // Show dropdown when input box is clicked.
+        this.input.addEventListener('focus', _ => {
+            this.dropdown.style.display = 'block';
+            this.input.parentNode.classList.contains('error') ? this.input.parentNode.classList.remove('error') : void 0;
+            this.dropdown.innerHTML = this.search();
+        });
+
+        // Hide dropdown when input box focus is lost.
+        this.input.addEventListener('blur', _ => setTimeout(_ => this.dropdown.style.display = 'none', 150));
+    }
+
+    // Filter the list.
+    search(query) {
+
+        // Remove all underscores from the list.
+        let list = bars.map(e => e.replace(/_/g, ' '));
+
+        // Filter the list.
+        list = query ? list.filter(e => e.toLowerCase().startsWith(query.toLowerCase())) : list;
+
+        // Convert string to HTML.
+        const result = [];
+        list.map(e => result.push(`<div onclick="updateBar('${this.id}', '${e}')" title="${e}">${e}</div>`));
+
+        // Return list.
+        return result.length ? result.join('') : '<div>No results</div>';
+    }
 }
 
 // Load saved keybinds from cache.
-keycache.map(a => a.key.length > 0 ? a.key.map(k => copy(a.ability.replace(/_/g, ' '), k)) : void 0);
+keycache.map(a => a.key.length > 0 ? a.key.map(k => copy(a.ability.replace(/_/g, ' '), k, a.bar)) : void 0);
 if (keycache.length) toggle();
 
 // Make a new keybind field.
-function copy(ability, key) {
+function copy(ability, key, bar) {
 
     // Declare varibales.
     const [id, btns] = [randomID(5, 5), document.querySelector('div[manage]')];
 
     // Update preset element string values.
-    const field = keybinds.replace(/ID/g, id).replace(/ABILITY/g, ability || '').replace(/KEYBIND/g, key || '');
+    let field = keybinds.replace(/ID/g, id).replace(/ABILITY/g, ability || '').replace(/KEYBIND/g, key || '');
+    for (let name of bars) if (name.toLowerCase() === (bar || 'Global').toLowerCase()) field = field.replace(/BARNAME/g, name)
+    if (field.includes('BARNAME')) field = field.replace(/BARNAME/g, 'Global');
 
     // Remove buttons.
     btns.parentNode.removeChild(btns);
@@ -289,6 +350,8 @@ function copy(ability, key) {
     // Setup dropdown and keybind actions for new element.
     new Ability(document.getElementById(id));
     new Keybind(document.getElementById(id).querySelector('input[key]'));
+    new Bar(document.getElementById(id));
+    sendBars();
 
     window.scrollTo(0, document.body.scrollHeight);
 }
@@ -301,14 +364,15 @@ function save() {
 
     // Fetch values from HTML.
     keys.forEach(e => {
-        const [ability, key] = [e.querySelector('div[ability] input').value.replace(/ /g, '_'), e.querySelector('input[key]').value];
-        if (!key || !ability || !abilities.includes(ability)) {
+        const [ability, key, bar] = [e.querySelector('div[ability] input').value.replace(/ /g, '_'), e.querySelector('input[key]').value, e.querySelector('div[bars] input').value];
+        if (!key || !ability || !bar || !abilities.includes(ability) || !bars.map(e => e.toLowerCase()).includes(bar.toLowerCase())) {
             failed = true;
-            if (!key) e.querySelector('input[key]').classList.add('error');
-            if (!ability || !abilities.includes(ability)) e.querySelector('div[ability] input').classList.add('error');
+            if (!key) e.querySelector('div[keybinds]').classList.add('error');
+            if (!ability || !abilities.includes(ability)) e.querySelector('div[ability]').classList.add('error');
+            if (!bar || !bars.map(e => e.toLowerCase()).includes(bar.toLowerCase())) e.querySelector('div[bars]').classList.add('error');
             return notify('Missing or improper keybinds.', true)
         }
-        binds.push({ ability, key });
+        binds.push({ ability, key, bar });
     });
     if (failed) return;
 
@@ -323,7 +387,7 @@ function save() {
 }
 
 // Notification triggers.
-function notify(msg, failed) {  
+function notify(msg, failed) {
     const id = randomID(5, 5);
     let [notification, parent] = [document.createElement('div'), document.querySelector('div[notify]')]
 
@@ -342,3 +406,21 @@ function notify(msg, failed) {
 
 // Remove notification.
 const removeNotif = id => document.getElementById(id)?.classList?.add('deleted');
+
+function sendBars() {
+    const [bars, data] = [document.querySelectorAll('div[bars] input'), []];
+    bars.forEach(bar => data.push(bar.value.toLowerCase()));
+    ipcRenderer.sendSync('passToBars', data);
+}
+
+ipcRenderer.on('passToKeys', (event, args) => bars = [...new Set(['Global', ...args.filter(e => e)])])
+ipcRenderer.on('updateKeys', (event, arg) => {
+    const bars = document.querySelectorAll('div[bars]')
+    bars.forEach(bar => {
+        if (arg === bar.querySelector('input').value.toLowerCase()) {
+            bar.parentNode.parentNode.removeChild(bar.parentNode)
+        }
+    })
+    // Set save button background.
+    !saveToggle ? toggle() : void 0;
+})
