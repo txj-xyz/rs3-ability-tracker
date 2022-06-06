@@ -84,6 +84,7 @@ p:after {
     margin-left: 2px;
 }
 
+/* Disabled divs. */
 div[disabled] {
     opacity: 0.5;
     user-select: none !important;
@@ -184,6 +185,7 @@ div[notify]>div.failed {
     }
 }
 
+/* Popup styles. */
 div[popup] {
     transition-duration: 0.4s;
     transform: scale(0.7);

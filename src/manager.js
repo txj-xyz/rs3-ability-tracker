@@ -19,6 +19,7 @@ const file = (path, data, failed = false) => {
         if (!failed) return data;
     }
 
+    // Default config data.
     const config = {
         alwaysOnTop: true,
         trackCooldowns: true,

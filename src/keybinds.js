@@ -24,6 +24,7 @@ module.exports = _ => {
         delete windows.keybinds;
     });
 
+    // Pass data from keybinds window to bars window.
     ipcMain.on('passToBars', (event, arg) => {
         windows.bars?.webContents.send('passToBars', arg);
         event.returnValue = null;
@@ -45,6 +46,7 @@ module.exports = _ => {
                 break;
             }
 
+            // Get the bars list.
             case 'bars': {
                 event.returnValue = config.referenceStorage.bars;
                 break;
@@ -59,6 +61,8 @@ module.exports = _ => {
                     else keybinds.push({ ability: k.ability, key: [k.key], bar: k.bar });
                 })
                 config.referenceStorage.keybinds = keybinds;
+
+                // Send new data to bars window.
                 windows.bars?.webContents.send('passToBars', config.referenceStorage.keybinds.map(e => e.bar));
 
                 // Save to cache.

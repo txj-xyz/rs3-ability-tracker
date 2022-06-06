@@ -109,7 +109,10 @@ class Dropdown {
 // Dropdown for bar selection.
 let bar = new Dropdown(document.querySelector('div[bars]'));
 
+// Incoming data event.
 ipcRenderer.on('passToKeys', (event, arg) => {
+
+    // Update dropdown.
     bars = [...new Set(['Global', ...arg.filter(e => e)])]
     bar.dropdown.innerHTML = bar.search();
 })

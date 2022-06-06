@@ -43,9 +43,16 @@ const refresh = param => {
 // Backend trigger to update number of icons.
 ipcRenderer.on('refresh', (event, param) => refresh(param));
 
+// When a keybind is pressed, add the icon to the list.
 ipcRenderer.on('trigger', (event, param) => {
+
+    // Push icon path.
     $ICONS.push(`../ability-icons/${param.ability}.png`);
+
+    // Filter list to match number of icons.
     if ($ICONS.length > $COUNT) while ($ICONS.length > $COUNT) $ICONS.shift();
     else if ($ICONS.length < $COUNT) while ($ICONS.length < $COUNT) $ICONS.unshift('');
+
+    // Update cells.
     $ICONS.forEach((icon, i) => document.getElementById(`icon-${$ICONS.length - i}`).innerHTML = `<img src="${icon}">`);
 })

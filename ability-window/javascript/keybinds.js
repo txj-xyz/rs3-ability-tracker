@@ -409,15 +409,19 @@ function notify(msg, failed) {
 // Remove notification.
 const removeNotif = id => document.getElementById(id)?.classList?.add('deleted');
 
+// Send keybinds to bars window.
 function sendBars() {
     const [bars, data] = [document.querySelectorAll('div[bars] input'), []];
     bars.forEach(bar => data.push(bar.value.toLowerCase()));
     ipcRenderer.sendSync('passToBars', data);
 }
 
+// Incoming data events.
 ipcRenderer.on('passToKeys', (event, args) => bars = [...new Set(['Global', ...args.filter(e => e)])])
 ipcRenderer.on('updateKeys', (event, arg) => {
     const bars = document.querySelectorAll('div[bars]')
+
+    // Remove keybind if it is linked to deleted bar.
     bars.forEach(bar => {
         if (arg === bar.querySelector('input').value.toLowerCase()) {
             bar.parentNode.parentNode.removeChild(bar.parentNode)
