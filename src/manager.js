@@ -25,7 +25,7 @@ const file = (path, data, failed = false) => {
         minimizeToTray: true,
         toggleSwitching: false,
         numberOfIcons: 10,
-        barsSelection: '',
+        barsSelection: 'Global',
         abilityWindow: {
             x: null,
             y: null,
