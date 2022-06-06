@@ -32,31 +32,35 @@
         <div toggle>
 
             <!-- Toggle track cooldowns. -->
-            <label title="Track Cooldowns?" switch="" cooldown>
+            <label cooldown>
                 <input type="checkbox" onclick="updateConfig('cooldown')">
-                <span slider=""></span>
-                Track Cooldowns?
+                <span></span>
+                Track Cooldowns
+                <div info title="Enabling the ability tracker to track cooldowns will help with preventing dupilcate icons. For example, if you spam a key that has a six second cooldown, the tracker will record each click disregarding the cooldown in-game.">?</div>
             </label>
 
             <!-- Toggle always on top. -->
-            <label title="Keep on Top?" switch="" ontop>
+            <label ontop>
                 <input type="checkbox" onclick="updateConfig('top')">
-                <span slider=""></span>
-                Keep on Top?
+                <span></span>
+                Keep on Top
+                <div info title="This toggle will keep the ability tracker on top of any application. Disabiling this toggle may cause the ability tracker to hide when any other application is in focus.">?</div>
             </label>
 
             <!-- Toggle minimize to tray. -->
-            <label title="Minimize the menu window on tracker start." switch="" tray>
+            <label tray>
                 <input type="checkbox" onclick="updateConfig('tray')">
-                <span slider=""></span>
-                Minimize on Start?
+                <span></span>
+                Minimize on Start
+                <div info title="This toggle will quickly hide the menu window (current window) when the ability window is started allowing you to get into the gaming faster!">?</div>
             </label>
 
             <!-- Toggle switching. -->
-            <label title="Allow bar to autoswitch" switch="" bars>
+            <label bars>
                 <input type="checkbox" onclick="updateConfig('bars')">
-                <span slider=""></span>
-                Toggle Switching?
+                <span></span>
+                Toggle Switching
+                <div info title="Enable this if you know what you are doing. This will allow the ability tracker to autoswitch the current bar based on keybinds pressed.">?</div>
             </label>
         </div>
 
