@@ -250,6 +250,7 @@ class Ability {
         // Show dropdown when input box is clicked.
         this.input.addEventListener('focus', _ => {
             this.dropdown.style.display = 'block';
+            this.input.select()
             this.input.parentNode.classList.contains('error') ? this.input.parentNode.classList.remove('error') : void 0;
         });
 
@@ -300,6 +301,7 @@ class Bar {
         // Show dropdown when input box is clicked.
         this.input.addEventListener('focus', _ => {
             this.dropdown.style.display = 'block';
+            this.input.select()
             this.input.parentNode.classList.contains('error') ? this.input.parentNode.classList.remove('error') : void 0;
             this.dropdown.innerHTML = this.search();
         });
@@ -327,11 +329,11 @@ class Bar {
 }
 
 // Load saved keybinds from cache.
-keycache.map(a => a.key.length > 0 ? a.key.map(k => copy(a.ability.replace(/_/g, ' '), k, a.bar)) : void 0);
+keycache.map(a => a.key.length > 0 ? a.key.map(k => copy(a.ability.replace(/_/g, ' '), k, a.bar, true)) : void 0);
 if (keycache.length) toggle();
 
 // Make a new keybind field.
-function copy(ability, key, bar) {
+function copy(ability, key, bar, initial) {
 
     // Declare varibales.
     const [id, btns] = [randomID(5, 5), document.querySelector('div[manage]')];
@@ -353,7 +355,7 @@ function copy(ability, key, bar) {
     new Bar(document.getElementById(id));
     sendBars();
 
-    window.scrollTo(0, document.body.scrollHeight);
+    if (!initial) window.scrollTo(0, document.body.scrollHeight);
 }
 
 // Save keybinds to file.

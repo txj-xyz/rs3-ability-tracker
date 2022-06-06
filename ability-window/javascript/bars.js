@@ -96,7 +96,10 @@ function copy(name, count, read) {
     if (name !== 'Global') {
         const input = document.getElementById(id).querySelector('input')
         input.addEventListener('change', _ => saveToggle ? toggle() : void 0);
-        input.addEventListener('focus', _ => input.parentNode.classList.contains('error') ? input.parentNode.classList.remove('error') : void 0);
+        input.addEventListener('focus', _ => {
+            this.input.select() 
+            input.parentNode.classList.contains('error') ? input.parentNode.classList.remove('error') : void 0
+        });
     }
 
     window.scrollTo(0, document.body.scrollHeight);
