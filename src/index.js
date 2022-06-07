@@ -1,6 +1,8 @@
 // Import dependencies.
 const { BrowserWindow, app } = require('electron');
-const manager = require('#manager');
+const { resolve } = require('path');
+
+const manager = require(resolve(__dirname, 'manager.js'));
 
 // Make globally usable variables.
 for (const property in manager) global[property] = manager[property];
