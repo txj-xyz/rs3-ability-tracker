@@ -3,3 +3,4 @@ package-lock.json
 **/keybinds.json
 **/config.json
 out/
+.vscode/
