@@ -3,6 +3,7 @@ const { existsSync, writeFileSync } = require('fs');
 const { uIOhook, UiohookKey } = require('uiohook-napi');
 const path = require('path');
 const { app } = require('electron');
+const activeWindows = require('electron-active-window');
 
 // File import logic.
 const file = (_path, data, failed = false) => {
@@ -82,28 +83,31 @@ module.exports = {
 
         // Add new listeners.
         uIOhook.on('keydown', trigger => {
+            activeWindows().getActiveWindow().then(activeWin => {
+                if(activeWin.windowClass === "rs2client.exe") {
+                    // For every keyset.
+                    for (const set of config.referenceStorage.keybinds) {
 
-            // For every keyset.
-            for (const set of config.referenceStorage.keybinds) {
+                        // For every keybind.
+                        for (const key of set.key) {
 
-                // For every keybind.
-                for (const key of set.key) {
+                            // Get modifier keys.
+                            const modifiers = key.split('+').map(e => e.trim());
 
-                    // Get modifier keys.
-                    const modifiers = key.split('+').map(e => e.trim());
+                            // Get letter.
+                            const letter = modifiers.pop();
+                            let failed = false;
 
-                    // Get letter.
-                    const letter = modifiers.pop();
-                    let failed = false;
-
-                    // Check if keybind is pressed.
-                    if ((modifiers.includes('Shift') && !trigger.shiftKey) || (!modifiers.includes('Shift') && trigger.shiftKey)) failed = true;
-                    if (((modifiers.includes('Control') || modifiers.includes('Ctrl')) && !trigger.ctrlKey) || ((!modifiers.includes('Control') && !modifiers.includes('Ctrl')) && trigger.ctrlKey)) failed = true;
-                    if (((modifiers.includes('Alt') || modifiers.includes('AltGr')) && !trigger.altKey) || ((!modifiers.includes('Alt') && !modifiers.includes('AltGr')) && trigger.altKey)) failed = true;
-                    if (((modifiers.includes('Command') || modifiers.includes('Super')) && !trigger.metaKey) || ((!modifiers.includes('Command') && !modifiers.includes('Super')) && trigger.metaKey)) failed = true;
-                    UiohookKey[letter] === trigger.keycode && !failed ? windows.ability?.webContents.send('trigger', set) : void 0;
+                            // Check if keybind is pressed.
+                            if ((modifiers.includes('Shift') && !trigger.shiftKey) || (!modifiers.includes('Shift') && trigger.shiftKey)) failed = true;
+                            if (((modifiers.includes('Control') || modifiers.includes('Ctrl')) && !trigger.ctrlKey) || ((!modifiers.includes('Control') && !modifiers.includes('Ctrl')) && trigger.ctrlKey)) failed = true;
+                            if (((modifiers.includes('Alt') || modifiers.includes('AltGr')) && !trigger.altKey) || ((!modifiers.includes('Alt') && !modifiers.includes('AltGr')) && trigger.altKey)) failed = true;
+                            if (((modifiers.includes('Command') || modifiers.includes('Super')) && !trigger.metaKey) || ((!modifiers.includes('Command') && !modifiers.includes('Super')) && trigger.metaKey)) failed = true;
+                            UiohookKey[letter] === trigger.keycode && !failed ? windows.ability?.webContents.send('trigger', set) : void 0;
+                        }
+                    }
                 }
-            }
+            });
         });
     },
 
