@@ -84,13 +84,12 @@ module.exports = {
         // Add new listeners.
         uIOhook.on('keydown', trigger => {
             activeWindows().getActiveWindow().then(activeWin => {
-                if(activeWin.windowClass === "rs2client.exe") {
+                if(activeWin.windowClass === "rs2client.exe" || process.argv[2] === "dev") {
                     // For every keyset.
                     for (const set of config.referenceStorage.keybinds) {
 
                         // For every keybind.
                         for (const key of set.key) {
-
                             // Get modifier keys.
                             const modifiers = key.split('+').map(e => e.trim());
 
