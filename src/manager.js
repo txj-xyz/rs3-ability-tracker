@@ -2,6 +2,7 @@
 const { existsSync, writeFileSync } = require('fs');
 const { uIOhook, UiohookKey } = require('uiohook-napi');
 const path = require('path');
+const { app } = require('electron');
 
 // File import logic.
 const file = (_path, data, failed = false) => {
@@ -56,7 +57,7 @@ module.exports = {
     abilities: require(path.resolve(__dirname, '../cfg/abilities.json')),
 
     // Config.
-    config: file(path.resolve(process.cwd(), 'config.json')),
+    config: file(path.resolve(app.getPath('userData'), 'config.json')),
 
     // Main window file.
     main: require(path.resolve(__dirname, './main.js')),
@@ -71,7 +72,7 @@ module.exports = {
     ability: require(path.resolve(__dirname, './ability.js')),
 
     // File writer.
-    update: _ => writeFileSync(path.resolve(process.cwd(), 'config.json'), JSON.stringify(config, null, 2)),
+    update: _ => writeFileSync(path.resolve(app.getPath('userData'), 'config.json'), JSON.stringify(config, null, 2)),
 
     // Keybinds listener code.
     triggers: _ => {
