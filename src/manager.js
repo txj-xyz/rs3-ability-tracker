@@ -134,10 +134,6 @@ module.exports = {
                 }
             });
         });
-
-        function getKeyByValue(object, value) {
-            return Object.values(obje).includes(keycode);
-        }
     },
 
     // Window properties + window storage.
