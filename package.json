@@ -1,21 +1,46 @@
 {
-  "name": "testing-rs-tracker-txj",
+  "name": "rs3-ability-tracker-txj",
   "version": "1.0.0",
-  "description": "",
+  "description": "ability tracker for rs3",
   "type": "commonjs",
   "main": "src/index.js",
-  "imports": {
-    "#manager": "./src/manager.js"
-  },
   "scripts": {
-    "start": "electron ."
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
-  "author": "",
+  "author": "TXJ + Kurasad",
   "license": "ISC",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
     "electron": "^16.0.7"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "uiohook-napi": "^1.2.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./src/icons/icon.png",
+        "asar": true
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "testing_rs_tracker_txj"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-dmg",
+          "config": {}
+        }
+      ]
+    }
   }
 }

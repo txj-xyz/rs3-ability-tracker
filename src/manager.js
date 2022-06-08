@@ -1,16 +1,18 @@
 // Check if given file exists.
 const { existsSync, writeFileSync } = require('fs');
 const { uIOhook, UiohookKey } = require('uiohook-napi');
+const path = require('path');
+const { app } = require('electron');
 
 // File import logic.
-const file = (path, data, failed = false) => {
+const file = (_path, data, failed = false) => {
 
     // Check if file exists.
-    if (existsSync(path.slice(1))) {
+    if (existsSync(_path)) {
 
         // Check if file data is corrupted.
         try {
-            data = require(path);
+            data = require(_path);
         } catch (e) {
             failed = true;
         }
@@ -40,7 +42,7 @@ const file = (path, data, failed = false) => {
     }
 
     // In any other case, load default data.
-    writeFileSync(path.slice(1), JSON.stringify(config));
+    writeFileSync(_path, JSON.stringify(config, null, 2));
     return config;
 }
 
@@ -49,28 +51,28 @@ uIOhook.start();
 
 module.exports = {
     // Page path creator.
-    pages: name => `./ability-window/html/${name}.html`,
+    pages: name => path.resolve(__dirname, `../ability-window/html/${name}.html`),
 
     // Ability list.
-    abilities: require('../cfg/abilities.json'),
+    abilities: require(path.resolve(__dirname, '../cfg/abilities.json')),
 
     // Config.
-    config: file('../cfg/config.json'),
+    config: file(path.resolve(app.getPath('userData'), 'config.json')),
 
     // Main window file.
-    main: require('./main.js'),
+    main: require(path.resolve(__dirname, './main.js')),
 
     // Keybinds window file.
-    keybinds: require('./keybinds.js'),
+    keybinds: require(path.resolve(__dirname, './keybinds.js')),
 
     // Bars window file.
-    bars: require('./bars.js'),
+    bars: require(path.resolve(__dirname, './bars.js')),
 
     // Ability window file.
-    ability: require('./ability.js'),
+    ability: require(path.resolve(__dirname, './ability.js')),
 
     // File writer.
-    update: _ => writeFileSync('./cfg/config.json', JSON.stringify(config)),
+    update: _ => writeFileSync(path.resolve(app.getPath('userData'), 'config.json'), JSON.stringify(config, null, 2)),
 
     // Keybinds listener code.
     triggers: _ => {
@@ -108,7 +110,7 @@ module.exports = {
     // Window properties + window storage.
     windows: {
         properties: {
-            icon: `${__dirname}/icons/icon.png`,
+            icon: path.join(__dirname, './icons/icon.png'),
             autoHideMenuBar: true,
             resizable: false,
             show: false,

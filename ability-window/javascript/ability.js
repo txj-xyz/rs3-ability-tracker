@@ -1,6 +1,7 @@
 // Import dependencies.
 const { ipcRenderer } = require('electron');
 const initialData = ipcRenderer.sendSync('updateConfig');
+const { resolve } = require('path');
 
 // Declare global count variable.
 let $COUNT = initialData.numberOfIcons;
@@ -47,7 +48,7 @@ ipcRenderer.on('refresh', (event, param) => refresh(param));
 ipcRenderer.on('trigger', (event, param) => {
 
     // Push icon path.
-    $ICONS.push(`../ability-icons/${param.ability}.png`);
+    $ICONS.push(resolve(__dirname, `../ability-icons/${param.ability}.png`));
 
     // Filter list to match number of icons.
     if ($ICONS.length > $COUNT) while ($ICONS.length > $COUNT) $ICONS.shift();
