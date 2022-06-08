@@ -90,7 +90,7 @@ module.exports = {
 
                         // For every keybind.
                         for (const key of set.key) {
-                            
+
                             // Get modifier keys.
                             const modifiers = key.split('+').map(e => e.trim());
                             // Get letter.
@@ -103,6 +103,13 @@ module.exports = {
                             if (((modifiers.includes('Alt') || modifiers.includes('AltGr')) && !trigger.altKey) || ((!modifiers.includes('Alt') && !modifiers.includes('AltGr')) && trigger.altKey)) failed = true;
                             if (((modifiers.includes('Command') || modifiers.includes('Super')) && !trigger.metaKey) || ((!modifiers.includes('Command') && !modifiers.includes('Super')) && trigger.metaKey)) failed = true;
                             UiohookKey[letter] === trigger.keycode && !failed ? windows.ability?.webContents.send('trigger', set) : void 0;
+                            // console.log({
+                            //     uiohookletter: UiohookKey[letter],
+                            //     keycode: trigger.keycode,
+                            //     matching: (UiohookKey[letter] === trigger.keycode),
+                            //     newFunc: getKeyByValue(UiohookKey, trigger.keycode),
+                            //     matchNewMaybeImNotStupid: UiohookKey[getKeyByValue(UiohookKey, trigger.keycode)]
+                            // })
                         }
                     }
                 }
