@@ -25,7 +25,7 @@ const file = (_path, data, failed = false) => {
     const config = {
         alwaysOnTop: true,
         trackCooldowns: true,
-        minimizeToTray: true,
+        minimizeToTray: false,
         toggleSwitching: false,
         numberOfIcons: 10,
         barsSelection: 'Global',
