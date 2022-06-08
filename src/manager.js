@@ -4,7 +4,33 @@ const { uIOhook, UiohookKey } = require('uiohook-napi');
 const path = require('path');
 const { app } = require('electron');
 const activeWindows = require('electron-active-window');
-
+const symbolKeycodeList = {
+    // Numpad0: 82,
+    // Numpad1: 79,
+    // Numpad2: 80,
+    // Numpad3: 81,
+    // Numpad4: 75,
+    // Numpad5: 76,
+    // Numpad6: 77,
+    // Numpad7: 71,
+    // Numpad8: 72,
+    // Numpad9: 73,
+    // NumpadMultiply: 55,
+    // NumpadAdd: 78,
+    // NumpadSubtract: 74,
+    // NumpadDecimal: 83,
+    // NumpadDivide: 3637,
+    ';': 39,
+    '=': 13,
+    ',': 51,
+    '-': 12,
+    '.': 52,
+    '/': 53,
+    '[': 26,
+    '\\': 43,
+    ']': 27,
+    '"': 40,
+}
 // File import logic.
 const file = (_path, data, failed = false) => {
 
@@ -102,14 +128,7 @@ module.exports = {
                             if (((modifiers.includes('Control') || modifiers.includes('Ctrl')) && !trigger.ctrlKey) || ((!modifiers.includes('Control') && !modifiers.includes('Ctrl')) && trigger.ctrlKey)) failed = true;
                             if (((modifiers.includes('Alt') || modifiers.includes('AltGr')) && !trigger.altKey) || ((!modifiers.includes('Alt') && !modifiers.includes('AltGr')) && trigger.altKey)) failed = true;
                             if (((modifiers.includes('Command') || modifiers.includes('Super')) && !trigger.metaKey) || ((!modifiers.includes('Command') && !modifiers.includes('Super')) && trigger.metaKey)) failed = true;
-                            UiohookKey[letter] === trigger.keycode && !failed ? windows.ability?.webContents.send('trigger', set) : void 0;
-                            // console.log({
-                            //     uiohookletter: UiohookKey[letter],
-                            //     keycode: trigger.keycode,
-                            //     matching: (UiohookKey[letter] === trigger.keycode),
-                            //     newFunc: getKeyByValue(UiohookKey, trigger.keycode),
-                            //     matchNewMaybeImNotStupid: UiohookKey[getKeyByValue(UiohookKey, trigger.keycode)]
-                            // })
+                            (UiohookKey[letter] === trigger.keycode || symbolKeycodeList[letter] === trigger.keycode) && !failed ? windows.ability?.webContents.send('trigger', set) : void 0;
                         }
                     }
                 }
@@ -117,7 +136,7 @@ module.exports = {
         });
 
         function getKeyByValue(object, value) {
-            return Object.keys(object).find(key => object[key] === value);
+            return Object.values(obje).includes(keycode);
         }
     },
 
