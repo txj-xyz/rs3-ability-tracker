@@ -90,9 +90,9 @@ module.exports = {
 
                         // For every keybind.
                         for (const key of set.key) {
+                            
                             // Get modifier keys.
                             const modifiers = key.split('+').map(e => e.trim());
-
                             // Get letter.
                             const letter = modifiers.pop();
                             let failed = false;
@@ -108,6 +108,10 @@ module.exports = {
                 }
             });
         });
+
+        function getKeyByValue(object, value) {
+            return Object.keys(object).find(key => object[key] === value);
+        }
     },
 
     // Window properties + window storage.
