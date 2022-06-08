@@ -54,7 +54,7 @@ module.exports = {
     pages: name => path.resolve(__dirname, `../ability-window/html/${name}.html`),
 
     // Ability list.
-    abilities: require(path.resolve(__dirname, '../cfg/abilities.json')),
+    abilities: require(path.resolve(__dirname, '../cfg/abilities.json')).abilities.map(e => e.name),
 
     // Config.
     config: file(path.resolve(app.getPath('userData'), 'config.json')),
