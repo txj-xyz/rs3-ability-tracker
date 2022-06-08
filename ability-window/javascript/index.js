@@ -95,7 +95,7 @@ class Dropdown {
         let list = bars;
 
         // Filter the list.
-        list = query ? list.filter(e => e.toLowerCase().startsWith(query.toLowerCase())) : list;
+        list = query ? list.filter(e => e.toLowerCase().includes(query.toLowerCase())) : list;
 
         // Convert string to HTML.
         const result = [];

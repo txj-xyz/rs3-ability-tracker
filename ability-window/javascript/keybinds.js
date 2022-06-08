@@ -265,7 +265,7 @@ class Ability {
         let list = abilities.map(e => e.replace(/_/g, ' '));
 
         // Filter the list.
-        list = query ? list.filter(e => e.toLowerCase().startsWith(query.toLowerCase())) : list;
+        list = query ? list.filter(e => e.toLowerCase().includes(query.toLowerCase())) : list;
 
         // Convert string to HTML.
         const result = [];
@@ -317,7 +317,7 @@ class Bar {
         let list = bars.map(e => e.replace(/_/g, ' '));
 
         // Filter the list.
-        list = query ? list.filter(e => e.toLowerCase().startsWith(query.toLowerCase())) : list;
+        list = query ? list.filter(e => e.toLowerCase().includes(query.toLowerCase())) : list;
 
         // Convert string to HTML.
         const result = [];
@@ -366,15 +366,15 @@ function save() {
 
     // Fetch values from HTML.
     keys.forEach(e => {
-        const [ability, key, bar] = [e.querySelector('div[ability] input').value.replace(/ /g, '_'), e.querySelector('input[key]').value, e.querySelector('div[bars] input').value];
-        if (!key || !ability || !bar || !abilities.includes(ability) || !bars.map(e => e.toLowerCase()).includes(bar.toLowerCase())) {
+        const [ability, key, bar] = [e.querySelector('div[ability] input').value, e.querySelector('input[key]').value, e.querySelector('div[bars] input').value];
+        if (!key || !ability || !bar || !abilities.map(e => e.toLowerCase()).includes(ability.toLowerCase()) || !bars.map(e => e.toLowerCase()).includes(bar.toLowerCase())) {
             failed = true;
             if (!key) e.querySelector('div[keybinds]').classList.add('error');
-            if (!ability || !abilities.includes(ability)) e.querySelector('div[ability]').classList.add('error');
+            if (!ability || !abilities.map(e => e.toLowerCase()).includes(ability.toLowerCase())) e.querySelector('div[ability]').classList.add('error');
             if (!bar || !bars.map(e => e.toLowerCase()).includes(bar.toLowerCase())) e.querySelector('div[bars]').classList.add('error');
             return notify('Missing or improper keybinds.', true)
         }
-        binds.push({ ability, key, bar });
+        binds.push({ ability: ability.replace(/ /g, '_'), key, bar });
     });
     if (failed) return;
 

@@ -1,7 +1,7 @@
 {
     "abilities":
     [
-        {"name":"Aggression","cooldown":90,"icon":null},
+        {"name":"Aggression","cooldown":24.6,"icon":null},
         {"name":"Anticipation","cooldown":24.6,"icon":null},
         {"name":"Asphyxiate","cooldown":20.4,"icon":null},
         {"name":"Assault","cooldown":30,"icon":null},
@@ -150,11 +150,12 @@
         {"name":"Blood Barrage","cooldown":0,"icon":null},
         {"name":"Ice Barrage","cooldown":0,"icon":null}
     ],
-    "weapons": [
+
+    "weapons":
+    [
         {"name":"MH Weapon","icon":null},
         {"name":"OH Weapon","icon":null},
         {"name":"2H Weapon","icon":null},
         {"name":"OH Shield","icon":null}
     ]
-
 }
