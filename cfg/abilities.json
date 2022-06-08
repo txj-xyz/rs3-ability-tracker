@@ -1,159 +1,873 @@
 {
-    "abilities":[
-        {"name":"Aggression","cooldown":24.6,"icon":null},
-        {"name":"Anticipation","cooldown":24.6,"icon":null},
-        {"name":"Asphyxiate","cooldown":20.4,"icon":null},
-        {"name":"Assault","cooldown":30,"icon":null},
-        {"name":"Backhand","cooldown":15,"icon":null},
-        {"name":"Balanced Strike","cooldown":120,"icon":null},
-        {"name":"Barge","cooldown":20.4,"icon":null},
-        {"name":"Barricade","cooldown":60,"icon":null},
-        {"name":"Bash","cooldown":15,"icon":null},
-        {"name":"Berserk","cooldown":60,"icon":null},
-        {"name":"Binding Shot","cooldown":15,"icon":null},
-        {"name":"Bladed Dive","cooldown":20.4,"icon":null},
-        {"name":"Blood Barrage","cooldown":0,"icon":null},
-        {"name":"Blood Blitz","cooldown":0,"icon":null},
-        {"name":"Blood Burst","cooldown":0,"icon":null},
-        {"name":"Blood Rush","cooldown":0,"icon":null},
-        {"name":"Blood Tendrils","cooldown":45,"icon":null},
-        {"name":"Bombardment","cooldown":30,"icon":null},
-        {"name":"Cease (ability)","cooldown":0,"icon":null},
-        {"name":"Chain","cooldown":10.2,"icon":null},
-        {"name":"Cleave","cooldown":7.2,"icon":null},
-        {"name":"Combust","cooldown":15,"icon":null},
-        {"name":"Concentrated Blast","cooldown":5.4,"icon":null},
-        {"name":"Corruption Blast","cooldown":15,"icon":null},
-        {"name":"Corruption Shot","cooldown":15,"icon":null},
-        {"name":"Dazing Shot","cooldown":5.4,"icon":null},
-        {"name":"Deadshot","cooldown":30,"icon":null},
-        {"name":"Deaths Swiftness","cooldown":60,"icon":null},
-        {"name":"Debilitate","cooldown":30,"icon":null},
-        {"name":"Decimate","cooldown":7.2,"icon":null},
-        {"name":"Deep Impact","cooldown":15,"icon":null},
-        {"name":"Demon Slayer (ability)","cooldown":60,"icon":null},
-        {"name":"Demoralise","cooldown":15,"icon":null},
-        {"name":"Destroy","cooldown":20.4,"icon":null},
-        {"name":"Detonate","cooldown":30,"icon":null},
-        {"name":"Devotion","cooldown":60,"icon":null},
-        {"name":"Dismember","cooldown":15,"icon":null},
-        {"name":"Divert","cooldown":30,"icon":null},
-        {"name":"Dragon Breath","cooldown":10.2,"icon":null},
-        {"name":"Dragon Slayer (ability)","cooldown":60,"icon":null},
-        {"name":"Eat Food","cooldown":0,"icon":null},
-        {"name":"Emerald Aurora","cooldown":0,"icon":null},
-        {"name":"Escape","cooldown":20.4,"icon":null},
-        {"name":"Essence of Finality","cooldown":0,"icon":null},
-        {"name":"Flurry","cooldown":20.4,"icon":null},
-        {"name":"Forceful Backhand","cooldown":15,"icon":null},
-        {"name":"Fragmentation Shot","cooldown":15,"icon":null},
-        {"name":"Freedom","cooldown":30,"icon":null},
-        {"name":"Frenzy","cooldown":60,"icon":null},
-        {"name":"Fury","cooldown":5.4,"icon":null},
-        {"name":"Golden Touch","cooldown":120,"icon":null},
-        {"name":"Greater Barge","cooldown":20.4,"icon":null},
-        {"name":"Greater Chain","cooldown":10.2,"icon":null},
-        {"name":"Greater Concentrated Blast","cooldown":5.4,"icon":null},
-        {"name":"Greater Dazing Shot","cooldown":5.4,"icon":null},
-        {"name":"Greater Flurry","cooldown":20.4,"icon":null},
-        {"name":"Greater Fury","cooldown":5.4,"icon":null},
-        {"name":"Greater Ricochet","cooldown":10.2,"icon":null},
-        {"name":"Guthixs Blessing","cooldown":300,"icon":null},
-        {"name":"Havoc","cooldown":10.2,"icon":null},
-        {"name":"Horror","cooldown":15,"icon":null},
-        {"name":"Hurricane","cooldown":20.4,"icon":null},
-        {"name":"Ice Asylum","cooldown":300,"icon":null},
-        {"name":"Ice Barrage","cooldown":0,"icon":null},
-        {"name":"Ice Blitz","cooldown":0,"icon":null},
-        {"name":"Ice Burst","cooldown":0,"icon":null},
-        {"name":"Ice Rush","cooldown":0,"icon":null},
-        {"name":"Immortality","cooldown":120,"icon":null},
-        {"name":"Impact","cooldown":15,"icon":null},
-        {"name":"Incendiary Shot","cooldown":60,"icon":null},
-        {"name":"Incite","cooldown":0,"icon":null},
-        {"name":"Ingenuity of the Humans","cooldown":90,"icon":null},
-        {"name":"Intercept","cooldown":0,"icon":null},
-        {"name":"Kick","cooldown":15,"icon":null},
-        {"name":"Kuradals Favour","cooldown":60,"icon":null},
-        {"name":"Limitless","cooldown":90,"icon":null},
-        {"name":"Magma Tempest","cooldown":15,"icon":null},
-        {"name":"Magma Tempest (Targeted)","cooldown":15,"icon":null},
-        {"name":"Massacre","cooldown":60,"icon":null},
-        {"name":"Metamorphosis","cooldown":60,"icon":null},
-        {"name":"Meteor Strike","cooldown":60,"icon":null},
-        {"name":"Natural Instinct","cooldown":120,"icon":null},
-        {"name":"Needle Strike","cooldown":5.4,"icon":null},
-        {"name":"Omnipower","cooldown":30,"icon":null},
-        {"name":"Onslaught","cooldown":120,"icon":null},
-        {"name":"Opal Aurora","cooldown":0,"icon":null},
-        {"name":"Overpower","cooldown":30,"icon":null},
-        {"name":"Piercing Shot","cooldown":3,"icon":null},
-        {"name":"Preparation","cooldown":20.4,"icon":null},
-        {"name":"Prism of Loyalty","cooldown":0,"icon":null},
-        {"name":"Prism of Restoration","cooldown":0,"icon":null},
-        {"name":"Prism of Salvation","cooldown":0,"icon":null},
-        {"name":"Provoke","cooldown":10.2,"icon":null},
-        {"name":"Pulverise","cooldown":60,"icon":null},
-        {"name":"Punish","cooldown":3,"icon":null},
-        {"name":"Quake","cooldown":20.4,"icon":null},
-        {"name":"Quiver ammo slot 1","cooldown":0,"icon":null},
-        {"name":"Quiver ammo slot 2","cooldown":0,"icon":null},
-        {"name":"Rapid Fire","cooldown":20.4,"icon":null},
-        {"name":"Reflect","cooldown":30,"icon":null},
-        {"name":"Regenerate (ability)","cooldown":0,"icon":null},
-        {"name":"Rejuvenate","cooldown":300,"icon":null},
-        {"name":"Reprisal","cooldown":60,"icon":null},
-        {"name":"Resonance","cooldown":30,"icon":null},
-        {"name":"Revenge","cooldown":45,"icon":null},
-        {"name":"Ricochet","cooldown":10.2,"icon":null},
-        {"name":"Rout","cooldown":15,"icon":null},
-        {"name":"Ruby Aurora","cooldown":0,"icon":null},
-        {"name":"Sacrifice","cooldown":30,"icon":null},
-        {"name":"Salt the Wound","cooldown":15,"icon":null},
-        {"name":"Sapphire Aurora","cooldown":0,"icon":null},
-        {"name":"Sever","cooldown":15,"icon":null},
-        {"name":"Shadow Barrage","cooldown":0,"icon":null},
-        {"name":"Shadow Blitz","cooldown":0,"icon":null},
-        {"name":"Shadow Burst","cooldown":0,"icon":null},
-        {"name":"Shadow Rush","cooldown":0,"icon":null},
-        {"name":"Shadow Tendrils","cooldown":45,"icon":null},
-        {"name":"Shatter","cooldown":120,"icon":null},
-        {"name":"Shield Dome","cooldown":0,"icon":null},
-        {"name":"Shock","cooldown":15,"icon":null},
-        {"name":"Siphon","cooldown":60,"icon":null},
-        {"name":"Slaughter","cooldown":30,"icon":null},
-        {"name":"Slayers Insight","cooldown":120,"icon":null},
-        {"name":"Slice","cooldown":3,"icon":null},
-        {"name":"Smash","cooldown":10,"icon":null},
-        {"name":"Smoke Barrage","cooldown":0,"icon":null},
-        {"name":"Smoke Blitz","cooldown":0,"icon":null},
-        {"name":"Smoke Burst","cooldown":0,"icon":null},
-        {"name":"Smoke Rush","cooldown":0,"icon":null},
-        {"name":"Smoke Tendrils","cooldown":45,"icon":null},
-        {"name":"Snap Shot","cooldown":20.4,"icon":null},
-        {"name":"Snipe","cooldown":10.2,"icon":null},
-        {"name":"Sonic Wave","cooldown":5.4,"icon":null},
-        {"name":"Stomp (ability)","cooldown":15,"icon":null},
-        {"name":"Storm Shards","cooldown":30,"icon":null},
-        {"name":"Sunshine","cooldown":60,"icon":null},
-        {"name":"Surge","cooldown":20.4,"icon":null},
-        {"name":"Tight Bindings","cooldown":15,"icon":null},
-        {"name":"Transfigure","cooldown":180,"icon":null},
-        {"name":"Tsunami","cooldown":60,"icon":null},
-        {"name":"Tuskas Wrath","cooldown":15,"icon":null},
-        {"name":"Undead Slayer (ability)","cooldown":60,"icon":null},
-        {"name":"Unload","cooldown":60,"icon":null},
-        {"name":"Unsullied","cooldown":60,"icon":null},
-        {"name":"Weapon Special attack","cooldown":0,"icon":null},
-        {"name":"Wild Magic","cooldown":20.4,"icon":null},
-        {"name":"Wrack","cooldown":3,"icon":null},
-        {"name":"Wrack and Ruin","cooldown":3,"icon":null}
-    ],
-    "weapons":
+    "abilities": 
     [
-        {"name":"MH Weapon","icon":null},
-        {"name":"OH Weapon","icon":null},
-        {"name":"2H Weapon","icon":null},
-        {"name":"OH Shield","icon":null}
+        {
+            "name": "Affliction",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Aggression",
+            "cooldown": 24.6,
+            "icon": null
+        },
+        {
+            "name": "Anguish",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Anticipation",
+            "cooldown": 24.6,
+            "icon": null
+        },
+        {
+            "name": "Asphyxiate",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Assault",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Backhand",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Balanced Strike",
+            "cooldown": 120,
+            "icon": null
+        },
+        {
+            "name": "Barge",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Barricade",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Bash",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Berserk",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Berserker",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Binding Shot",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Bladed Dive",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Blood Barrage",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Blood Blitz",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Blood Burst",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Blood Rush",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Blood Tendrils",
+            "cooldown": 45,
+            "icon": null
+        },
+        {
+            "name": "Bombardment",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Cease (ability)",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Chain",
+            "cooldown": 10.2,
+            "icon": null
+        },
+        {
+            "name": "Chronicle Attraction",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Cleave",
+            "cooldown": 7.2,
+            "icon": null
+        },
+        {
+            "name": "Combust",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Concentrated Blast",
+            "cooldown": 5.4,
+            "icon": null
+        },
+        {
+            "name": "Corruption Blast",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Corruption Shot",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Dark Form",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Dazing Shot",
+            "cooldown": 5.4,
+            "icon": null
+        },
+        {
+            "name": "Deadshot",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Deaths Swiftness",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Debilitate",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Decimate",
+            "cooldown": 7.2,
+            "icon": null
+        },
+        {
+            "name": "Deep Impact",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Deflect Magic",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Deflect Melee",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Deflect Missiles",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Deflect Summoning",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Demon Slayer (ability)",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Demoralise",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Desolation",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Destroy",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Detonate",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Devotion",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Dismember",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Divert",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Dragon Breath",
+            "cooldown": 10.2,
+            "icon": null
+        },
+        {
+            "name": "Dragon Slayer (ability)",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Eat Food",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Emerald Aurora",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Escape",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Essence of Finality",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Flurry",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Forceful Backhand",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Fortitude",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Fragmentation Shot",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Freedom",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Frenzy",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Fury",
+            "cooldown": 5.4,
+            "icon": null
+        },
+        {
+            "name": "Golden Touch",
+            "cooldown": 120,
+            "icon": null
+        },
+        {
+            "name": "Greater Barge",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Greater Chain",
+            "cooldown": 10.2,
+            "icon": null
+        },
+        {
+            "name": "Greater Concentrated Blast",
+            "cooldown": 5.4,
+            "icon": null
+        },
+        {
+            "name": "Greater Dazing Shot",
+            "cooldown": 5.4,
+            "icon": null
+        },
+        {
+            "name": "Greater Flurry",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Greater Fury",
+            "cooldown": 5.4,
+            "icon": null
+        },
+        {
+            "name": "Greater Ricochet",
+            "cooldown": 10.2,
+            "icon": null
+        },
+        {
+            "name": "Guthixs Blessing",
+            "cooldown": 300,
+            "icon": null
+        },
+        {
+            "name": "Havoc",
+            "cooldown": 10.2,
+            "icon": null
+        },
+        {
+            "name": "Horror",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Hurricane",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Ice Asylum",
+            "cooldown": 300,
+            "icon": null
+        },
+        {
+            "name": "Ice Barrage",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Ice Blitz",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Ice Burst",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Ice Rush",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Immortality",
+            "cooldown": 120,
+            "icon": null
+        },
+        {
+            "name": "Impact",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Incendiary Shot",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Incite",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Ingenuity of the Humans",
+            "cooldown": 90,
+            "icon": null
+        },
+        {
+            "name": "Intercept",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Kick",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Kuradals Favour",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Light Form",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Limitless",
+            "cooldown": 90,
+            "icon": null
+        },
+        {
+            "name": "Magma Tempest",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Magma Tempest (Targeted)",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Malevolence",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Massacre",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Metamorphosis",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Meteor Strike",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Natural Instinct",
+            "cooldown": 120,
+            "icon": null
+        },
+        {
+            "name": "Needle Strike",
+            "cooldown": 5.4,
+            "icon": null
+        },
+        {
+            "name": "Omnipower",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Onslaught",
+            "cooldown": 120,
+            "icon": null
+        },
+        {
+            "name": "Opal Aurora",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Overpower",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Piercing Shot",
+            "cooldown": 3,
+            "icon": null
+        },
+        {
+            "name": "Preparation",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Prism of Loyalty",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Prism of Restoration",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Prism of Salvation",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Protect Item",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Provoke",
+            "cooldown": 10.2,
+            "icon": null
+        },
+        {
+            "name": "Pulverise",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Punish",
+            "cooldown": 3,
+            "icon": null
+        },
+        {
+            "name": "Quake",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Quiver ammo slot 1",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Quiver ammo slot 2",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Rapid Fire",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Reflect",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Regenerate (ability)",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Rejuvenate",
+            "cooldown": 300,
+            "icon": null
+        },
+        {
+            "name": "Reprisal",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Resonance",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Revenge",
+            "cooldown": 45,
+            "icon": null
+        },
+        {
+            "name": "Ricochet",
+            "cooldown": 10.2,
+            "icon": null
+        },
+        {
+            "name": "Rout",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Ruby Aurora",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Sacrifice",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Salt the Wound",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Sap Defence",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Sapphire Aurora",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Sever",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Shadow Barrage",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Shadow Blitz",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Shadow Burst",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Shadow Rush",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Shadow Tendrils",
+            "cooldown": 45,
+            "icon": null
+        },
+        {
+            "name": "Shatter",
+            "cooldown": 120,
+            "icon": null
+        },
+        {
+            "name": "Shield Dome",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Shock",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Siphon",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Slaughter",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Slayers Insight",
+            "cooldown": 120,
+            "icon": null
+        },
+        {
+            "name": "Slice",
+            "cooldown": 3,
+            "icon": null
+        },
+        {
+            "name": "Smash",
+            "cooldown": 10,
+            "icon": null
+        },
+        {
+            "name": "Smoke Barrage",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Smoke Blitz",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Smoke Burst",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Smoke Rush",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Smoke Tendrils",
+            "cooldown": 45,
+            "icon": null
+        },
+        {
+            "name": "Snap Shot",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Snipe",
+            "cooldown": 10.2,
+            "icon": null
+        },
+        {
+            "name": "Sonic Wave",
+            "cooldown": 5.4,
+            "icon": null
+        },
+        {
+            "name": "Soul Link",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Soul Split",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Stomp (ability)",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Storm Shards",
+            "cooldown": 30,
+            "icon": null
+        },
+        {
+            "name": "Sunshine",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Superheat Form",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Surge",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Teamwork Protection",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Tight Bindings",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Torment",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Transfigure",
+            "cooldown": 180,
+            "icon": null
+        },
+        {
+            "name": "Tsunami",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Turmoil",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Tuskas Wrath",
+            "cooldown": 15,
+            "icon": null
+        },
+        {
+            "name": "Undead Slayer (ability)",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Unload",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Unsullied",
+            "cooldown": 60,
+            "icon": null
+        },
+        {
+            "name": "Weapon Special attack",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Wild Magic",
+            "cooldown": 20.4,
+            "icon": null
+        },
+        {
+            "name": "Wrack",
+            "cooldown": 3,
+            "icon": null
+        },
+        {
+            "name": "Wrack and Ruin",
+            "cooldown": 3,
+            "icon": null
+        },
+        {
+            "name": "Wrath",
+            "cooldown": 0,
+            "icon": null
+        }
+    ],
+    "weapons": [
+      {
+        "name": "MH Weapon",
+        "icon": null
+      },
+      {
+        "name": "OH Weapon",
+        "icon": null
+      },
+      {
+        "name": "2H Weapon",
+        "icon": null
+      },
+      {
+        "name": "OH Shield",
+        "icon": null
+      }
     ]
-}
+  }
