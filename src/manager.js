@@ -85,7 +85,7 @@ module.exports = {
     pages: name => path.resolve(__dirname, `../ability-window/html/${name}.html`),
 
     // Ability list.
-    abilities: require(path.resolve(__dirname, '../cfg/abilities.json')).abilities.map(e => e.name),
+    abilities: require(path.resolve(__dirname, '../cfg/abilities.json')).abilities.map(e => e.name.replace(/( |_)/g, ' ')),
 
     // Config.
     config: file(path.resolve((process.argv[2] === "dev" ? '' : app.getPath('userData')), 'config.json')),
