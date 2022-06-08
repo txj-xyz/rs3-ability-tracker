@@ -1,7 +1,7 @@
 {
-  "name": "rs3-ability-tracker-txj",
-  "version": "1.0.0",
-  "description": "ability tracker for rs3",
+  "name": "rs3-ability-tracker",
+  "version": "1.0.1",
+  "description": "Ability Tracker for RuneScape 3",
   "type": "commonjs",
   "main": "src/index.js",
   "scripts": {
@@ -35,7 +35,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "testing_rs_tracker_txj"
+            "name": "rs3-ability-tracker"
           }
         },
         {
