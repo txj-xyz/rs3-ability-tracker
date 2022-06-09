@@ -4,6 +4,8 @@ const { uIOhook, UiohookKey } = require('uiohook-napi');
 const path = require('path');
 const { app } = require('electron');
 const activeWindows = require('electron-active-window');
+const throttle = require('lodash.throttle');
+
 const symbolKeycodeList = {
     // Numpad0: 82,
     // Numpad1: 79,
@@ -73,6 +75,12 @@ const file = (_path, data, failed = false) => {
     return config;
 }
 
+const cooldownHandler = (abilities) => {
+    const cd = new Map();
+    abilities.map(e => cd.set(e.name.replace(/( |_)/g, '_'), e.cooldown > 0 ? e.cooldown * 600 - 100 : e.cooldown))
+    return cd;
+}
+
 // Start keybinds listener.
 uIOhook.start();
 
@@ -86,6 +94,9 @@ module.exports = {
 
     // Ability list.
     abilities: require(path.resolve(__dirname, '../cfg/abilities.json')).abilities.map(e => e.name.replace(/( |_)/g, ' ')),
+
+    // Load Cooldowns
+    cooldowns: cooldownHandler(require(path.resolve(__dirname, '../cfg/abilities.json')).abilities),
 
     // Config.
     config: file(path.resolve((process.argv[2] === "dev" ? '' : app.getPath('userData')), 'config.json')),
@@ -107,12 +118,11 @@ module.exports = {
 
     // Keybinds listener code.
     triggers: _ => {
-
         // Remove all listeners.
         uIOhook.removeAllListeners('keydown');
 
         // Add new listeners.
-        uIOhook.on('keydown', trigger => {
+        uIOhook.on('keydown', throttle(trigger => {
             activeWindows().getActiveWindow().then(activeWin => {
                 if(activeWin.windowClass === "rs2client.exe" || process.argv[2] === "dev") {
                     // For every keyset.
@@ -120,13 +130,11 @@ module.exports = {
 
                         // For every keybind.
                         for (const key of set.key) {
-
                             // Get modifier keys.
                             const modifiers = key.split('+').map(e => e.trim());
                             // Get letter.
                             const letter = modifiers.pop();
                             let failed = false;
-
                             // Check if keybind is pressed.
                             if ((modifiers.includes('Shift') && !trigger.shiftKey) || (!modifiers.includes('Shift') && trigger.shiftKey)) failed = true;
                             if (((modifiers.includes('Control') || modifiers.includes('Ctrl')) && !trigger.ctrlKey) || ((!modifiers.includes('Control') && !modifiers.includes('Ctrl')) && trigger.ctrlKey)) failed = true;
@@ -137,7 +145,7 @@ module.exports = {
                     }
                 }
             });
-        });
+        }, 600));
     },
 
     // Window properties + window storage.
