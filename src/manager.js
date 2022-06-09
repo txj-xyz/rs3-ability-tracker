@@ -146,7 +146,7 @@ module.exports = {
                     }
                 }
             });
-        }, config.trackCooldowns ? 600 : 0)); // this does not live update ;_;
+        }, config.trackCooldowns ? 600 : 0)); // this does not live update ;_; TODO: check to make sure 1 tick is okay, might need to change to half tick
     },
 
     // Window properties + window storage.
