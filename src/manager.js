@@ -123,7 +123,7 @@ module.exports = {
         uIOhook.removeAllListeners('keydown');
 
         // Add new listeners.
-        uIOhook.on('keydown', throttle(trigger => {
+        uIOhook.on('keydown', trigger => {
             activeWindows().getActiveWindow().then(activeWin => {
                 if(activeWin.windowClass === "rs2client.exe" || process.argv[2] === "dev") {
                     // For every keyset.
@@ -146,7 +146,7 @@ module.exports = {
                     }
                 }
             });
-        }, config.trackCooldowns ? 600 : 0)); // this does not live update ;_; TODO: check to make sure 1 tick is okay, might need to change to half tick
+        }); // this does not live update ;_; TODO: check to make sure 1 tick is okay, might need to change to half tick
     },
 
     // Window properties + window storage.
