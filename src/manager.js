@@ -77,6 +77,7 @@ const file = (_path, data, failed = false) => {
 
 const cooldownHandler = (abilities) => {
     const cd = new Map();
+    // take off 100ms off all cooldowns to allow them to finish up right before the ability is ready to hit in game
     abilities.map(e => cd.set(e.name.replace(/( |_)/g, '_'), e.cooldown > 0 ? e.cooldown * 600 - 100 : e.cooldown))
     return cd;
 }
