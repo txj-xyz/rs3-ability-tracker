@@ -146,7 +146,7 @@ module.exports = {
                     }
                 }
             });
-        }, 600));
+        }, config.trackCooldowns ? 600 : 0)); // this does not live update ;_;
     },
 
     // Window properties + window storage.
