@@ -2,6 +2,7 @@
 const { BrowserWindow, app } = require('electron');
 const { resolve } = require('path');
 const manager = require(resolve(__dirname, 'manager.js'));
+const { uIOhook } = require('uiohook-napi');
 
 // If the app is being started from `windows.squirrel` installer then stop and return
 if (require('electron-squirrel-startup')) {
@@ -21,6 +22,7 @@ app
 
     // App quit event.
     .on('window-all-closed', _ => {
+        uIOhook.stop()
         app.isQuiting = true
         app.quit()
     });
