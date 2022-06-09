@@ -58,7 +58,7 @@ module.exports = _ => {
                 param.binds.map(k => {
                     const ability = keybinds.find(e => e.ability === k.ability);
                     if (ability) ability.key.push(k.key);
-                    else keybinds.push({ ability: k.ability, key: [k.key], bar: k.bar });
+                    else keybinds.push({ ability: k.ability, cooldown: global.cooldowns.get(k.ability), key: [k.key], bar: k.bar });
                 })
                 config.referenceStorage.keybinds = keybinds;
 
