@@ -56,9 +56,9 @@ module.exports = _ => {
             case 'binds': {
                 const keybinds = [];
                 param.binds.map(k => {
-                    const ability = keybinds.find(e => e.ability === k.ability);
+                    const ability = keybinds.find( e => e.name === k.name );
                     if (ability) ability.key.push(k.key);
-                    else keybinds.push({ ability: k.ability, key: [k.key], bar: k.bar });
+                    else keybinds.push({ name: k.name, type: 'ability', key: [k.key], bar: k.bar });
                 })
                 config.referenceStorage.keybinds = keybinds;
 
@@ -68,8 +68,6 @@ module.exports = _ => {
                 // Save to cache.
                 update();
 
-                // Reinitialize the keybind listener.
-                triggers();
                 event.returnValue = null;
                 break;
             }

@@ -41,6 +41,9 @@ module.exports = async _ => {
         }
     });
 
+    // Reinitialize the keybind listener.
+    triggers();
+
     // Hide window buttons if on macOS.
     if (process.platform === 'darwin') windows.ability.setWindowButtonVisibility(false);
 
@@ -48,6 +51,7 @@ module.exports = async _ => {
     windows.ability.on('close', _ => {
         // Update main window contents.
         windows.main.webContents.send('closeAbility');
+        unregisterHooks();
         delete windows.ability;
     });
 

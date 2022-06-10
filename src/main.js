@@ -9,9 +9,6 @@ module.exports = _ => {
     // Load index file.
     windows.main.loadFile(pages('index'));
 
-    // Initialize the keybind listener.
-    triggers();
-
     // Load tray icon.
     windows.tray = new Tray(`${__dirname}/icons/icon.png`);
     windows.tray.setToolTip('Ability Tracker')
