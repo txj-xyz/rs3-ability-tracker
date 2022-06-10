@@ -1,14 +1,11 @@
 // Check if given file exists.
-const { existsSync, writeFileSync } = require('fs');
-const { uIOhook, UiohookKey } = require('uiohook-napi');
-const path = require('path');
-const { app } = require('electron');
-const activeWindows = require('electron-active-window');
+const { existsSync, writeFileSync } = require( 'fs' );
+const { uIOhook, UiohookKey } = require( 'uiohook-napi' );
+const path = require( 'path' );
+const { app } = require( 'electron' );
+const activeWindows = require( 'electron-active-window' );
 
-let gCD = {
-    previousSuccess: Date.now(),
-    keyArray: null
-};
+let cooldownTracking = new Map();
 
 const symbolKeycodeList = {
     // Numpad0: 82,
@@ -36,22 +33,22 @@ const symbolKeycodeList = {
     '\\': 43,
     ']': 27,
     '"': 40,
-}
+};
 // File import logic.
-const file = (_path, data, failed = false) => {
+const file = ( _path, data, failed = false ) => {
 
     // Check if file exists.
-    if (existsSync(_path)) {
+    if ( existsSync( _path ) ) {
 
         // Check if file data is corrupted.
         try {
-            data = require(_path);
-        } catch (e) {
+            data = require( _path );
+        } catch ( e ) {
             failed = true;
         }
 
         // If not corrupted, return data.
-        if (!failed) return data;
+        if ( !failed ) return data;
     }
 
     // Default config data.
@@ -72,12 +69,12 @@ const file = (_path, data, failed = false) => {
             keybinds: [],
             bars: []
         }
-    }
+    };
 
     // In any other case, load default data.
-    writeFileSync(_path, JSON.stringify(config, null, 2));
+    writeFileSync( _path, JSON.stringify( config, null, 2 ) );
     return config;
-}
+};
 
 // Start keybinds listener.
 uIOhook.start();
@@ -85,122 +82,133 @@ uIOhook.start();
 module.exports = {
 
     // Check for dev mode
-    devMode: process.argv[2] === "dev",
+    devMode: process.argv[ 2 ] === "dev",
 
     // Page path creator.
-    pages: name => path.resolve(__dirname, `../ability-window/html/${name}.html`),
+    pages: name => path.resolve( __dirname, `../ability-window/html/${ name }.html` ),
 
     // Ability list.
-    abilities: require(path.resolve(__dirname, '../cfg/abilities.json')).abilities,
+    abilities: require( path.resolve( __dirname, '../cfg/abilities.json' ) ).abilities,
 
     // Config.
-    config: file(path.resolve((process.argv[2] === "dev" ? '' : app.getPath('userData')), 'config.json')),
+    config: file( path.resolve( ( process.argv[ 2 ] === "dev" ? '' : app.getPath( 'userData' ) ), 'config.json' ) ),
 
     // Main window file.
-    main: require(path.resolve(__dirname, './main.js')),
+    main: require( path.resolve( __dirname, './main.js' ) ),
 
     // Keybinds window file.
-    keybinds: require(path.resolve(__dirname, './keybinds.js')),
+    keybinds: require( path.resolve( __dirname, './keybinds.js' ) ),
 
     // Bars window file.
-    bars: require(path.resolve(__dirname, './bars.js')),
+    bars: require( path.resolve( __dirname, './bars.js' ) ),
 
     // Ability window file.
-    ability: require(path.resolve(__dirname, './ability.js')),
+    ability: require( path.resolve( __dirname, './ability.js' ) ),
 
     // File writer.
-    update: _ => writeFileSync(path.resolve((process.argv[2] === "dev" ? '' : app.getPath('userData')), 'config.json'), JSON.stringify(config, null, 2)),
+    update: _ => writeFileSync( path.resolve( ( process.argv[ 2 ] === "dev" ? '' : app.getPath( 'userData' ) ), 'config.json' ), JSON.stringify( config, null, 2 ) ),
+
+    unregisterHooks: _ => {
+        uIOhook.removeAllListeners( 'keydown' );
+        uIOhook.removeAllListeners( 'keyup' );
+    },
 
     // Keybinds listener code.
     triggers: _ => {
         // check to make sure a key is not held down
         const keyCheck = [];
-        // Remove all listeners.
-        uIOhook.removeAllListeners('keydown');
 
-        function getKeyName(name, val) {
-            return (val ? name : "");
+        function getKeyName ( name, val ) {
+            return ( val ? name : "" );
         }
 
-        function hashEvent(ev) {
-            return getKeyName("a", ev.altKey) +
-            getKeyName("c", ev.ctrlKey) +
-            getKeyName("m", ev.metaKey) +
-            getKeyName("s", ev.shiftKey) +
-            ev.keycode;
+        function hashEvent ( ev ) {
+            return getKeyName( "a", ev.altKey ) +
+                getKeyName( "c", ev.ctrlKey ) +
+                getKeyName( "m", ev.metaKey ) +
+                getKeyName( "s", ev.shiftKey ) +
+                ev.keycode;
         }
 
-        function handleKeyPress(trigger) {
-            if(!windows.ability) return;
-            console.log('vefore', gCD)
-            // hi please help me <3 i love you <3
-            if(gCD.keyArray && (Date.now() - gCD.previousSuccess) < (abilities[gCD.keyArray.ability]?.cooldown || 1) * 600) return;
+        function handleKeyPress ( trigger ) {
+            // if ability window is not open do not listen to keys
 
-            activeWindows().getActiveWindow().then(activeWin => {
-                if(activeWin.windowClass === "rs2client.exe" || process.argv[2] === "dev") {
+            activeWindows().getActiveWindow().then( activeWin => {
+                if ( activeWin.windowClass === "rs2client.exe" || process.argv[ 2 ] === "dev" ) {
                     // For every keyset.
-                    for (const set of config.referenceStorage.keybinds) {
-                        // For every keybind.
-                        for (const key of set.key) {
-                            // Get modifier keys.
-                            const modifiers = key.split('+').map(e => e.trim());
-                            // Get letter.
-                            const letter = modifiers.pop();
-                            let failed = false;
-                            // Check if keybind is pressed.
+                    for ( const set of config.referenceStorage.keybinds ) {
+                        
+                        let cooldownRef = cooldownTracking.get( set.name );
 
-                            const modifierKeyMap = {
-                                "Shift": "shiftKey",
-                                "Control": "ctrlKey",
-                                "Ctrl": "ctrlKey",
-                                "Alt": "altKey",
-                                "AltGr": "altKey",
-                                "Command": "metaKey",
-                                "Super": "metaKey",
-                                "Windows": "metaKey",
-                                "Win": "metaKey",
-                            };
+                        // if key is pressed inside of the cooldown window then do nothing, if the cooldown is 0 then wait 600 ms
+                        if ( !cooldownRef || ( Date.now() - cooldownRef.time ) > cooldownRef.cooldown ) {
 
-                            for (const key of Object.keys(modifierKeyMap)) {
-                                if (modifiers.includes(key) && !trigger[modifierKeyMap[key]]) failed = true;
-                                if (!modifiers.includes(key) && trigger[modifierKeyMap[key]]) failed = true;
+                            // For every keybind.
+                            for ( const key of set.key ) {
+
+                                // Get modifier keys.
+                                const modifiers = key.split( '+' ).map( e => e.trim() );
+                                // Get letter.
+                                const letter = modifiers.pop();
+                                let failed = false;
+
+                                const modifierKeyMap = {
+                                    "Shift": "shiftKey",
+                                    "Control": "ctrlKey",
+                                    "Ctrl": "ctrlKey",
+                                    "Alt": "altKey",
+                                    "AltGr": "altKey",
+                                    "Command": "metaKey",
+                                    "Super": "metaKey",
+                                    "Windows": "metaKey",
+                                    "Win": "metaKey",
+                                };
+
+                                for ( const key of Object.keys( modifierKeyMap ) ) {
+                                    if ( modifiers.includes( key ) && !trigger[ modifierKeyMap[ key ] ] ) failed = true;
+                                    if ( !modifiers.includes( key ) && trigger[ modifierKeyMap[ key ] ] ) failed = true;
+                                }
+
+                                if ( ( UiohookKey[ letter ] === trigger.keycode || symbolKeycodeList[ letter ] === trigger.keycode ) && !failed ) {
+                                    windows.ability?.webContents.send( 'trigger', set );
+
+                                    // set timestamp for successfull keybind press
+                                    cooldownTracking.set( set.name, {
+                                        ...set,
+                                        time: config.trackCooldowns ? Date.now() : 0,
+                                        cooldown: ( abilities?.filter( ability => ability.name === set.name.replace( /( |_)/g, ' ' ) )[ 0 ]?.cooldown ?? 1 ) * 600
+                                    } );
+                                }
                             }
-                            
-                            if((UiohookKey[letter] === trigger.keycode || symbolKeycodeList[letter] === trigger.keycode) && !failed){
-                                windows.ability?.webContents.send('trigger', set);
-                                // set timestamp for successfull keybind press
-                                gCD.previousSuccess = config.trackCooldowns ? Date.now() : 0;
-                                gCD.keyArray = set;
-                                console.log(gCD)
-                            }
-
                         }
                     }
                 }
-            });
+            } );
         }
 
-        uIOhook.on('keydown', event => {
-            const hash = hashEvent(event);
-            if (!keyCheck[event.keycode]) {
-                keyCheck[event.keycode] = new Map();
+        // Listen to keydown.
+        uIOhook.on( 'keydown', event => {
+            const hash = hashEvent( event );
+            if ( !keyCheck[ event.keycode ] ) {
+                keyCheck[ event.keycode ] = new Map();
             }
-            if (!keyCheck[event.keycode].get(hash)) {
-                handleKeyPress(event);
+            if ( !keyCheck[ event.keycode ].get( hash ) ) {
+                handleKeyPress( event );
             }
-            keyCheck[event.keycode].set(hash, true);
-        });
+            keyCheck[ event.keycode ].set( hash, true );
+        } );
 
-        uIOhook.on('keyup', event => {
-            if (!keyCheck[event.keycode]) return;
-            keyCheck[event.keycode].clear();
-        });
+        // Listen to keyup.
+        uIOhook.on( 'keyup', event => {
+            if ( !keyCheck[ event.keycode ] ) return;
+            keyCheck[ event.keycode ].clear();
+        } );
     },
 
     // Window properties + window storage.
     windows: {
         properties: {
-            icon: path.join(__dirname, './icons/icon.png'),
+            icon: path.join( __dirname, './icons/icon.png' ),
             autoHideMenuBar: true,
             resizable: false,
             show: false,
