@@ -4,7 +4,6 @@ const { uIOhook, UiohookKey } = require('uiohook-napi');
 const path = require('path');
 const { app } = require('electron');
 const activeWindows = require('electron-active-window');
-const throttle = require('lodash.throttle');
 
 const symbolKeycodeList = {
     // Numpad0: 82,
@@ -119,11 +118,25 @@ module.exports = {
 
     // Keybinds listener code.
     triggers: _ => {
+        // check to make sure a key is not held down
+        const keyCheck = [];
+
         // Remove all listeners.
         uIOhook.removeAllListeners('keydown');
 
-        // Add new listeners.
-        uIOhook.on('keydown', trigger => {
+        function getKeyName(name, val) {
+            return (val ? name : "");
+        }
+
+        function hashEvent(ev) {
+            return getKeyName("a", ev.altKey) +
+            getKeyName("c", ev.ctrlKey) +
+            getKeyName("m", ev.metaKey) +
+            getKeyName("s", ev.shiftKey) +
+            ev.keycode;
+        }
+
+        function handleKeyPress(trigger) {
             activeWindows().getActiveWindow().then(activeWin => {
                 if(activeWin.windowClass === "rs2client.exe" || process.argv[2] === "dev") {
                     // For every keyset.
@@ -137,16 +150,46 @@ module.exports = {
                             const letter = modifiers.pop();
                             let failed = false;
                             // Check if keybind is pressed.
-                            if ((modifiers.includes('Shift') && !trigger.shiftKey) || (!modifiers.includes('Shift') && trigger.shiftKey)) failed = true;
-                            if (((modifiers.includes('Control') || modifiers.includes('Ctrl')) && !trigger.ctrlKey) || ((!modifiers.includes('Control') && !modifiers.includes('Ctrl')) && trigger.ctrlKey)) failed = true;
-                            if (((modifiers.includes('Alt') || modifiers.includes('AltGr')) && !trigger.altKey) || ((!modifiers.includes('Alt') && !modifiers.includes('AltGr')) && trigger.altKey)) failed = true;
-                            if (((modifiers.includes('Command') || modifiers.includes('Super')) && !trigger.metaKey) || ((!modifiers.includes('Command') && !modifiers.includes('Super')) && trigger.metaKey)) failed = true;
+
+                            const modifierKeyMap = {
+                                "Shift": "shiftKey",
+                                "Control": "ctrlKey",
+                                "Ctrl": "ctrlKey",
+                                "Alt": "altKey",
+                                "AltGr": "altKey",
+                                "Command": "metaKey",
+                                "Super": "metaKey",
+                                "Windows": "metaKey",
+                                "Win": "metaKey",
+                            };
+
+                            for (const key of Object.keys(modifierKeyMap)) {
+                                if (modifiers.includes(key) && !trigger[modifierKeyMap[key]]) failed = true;
+                                if (!modifiers.includes(key) && trigger[modifierKeyMap[key]]) failed = true;
+                            }
+
                             (UiohookKey[letter] === trigger.keycode || symbolKeycodeList[letter] === trigger.keycode) && !failed ? windows.ability?.webContents.send('trigger', set) : void 0;
                         }
                     }
                 }
             });
-        }); // this does not live update ;_; TODO: check to make sure 1 tick is okay, might need to change to half tick
+        }
+
+        uIOhook.on('keydown', event => {
+            const hash = hashEvent(event);
+            if (!keyCheck[event.keycode]) {
+                keyCheck[event.keycode] = new Map();
+            }
+            if (!keyCheck[event.keycode].get(hash)) {
+                handleKeyPress(event);
+            }
+            keyCheck[event.keycode].set(hash, true);
+        });
+
+        uIOhook.on('keyup', event => {
+            if (!keyCheck[event.keycode]) return;
+            keyCheck[event.keycode].clear();
+        });
     },
 
     // Window properties + window storage.
