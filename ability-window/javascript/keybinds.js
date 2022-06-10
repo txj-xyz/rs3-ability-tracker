@@ -329,7 +329,7 @@ class Bar {
 }
 
 // Load saved keybinds from cache.
-keycache.map(a => a.key.length > 0 ? a.key.map(k => copy(a.ability.replace(/_/g, ' '), k, a.bar, true)) : void 0);
+keycache.map(a => a.key.length > 0 ? a.key.map(k => copy(a.name.replace(/_/g, ' '), k, a.bar, true)) : void 0);
 if (keycache.length) toggle();
 
 // Make a new keybind field.
@@ -374,7 +374,7 @@ function save() {
             if (!bar || !bars.map(e => e.toLowerCase()).includes(bar.toLowerCase())) e.querySelector('div[bars]').classList.add('error');
             return notify('Missing or improper keybinds.', true)
         }
-        binds.push({ ability: ability.replace(/ /g, '_'), key, bar });
+        binds.push({ name: ability.replace(/ /g, '_'), key, bar });
     });
     if (failed) return;
 
