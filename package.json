@@ -5,6 +5,7 @@
   "type": "commonjs",
   "main": "src/index.js",
   "scripts": {
+    "test": "node test.js",
     "startdev": "electron-forge start -- dev",
     "start": "electron-forge start",
     "package": "electron-forge package",
