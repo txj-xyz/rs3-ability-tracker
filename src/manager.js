@@ -5,6 +5,11 @@ const path = require('path');
 const { app } = require('electron');
 const activeWindows = require('electron-active-window');
 
+let gCD = {
+    previousSuccess: Date.now(),
+    keyArray: null
+};
+
 const symbolKeycodeList = {
     // Numpad0: 82,
     // Numpad1: 79,
@@ -74,13 +79,6 @@ const file = (_path, data, failed = false) => {
     return config;
 }
 
-const cooldownHandler = (abilities) => {
-    const cd = new Map();
-    // take off 100ms off all cooldowns to allow them to finish up right before the ability is ready to hit in game
-    abilities.map(e => cd.set(e.name.replace(/( |_)/g, '_'), e.cooldown > 0 ? e.cooldown * 600 - 100 : e.cooldown))
-    return cd;
-}
-
 // Start keybinds listener.
 uIOhook.start();
 
@@ -93,10 +91,7 @@ module.exports = {
     pages: name => path.resolve(__dirname, `../ability-window/html/${name}.html`),
 
     // Ability list.
-    abilities: require(path.resolve(__dirname, '../cfg/abilities.json')).abilities.map(e => e.name.replace(/( |_)/g, ' ')),
-
-    // Load Cooldowns
-    cooldowns: cooldownHandler(require(path.resolve(__dirname, '../cfg/abilities.json')).abilities),
+    abilities: require(path.resolve(__dirname, '../cfg/abilities.json')).abilities,
 
     // Config.
     config: file(path.resolve((process.argv[2] === "dev" ? '' : app.getPath('userData')), 'config.json')),
@@ -120,7 +115,6 @@ module.exports = {
     triggers: _ => {
         // check to make sure a key is not held down
         const keyCheck = [];
-
         // Remove all listeners.
         uIOhook.removeAllListeners('keydown');
 
@@ -137,11 +131,15 @@ module.exports = {
         }
 
         function handleKeyPress(trigger) {
+            if(!windows.ability) return;
+            console.log('vefore', gCD)
+            // hi please help me <3 i love you <3
+            if(gCD.keyArray && (Date.now() - gCD.previousSuccess) < (abilities[gCD.keyArray.ability]?.cooldown || 1) * 600) return;
+
             activeWindows().getActiveWindow().then(activeWin => {
                 if(activeWin.windowClass === "rs2client.exe" || process.argv[2] === "dev") {
                     // For every keyset.
                     for (const set of config.referenceStorage.keybinds) {
-
                         // For every keybind.
                         for (const key of set.key) {
                             // Get modifier keys.
@@ -167,8 +165,15 @@ module.exports = {
                                 if (modifiers.includes(key) && !trigger[modifierKeyMap[key]]) failed = true;
                                 if (!modifiers.includes(key) && trigger[modifierKeyMap[key]]) failed = true;
                             }
+                            
+                            if((UiohookKey[letter] === trigger.keycode || symbolKeycodeList[letter] === trigger.keycode) && !failed){
+                                windows.ability?.webContents.send('trigger', set);
+                                // set timestamp for successfull keybind press
+                                gCD.previousSuccess = config.trackCooldowns ? Date.now() : 0;
+                                gCD.keyArray = set;
+                                console.log(gCD)
+                            }
 
-                            (UiohookKey[letter] === trigger.keycode || symbolKeycodeList[letter] === trigger.keycode) && !failed ? windows.ability?.webContents.send('trigger', set) : void 0;
                         }
                     }
                 }
