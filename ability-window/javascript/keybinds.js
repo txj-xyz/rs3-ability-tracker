@@ -199,7 +199,7 @@ class Keybind {
             if (keycodes[e.code || e.key] === 'Backspace') this.key ? this.key = null : this.modify.pop();
 
             // Check if modifier is pressed.
-            else if (modifiers.includes(keycodes[e.code || e.key]) && this.modify.length < 2 && !this.modify.includes(keycodes[e.code || e.key])) this.modify.push(keycodes[e.code || e.key]);
+            else if (modifiers.includes(keycodes[e.code || e.key]) && this.modify.length < 1 && !this.modify.includes(keycodes[e.code || e.key])) this.modify.push(keycodes[e.code || e.key]);
 
             // Check if key is pressed.
             else if (!this.modify.includes(keycodes[e.code || e.key])) this.key = keycodes[e.code || e.key];
