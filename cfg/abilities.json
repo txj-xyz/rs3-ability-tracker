@@ -850,6 +850,41 @@
             "name": "Wrath",
             "cooldown": 0,
             "icon": null
+        },
+        {
+            "name": "Spellbook Swap",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Disruption Shield",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Target Cycle Forward",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Target Cycle Backwards",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Vengeance",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Vulnerability Bomb",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Sticky Bomb",
+            "cooldown": 0,
+            "icon": null
         }
     ],
     "weapons": [
