@@ -69,6 +69,7 @@ module.exports = _ => {
             // Update 'trackCooldowns' value.
             case 'cooldown': {
                 config.trackCooldowns = !config.trackCooldowns;
+                if (!config.trackCooldowns) unregisterCooldowns();
                 break;
             }
 
