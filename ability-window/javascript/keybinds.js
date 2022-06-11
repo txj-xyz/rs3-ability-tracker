@@ -228,7 +228,8 @@ class Keybind {
 
 // Dropdown input manager class.
 class Ability {
-    constructor(div) {
+    constructor(div, fromConfig) {
+        this.fromConfig = fromConfig || false;
         this.div = div;
         this.id = div.id;
         this.input = div.querySelector('div[ability] input');
@@ -239,8 +240,10 @@ class Ability {
 
     // Initialize dropdown listener.
     init() {
+        if (!this.fromConfig) this.input.focus()
         // When input is received from the input box, check if it is a valid character and then filter the list.
-        this.input.addEventListener('input', e => {
+        this.input.addEventListener( 'input', e => {
+            if ( !this.fromConfig ) this.dropdown.style.display = 'block';
             !modifiers.includes(e.key) ? this.dropdown.innerHTML = this.search(this.input.value) : void 0;
 
             // Update save button.
@@ -262,7 +265,7 @@ class Ability {
     search(query) {
 
         // Remove all underscores from the list.
-        let list = abilities.map(e => e.replace(/_/g, ' '));
+        let list = abilities.map(e => e.replace(/_/g, ' ')).sort();
 
         // Filter the list.
         list = query ? list.filter(e => e.toLowerCase().includes(query.toLowerCase())) : list;
@@ -350,7 +353,7 @@ function copy(ability, key, bar, initial) {
     document.querySelector('div[keys]').insertAdjacentHTML('beforeend', field + buttons);
 
     // Setup dropdown and keybind actions for new element.
-    new Ability(document.getElementById(id));
+    new Ability( document.getElementById( id ), initial);
     new Keybind(document.getElementById(id).querySelector('input[key]'));
     new Bar(document.getElementById(id));
     sendBars();
