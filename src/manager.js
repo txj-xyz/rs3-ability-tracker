@@ -4,9 +4,10 @@ const { uIOhook, UiohookKey } = require( 'uiohook-napi' );
 const path = require( 'path' );
 const { app } = require( 'electron' );
 const activeWindows = require( 'electron-active-window' );
-
 let cooldownTracking = new Map();
-
+const rsOptions = {
+    tickTime: 600
+};
 const symbolKeycodeList = {
     // Numpad0: 82,
     // Numpad1: 79,
@@ -113,6 +114,8 @@ module.exports = {
         uIOhook.removeAllListeners( 'keyup' );
     },
 
+    unregisterCooldowns: _ => cooldownTracking.clear(),
+
     // Keybinds listener code.
     triggers: _ => {
         // check to make sure a key is not held down
@@ -137,7 +140,7 @@ module.exports = {
                 if ( activeWin.windowClass === "rs2client.exe" || process.argv[ 2 ] === "dev" ) {
                     // For every keyset.
                     for ( const set of config.referenceStorage.keybinds ) {
-                        
+
                         let cooldownRef = cooldownTracking.get( set.name );
 
                         // if key is pressed inside of the cooldown window then do nothing, if the cooldown is 0 then wait 600 ms
@@ -176,11 +179,11 @@ module.exports = {
                                     cooldownTracking.set( set.name, {
                                         ...set,
                                         time: config.trackCooldowns ? Date.now() : 0,
-                                        cooldown: ( abilities?.filter( ability => ability.name === set.name.replace( /( |_)/g, ' ' ) )[ 0 ]?.cooldown ?? 1 ) * 600
+                                        cooldown: ( abilities?.filter( ability => ability.name === set.name.replace( /( |_)/g, ' ' ) )[ 0 ]?.cooldown ?? 1 ) * rsOptions.tickTime
                                     } );
                                 }
                             }
-                        }
+                        } 
                     }
                 }
             } );
