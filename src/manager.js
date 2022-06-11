@@ -136,7 +136,7 @@ module.exports = {
 
         function handleKeyPress ( trigger ) {
             // if ability window is not open do not listen to keys
-
+            console.log(trigger)
             activeWindows().getActiveWindow().then( activeWin => {
                 if ( activeWin.windowClass === "rs2client.exe" || process.argv[ 2 ] === "dev" ) {
                     // For every keyset.
@@ -161,7 +161,6 @@ module.exports = {
                                     "Control": "ctrlKey",
                                     "Ctrl": "ctrlKey",
                                     "Alt": "altKey",
-                                    "AltGr": "altKey",
                                     "Command": "metaKey",
                                     "Super": "metaKey",
                                     "Windows": "metaKey",
@@ -172,7 +171,6 @@ module.exports = {
                                     if ( modifiers.includes( key ) && !trigger[ modifierKeyMap[ key ] ] ) failed = true;
                                     if ( !modifiers.includes( key ) && trigger[ modifierKeyMap[ key ] ] ) failed = true;
                                 }
-
                                 if ( ( UiohookKey[ letter ] === trigger.keycode || symbolKeycodeList[ letter ] === trigger.keycode ) && !failed ) {
                                     windows.ability?.webContents.send( 'trigger', set );
 
