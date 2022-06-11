@@ -29,5 +29,6 @@ img {
 
 /* Make the HTML mount transparent. */
 body {
-    background: transparent;
+    background: url(../assets/bg.png) no-repeat;
+    background-size: cover;
 }
