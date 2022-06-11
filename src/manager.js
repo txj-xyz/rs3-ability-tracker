@@ -6,6 +6,7 @@ const { app } = require( 'electron' );
 const activeWindows = require( 'electron-active-window' );
 let cooldownTracking = new Map();
 const rsOptions = {
+    gcdBuffer: 1500,
     tickTime: 600
 };
 const symbolKeycodeList = {
@@ -179,7 +180,7 @@ module.exports = {
                                     cooldownTracking.set( set.name, {
                                         ...set,
                                         time: config.trackCooldowns ? Date.now() : 0,
-                                        cooldown: ( abilities?.filter( ability => ability.name === set.name.replace( /( |_)/g, ' ' ) )[ 0 ]?.cooldown ?? 1 ) * rsOptions.tickTime
+                                        cooldown: ( abilities?.filter( ability => ability.name === set.name.replace( /( |_)/g, ' ' ) )[ 0 ]?.cooldown ?? 1 ) * rsOptions.tickTime - rsOptions.gcdBuffer
                                     } );
                                 }
                             }
