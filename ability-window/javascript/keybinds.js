@@ -317,7 +317,7 @@ class Bar {
     search(query) {
 
         // Remove all underscores from the list.
-        let list = bars.map(e => e.replace(/_/g, ' '));
+        let list = bars.map( e => e.replace( /_/g, ' ' ) ).sort();
 
         // Filter the list.
         list = query ? list.filter(e => e.toLowerCase().includes(query.toLowerCase())) : list;
