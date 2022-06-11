@@ -136,7 +136,6 @@ module.exports = {
 
         function handleKeyPress ( trigger ) {
             // if ability window is not open do not listen to keys
-            console.log(trigger)
             activeWindows().getActiveWindow().then( activeWin => {
                 if ( activeWin.windowClass === "rs2client.exe" || process.argv[ 2 ] === "dev" ) {
                     // For every keyset.
@@ -158,13 +157,13 @@ module.exports = {
 
                                 const modifierKeyMap = {
                                     "Shift": "shiftKey",
-                                    "Control": "ctrlKey",
+                                    // "Control": "ctrlKey",
                                     "Ctrl": "ctrlKey",
                                     "Alt": "altKey",
-                                    "Command": "metaKey",
-                                    "Super": "metaKey",
-                                    "Windows": "metaKey",
-                                    "Win": "metaKey",
+                                    // "Command": "metaKey",
+                                    // "Super": "metaKey",
+                                    // "Windows": "metaKey",
+                                    // "Win": "metaKey",
                                 };
 
                                 for ( const key of Object.keys( modifierKeyMap ) ) {
