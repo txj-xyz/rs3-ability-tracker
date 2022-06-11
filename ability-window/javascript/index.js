@@ -92,7 +92,7 @@ class Dropdown {
     search(query) {
 
         // NOTE: TEMP LIST.... REMOVE WHEN DONE.
-        let list = bars;
+        let list = bars.sort();
 
         // Filter the list.
         list = query ? list.filter(e => e.toLowerCase().includes(query.toLowerCase())) : list;
