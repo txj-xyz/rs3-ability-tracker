@@ -885,6 +885,56 @@
             "name": "Sticky Bomb",
             "cooldown": 0,
             "icon": null
+        },
+        {
+            "name": "MH Weapon",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "OH Weapon",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "2H Weapon",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "OH Shield",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Caroming Perk",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Lunging Perk",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Shield Slot",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Planted Feet",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Spiritual Prayer",
+            "cooldown": 0,
+            "icon": null
+        },
+        {
+            "name": "Familiar Special Attack",
+            "cooldown": 0,
+            "icon": null
         }
     ],
     "weapons": [
