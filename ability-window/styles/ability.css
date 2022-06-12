@@ -2,9 +2,8 @@
 main {
     pointer-events: none;
     overflow: hidden;
-    margin: 5px;
     display: flex;
-    height: calc(100vh - 10px);
+    height: 100vh;
     -webkit-app-region: drag;
 }
 
@@ -18,14 +17,15 @@ main>div {
 }
 
 main>div:last-child {
-    box-shadow: 0 0 5px white inset;
+    /* box-shadow: 0 0 5px white inset; */
+    /* border: 3px solid white; */
 }
 
-img {
+/* img {
     height: 80%;
     max-height: 80%;
     max-width: 80%;
-}
+} */
 
 /* Make the HTML mount transparent. */
 body {
