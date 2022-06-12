@@ -2,14 +2,18 @@
 const { ipcRenderer } = require('electron');
 const initialData = ipcRenderer.sendSync('updateConfig');
 const { resolve } = require('path');
+const divlock = document.querySelector('div[lock]');
 
 // Declare global count variable.
 let $COUNT = initialData.numberOfIcons;
 const $ICONS = [];
 
+divlock.innerHTML = initialData.lockTrackerWindow ? '🔒' : '🔓';
+
 // Initial load of cells.
 const main = document.querySelector('main');
 for (let i = $COUNT; i > 0; i--) main.innerHTML += `<div style="width:calc(100% / ${$COUNT})" id="icon-${i}"><div></div></div>`;
+
 
 // Update cells instead of reloading content.
 const refresh = param => {

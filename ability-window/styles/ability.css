@@ -21,14 +21,27 @@ main>div:last-child {
     border: 3px solid white;
 }
 
-/* img {
+img {
     height: 80%;
     max-height: 80%;
     max-width: 80%;
-} */
+}
 
-/* Make the HTML mount transparent. */
-body {
-    background: url(../assets/bg.png) no-repeat;
-    background-size: cover;
+div[lock] {
+    transition-duration: 0.4s;
+    margin-top: -30px;
+    font-size: 20px;
+    opacity: 0.7;
+    position: fixed;
+    padding: 3px 7px;
+    user-select: none;
+}
+
+body:hover div[lock] {
+    margin-top: 0;
+}
+
+body:hover div[lock]:active {
+    opacity: 1;
+    filter: brightness(1.2);
 }

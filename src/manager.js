@@ -34,6 +34,7 @@ const file = (_path, data, failed = false) => {
         trackCooldowns: true,
         minimizeToTray: false,
         toggleSwitching: false,
+        lockTrackerWindow: false,
         numberOfIcons: 10,
         barsSelection: 'Global',
         abilityWindow: {
