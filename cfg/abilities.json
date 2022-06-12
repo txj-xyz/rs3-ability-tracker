@@ -1309,7 +1309,27 @@
             "icon": null,
             "type": null,
             "group": null
+        },
+        {
+            "name": "Smoke Cloud",
+            "cooldown": 0,
+            "icon": null,
+            "type": null,
+            "group": null
+        },
+        {
+            "name": "Pernix Quiver",
+            "cooldown": 0,
+            "icon": null,
+            "type": null,
+            "group": null
+        },
+        {
+            "name": "Seren Godbow",
+            "cooldown": 0,
+            "icon": null,
+            "type": null,
+            "group": null
         }
-
     ]
   }
