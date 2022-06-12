@@ -15,6 +15,9 @@
 </p>
 
 ## Building
+
+- You can build the prject by reading the `package.json` file to get an idea of what needs to be done.
+
 This project is not anywhere near done in functionality at the time of you reading this, the README will be updated accordingly however you're welcome to go through and read the code.
 
 Releases will be auto-built and posted under the [Releases Page](https://github.com/txj-xyz/rs3-ability-tracker/releases) using GitHub Workflows.
