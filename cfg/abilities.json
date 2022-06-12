@@ -902,11 +902,6 @@
             "icon": null
         },
         {
-            "name": "OH Shield",
-            "cooldown": 0,
-            "icon": null
-        },
-        {
             "name": "Caroming Perk",
             "cooldown": 0,
             "icon": null
@@ -935,7 +930,13 @@
             "name": "Familiar Special Attack",
             "cooldown": 0,
             "icon": null
+        },
+        {
+            "name": "Flanking Perk",
+            "cooldown": 0,
+            "icon": null
         }
+
     ],
     "weapons": [
       {
