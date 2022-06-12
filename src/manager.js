@@ -7,8 +7,9 @@ const activeWindows = require( 'electron-active-window' );
 let cooldownTracking = new Map();
 const rsOptions = {
     gcdBuffer: 1000,
-    tickTime: 600
-};
+    tickTime: 600,
+    offGCDAbils: ['Surge', 'Escape', 'Bladed Dive', 'Provoke']
+}
 const symbolKeycodeList = {
     // Numpad0: 82,
     // Numpad1: 79,
@@ -175,14 +176,18 @@ module.exports = {
                                     if ( !modifiers.includes( key ) && trigger[ modifierKeyMap[ key ] ] ) failed = true;
                                 }
                                 if ( ( UiohookKey[ letter ] === trigger.keycode || symbolKeycodeList[ letter ] === trigger.keycode ) && !failed ) {
-                                    windows.ability?.webContents.send( 'trigger', set );
-
-                                    // set timestamp for successfull keybind press
-                                    cooldownTracking.set( set.name, {
-                                        ...set,
-                                        time: config.trackCooldowns ? Date.now() : 0,
-                                        cooldown: ( abilities?.filter( ability => ability.name === set.name.replace( /( |_)/g, ' ' ) )[ 0 ]?.cooldown ?? 1 ) * rsOptions.tickTime - rsOptions.gcdBuffer
-                                    } );
+                                    // if(rsOptions.offGCDAbils.includes(set.name)){
+                                    // setTimeout(() => {
+                                        windows.ability?.webContents.send( 'trigger', set );
+                                        // set timestamp for successfull keybind press
+                                        
+                                        cooldownTracking.set( set.name, {
+                                            ...set,
+                                            time: config.trackCooldowns ? Date.now() : 0,
+                                            cooldown: ( abilities?.filter( ability => ability.name === set.name.replace( /( |_)/g, ' ' ) )[ 0 ]?.cooldown ?? 1 ) * rsOptions.tickTime - rsOptions.gcdBuffer
+                                        } );
+                                    // }, rsOptions.tickTime);
+                                    
                                 }
                             }
                         } 
