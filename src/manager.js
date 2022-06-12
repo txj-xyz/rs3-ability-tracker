@@ -132,13 +132,9 @@ module.exports = {
 
                                     const modifierKeyMap = {
                                         Shift: 'shiftKey',
-                                        // "Control": "ctrlKey",
                                         Ctrl: 'ctrlKey',
                                         Alt: 'altKey',
-                                        // "Command": "metaKey",
-                                        // "Super": "metaKey",
-                                        // "Windows": "metaKey",
-                                        // "Win": "metaKey",
+                                        Super: 'metaKey',
                                     };
 
                                     for (const key of Object.keys(modifierKeyMap)) {
