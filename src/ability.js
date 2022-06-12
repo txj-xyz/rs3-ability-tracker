@@ -52,6 +52,7 @@ module.exports = async _ => {
         // Update main window contents.
         windows.main.webContents.send('closeAbility');
         unregisterHooks();
+        unregisterCooldowns();
         delete windows.ability;
     });
 
