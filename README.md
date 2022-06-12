@@ -33,6 +33,8 @@ We use [Electron Forge](https://www.electronforge.io/) for building into Install
 
 
 ## Screenshots
+<p align="center">
+<img src="https://l.txj-dev.xyz/8LQhC"></img>
+<img src="https://l.txj-dev.xyz/UTBAk"></img>
+</p>
 
-![](https://l.txj-dev.xyz/8LQhC)
-![](https://l.txj-dev.xyz/UTBAk)
