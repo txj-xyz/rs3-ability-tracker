@@ -4,20 +4,19 @@ const { uIOhook, UiohookKey } = require('uiohook-napi');
 const path = require('path');
 const { app } = require('electron');
 const activeWindows = require('electron-active-window');
-let activeBar = null;
 let cooldownTracking = new Map();
+let activeBar = null;
+
 const rsOptions = {
     gcdBuffer: 1000,
     tickTime: 600,
-    offGCDAbils: ['Surge', 'Escape', 'Bladed Dive', 'Provoke']
-}
+    offGCDAbils: ['Surge', 'Escape', 'Bladed Dive', 'Provoke'],
+};
 
 // File import logic.
 const file = (_path, data, failed = false) => {
-
     // Check if file exists.
     if (existsSync(_path)) {
-
         // Check if file data is corrupted.
         try {
             data = require(_path);
@@ -41,12 +40,12 @@ const file = (_path, data, failed = false) => {
             x: null,
             y: null,
             width: 810,
-            height: 90
+            height: 90,
         },
         referenceStorage: {
             keybinds: [],
-            bars: []
-        }
+            bars: [],
+        },
     };
 
     // In any other case, load default data.
@@ -58,9 +57,8 @@ const file = (_path, data, failed = false) => {
 uIOhook.start();
 
 module.exports = {
-
     // Check for dev mode
-    devMode: process.argv[2] === "dev",
+    devMode: process.argv[2] === 'dev',
 
     // Page path creator.
     pages: name => path.resolve(__dirname, `../ability-window/html/${name}.html`),
@@ -72,7 +70,7 @@ module.exports = {
     weapons: require(path.resolve(__dirname, '../cfg/abilities.json')).weapons,
 
     // Config.
-    config: file(path.resolve((process.argv[2] === "dev" ? '' : app.getPath('userData')), 'config.json')),
+    config: file(path.resolve(process.argv[2] === 'dev' ? '' : app.getPath('userData'), 'config.json')),
 
     // Main window file.
     main: require(path.resolve(__dirname, './main.js')),
@@ -90,7 +88,7 @@ module.exports = {
     ability: require(path.resolve(__dirname, './ability.js')),
 
     // File writer.
-    update: _ => writeFileSync(path.resolve((process.argv[2] === "dev" ? '' : app.getPath('userData')), 'config.json'), JSON.stringify(config, null, 2)),
+    update: _ => writeFileSync(path.resolve(process.argv[2] === 'dev' ? '' : app.getPath('userData'), 'config.json'), JSON.stringify(config, null, 2)),
 
     unregisterHooks: _ => {
         uIOhook.removeAllListeners('keydown');
@@ -99,79 +97,77 @@ module.exports = {
 
     unregisterCooldowns: _ => cooldownTracking.clear(),
 
-
     // Keybinds listener code.
     triggers: _ => {
         // check to make sure a key is not held down
         const keyCheck = [];
 
         function getKeyName(name, val) {
-            return (val ? name : "");
+            return val ? name : '';
         }
 
         function hashEvent(ev) {
-            return getKeyName("a", ev.altKey) +
-                getKeyName("c", ev.ctrlKey) +
-                getKeyName("m", ev.metaKey) +
-                getKeyName("s", ev.shiftKey) +
-                ev.keycode;
+            return getKeyName('a', ev.altKey) + getKeyName('c', ev.ctrlKey) + getKeyName('m', ev.metaKey) + getKeyName('s', ev.shiftKey) + ev.keycode;
         }
 
         function handleKeyPress(trigger) {
             // if ability window is not open do not listen to keys
-            activeWindows().getActiveWindow().then(activeWin => {
-                if (activeWin.windowClass === "rs2client.exe" || activeWin.windowName === 'rs2client' || process.argv[2] === "dev") {
-                    // For every keyset.
-                    for (const set of config.referenceStorage.keybinds) {
+            activeWindows()
+                .getActiveWindow()
+                .then(activeWin => {
+                    if (activeWin.windowClass === 'rs2client.exe' || activeWin.windowName === 'rs2client' || process.argv[2] === 'dev') {
+                        // For every keyset.
+                        for (const set of config.referenceStorage.keybinds) {
+                            let cooldownRef = cooldownTracking.get(set.name);
 
-                        let cooldownRef = cooldownTracking.get(set.name);
+                            // if key is pressed inside of the cooldown window then do nothing, if the cooldown is 0 then wait 600 ms
+                            if (!cooldownRef || Date.now() - cooldownRef.time > cooldownRef.cooldown) {
+                                // For every keybind.
+                                for (const key of set.key) {
+                                    // Get modifier keys.
+                                    const modifiers = key.split('+').map(e => e.trim());
+                                    // Get letter.
+                                    const letter = modifiers.pop();
+                                    let failed = false;
 
-                        // if key is pressed inside of the cooldown window then do nothing, if the cooldown is 0 then wait 600 ms
-                        if (!cooldownRef || (Date.now() - cooldownRef.time) > cooldownRef.cooldown) {
+                                    const modifierKeyMap = {
+                                        Shift: 'shiftKey',
+                                        // "Control": "ctrlKey",
+                                        Ctrl: 'ctrlKey',
+                                        Alt: 'altKey',
+                                        // "Command": "metaKey",
+                                        // "Super": "metaKey",
+                                        // "Windows": "metaKey",
+                                        // "Win": "metaKey",
+                                    };
 
-                            // For every keybind.
-                            for (const key of set.key) {
+                                    for (const key of Object.keys(modifierKeyMap)) {
+                                        if (modifiers.includes(key) && !trigger[modifierKeyMap[key]]) failed = true;
+                                        if (!modifiers.includes(key) && trigger[modifierKeyMap[key]]) failed = true;
+                                    }
+                                    if ((UiohookKey[letter] === trigger.keycode || keycodes[letter] === trigger.keycode) && !failed) {
+                                        // if(rsOptions.offGCDAbils.includes(set.name)){
+                                        // setTimeout(() => {
 
-                                // Get modifier keys.
-                                const modifiers = key.split('+').map(e => e.trim());
-                                // Get letter.
-                                const letter = modifiers.pop();
-                                let failed = false;
+                                        // set timestamp for successfull keybind press
+                                        if (config.toggleSwitching && set.type === 'Weapon' && set.bar.toLowerCase() !== activeBar?.toLowerCase()) activeBar = set.bar;
 
-                                const modifierKeyMap = {
-                                    "Shift": "shiftKey",
-                                    // "Control": "ctrlKey",
-                                    "Ctrl": "ctrlKey",
-                                    "Alt": "altKey",
-                                    // "Command": "metaKey",
-                                    // "Super": "metaKey",
-                                    // "Windows": "metaKey",
-                                    // "Win": "metaKey",
-                                };
+                                        // if (set.group === 'Prayer') ...
 
-                                for (const key of Object.keys(modifierKeyMap)) {
-                                    if (modifiers.includes(key) && !trigger[modifierKeyMap[key]]) failed = true;
-                                    if (!modifiers.includes(key) && trigger[modifierKeyMap[key]]) failed = true;
-                                }
-                                if ((UiohookKey[letter] === trigger.keycode || keycodes[letter] === trigger.keycode) && !failed) {
-                                    // if(rsOptions.offGCDAbils.includes(set.name)){
-                                    // setTimeout(() => {
-                                    windows.ability?.webContents.send('trigger', set);
-                                    // set timestamp for successfull keybind press
+                                        if (set.bar.toLowerCase() === (config.toggleSwitching ? activeBar : config.barsSelection)?.toLowerCase()) windows.ability?.webContents.send('trigger', set);
 
-                                    cooldownTracking.set(set.name, {
-                                        ...set,
-                                        time: config.trackCooldowns ? Date.now() : 0,
-                                        cooldown: (abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.cooldown ?? 1) * rsOptions.tickTime - rsOptions.gcdBuffer
-                                    });
-                                    // }, rsOptions.tickTime);
-
+                                        cooldownTracking.set(set.name, {
+                                            ...set,
+                                            time: config.trackCooldowns ? Date.now() : 0,
+                                            cooldown: (abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.cooldown ?? 1) * rsOptions.tickTime - rsOptions.gcdBuffer,
+                                        });
+                                        // }, rsOptions.tickTime);
+                                    }
                                 }
                             }
                         }
                     }
-                }
-            });
+                });
         }
 
         // Listen to keydown.
@@ -202,8 +198,8 @@ module.exports = {
             show: false,
             webPreferences: {
                 nodeIntegration: true,
-                contextIsolation: false
-            }
-        }
-    }
+                contextIsolation: false,
+            },
+        },
+    },
 };

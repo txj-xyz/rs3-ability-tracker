@@ -2,7 +2,6 @@
 const { BrowserWindow, ipcMain } = require('electron');
 
 module.exports = _ => {
-
     // If the keybinds window already exists, show it instead of creating a new one.
     if (windows.keybinds) {
         windows.keybinds.show();
@@ -28,12 +27,11 @@ module.exports = _ => {
     ipcMain.on('passToBars', (event, arg) => {
         windows.bars?.webContents.send('passToBars', arg);
         event.returnValue = null;
-    })
+    });
 
     // Backend to frontend communication.
     ipcMain.on('keybinds', (event, param) => {
         switch (param.query) {
-
             // Get the keybinds.
             case 'keycache': {
                 event.returnValue = config.referenceStorage.keybinds;
@@ -52,18 +50,26 @@ module.exports = _ => {
                 break;
             }
 
+            case 'keycodes': {
+                event.returnValue = keycodes;
+                break;
+            }
+
             // Set/Update the keybinds.
             case 'binds': {
                 const keybinds = [];
                 param.binds.map(k => {
-                    const ability = keybinds.find( e => e.name === k.name );
+                    const ability = keybinds.find(e => e.name === k.name);
                     if (ability) ability.key.push(k.key);
-                    else keybinds.push({ name: k.name, type: 'ability', key: [k.key], bar: k.bar });
-                })
+                    else keybinds.push({ name: k.name, type: 'Weapon', key: [k.key], bar: k.bar });
+                });
                 config.referenceStorage.keybinds = keybinds;
 
                 // Send new data to bars window.
-                windows.bars?.webContents.send('passToBars', config.referenceStorage.keybinds.map(e => e.bar));
+                windows.bars?.webContents.send(
+                    'passToBars',
+                    config.referenceStorage.keybinds.map(e => e.bar)
+                );
 
                 // Save to cache.
                 update();
@@ -72,5 +78,5 @@ module.exports = _ => {
                 break;
             }
         }
-    })
-}
+    });
+};

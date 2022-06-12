@@ -35,6 +35,7 @@ div[toggle] {
 
 /* Bars dropdown styles. */
 div[bars] {
+    padding-left: 10px;
     margin-left: 40px;
     margin-right: 40px;
     font-size: 15px;

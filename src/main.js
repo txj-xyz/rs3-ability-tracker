@@ -95,7 +95,7 @@ module.exports = _ => {
             default: {
 
                 // Update 'barsSelection' value.
-                if (Array.isArray(param)) config.barsSelection = param[0];
+                if (typeof param === 'string') config.barsSelection = param.slice(5);
 
 
                 // Update 'numberOfIcons' value.

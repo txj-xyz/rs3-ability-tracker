@@ -5,7 +5,7 @@ const { ipcRenderer } = require('electron');
 ipcRenderer.request = query => ipcRenderer.sendSync('keybinds', query);
 
 // Request data from backend.
-let [keycache, abilities, bars] = ['keycache', 'abilities', 'bars'].map(query => ipcRenderer.request({ query }));
+let [keycache, abilities, bars, keycodes] = ['keycache', 'abilities', 'bars', 'keycodes'].map(query => ipcRenderer.request({ query }));
 
 bars.unshift('Global');
 
@@ -200,7 +200,7 @@ class Bar {
     search(query) {
 
         // Remove all underscores from the list.
-        let list = bars.map( e => e.replace( /_/g, ' ' ) ).sort();
+        let list = bars.map( e => e.replace( /( |_)/g, ' ' ) ).sort();
 
         // Filter the list.
         list = query ? list.filter(e => e.toLowerCase().includes(query.toLowerCase())) : list;
@@ -215,7 +215,7 @@ class Bar {
 }
 
 // Load saved keybinds from cache.
-keycache.map(a => a.key.length > 0 ? a.key.map(k => copy(a.name.replace(/_/g, ' '), k, a.bar, true)) : void 0);
+keycache.map(a => a.key.length > 0 ? a.key.map(k => copy(a.name.replace(/( |_)/g, ' '), k, a.bar, true)) : void 0);
 if (keycache.length) toggle();
 
 // Make a new keybind field.
@@ -260,7 +260,7 @@ function save() {
             if (!bar || !bars.map(e => e.toLowerCase()).includes(bar.toLowerCase())) e.querySelector('div[bars]').classList.add('error');
             return notify('Missing or improper keybinds.', true)
         }
-        binds.push({ name: ability.replace(/ /g, '_'), key, bar });
+        binds.push({ name: ability.replace(/( |_)/g, '_'), key, bar });
     });
     if (failed) return;
 

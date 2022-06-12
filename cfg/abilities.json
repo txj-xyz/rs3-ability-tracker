@@ -5,14 +5,14 @@
             "name": "Affliction",
             "cooldown": 0,
             "icon": null,
-            "type": null,
+            "type": "Weapon",
             "group": null
         },
         {
             "name": "Aggression",
             "cooldown": 24.6,
             "icon": null,
-            "type": null,
+            "type": "Weapon",
             "group": null
         },
         {
