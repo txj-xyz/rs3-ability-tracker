@@ -6,7 +6,7 @@ const { app } = require( 'electron' );
 const activeWindows = require( 'electron-active-window' );
 let cooldownTracking = new Map();
 const rsOptions = {
-    gcdBuffer: 1500,
+    gcdBuffer: 1000,
     tickTime: 600
 };
 const symbolKeycodeList = {
@@ -92,6 +92,9 @@ module.exports = {
     // Ability list.
     abilities: require( path.resolve( __dirname, '../cfg/abilities.json' ) ).abilities,
 
+    // Weapons List.
+    weapons: require( path.resolve( __dirname, '../cfg/abilities.json' ) ).weapons,
+
     // Config.
     config: file( path.resolve( ( process.argv[ 2 ] === "dev" ? '' : app.getPath( 'userData' ) ), 'config.json' ) ),
 
@@ -116,6 +119,7 @@ module.exports = {
     },
 
     unregisterCooldowns: _ => cooldownTracking.clear(),
+    
 
     // Keybinds listener code.
     triggers: _ => {
