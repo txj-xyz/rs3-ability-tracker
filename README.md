@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/txj-xyz/rs3-ability-tracker">
-    <img src="https://gitlab.unige.ch/Joakim.Tutt/Best-README-Template/-/raw/master/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://cdn.discordapp.com/attachments/706221433407275029/985653200331870228/image0.png" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">RS3 Ability Tracker</h3>
