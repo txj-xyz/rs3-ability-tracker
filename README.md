@@ -30,3 +30,9 @@ We use [Electron Forge](https://www.electronforge.io/) for building into Install
  - Currently this is a Work in Progress and is not functioning.
  - There will be a major Interface rework.
  - This is not intended for public use as of writing this readme.
+
+
+## Screenshots
+
+![](https://l.txj-dev.xyz/8LQhC)
+![](https://l.txj-dev.xyz/UTBAk)
