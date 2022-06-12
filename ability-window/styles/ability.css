@@ -18,7 +18,7 @@ main>div {
 
 main>div:last-child {
     /* box-shadow: 0 0 5px white inset; */
-    /* border: 3px solid white; */
+    border: 3px solid white;
 }
 
 /* img {

@@ -103,12 +103,13 @@ module.exports = _ => {
                     config.numberOfIcons = parseInt(param);
 
                     // Update ability window width using height and number of icons.
-                    config.abilityWindow.width = ((config.abilityWindow.height - 10) * config.numberOfIcons) + 10
 
                     // If the ability window is open, update it.
                     if (windows.ability) {
                         windows.ability.webContents.send('refresh', config.numberOfIcons);
+                        config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons
                         windows.ability.setSize(config.abilityWindow.width, config.abilityWindow.height);
+                        windows.ability.setAspectRatio((config.abilityWindow.height * config.numberOfIcons) / config.abilityWindow.height);
                     }
 
                     // Otherwise return config data.

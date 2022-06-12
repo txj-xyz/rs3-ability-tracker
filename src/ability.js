@@ -7,9 +7,10 @@ const updateConfig = _ => {
     // If the window is moved or resized then update config.
     if (JSON.stringify(config.abilityWindow) !== JSON.stringify(windows.ability.getBounds())) {
         config.abilityWindow = windows.ability.getBounds();
-
+        config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons
+        
         // Update aspect ratio to prevent buggy resize.
-        windows.ability.setAspectRatio((((config.abilityWindow.height - 10) * config.numberOfIcons) + 10) / config.abilityWindow.height);
+        windows.ability.setAspectRatio((config.abilityWindow.height * config.numberOfIcons) / config.abilityWindow.height);
         update();
     }
 }
