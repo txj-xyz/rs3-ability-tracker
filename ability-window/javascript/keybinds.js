@@ -231,7 +231,7 @@ function copy(ability, key, bar, initial) {
 
     // Setup dropdown and keybind actions for new element.
     new Ability(document.getElementById(id), initial);
-    new Keybind(document.getElementById(id).querySelector('input[key]'), key);
+    new Keybind(document.getElementById(id).querySelector('input[key]'), key ? key : key = '');
     new Bar(document.getElementById(id));
     sendBars();
 
