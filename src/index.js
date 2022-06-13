@@ -13,6 +13,8 @@ if (require('electron-squirrel-startup')) {
 // Make globally usable variables.
 for (const property in manager) global[property] = manager[property];
 
+app.disableHardwareAcceleration()
+
 app
     // App ready event.
     .on('ready', main)
