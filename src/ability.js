@@ -61,6 +61,7 @@ module.exports = async _ => {
     windows.ability.on('resize', updateConfig);
 
     // Force ability window to be on top.
+    windows.ability.setAlwaysOnTop(true, "screen-saver");
     windows.ability.setVisibleOnAllWorkspaces(true);
 
     // Load ability file.
