@@ -63,6 +63,7 @@ module.exports = async _ => {
     // Force ability window to be on top.
     windows.ability.setAlwaysOnTop(true, "screen-saver");
     windows.ability.setVisibleOnAllWorkspaces(true);
+    windows.ability.setBackgroundThrottling(false);
 
     // Load ability file.
     windows.ability.loadFile(pages('ability'));
