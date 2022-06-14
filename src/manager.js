@@ -12,7 +12,7 @@ const rsOptions = {
     abilityTimingBuffer: 1000,
     tickTime: 600,
     duringGCDAbilities: ['Surge', 'Escape', 'Bladed Dive', 'Provoke'],
-    specialCases: [
+    doubleUseAbils: [
         { name: 'Surge', triggered: false },
         { name: 'Escape', triggered: false },
         { name: 'Bladed Dive', triggered: false },
@@ -168,12 +168,12 @@ module.exports = {
                                             let cooldown = (abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.cooldown ?? 1) * rsOptions.tickTime - rsOptions.abilityTimingBuffer;
 
                                             // special cases like surge / escape
-                                            let specialCases = rsOptions.specialCases.map(e => e.name) ?? null;
-                                            let checkCase = rsOptions.specialCases.find(e => e.name === set.name) ?? null;
-                                            if (specialCases.includes(set.name) && !checkCase.triggered) {
+                                            let doubleUseAbils = rsOptions.doubleUseAbils.map(e => e.name) ?? null;
+                                            let checkCase = rsOptions.doubleUseAbils.find(e => e.name === set.name) ?? null;
+                                            if (doubleUseAbils.includes(set.name) && !checkCase.triggered) {
                                                 cooldown = rsOptions.tickTime;
                                                 checkCase.triggered = true;
-                                            } else if (specialCases.includes(set.name) && checkCase.triggered) {
+                                            } else if (doubleUseAbils.includes(set.name) && checkCase.triggered) {
                                                 checkCase.triggered = false;
                                             }
 
