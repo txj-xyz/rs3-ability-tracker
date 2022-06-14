@@ -367,7 +367,7 @@
         },
         {
             "name": "Escape",
-            "cooldown": 20.4,
+            "cooldown": 7.2,
             "icon": null,
             "type": null,
             "group": null
@@ -1081,7 +1081,7 @@
         },
         {
             "name": "Surge",
-            "cooldown": 20.4,
+            "cooldown": 7.2,
             "icon": null,
             "type": null,
             "group": null
