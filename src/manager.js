@@ -141,6 +141,7 @@ module.exports = {
                                         if (modifiers.includes(key) && !trigger[modifierKeyMap[key]]) failed = true;
                                         if (!modifiers.includes(key) && trigger[modifierKeyMap[key]]) failed = true;
                                     }
+
                                     if ((UiohookKey[letter] === trigger.keycode || keycodes[letter] === trigger.keycode) && !failed) {
                                         // if(rsOptions.offGCDAbils.includes(set.name)){
                                         // setTimeout(() => {

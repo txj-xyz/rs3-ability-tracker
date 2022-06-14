@@ -8,7 +8,7 @@ main {
 }
 
 /* Cell styles. */
-main>div {
+main > div {
     background: url(../assets/bg.png) no-repeat;
     background-size: cover;
     display: flex;
@@ -16,7 +16,7 @@ main>div {
     align-items: center;
 }
 
-main>div:last-child {
+main > div:last-child {
     /* box-shadow: 0 0 5px white inset; */
     border: 3px solid white;
 }

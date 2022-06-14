@@ -1,5 +1,11 @@
 // Import dependencies.
-const { BrowserWindow, ipcMain, app, Tray, Menu: { buildFromTemplate } } = require('electron');
+const {
+    BrowserWindow,
+    ipcMain,
+    app,
+    Tray,
+    Menu: { buildFromTemplate },
+} = require('electron');
 
 module.exports = _ => {
     // If the main window already exists, show it instead of creating a new one.
@@ -7,7 +13,7 @@ module.exports = _ => {
         windows.main.show();
         return windows.main.focus();
     }
-    
+
     // Make main window globally reachable and set properties.
     windows.main = new BrowserWindow({ ...windows.properties, ...{ width: 700, height: 190 } });
 
@@ -19,30 +25,30 @@ module.exports = _ => {
 
     // Load tray icon.
     windows.tray = new Tray(`${__dirname}/icons/icon.png`);
-    windows.tray.setToolTip('Ability Tracker')
+    windows.tray.setToolTip('Ability Tracker');
     windows.tray.on('click', _ => {
         if (!windows.main.isVisible()) {
-            windows.main.show()
-            windows.main.focus()
-            menu()
+            windows.main.show();
+            windows.main.focus();
+            menu();
         }
-    })
+    });
 
     // Window close event.
-    windows.main.on('close', _ => app.emit('window-all-closed'))
+    windows.main.on('close', _ => app.emit('window-all-closed'));
 
     // If no keybinds have been set, show main window, otherwise show main window.
     if (!config.referenceStorage.keybinds.length) keybinds();
-    else windows.main.on('ready-to-show', _ => {
-        windows.main.show()
-        windows.main.focus()
-        menu()
-    });
+    else
+        windows.main.on('ready-to-show', _ => {
+            windows.main.show();
+            windows.main.focus();
+            menu();
+        });
 
     // Backend to frontend communication.
     ipcMain.on('open', (event, param) => {
         switch (param) {
-
             // Quit application.
             case 'quit': {
                 app.emit('window-all-closed');
@@ -61,19 +67,18 @@ module.exports = _ => {
 
                 // Hide main window.
                 if (param === 'ability' && config.minimizeToTray) {
-                    windows.main.hide()
-                    menu()
+                    windows.main.hide();
+                    menu();
                 }
                 break;
             }
         }
         event.returnValue = null;
-    })
+    });
 
     // Backend to frontend communication to update config data.
     ipcMain.on('updateConfig', (event, param) => {
         switch (param) {
-
             // Update 'trackCooldowns' value.
             case 'cooldown': {
                 config.trackCooldowns = !config.trackCooldowns;
@@ -96,18 +101,17 @@ module.exports = _ => {
             // Update 'toggleSwitching' value.
             case 'lock': {
                 config.lockTrackerWindow = !config.lockTrackerWindow;
-                windows.ability?.setMovable(!config.lockTrackerWindow)
+                windows.ability?.setMovable(!config.lockTrackerWindow);
+                windows.ability?.setResizable(!config.lockTrackerWindow);
                 break;
             }
 
             // Other possible updates.
             default: {
-
                 // Update 'barsSelection' value.
-                if (typeof param === 'string' && isNaN(parseInt(param))){
+                if (typeof param === 'string' && isNaN(parseInt(param))) {
                     config.barsSelection = param.slice(5);
-                } 
-
+                }
 
                 // Update 'numberOfIcons' value.
                 else if (!isNaN(parseInt(param))) {
@@ -118,7 +122,7 @@ module.exports = _ => {
                     // If the ability window is open, update it.
                     if (windows.ability) {
                         windows.ability.webContents.send('refresh', config.numberOfIcons);
-                        config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons
+                        config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons;
                         windows.ability.setSize(config.abilityWindow.width, config.abilityWindow.height);
                         windows.ability.setAspectRatio((config.abilityWindow.height * config.numberOfIcons) / config.abilityWindow.height);
                     }
@@ -131,43 +135,45 @@ module.exports = _ => {
 
         update();
         if (!event.returnValue) event.returnValue = null;
-    })
+    });
 
     // Tray menu update and events controller.
     function menu() {
-        windows.tray.setContextMenu(buildFromTemplate([
-            // Hide/Show main window.
-            {
-                label: windows.main.isVisible() ? 'Hide Menu' : 'Show Menu',
-                click: _ => {
-                    windows.main.isVisible() ? windows.main.hide() : windows.main.show()
-                    menu()
-                }
-            },
+        windows.tray.setContextMenu(
+            buildFromTemplate([
+                // Hide/Show main window.
+                {
+                    label: windows.main.isVisible() ? 'Hide Menu' : 'Show Menu',
+                    click: _ => {
+                        windows.main.isVisible() ? windows.main.hide() : windows.main.show();
+                        menu();
+                    },
+                },
 
-            // Stop/Start Tracking.
-            {
-                label: windows.ability ? 'Stop Tracker' : 'Start Tracker',
-                click: _ => {
-                    if (windows.ability) {
-                        windows.ability.close()
-                        if (!windows.main.isVisible()) windows.main.show()
-                    } else {
-                        ability();
-                        if (windows.main.isVisible() && config.minimizeToTray) windows.main.hide()
-                    }
-                    menu()
-                }
-            },
+                // Stop/Start Tracking.
+                {
+                    label: windows.ability ? 'Stop Tracker' : 'Start Tracker',
+                    click: _ => {
+                        if (windows.ability) {
+                            windows.ability.close();
+                            if (!windows.main.isVisible()) windows.main.show();
+                        } else {
+                            ability();
+                            if (windows.main.isVisible() && config.minimizeToTray) windows.main.hide();
+                        }
+                        menu();
+                    },
+                },
 
-            // Open keybinds window.
-            { label: 'Configure Keybinds', click: keybinds },
+                // Open keybinds window.
+                { label: 'Configure Keybinds', click: keybinds },
 
-            // Open bars window.
-            { label: 'Configure Bars', click: bars },
+                // Open bars window.
+                { label: 'Configure Bars', click: bars },
 
-            // Quit application.
-            { label: 'Quit', click: _ => app.emit('window-all-closed') }
-        ]))
+                // Quit application.
+                { label: 'Quit', click: _ => app.emit('window-all-closed') },
+            ])
+        );
     }
-}
+};

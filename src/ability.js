@@ -3,24 +3,22 @@ const { BrowserWindow, screen } = require('electron');
 
 // Update config values of ability window.
 const updateConfig = _ => {
-
     // If the window is moved or resized then update config.
     if (JSON.stringify(config.abilityWindow) !== JSON.stringify(windows.ability.getBounds())) {
         config.abilityWindow = windows.ability.getBounds();
-        config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons
-        
+        config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons;
+
         // Update aspect ratio to prevent buggy resize.
         windows.ability.setAspectRatio((config.abilityWindow.height * config.numberOfIcons) / config.abilityWindow.height);
         update();
     }
-}
+};
 
 module.exports = async _ => {
-
     // Make keybinds window globally reachable and set properties.
     windows.ability = new BrowserWindow({
-        ...windows.properties, ...{
-
+        ...windows.properties,
+        ...{
             // Load width & height from config.
             width: config.abilityWindow.width,
             height: config.abilityWindow.height,
@@ -28,7 +26,7 @@ module.exports = async _ => {
             // Load x & y start position from config, if not found set to center.
             x: config.abilityWindow.x ?? (screen.getPrimaryDisplay().workArea.width - config.abilityWindow.width) / 2,
             y: config.abilityWindow.y ?? (screen.getPrimaryDisplay().workArea.height - config.abilityWindow.height) / 2,
-            
+
             // Minimum height of ability window.
             minHeight: Math.floor(screen.getPrimaryDisplay().workArea.height * 0.04),
             fullscreenable: false,
@@ -39,8 +37,8 @@ module.exports = async _ => {
             resizable: !config.lockTrackerWindow,
             alwaysOnTop: true,
             show: true,
-            movable: !config.lockTrackerWindow
-        }
+            movable: !config.lockTrackerWindow,
+        },
     });
 
     // Reinitialize the keybind listener.
@@ -67,4 +65,4 @@ module.exports = async _ => {
 
     // Load ability file.
     windows.ability.loadFile(pages('ability'));
-}
+};
