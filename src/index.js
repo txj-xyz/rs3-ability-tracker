@@ -11,8 +11,10 @@ if (require('electron-squirrel-startup')) {
     process.exit(1);
 }
 
+
 // Make globally usable variables.
 for (const property in manager) global[property] = manager[property];
+
 
 app
     // App ready event.
