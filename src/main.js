@@ -2,7 +2,12 @@
 const { BrowserWindow, ipcMain, app, Tray, Menu: { buildFromTemplate } } = require('electron');
 
 module.exports = _ => {
-
+    // If the main window already exists, show it instead of creating a new one.
+    if (windows.main) {
+        windows.main.show();
+        return windows.main.focus();
+    }
+    
     // Make main window globally reachable and set properties.
     windows.main = new BrowserWindow({ ...windows.properties, ...{ width: 700, height: 190 } });
 
