@@ -36,7 +36,7 @@ module.exports = async _ => {
             frame: false,
             transparent: true,
             hasShadow: false,
-            resizable: true,
+            resizable: !config.lockTrackerWindow,
             alwaysOnTop: true,
             show: true,
             movable: !config.lockTrackerWindow
