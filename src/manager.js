@@ -9,9 +9,15 @@ let activeBar = null;
 
 const rsOptions = {
     gcdActive: true,
-    gcdBuffer: 1000,
+    abilityTimingBuffer: 1000,
     tickTime: 600,
-    offGCDAbils: ['Surge', 'Escape', 'Bladed Dive', 'Provoke'],
+    duringGCDAbilities: ['Surge', 'Escape', 'Bladed Dive', 'Provoke'],
+    specialCases: [
+        { name: 'Surge', triggered: false },
+        { name: 'Escape', triggered: false },
+        { name: 'Bladed Dive', triggered: false },
+        { name: 'Provoke', triggered: false },
+    ],
 };
 
 // File import logic.
@@ -112,7 +118,6 @@ module.exports = {
         }
 
         function handleKeyPress(trigger) {
-            if (!rsOptions.gcdActive) return;
             // if ability window is not open do not listen to keys
             activeWindows()
                 .getActiveWindow()
@@ -128,6 +133,7 @@ module.exports = {
                                 for (const key of set.key) {
                                     // Get modifier keys.
                                     const modifiers = key.split('+').map(e => e.trim());
+
                                     // Get letter.
                                     const letter = modifiers.pop();
                                     let failed = false;
@@ -139,11 +145,16 @@ module.exports = {
                                         Super: 'metaKey',
                                     };
 
+                                    // check if modifiers are pressed
                                     for (const key of Object.keys(modifierKeyMap)) {
                                         if (modifiers.includes(key) && !trigger[modifierKeyMap[key]]) failed = true;
                                         if (!modifiers.includes(key) && trigger[modifierKeyMap[key]]) failed = true;
                                     }
 
+                                    // if normal key is pressed and is not a special case for during gcd ability return because GCD is active
+                                    if (!rsOptions.duringGCDAbilities.includes(set.name) && !rsOptions.gcdActive) return;
+
+                                    // Combat loop found keybind
                                     if ((UiohookKey[letter] === trigger.keycode || keycodes[letter] === trigger.keycode) && !failed) {
                                         // set timestamp for successfull keybind press
                                         if (config.toggleSwitching && set.type === 'Weapon' && set.bar.toLowerCase() !== activeBar?.toLowerCase()) activeBar = set.bar;
@@ -152,14 +163,29 @@ module.exports = {
 
                                         if (set.bar.toLowerCase() === (config.toggleSwitching ? activeBar : config.barsSelection)?.toLowerCase()) {
                                             windows.ability?.webContents.send('trigger', set);
+
+                                            //prettier-ignore
+                                            let cooldown = (abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.cooldown ?? 1) * rsOptions.tickTime - rsOptions.abilityTimingBuffer;
+
+                                            // special cases like surge / escape
+                                            let specialCases = rsOptions.specialCases.map(e => e.name) ?? null;
+                                            let checkCase = rsOptions.specialCases.find(e => e.name === set.name) ?? null;
+                                            if (specialCases.includes(set.name) && !checkCase.triggered) {
+                                                cooldown = rsOptions.tickTime;
+                                                checkCase.triggered = true;
+                                            } else if (specialCases.includes(set.name) && checkCase.triggered) {
+                                                checkCase.triggered = false;
+                                            }
+
                                             cooldownTracking.set(set.name, {
                                                 ...set,
                                                 time: config.trackCooldowns ? Date.now() : 0,
-                                                cooldown: (abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.cooldown ?? 1) * rsOptions.tickTime - rsOptions.gcdBuffer,
+                                                cooldown,
                                             });
 
-                                            // GCD Logic for tick timing
-                                            if (!rsOptions.offGCDAbils.includes(set.name) && config.trackCooldowns) {
+                                            // GCD Only Timing
+                                            if (!rsOptions.duringGCDAbilities.includes(set.name) && config.trackCooldowns) {
+                                                // if (!rsOptions.duringGCDAbilities.includes(set.name) && config.trackCooldowns) {
                                                 rsOptions.gcdActive = false;
                                                 setTimeout(() => {
                                                     rsOptions.gcdActive = true;
