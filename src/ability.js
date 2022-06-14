@@ -37,8 +37,9 @@ module.exports = async _ => {
             transparent: true,
             hasShadow: false,
             resizable: true,
-            alwaysOnTop: config.alwaysOnTop,
-            show: true
+            alwaysOnTop: true,
+            show: true,
+            movable: !config.lockTrackerWindow
         }
     });
 
@@ -62,7 +63,6 @@ module.exports = async _ => {
     windows.ability.on('resize', updateConfig);
 
     // Force ability window to be on top.
-    windows.ability.setAlwaysOnTop(config.alwaysOnTop, "screen-saver");
     windows.ability.setVisibleOnAllWorkspaces(true);
 
     // Load ability file.

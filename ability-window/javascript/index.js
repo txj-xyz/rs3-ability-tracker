@@ -13,11 +13,20 @@ const initialData = ipcRenderer.sendSync('updateConfig');
 
 let bars = ['Global', ...initialData.referenceStorage.bars];
 
+// Change lock icon
+const divlock = document.querySelector('div[lock]');
+divlock.innerHTML = initialData.lockTrackerWindow ? '🔒' : '🔓';
+
 // Update frontend content with data.
 document.querySelector('label[cooldown] input').checked = initialData.trackCooldowns;
-// document.querySelector('label[ontop] input').checked = initialData.alwaysOnTop;
 document.querySelector('label[tray] input').checked = initialData.minimizeToTray;
 document.querySelector('label[bars] input').checked = initialData.toggleSwitching;
+
+const labelLock = document.querySelector('label[lock] input');
+labelLock.checked = initialData.lockTrackerWindow;
+labelLock.addEventListener('change', _ => {
+    divlock.innerHTML = labelLock.checked ? '🔒' : '🔓';
+})
 if (initialData.barsSelection) document.querySelector('div[selector] input').value = initialData.barsSelection;
 
 // Get input types.

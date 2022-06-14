@@ -30,7 +30,6 @@ const file = (_path, data, failed = false) => {
 
     // Default config data.
     const config = {
-        alwaysOnTop: true,
         trackCooldowns: true,
         minimizeToTray: false,
         toggleSwitching: false,

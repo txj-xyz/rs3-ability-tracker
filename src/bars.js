@@ -12,6 +12,8 @@ module.exports = _ => {
     // Make bars window globally reachable and set properties.
     windows.bars = new BrowserWindow({ ...windows.properties, ...{ width: 460, height: 350 } });
 
+    // Set Alt-Menu Null
+    windows.bars.removeMenu();
     // Load bars file.
     windows.bars.loadFile(pages('bars'));
 

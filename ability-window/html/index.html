@@ -30,7 +30,13 @@
 
         <!-- Toggles section. -->
         <div toggle>
-
+            <!-- Disable ability window dragging -->
+            <label lock>
+                <input type="checkbox" onclick="updateConfig('lock')">
+                <div lock></div>
+                Lock Ability Window
+                <div info title="Enable this if you wish to disable dragging on the ability window.">?</div>
+            </label>
             <!-- Toggle track cooldowns. -->
             <label cooldown>
                 <input type="checkbox" onclick="updateConfig('cooldown')">

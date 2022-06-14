@@ -9,6 +9,9 @@ module.exports = _ => {
     // Load index file.
     windows.main.loadFile(pages('index'));
 
+    // Set Alt-Menu Null
+    windows.main.removeMenu();
+
     // Load tray icon.
     windows.tray = new Tray(`${__dirname}/icons/icon.png`);
     windows.tray.setToolTip('Ability Tracker')
@@ -73,12 +76,6 @@ module.exports = _ => {
                 break;
             }
 
-            // Update 'alwaysOnTop' value.
-            case 'top': {
-                config.alwaysOnTop = !config.alwaysOnTop;
-                break;
-            }
-
             // Update 'minimizeToTray' value.
             case 'tray': {
                 config.minimizeToTray = !config.minimizeToTray;
@@ -88,6 +85,13 @@ module.exports = _ => {
             // Update 'toggleSwitching' value.
             case 'bars': {
                 config.toggleSwitching = !config.toggleSwitching;
+                break;
+            }
+
+            // Update 'toggleSwitching' value.
+            case 'lock': {
+                config.lockTrackerWindow = !config.lockTrackerWindow;
+                windows.ability?.setMovable(!config.lockTrackerWindow)
                 break;
             }
 

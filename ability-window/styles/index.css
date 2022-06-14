@@ -35,7 +35,7 @@ div[toggle] {
 
 /* Bars dropdown styles. */
 div[bars] {
-    padding-left: 10px;
+    padding-left: 35px;
     margin-left: 40px;
     margin-right: 40px;
     font-size: 15px;
@@ -58,6 +58,18 @@ label input {
     height: 0;
     margin-right: 40px;
 }
+
+/* Lock toggle styles */
+label[lock] input {
+    margin-right: 0;
+}
+
+div[lock] {
+    margin-top: -5px;
+    margin-right: 10px;
+    font-size: 21px;
+}
+
 
 label div[info] {
     display: flex;

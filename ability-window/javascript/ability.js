@@ -2,13 +2,10 @@
 const { ipcRenderer } = require('electron');
 const initialData = ipcRenderer.sendSync('updateConfig');
 const { resolve } = require('path');
-const divlock = document.querySelector('div[lock]');
 
 // Declare global count variable.
 let $COUNT = initialData.numberOfIcons;
 const $ICONS = [];
-
-divlock.innerHTML = initialData.lockTrackerWindow ? '🔒' : '🔓';
 
 // Initial load of cells.
 const main = document.querySelector('main');

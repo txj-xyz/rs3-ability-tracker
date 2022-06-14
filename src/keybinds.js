@@ -11,6 +11,9 @@ module.exports = _ => {
     // Make keybinds window globally reachable and set properties.
     windows.keybinds = new BrowserWindow({ ...windows.properties, ...{ width: 635, height: 350 } });
 
+    // Set Alt-Menu Null
+    windows.keybinds.removeMenu();
+
     // Load keybinds file.
     windows.keybinds.loadFile(pages('keybinds'));
 
