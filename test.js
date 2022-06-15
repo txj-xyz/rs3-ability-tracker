@@ -1,37 +1,30 @@
-const { uIOhook } = require('uiohook-napi');
-uIOhook.start();
-let i = 0;
-const map = new Map();
-const abilityConfig = [
-    {
-        "name": "Wild_Magic",
-        "key": ["Q", "Shift + Q"],
-        "cooldown": 20.4,
-        "icon": null
-    },
-    {
-        "name": "Test_Magic",
-        "key": ["W", "Shift + W"],
-        "cooldown": 20.4,
-        "icon": null
-    },
-]
+// const { uIOhook } = require('uiohook-napi');
+// uIOhook.start();
+// let arrTemp = [];
+// let modifiers = ['altKey', 'ctrlKey', 'shiftKey', 'metaKey'];
 
-abilityConfig.map(set => set.key.map(key => map.set(key, set)))
+// uIOhook.on('keydown', trigger => {
+//     if(!trigger.includes())
+//     console.log(Date.now(), trigger)
+// });
 
+const { readdirSync } = require('fs')
+const path = './ability-window/game-asset-groups/'
+const dir = readdirSync(path,  { withFileTypes: true })
+const filesMap = new Map();
 
-// const previousSuccess = Date.now();
+//parse all ability icons and put them in a map
+for (const directory of dir) {
+    if (!directory.isDirectory()) continue;
+    for(const file of readdirSync(path + directory.name, { withFileTypes: true })) {
+        if(!file.isFile()) continue;
+        console.log(path + directory.name + '/' + file.name)
+        filesMap.set(file.name.replace(/\.png/g, ''), {
+            name: file.name,
+            type: directory.name,
+            path: path + directory.name,
+        })
+    }
+}
 
-
-uIOhook.on('keydown', trigger => {
-    // const timeAtPress = Date.now();
-
-    console.log({
-        timeAtPress,
-        timeDiff: timeAtPress - previousSuccess,
-        stillInCD: (timeAtPress - previousSuccess) < map.get('Q').cooldown * 600,
-        triggerRaw: trigger,
-        iteration: i++,
-        rawMap: map,
-    })
-});
+console.log(filesMap)
