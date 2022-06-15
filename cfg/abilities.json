@@ -16,6 +16,13 @@
             "group": null
         },
         {
+            "name": "Pocket Slot",
+            "cooldown": 0,
+            "icon": null,
+            "type": "Weapon",
+            "group": null
+        },
+        {
             "name": "Anguish",
             "cooldown": 0,
             "icon": null,
