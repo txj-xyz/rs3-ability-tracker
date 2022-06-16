@@ -46,7 +46,7 @@ module.exports = _ => {
                 event.returnValue = abilities.map(e => e.name.replace(/( |_)/g, ' '));
                 break;
             }
-
+            
             // Get the bars list.
             case 'bars': {
                 event.returnValue = config.referenceStorage.bars;
@@ -63,8 +63,9 @@ module.exports = _ => {
                 const keybinds = [];
                 param.binds.map(k => {
                     const ability = keybinds.find(e => e.name === k.name);
+                    const { type } = abilities.find(e => e.name.replace(/( |_)/g, ' ') === k.name.replace(/( |_)/g, ' '));
                     if (ability) ability.key.push(k.key);
-                    else keybinds.push({ name: k.name, type: 'Weapon', key: [k.key], bar: k.bar });
+                    else keybinds.push({ name: k.name, type, key: [k.key], bar: k.bar });
                 });
                 config.referenceStorage.keybinds = keybinds;
 
