@@ -71,13 +71,10 @@ module.exports = {
     pages: name => path.resolve(__dirname, `../ability-window/html/${name}.html`),
 
     // Ability list.
-    abilities: require(path.resolve(__dirname, '../cfg/abilities.json')).abilities,
-
-    // Weapons List.
-    weapons: require(path.resolve(__dirname, '../cfg/abilities.json')).weapons,
+    abilities: require(path.resolve(__dirname, '../cfg/game-key-data.json')),
 
     // Config.
-    config: file(path.resolve(process.argv[2] === 'dev' ? '' : app.getPath('userData'), 'config.json')),
+    config: file(path.resolve(devMode ? '' : app.getPath('userData'), 'config.json')),
 
     // Main window file.
     main: require(path.resolve(__dirname, './main.js')),
@@ -95,7 +92,7 @@ module.exports = {
     ability: require(path.resolve(__dirname, './ability.js')),
 
     // File writer.
-    update: _ => writeFileSync(path.resolve(process.argv[2] === 'dev' ? '' : app.getPath('userData'), 'config.json'), JSON.stringify(config, null, 2)),
+    update: _ => writeFileSync(path.resolve(devMode ? '' : app.getPath('userData'), 'config.json'), JSON.stringify(config, null, 2)),
 
     unregisterHooks: _ => {
         uIOhook.removeAllListeners('keydown');
@@ -122,7 +119,7 @@ module.exports = {
             activeWindows()
                 .getActiveWindow()
                 .then(activeWin => {
-                    if (activeWin.windowClass === 'rs2client.exe' || activeWin.windowName === 'rs2client' || process.argv[2] === 'dev') {
+                    if (activeWin.windowClass === 'rs2client.exe' || activeWin.windowName === 'rs2client' || devMode) {
                         // For every keyset.
                         for (const set of config.referenceStorage.keybinds) {
                             let cooldownRef = cooldownTracking.get(set.name);
@@ -162,7 +159,9 @@ module.exports = {
                                         // if (set.group === 'Prayer') ...
 
                                         if (set.bar.toLowerCase() === (config.toggleSwitching ? activeBar : config.barsSelection)?.toLowerCase()) {
-                                            windows.ability?.webContents.send('trigger', set);
+                                            let icon = abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.icon;
+
+                                            windows.ability?.webContents.send('trigger', {...set, icon});
 
                                             //prettier-ignore
                                             let cooldown = (abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.cooldown ?? 1) * rsOptions.tickTime - rsOptions.abilityTimingBuffer;
@@ -185,7 +184,6 @@ module.exports = {
 
                                             // GCD Only Timing
                                             if (!rsOptions.duringGCDAbilities.includes(set.name) && config.trackCooldowns) {
-                                                // if (!rsOptions.duringGCDAbilities.includes(set.name) && config.trackCooldowns) {
                                                 rsOptions.gcdActive = false;
                                                 setTimeout(() => {
                                                     rsOptions.gcdActive = true;
