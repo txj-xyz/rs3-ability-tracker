@@ -49,7 +49,7 @@ ipcRenderer.on('refresh', (event, param) => refresh(param));
 ipcRenderer.on('trigger', (event, param) => {
 
     // Push icon path.
-    $ICONS.push(resolve(__dirname, `../ability-icons/${param.name.replace(/( |_)/g, '_')}.png`));
+    $ICONS.push(resolve(__dirname, param.icon));
 
     // Filter list to match number of icons.
     if ($ICONS.length > $COUNT) while ($ICONS.length > $COUNT) $ICONS.shift();
