@@ -74,7 +74,7 @@ module.exports = {
     abilities: require(path.resolve(__dirname, '../cfg/game-key-data.json')),
 
     // Config.
-    config: file(path.resolve(devMode ? '' : app.getPath('userData'), 'config.json')),
+    config: file(path.resolve(process.argv[2] === 'dev' ? '' : app.getPath('userData'), 'config.json')),
 
     // Main window file.
     main: require(path.resolve(__dirname, './main.js')),
@@ -92,7 +92,7 @@ module.exports = {
     ability: require(path.resolve(__dirname, './ability.js')),
 
     // File writer.
-    update: _ => writeFileSync(path.resolve(devMode ? '' : app.getPath('userData'), 'config.json'), JSON.stringify(config, null, 2)),
+    update: _ => writeFileSync(path.resolve(process.argv[2] === 'dev' ? '' : app.getPath('userData'), 'config.json'), JSON.stringify(config, null, 2)),
 
     unregisterHooks: _ => {
         uIOhook.removeAllListeners('keydown');
@@ -114,92 +114,96 @@ module.exports = {
             return getKeyName('a', ev.altKey) + getKeyName('c', ev.ctrlKey) + getKeyName('m', ev.metaKey) + getKeyName('s', ev.shiftKey) + ev.keycode;
         }
 
+        function rs3Instance() {
+            let found = false;
+            if(devMode) return found = true;
+            activeWindows().getActiveWindow().then(activeWin => {
+                const _win = activeWin.windowName.match(/(rs2client|RuneScape)/g)?.[0] ?? null;
+                _win ? found = true : found = false;
+                return found;
+            });
+            
+        }
+
         function handleKeyPress(trigger) {
-            // if ability window is not open do not listen to keys
-            activeWindows()
-                .getActiveWindow()
-                .then(activeWin => {
-                    if (activeWin.windowClass === 'rs2client.exe' || activeWin.windowName === 'rs2client' || devMode) {
-                        // For every keyset.
-                        for (const set of config.referenceStorage.keybinds) {
-                            let cooldownRef = cooldownTracking.get(set.name);
+            for (const set of config.referenceStorage.keybinds) {
+                let cooldownRef = cooldownTracking.get(set.name);
 
-                            // if key is pressed inside of the cooldown window then do nothing, if the cooldown is 0 then wait 600 ms
-                            if (!cooldownRef || Date.now() - cooldownRef.time > cooldownRef.cooldown) {
-                                // For every keybind.
-                                for (const key of set.key) {
-                                    // Get modifier keys.
-                                    const modifiers = key.split('+').map(e => e.trim());
+                // if key is pressed inside of the cooldown window then do nothing, if the cooldown is 0 then wait 600 ms
+                if (!cooldownRef || Date.now() - cooldownRef.time > cooldownRef.cooldown) {
+                    // For every keybind.
+                    for (const key of set.key) {
+                        // Get modifier keys.
+                        const modifiers = key.split('+').map(e => e.trim());
 
-                                    // Get letter.
-                                    const letter = modifiers.pop();
-                                    let failed = false;
+                        // Get letter.
+                        const letter = modifiers.pop();
+                        let failed = false;
 
-                                    const modifierKeyMap = {
-                                        Shift: 'shiftKey',
-                                        Ctrl: 'ctrlKey',
-                                        Alt: 'altKey',
-                                        Super: 'metaKey',
-                                    };
+                        const modifierKeyMap = {
+                            Shift: 'shiftKey',
+                            Ctrl: 'ctrlKey',
+                            Alt: 'altKey',
+                            Super: 'metaKey',
+                        };
 
-                                    // check if modifiers are pressed
-                                    for (const key of Object.keys(modifierKeyMap)) {
-                                        if (modifiers.includes(key) && !trigger[modifierKeyMap[key]]) failed = true;
-                                        if (!modifiers.includes(key) && trigger[modifierKeyMap[key]]) failed = true;
-                                    }
+                        // check if modifiers are pressed
+                        for (const key of Object.keys(modifierKeyMap)) {
+                            if (modifiers.includes(key) && !trigger[modifierKeyMap[key]]) failed = true;
+                            if (!modifiers.includes(key) && trigger[modifierKeyMap[key]]) failed = true;
+                        }
+                        // if normal key is pressed and is not a special case for during gcd ability return because GCD is active
+                        if (!rsOptions.duringGCDAbilities.includes(set.name) && !rsOptions.gcdActive) return;
 
-                                    // if normal key is pressed and is not a special case for during gcd ability return because GCD is active
-                                    if (!rsOptions.duringGCDAbilities.includes(set.name) && !rsOptions.gcdActive) return;
+                        // Combat loop found keybind
+                        if ((UiohookKey[letter] === trigger.keycode || keycodes[letter] === trigger.keycode) && !failed) {
+                            // set timestamp for successfull keybind press
+                            if (config.toggleSwitching && set.type === 'Weapon' && set.bar.toLowerCase() !== activeBar?.toLowerCase()) activeBar = set.bar;
 
-                                    // Combat loop found keybind
-                                    if ((UiohookKey[letter] === trigger.keycode || keycodes[letter] === trigger.keycode) && !failed) {
-                                        // set timestamp for successfull keybind press
-                                        if (config.toggleSwitching && set.type === 'Weapon' && set.bar.toLowerCase() !== activeBar?.toLowerCase()) activeBar = set.bar;
+                            // if (set.group === 'Prayer') ...
 
-                                        // if (set.group === 'Prayer') ...
+                            if (set.bar.toLowerCase() === (config.toggleSwitching ? activeBar : config.barsSelection)?.toLowerCase()) {
+                                let icon = abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.icon;
 
-                                        if (set.bar.toLowerCase() === (config.toggleSwitching ? activeBar : config.barsSelection)?.toLowerCase()) {
-                                            let icon = abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.icon;
+                                windows.ability?.webContents.send('trigger', { ...set, icon });
 
-                                            windows.ability?.webContents.send('trigger', {...set, icon});
+                                //prettier-ignore
+                                let cooldown = (abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.cooldown ?? 1) * rsOptions.tickTime - rsOptions.abilityTimingBuffer;
 
-                                            //prettier-ignore
-                                            let cooldown = (abilities?.filter(ability => ability.name === set.name.replace(/( |_)/g, ' '))[0]?.cooldown ?? 1) * rsOptions.tickTime - rsOptions.abilityTimingBuffer;
+                                // special cases like surge / escape
+                                let doubleUseAbils = rsOptions.doubleUseAbils.map(e => e.name) ?? null;
+                                let checkCase = rsOptions.doubleUseAbils.find(e => e.name === set.name) ?? null;
+                                if (doubleUseAbils.includes(set.name) && !checkCase.triggered) {
+                                    cooldown = rsOptions.tickTime;
+                                    checkCase.triggered = true;
+                                } else if (doubleUseAbils.includes(set.name) && checkCase.triggered) {
+                                    checkCase.triggered = false;
+                                }
 
-                                            // special cases like surge / escape
-                                            let doubleUseAbils = rsOptions.doubleUseAbils.map(e => e.name) ?? null;
-                                            let checkCase = rsOptions.doubleUseAbils.find(e => e.name === set.name) ?? null;
-                                            if (doubleUseAbils.includes(set.name) && !checkCase.triggered) {
-                                                cooldown = rsOptions.tickTime;
-                                                checkCase.triggered = true;
-                                            } else if (doubleUseAbils.includes(set.name) && checkCase.triggered) {
-                                                checkCase.triggered = false;
-                                            }
+                                cooldownTracking.set(set.name, {
+                                    ...set,
+                                    time: config.trackCooldowns ? Date.now() : 0,
+                                    cooldown,
+                                });
 
-                                            cooldownTracking.set(set.name, {
-                                                ...set,
-                                                time: config.trackCooldowns ? Date.now() : 0,
-                                                cooldown,
-                                            });
-
-                                            // GCD Only Timing
-                                            if (!rsOptions.duringGCDAbilities.includes(set.name) && config.trackCooldowns) {
-                                                rsOptions.gcdActive = false;
-                                                setTimeout(() => {
-                                                    rsOptions.gcdActive = true;
-                                                }, rsOptions.tickTime);
-                                            }
-                                        }
-                                    }
+                                // GCD Only Timing
+                                if (!rsOptions.duringGCDAbilities.includes(set.name) && config.trackCooldowns) {
+                                    rsOptions.gcdActive = false;
+                                    setTimeout(() => {
+                                        rsOptions.gcdActive = true;
+                                    }, rsOptions.tickTime);
                                 }
                             }
                         }
                     }
-                });
+                }
+            }
         }
 
         // Listen to keydown.
         uIOhook.on('keydown', event => {
+            if(!rs3Instance()) return
+
             const hash = hashEvent(event);
             if (!keyCheck[event.keycode]) {
                 keyCheck[event.keycode] = new Map();
