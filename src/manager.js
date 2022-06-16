@@ -158,7 +158,7 @@ module.exports = {
                         // Combat loop found keybind
                         if ((UiohookKey[letter] === trigger.keycode || keycodes[letter] === trigger.keycode) && !failed) {
                             // set timestamp for successfull keybind press
-                            if (config.toggleSwitching && set.type === 'Weapon' && set.bar.toLowerCase() !== activeBar?.toLowerCase()) activeBar = set.bar;
+                            if (config.toggleSwitching && set.type === 'slot-icons' && set.bar.toLowerCase() !== activeBar?.toLowerCase()) activeBar = set.bar;
 
                             // if (set.group === 'Prayer') ...
 
