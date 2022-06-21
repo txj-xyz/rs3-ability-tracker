@@ -17,6 +17,7 @@ const abilityConfig = [
     },
 ]
 
+
 abilityConfig.map(set => set.key.map(key => map.set(key, set)))
 
 
