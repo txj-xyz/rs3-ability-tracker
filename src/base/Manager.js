@@ -6,10 +6,10 @@ module.exports = class Manager {
 
     // Loading logic.
     static load() {
-        ['cfg', 'modules', 'pages'].map(dir => {
+        ['modules', 'pages'].map(dir => {
             readdirSync(resolve(__dirname, `../${dir}`)).map(file => {
                 const module = require(resolve(__dirname, `../${dir}/${file}`));
-                if (module.init) this[file.split('.').shift()] = module.init();
+                if (module.init) this[module.name.slice(0,1).toLowerCase() + module.name.slice(1)] = module.init();
             });
         });
         return this;
