@@ -4,19 +4,38 @@ const [{ readdirSync, existsSync, writeFileSync }, { resolve }] = ['fs', 'path']
 // Load all modules into global.
 module.exports = class Manager {
 
+    static windows = {
+        properties: {
+            icon: resolve(__dirname, '../icons/icon.png'),
+            autoHideMenuBar: true,
+            resizable: false,
+            show: false,
+            webPreferences: {
+                nodeIntegration: true,
+                contextIsolation: false,
+            },
+        },
+    }
+
     // Loading logic.
     static load() {
-        ['modules', 'pages'].map(dir => {
-            readdirSync(resolve(__dirname, `../${dir}`)).map(file => {
-                const module = require(resolve(__dirname, `../${dir}/${file}`));
-                if (module.init) this[module.name.slice(0,1).toLowerCase() + module.name.slice(1)] = module.init();
+        this.once = this.once ? true : false
+        if (!this.once) {
+            ['modules', 'pages']?.map(dir => {
+                readdirSync(resolve(__dirname, `../${dir}`)).map(file => {
+                    const Module = require(resolve(__dirname, `../${dir}/${file}`));
+                    const name = Module.init ? Module.name.slice(0, 1).toLowerCase() + Module.name.slice(1) : Module.name;
+                    this[name] = Module.init ? Module.init() : Module;
+                });
             });
-        });
+            this.once = true
+        }
         return this;
     }
 
     // Import file with error catching logic.
-    static file(path, data, failed = false) {
+    static file(path) {
+        let [failed, data] = [false]
         // Check if file exists.
         if (existsSync(path)) {
             // Check if file data is corrupted.
@@ -40,6 +59,15 @@ module.exports = class Manager {
         // Write data to file.
         writeFileSync(path, JSON.stringify(data, null, 2));
         return data;
+    }
+
+    static mapify(data, key) {
+        const map = new Map()
+        if (Array.isArray(data)) data.map(set => map.set(set[key], set))
+        else {
+            for (const key in data) map.set(key, data[key])
+        }
+        return map
     }
 
     // Default game configs.
