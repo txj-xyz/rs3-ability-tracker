@@ -42,7 +42,9 @@
         },
         {
           "name": "@electron-forge/maker-dmg",
-          "config": {}
+          "config": {
+            "name": "rs3-ability-tracker"
+          }
         }
       ]
     }
