@@ -37,13 +37,19 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
+            "iconUrl": "https://raw.githubusercontent.com/txj-xyz/rs3-ability-tracker/totally-not-master/src/icons/icon.ico",
+            "setupIcon": "./src/icons/icon.ico",
+            "setupExe": "RS3-Ability-Tracker.exe",
+            "skipUpdateIcon": true,
             "name": "rs3-ability-tracker"
           }
         },
         {
           "name": "@electron-forge/maker-dmg",
           "config": {
-            "name": "rs3-ability-tracker"
+            "icon": "./src/icons/icon.icns",
+            "name": "rs3-ability-tracker",
+            "overwrite": true
           }
         }
       ]
