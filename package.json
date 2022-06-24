@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "node test.js",
-    "startdev": "electron-forge start -- dev",
+    "startdev": "electron-forge start --enable-logging -- dev",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
@@ -37,12 +37,20 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
+            "iconUrl": "https://raw.githubusercontent.com/txj-xyz/rs3-ability-tracker/totally-not-master/src/icons/icon.ico",
+            "setupIcon": "./src/icons/icon.ico",
+            "setupExe": "RS3-Ability-Tracker.exe",
+            "skipUpdateIcon": true,
             "name": "rs3-ability-tracker"
           }
         },
         {
           "name": "@electron-forge/maker-dmg",
-          "config": {}
+          "config": {
+            "icon": "./src/icons/icon.icns",
+            "name": "rs3-ability-tracker",
+            "overwrite": true
+          }
         }
       ]
     }
