@@ -6,7 +6,7 @@ module.exports = class Window {
     exists = false
 
     constructor() {
-        this.name = new.target.name.toLowerCase()
+        this.name = this.constructor.name.toLowerCase()
         if (windows[this.name]) {
             windows[this.name].show();
             windows[this.name].focus();
