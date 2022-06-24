@@ -1,7 +1,12 @@
+const { globalShortcut, BrowserWindow: { getFocusedWindow } } = require("electron")
+
 const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app }] = ['path', 'electron'].map(require)
 
 module.exports = class Taskbar {
     constructor() {
+        new Main()
+        this.registers()
+        if (windows.tray) return
         windows.tray = new Tray(resolve(__dirname, '../icons/icon.png'))
         windows.tray.setToolTip('Ability Tracker')
         this.events()
@@ -9,14 +14,14 @@ module.exports = class Taskbar {
         // this.reload()
     }
 
+    registers() {
+        globalShortcut.unregisterAll()
+        globalShortcut.register('Q', _ => app.emit('window-all-closed'))
+        globalShortcut.register('I', _ => getFocusedWindow().webContents.openDevTools({ mode: 'undocked' }))
+    }
+
     events() {
-        windows.tray.on('click', _ => {
-            if (windows.main) {
-                windows.main.show()
-                windows.main.focus()
-                // this.reload()
-            }
-        })
+        windows.tray.on('click', _ => new Main())
     }
 
     reload() {

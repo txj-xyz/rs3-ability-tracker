@@ -6,10 +6,10 @@ for (const property in (manager = require(resolve(__dirname, './base/Manager.js'
 
 app
     // App ready event.
-    .on('ready', _ => new Main())
+    .on('ready', _ => new Taskbar())
 
     // App second instance event.
-    .on('second-instance', _ => new Main())
+    .on('second-instance', _ => new Taskbar())
 
     // App start event (Run if app is not ready).
     .on('activate', _ => (!BrowserWindow.getAllWindows().length ? app.emit('ready') : void 0))
