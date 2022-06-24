@@ -1,0 +1,18 @@
+{
+    "trackCooldowns": true,
+    "minimizeToTray": false,
+    "toggleSwitching": false,
+    "lockTrackerWindow": false,
+    "numberOfIcons": 10,
+    "barsSelection": "Global",
+    "abilityWindow": {
+        "x": null,
+        "y": null,
+        "width": 810,
+        "height": 90
+    },
+    "referenceStorage": {
+        "keybinds": [],
+        "bars": []
+    }
+}

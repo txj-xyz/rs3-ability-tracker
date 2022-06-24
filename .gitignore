@@ -5,3 +5,4 @@ package-lock.json
 out/
 .vscode/
 test.js
+!src/default/config.json
