@@ -16,15 +16,26 @@ module.exports = class Window {
         else return false
     }
 
-    create(param) {
+    create(param, show) {
         windows[this.name] = new BrowserWindow(param)
         windows[this.name].loadFile(page(this.name))
         windows[this.name].removeMenu()
         this.#emit('opened')
-        this.#register()
+        this.#register(show)
     }
 
-    #register() {
+    close() {
+        windows[this.name].close()
+    }
+
+    #register(show) {
+        if (show) {
+            windows[this.name].on('ready-to-show', _ => {
+                windows[this.name].show();
+                windows[this.name].focus();
+                // windows.tray.reload();
+            })
+        }
         windows[this.name].on('close', _ => {
             this.#emit('closed')
             switch (this.name) {

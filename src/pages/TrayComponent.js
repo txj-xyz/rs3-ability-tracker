@@ -5,6 +5,7 @@ module.exports = class Taskbar {
         windows.tray = new Tray(resolve(__dirname, '../icons/icon.png'))
         windows.tray.setToolTip('Ability Tracker')
         this.events()
+        windows.tray.reload = this.reload
         // this.reload()
     }
 
