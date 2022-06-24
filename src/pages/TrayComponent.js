@@ -1,6 +1,4 @@
-const { globalShortcut, BrowserWindow: { getFocusedWindow } } = require("electron")
-
-const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app }] = ['path', 'electron'].map(require)
+const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app, BrowserWindow: { getFocusedWindow }, globalShortcut }] = ['path', 'electron'].map(require)
 
 module.exports = class Taskbar {
     constructor() {
