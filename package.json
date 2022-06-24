@@ -30,7 +30,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "./src/icons/icon.png",
+        "icon": "./src/icons/icon",
         "asar": true
       },
       "makers": [
