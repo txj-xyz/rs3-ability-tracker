@@ -1,4 +1,4 @@
-const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app, BrowserWindow: { getFocusedWindow }, globalShortcut }] = ['path', 'electron'].map(require)
+const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app, BrowserWindow: { getFocusedWindow }, globalShortcut, ipcMain }] = ['path', 'electron'].map(require)
 
 module.exports = class Taskbar {
     constructor() {
@@ -19,6 +19,7 @@ module.exports = class Taskbar {
 
     events() {
         windows.tray.on('click', _ => new Main())
+        ipcMain.on('log', (event, param) => event.returnValue = console.log(param))
     }
 
     reload() {
