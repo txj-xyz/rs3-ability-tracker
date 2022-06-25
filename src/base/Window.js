@@ -30,10 +30,12 @@ module.exports = class Window {
         windows[this.name].close()
     }
 
-    ipcLoader(event, callback) {
+    ipcLoader(...events) {
         if (this.exists) return this
-        this.listeners[event] = callback
-        ipcMain.on(event, callback)
+        for (const callback of events) {
+            this.listeners[callback.name] = callback
+            ipcMain.on(callback.name, callback)
+        }
         return this
     }
 
