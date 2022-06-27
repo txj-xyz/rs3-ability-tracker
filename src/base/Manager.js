@@ -25,7 +25,8 @@ module.exports = class Manager {
             ['modules', 'pages']?.map(dir => {
                 readdirSync(resolve(__dirname, `../${dir}`)).map(file => {
                     const Module = require(resolve(__dirname, `../${dir}/${file}`));
-                    const name = Module.init ? Module.name.slice(0, 1).toLowerCase() + Module.name.slice(1) : Module.name;
+                    const globalVar = Module.name?.startsWith('_')
+                    const name = (globalVar ? '_' : '') + (Module.init ? Module.name.slice(0, globalVar ? 2 : 1).toLowerCase() + Module.name.slice(globalVar ? 2 : 1) : Module.name);
                     this[name] = Module.init ? Module.init() : Module;
                 });
             });

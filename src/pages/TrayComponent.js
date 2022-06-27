@@ -14,7 +14,7 @@ module.exports = class Taskbar {
 
     registers() {
         globalShortcut.unregisterAll()
-        if (devMode) globalShortcut.register('CommandOrControl+I', _ => getFocusedWindow().webContents.openDevTools({ mode: 'undocked' }))
+        if (__devMode) globalShortcut.register('CommandOrControl+I', _ => getFocusedWindow().webContents.openDevTools({ mode: 'undocked' }))
     }
 
     events() {
