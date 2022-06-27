@@ -51,6 +51,6 @@ module.exports = class Window {
     }
 
     #emit(event) {
-        for (const page in windows) ![this.name, 'properties', 'tray'].includes(page) ? windows[page].webContents.send(event, this.name) : void 0;
+        for (const page in windows) !['properties', 'tray'].includes(page) ? windows[page].webContents.send(event, { page: this.name, platform: process.platform }) : void 0;
     }
 }

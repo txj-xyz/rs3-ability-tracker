@@ -1,7 +1,6 @@
 // Import dependencies.
 const [{ BrowserWindow, app }, { resolve }, { uIOhook }] = ['electron', 'path', 'uiohook-napi'].map(require);
 
-
 // Anything extended off Manager or Window class is global.
 // Make globally usable variables.
 for (const property in (manager = require(resolve(__dirname, './base/Manager.js')).load())) global[property] = manager[property];

@@ -5,11 +5,68 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Keybinds</title>
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <script src="../javascript/components/electron.js" async></script>
+    <script src="../javascript/components/nav.js" async></script>
 </head>
 
-<body>
-    HELLO
+<body id="darwin">
+    <nav> Main Window </nav>
+    <main>
+        <div class="buttons">
+            <div id="tracker">Start Tracker</div>
+            <div id="keybinds">Manage Keybinds</div>
+            <div id="bars">Manage Bars</div>
+            <div id="quit">Quit Application</div>
+        </div>
+        <div class="toggles">
+            <label class="lock">
+                <input type="checkbox" />
+                <span>🔒</span>
+                <p>Lock Ability Window</p>
+                <div class="info" title="hi"></div>
+            </label><label>
+                <input type="checkbox" />
+                <span></span>
+                <p>Always Keep on Top</p>
+                <div class="info" title="hi"></div>
+            </label><label>
+                <input type="checkbox" />
+                <span></span>
+                <p>Track Cooldowns</p>
+                <div class="info" title="hi"></div>
+            </label><label>
+                <input type="checkbox" />
+                <span></span>
+                <p>Minimize on Start</p>
+                <div class="info" title="hi"></div>
+            </label><label>
+                <input type="checkbox" />
+                <span></span>
+                <p>Toggle Switching</p>
+                <div class="info" title="hi"></div>
+            </label><label>
+                <input type="checkbox" />
+                <span></span>
+                <p>Log Events to File</p>
+                <div class="info" title="hi"></div>
+            </label>
+        </div>
+        <div class="interact">
+            <div id="bar">
+                <p>Default Bar:</p>
+                <div id="selection">
+                    <input type="text" placeholder="Bar Name" />
+                    <div class="dropdown"></div>
+                </div>
+            </div>
+            <div id="slider">
+                <p>Number of Icons on Tracker: <b>10</b></p>
+                <input type="range" min="4" max="14" step="1">
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

@@ -19,7 +19,7 @@ module.exports = class Taskbar {
 
     events() {
         windows.tray.on('click', _ => new Main())
-        ipcMain.on('log', (event, param) => event.returnValue = console.log(param))
+        ipcMain.on('log', (event, param) => event.returnValue = console.log('[FE LOG]:', ...param))
     }
 
     reload() {

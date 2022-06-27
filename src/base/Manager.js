@@ -10,6 +10,7 @@ module.exports = class Manager {
             autoHideMenuBar: true,
             resizable: false,
             show: false,
+            titleBarStyle: 'hidden',
             webPreferences: {
                 nodeIntegration: true,
                 contextIsolation: false,
