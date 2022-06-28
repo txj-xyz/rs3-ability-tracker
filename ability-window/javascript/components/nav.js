@@ -1,5 +1,6 @@
 if (!success) throw new Error('Component "nav" not loaded due to success failure.')
 
-log('Hello there')
+const nav = document.querySelector('nav')
+nav.innerHTML = `${this.name.slice(0, 1).toUpperCase()}${this.name.slice(1)} Window`
 
-ipc.on('opened', (event, param) => console.log(param))
+document.body.id = request('platform')
