@@ -11,7 +11,7 @@
   <h3 align="center">RS3 Ability Tracker</h3>
 
   <p align="center">
-  This Ability tracker is based off <a href="https://www.electronjs.org/">Electron</a> and is supported via keyevents from te Node Addon API <a href="https://github.com/SnosMe/uiohook-napi">uiohook-napi</a>, the Electron backend passes matched keys to an HTML frontend window called "Ability Window" and displays the matched keys, this project is my first Electron idea that has some use for the RuneScape community, It's a good learning experience and I've had a lot of fun using it.
+  This Ability tracker is based off <a href="https://www.electronjs.org/">Electron</a> and is supported via keyevents from the Node Addon API <a href="https://github.com/SnosMe/uiohook-napi">uiohook-napi</a>, the Electron backend passes matched keys to an HTML frontend window called "Ability Window" and displays the matched keys, this project is my first Electron idea that has some use for the RuneScape community, It's a good learning experience and I've had a lot of fun using it.
   </p>
 </p>
 
