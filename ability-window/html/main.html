@@ -7,43 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/main.css" />
+    <script async>this.name = 'main'</script>
     <script src="../javascript/components/electron.js" async></script>
     <script src="../javascript/components/nav.js" async></script>
+    <script src="../javascript/main.js" async></script>
 </head>
 
-<body id="darwin">
-    <nav> Main Window </nav>
+<body>
+    <!-- Solution for autofocus issue. -->
+    <input style="opacity: 0; position: fixed; pointer-events: none;" autofocus="true" />
+
+    <nav></nav>
     <main>
         <div class="toggles">
             <label class="lock">
-                <input type="checkbox" />
-                <span>🔒</span>
+                <input type="checkbox" id="lockTrackerWindow" />
+                <span></span>
                 <p>Lock Ability Window</p>
                 <div class="info" title="hi"></div>
-            </label><label>
-                <input type="checkbox" />
-                <span></span>
-                <p>Always Keep on Top</p>
-                <div class="info" title="hi"></div>
-            </label><label>
-                <input type="checkbox" />
+            </label>
+            <label>
+                <input type="checkbox" id="trackCooldowns" />
                 <span></span>
                 <p>Track Cooldowns</p>
                 <div class="info" title="hi"></div>
-            </label><label>
-                <input type="checkbox" />
+            </label>
+            <label>
+                <input type="checkbox" id="minimizeToTray" />
                 <span></span>
                 <p>Minimize on Start</p>
                 <div class="info" title="hi"></div>
-            </label><label>
-                <input type="checkbox" />
+            </label>
+            <label class="bars">
+                <input type="checkbox" id="toggleSwitching" />
                 <span></span>
                 <p>Toggle Switching</p>
-                <div class="info" title="hi"></div>
-            </label><label>
-                <input type="checkbox" />
-                <span></span>
-                <p>Log Events to File</p>
                 <div class="info" title="hi"></div>
             </label>
         </div>
@@ -51,17 +49,17 @@
             <div id="bar">
                 <p>Default Bar:</p>
                 <div id="selection">
-                    <input type="text" placeholder="Bar Name" />
+                    <input type="text" placeholder="Bar Name" id="barsSelection" />
                     <div class="dropdown"></div>
                 </div>
             </div>
             <div id="slider">
-                <p>Number of Icons on Tracker: <b>10</b></p>
-                <input type="range" min="4" max="14" step="1">
+                <p>Number of Icons on Tracker: <b id="label">10</b></p>
+                <input type="range" min="4" max="14" step="1" id="numberOfIcons" />
             </div>
         </div>
         <div class="buttons">
-            <div id="tracker">Start Tracker</div>
+            <div id="ability">Start Tracker</div>
             <div id="keybinds">Manage Keybinds</div>
             <div id="bars">Manage Bars</div>
             <div id="quit">Quit Application</div>

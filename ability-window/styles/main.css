@@ -1,5 +1,6 @@
 body {
     margin-top: 33px;
+    user-select: none;
 }
 
 main {
@@ -9,7 +10,7 @@ main {
 }
 
 main > div {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 div.buttons > div {
@@ -46,7 +47,9 @@ div#quit {
     text-align: center;
     -webkit-app-region: drag;
     font-weight: bold;
+    user-select: none;
 }
+
 
 /* Toggle mode. */
 label {
@@ -93,13 +96,22 @@ input:checked + span:before {
     transform: translateX(12px);
 }
 
-label.lock input + span {
+label.lock input:checked + span {
     background: #f04747;
 }
 
 
-label.lock input:checked + span {
+label.lock input + span {
     background: #43b581;
+}
+
+label.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+label.disabled div.info {
+    pointer-events: auto;
 }
 
 label p {
