@@ -20,6 +20,9 @@ module.exports = class Taskbar {
     events() {
         windows.tray.on('click', _ => new Main())
         ipcMain.on('log', (event, param) => event.returnValue = console.log('[FE LOG]:', ...param))
+        ipcMain.on('platform', (event, param) => event.returnValue = __platform)
+        ipcMain.on('devMode', (event, param) => event.returnValue = __devMode)
+        ipcMain.on('config', (event, param) => event.returnValue = JSON.parse(JSON.stringify(config)))
     }
 
     reload() {

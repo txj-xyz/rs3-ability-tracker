@@ -3,24 +3,20 @@ const Window = require('../base/Window.js');
 module.exports = class Main extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 250, height: 440 }, true)
+            .create({ ...windows.properties, width: 250, height: 385 }, true)
             .ipcLoader(this.mainListener, this.confListener)
         // if (!config.referenceStorage.keybinds.length) new Keybinds()
         // else windows.main.on('ready-to-show', _ => new Main())
     }
 
     mainListener = (event, param) => {
-        switch (param) {
-            case 'quit': { quitHandler(); break; }
-        }
+        if (param === 'quit') quitHandler()
+        else {}
         return event.returnValue = null;
     }
 
     confListener = (event, param) => {
-        if(typeof config[param] === 'boolean') {
-            config[param] = !config[param]
-        }
-        else {}
+        Reflect.set(config, param.id, typeof config[param.id] === 'boolean' ? !config[param.id] : param.value)
 
         switch (param) {
             case 'trackCooldowns': {
@@ -32,9 +28,10 @@ module.exports = class Main extends Window {
                 // windows.ability?.setResizable(!config.lockTrackerWindow);
                 break;
             }
-        
+
             default:
                 break;
         }
+        event.returnValue = null
     }
 }
