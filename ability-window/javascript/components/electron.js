@@ -2,6 +2,7 @@ try {
     globalThis.ipc = require('electron').ipcRenderer;
     globalThis.request = ipc.sendSync
     globalThis.log = (...data) => request('log', data)
+    globalThis.config = request('config')
     globalThis.success = true
 } catch (e) {
     globalThis.success = false
