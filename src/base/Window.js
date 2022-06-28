@@ -21,7 +21,6 @@ module.exports = class Window {
         windows[this.name] = new BrowserWindow(param)
         windows[this.name].loadFile(page(this.name))
         windows[this.name].removeMenu()
-        this.#emit('opened')
         this.#register(show)
         return this
     }
@@ -40,7 +39,10 @@ module.exports = class Window {
     }
 
     #register(show) {
-        if (show) windows[this.name].on('ready-to-show', _ => new global[this.constructor.name]())
+        windows[this.name].on('ready-to-show', _ => {
+            show ? new global[this.constructor.name]() : void 0;
+            this.#emit('opened')
+        })
         windows[this.name].on('close', _ => {
             this.#emit('closed')
             for (const event in this.listeners) ipcMain.removeListener(event, this.listeners[event])
@@ -51,6 +53,6 @@ module.exports = class Window {
     }
 
     #emit(event) {
-        for (const page in windows) !['properties', 'tray'].includes(page) ? windows[page].webContents.send(event, { page: this.name, platform: process.platform }) : void 0;
+        for (const page in windows) !['properties', 'tray'].includes(page) ? windows[page].webContents.send(event, this.name) : void 0;
     }
 }
