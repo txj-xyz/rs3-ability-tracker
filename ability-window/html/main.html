@@ -10,6 +10,7 @@
     <script async>this.name = 'main'</script>
     <script src="../javascript/components/electron.js" async></script>
     <script src="../javascript/components/nav.js" async></script>
+    <script src="../javascript/components/Dropdown.js" async></script>
     <script src="../javascript/main.js" async></script>
 </head>
 
@@ -19,46 +20,46 @@
 
     <nav></nav>
     <main>
-        <div class="toggles">
-            <label class="lock">
+        <div toggles>
+            <label lock>
                 <input type="checkbox" id="lockTrackerWindow" />
                 <span></span>
                 <p>Lock Ability Window</p>
-                <div class="info" title="hi"></div>
+                <div info title="hi"></div>
             </label>
             <label>
                 <input type="checkbox" id="trackCooldowns" />
                 <span></span>
                 <p>Track Cooldowns</p>
-                <div class="info" title="hi"></div>
+                <div info title="hi"></div>
             </label>
             <label>
                 <input type="checkbox" id="minimizeToTray" />
                 <span></span>
                 <p>Minimize on Start</p>
-                <div class="info" title="hi"></div>
+                <div info title="hi"></div>
             </label>
-            <label class="bars">
+            <label bars>
                 <input type="checkbox" id="toggleSwitching" />
                 <span></span>
                 <p>Toggle Switching</p>
-                <div class="info" title="hi"></div>
+                <div info title="hi"></div>
             </label>
         </div>
-        <div class="interact">
-            <div id="bar">
+        <div interact>
+            <div bar>
                 <p>Default Bar:</p>
-                <div id="selection">
+                <div selection>
                     <input type="text" placeholder="Bar Name" id="barsSelection" />
-                    <div class="dropdown"></div>
+                    <div dropdown></div>
                 </div>
             </div>
-            <div id="slider">
-                <p>Number of Icons on Tracker: <b id="label">10</b></p>
+            <div slider>
+                <p>Number of Icons on Tracker: <b label>10</b></p>
                 <input type="range" min="4" max="14" step="1" id="numberOfIcons" />
             </div>
         </div>
-        <div class="buttons">
+        <div buttons>
             <div id="ability">Start Tracker</div>
             <div id="keybinds">Manage Keybinds</div>
             <div id="bars">Manage Bars</div>
