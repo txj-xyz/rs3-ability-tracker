@@ -4,8 +4,7 @@ module.exports = class Keybinds extends Window {
     constructor() {
         super()
             .create({ ...windows.properties, width: 635, height: 350 }, true)
-            .ipcLoader('barsEmit', this.barsEmit)
-            .ipcLoader('keybindsListener', this.keybindsListener)
+            .ipcLoader(this.keybindsListener, this.barsEmit)
     }
 
     barsEmit = _ => null
