@@ -1,3 +1,9 @@
+:root {
+    --green: #43b581;
+    --red: #f04747;
+    --blue: #00a9ff;
+}
+
 /* Dark theme. */
 @media (prefers-color-scheme: dark) {
     :root {
@@ -29,4 +35,20 @@ body {
     font: 15px system-ui;
     color: var(--color);
     margin: 0;
+}
+
+#darwin {
+    margin-top: 33px;
+}
+
+#darwin nav {
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    background: var(--elements);
+    padding: 5px 0;
+    text-align: center;
+    -webkit-app-region: drag;
+    font-weight: bold;
+    user-select: none;
 }
