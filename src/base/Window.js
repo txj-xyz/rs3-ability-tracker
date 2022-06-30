@@ -25,10 +25,6 @@ module.exports = class Window {
         return this
     }
 
-    close() {
-        windows[this.name].close()
-    }
-
     ipcLoader(...events) {
         if (this.exists) return this
         for (const callback of events) {
