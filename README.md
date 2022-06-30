@@ -1,6 +1,6 @@
-<h3 align="center">⚠️⚠️DO NOT DOWNLOAD THIS TRACKER OUTSIDE OF THIS GITHUB REPOSITORY⚠️⚠️
-  
-  <p>⚠️⚠️ANYTHING OUTSIDE OF THIS GITHUB IS UNTRUSTED AND WILL BE CONSIDERED UNSAFE⚠️⚠️</h3>
+<h3 align="center">⚠️DO NOT DOWNLOAD THIS TRACKER OUTSIDE OF THIS GITHUB REPOSITORY⚠️
+
+  <p>⚠️ANYTHING OUTSIDE OF THIS GITHUB IS UNTRUSTED AND WILL BE CONSIDERED UNSAFE⚠️</h3>
   
 
 <p align="center">
@@ -10,8 +10,10 @@
 
   <h3 align="center">RS3 Ability Tracker</h3>
 
+ <h1 align="center">Follow progress on the <a href="https://github.com/txj-xyz/rs3-ability-tracker/projects/1">Projects Page</a></h1>
+ 
   <p align="center">
-  This Ability tracker is based off <a href="https://www.electronjs.org/">Electron</a> and is supported via keyevents from te Node Addon API <a href="https://github.com/SnosMe/uiohook-napi">uiohook-napi</a>, the Electron backend passes matched keys to an HTML frontend window called "Ability Window" and displays the matched keys, this project is my first Electron idea that has some use for the RuneScape community, It's a good learning experience and I've had a lot of fun using it.
+  This Ability tracker is based off <a href="https://www.electronjs.org/">Electron</a> and is supported via keyevents from the Node Addon API <a href="https://github.com/SnosMe/uiohook-napi">uiohook-napi</a>, the Electron backend passes matched keys to an HTML frontend window called "Ability Window" and displays the matched keys, this project is my first Electron idea that has some use for the <a href="https://runescape.com/">Runescape</a> community, It's a good learning experience and I've had a lot of fun using it.
   </p>
 </p>
 
@@ -27,15 +29,8 @@ We use [Electron Forge](https://www.electronforge.io/) for building into Install
 
     
 ## Things to Note
-
  - Currently this is a Work in Progress and is not functioning.
+ - There is currently a recode going on.
  - There will be a major Interface rework.
  - This is not intended for public use as of writing this readme.
-
-
-## Screenshots
-<p align="center">
-<img src="https://l.txj-dev.xyz/8LQhC"></img>
-<img src="https://l.txj-dev.xyz/UTBAk"></img>
-</p>
 
