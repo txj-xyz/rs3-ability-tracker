@@ -27,17 +27,19 @@ class Dropdown {
         })
 
         this.input.addEventListener('blur', _ => {
-            if (this.id === 'selection') {
-                const index = this.list.map(word => word.toLowerCase()).indexOf(this.input.value.toLowerCase())
-                if (index === -1) this.parent.classList.add('error')
-                else {
-                    this.input.value = this.list[index]
-                    request('confListener', { id: this.input.id, value: this.input.value })
-                }
-            }
             this.parent.parentNode.classList.contains('active') ? this.parent.parentNode.classList.remove('active') : void 0
             setTimeout(_ => this.dropdown.classList.add('fade'), 100)
-            setTimeout(_ => this.dropdown.style.display = 'none', 200)
+            setTimeout(_ => {
+                this.dropdown.style.display = 'none'
+                if (this.id === 'selection') {
+                    const index = this.list.map(word => word.toLowerCase()).indexOf(this.input.value.toLowerCase())
+                    if (index === -1) this.parent.classList.add('error')
+                    else {
+                        this.input.value = this.list[index]
+                        request('confListener', { id: this.input.id, value: this.input.value })
+                    }
+                }
+            }, 200)
         });
     }
 
