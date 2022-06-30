@@ -7,21 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/bars.css" />
+    <script async>this.name = 'bars'</script>
+    <script src="../javascript/components/electron.js" async></script>
+    <script src="../javascript/components/nav.js" async></script>
+    <script src="../javascript/components/Dropdown.js" async></script>
     <script src="../javascript/bars.js" async></script>
-    <title>Bars</title>
 </head>
 
-<body>
+<body>>
+    <!-- Solution for autofocus issue. -->
+    <input style="opacity: 0; position: fixed; pointer-events: none;" autofocus="true" />
+    <nav></nav>
+    
     <div keys>
-        <!-- Bars page header. -->
-        <div header> Bars Configuration Window </div>
 
         <!-- Window popup elements. -->
         <div popup></div>
         <div notify></div>
-
-        <!-- Solution for autofocus issue. -->
-        <input style="opacity: 0; position: fixed; pointer-events: none;" autofocus="true" />
 
         <!-- Add/Remove/Manage Bars. -->
         <div manage>

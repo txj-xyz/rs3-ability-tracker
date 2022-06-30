@@ -1,8 +1,3 @@
-body {
-    margin-top: 33px;
-    user-select: none;
-}
-
 main {
     margin: 5px 5px 0 5px;
     display: block;
@@ -10,10 +5,10 @@ main {
 }
 
 main > div {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-div.buttons > div {
+div[buttons] > div {
     margin: 0 0 5px 0;
     line-height: 1;
     display: flex;
@@ -26,30 +21,17 @@ div.buttons > div {
     padding: 9.5px;
 }
 
-#darwin div.buttons > div:last-child {
+#darwin div[buttons] > div:last-child {
     border-radius: 3px 3px 6px 6px;
 }
 
-div.buttons > div:hover {
+div[buttons] > div:hover {
     background: var(--hover);
 }
 
 div#quit {
-    background: #f04747;
+    background: var(--red);
 }
-
-#darwin nav {
-    top: 0;
-    position: fixed;
-    width: 100vw;
-    background: var(--elements);
-    padding: 5px;
-    text-align: center;
-    -webkit-app-region: drag;
-    font-weight: bold;
-    user-select: none;
-}
-
 
 /* Toggle mode. */
 label {
@@ -60,7 +42,7 @@ label {
     width: min-content;
 }
 
-label:not(.lock) span {
+label:not([lock]) span {
     cursor: pointer;
     width: 35px;
     height: 21px;
@@ -71,7 +53,7 @@ label:not(.lock) span {
     margin-right: 5px;
 }
 
-label:not(.lock) span:before {
+label:not([lock]) span:before {
     content: " ";
     height: 15px;
     width: 15px;
@@ -89,20 +71,19 @@ label input {
 }
 
 input:checked + span {
-    background: #43b581;
+    background: var(--green);
 }
 
 input:checked + span:before {
     transform: translateX(12px);
 }
 
-label.lock input:checked + span {
-    background: #f04747;
+label[lock] input:checked + span {
+    background: var(--red);
 }
 
-
-label.lock input + span {
-    background: #43b581;
+label[lock] input + span {
+    background: var(--green);
 }
 
 label.disabled {
@@ -110,7 +91,7 @@ label.disabled {
     opacity: 0.5;
 }
 
-label.disabled div.info {
+label.disabled div[info] {
     pointer-events: auto;
 }
 
@@ -122,7 +103,7 @@ label p {
     height: 21px;
 }
 
-label.lock span {
+label[lock] span {
     margin: 0;
     width: 35px;
     line-height: 1;
@@ -136,7 +117,7 @@ label.lock span {
     cursor: pointer;
 }
 
-label div.info:after {
+label div[info]:after {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,32 +130,32 @@ label div.info:after {
     width: 8px;
     border-radius: 50%;
     font-size: 10px;
-    background: #00a9ff;
+    background: var(--blue);
 }
 
 /* Input styles. */
-div.interact {
+div[interact] {
     margin: 1px 0 0 5px;
 }
 
-div.interact > div {
+div[interact] > div {
     margin-bottom: 5px;
 }
 
-div#bar {
+div[bar] {
     display: flex;
     height: 20px;
     justify-content: left;
     align-items: center;
 }
 
-div.interact p {
+div[interact] p {
     font-weight: bold;
     margin: 0;
     white-space: nowrap;
 }
 
-div#bar:after {
+div[bar]:after {
     content: "\276F";
     background: inherit;
     pointer-events: none;
@@ -185,19 +166,19 @@ div#bar:after {
     color: var(--color);
 }
 
-div[selector] div[dropdown]:after {
+div[dropdown]:after {
     display: none;
 }
 
-div[selector] input:first-child:focus {
+div[selection] input:focus {
     border-radius: 3px 3px 0 0;
 }
 
-div#bar input:focus {
+div[bar] input:focus {
     outline: none;
 }
 
-div#bar input {
+div[bar] input {
     border: 0;
     border-radius: 3px;
     padding: 1px 20px 1px 5px;
@@ -208,18 +189,18 @@ div#bar input {
     color: var(--color);
 }
 
-div#selection {
+div[selection] {
     width: 100%;
 }
 
-div#slider p {
+div[slider] p {
     padding-bottom: 15px;
 }
 
 input[type="range"] {
     width: calc(100% - 5px);
     -webkit-appearance: none;
-    background: #43b581;
+    background: var(--green);
     border-radius: 2px;
     border: none;
     margin-bottom: 10px;
@@ -255,4 +236,42 @@ input[type="range"]:after {
     margin: -22px 9px 0 0;
     right: 0;
     color: var(--color);
+}
+
+div[dropdown] {
+    transition-duration: 100ms;
+    font-size: 13px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: var(--elements);
+    max-height: 135px;
+    width: 132px;
+    border-radius: 0 0 3px 3px;
+    margin: 0 4px;
+    padding: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid var(--background);
+    border-top: 1px solid var(--hover);
+}
+
+div[dropdown] div {
+    white-space: nowrap;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    padding: 3px 0 3px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+}
+
+div[dropdown] div:hover {
+    background: var(--hover);
+}
+
+div.fade {
+    max-height: 0;
 }

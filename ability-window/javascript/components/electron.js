@@ -1,10 +1,11 @@
 try {
-    globalThis.ipc = require('electron').ipcRenderer;
-    globalThis.request = ipc.sendSync
-    globalThis.log = (...data) => request('log', data)
-    globalThis.config = request('config')
-    globalThis.success = true
+    this.ipc = require('electron').ipcRenderer;
+    this.request = ipc.sendSync
+    this.log = (...data) => request('log', data)
+    this.config = request('config')
+    this.random = _ => request('random')
+    this.success = true
 } catch (e) {
-    globalThis.success = false
+    this.success = false
     throw new Error('Electron not found. This application was not initialized properly!')
 }
