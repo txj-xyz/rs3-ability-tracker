@@ -3,10 +3,10 @@ const Window = require('../base/Window.js');
 module.exports = class Main extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 250, height: 385 })
+            .create({ ...windows.properties, width: 250, height: 385 }, true)
             .ipcLoader(this.mainListener, this.confListener)
-        if (!config.referenceStorage.keybinds.length) new Bars()
-        else windows.main.on('ready-to-show', _ => new Main())
+        // if (!config.referenceStorage.keybinds.length) new Bars()
+        // else windows.main.on('ready-to-show', _ => new Main())
     }
 
     mainListener = (event, param) => {
