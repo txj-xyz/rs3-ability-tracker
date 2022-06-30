@@ -1,0 +1,130 @@
+div[input] {
+    display: flex;
+    height: 20px;
+    justify-content: left;
+    align-items: center;
+}
+
+div[input]:after {
+    content: "\276F";
+    background: inherit;
+    pointer-events: none;
+    padding: 0 6px;
+    border-radius: 0 5px 5px;
+    margin: 1px 2px 0 -21px;
+    transform: rotate(180deg);
+    color: var(--color);
+    transition-duration: 200ms;
+}
+
+div[input].active:after {
+    transform: rotate(90deg);
+}
+
+div[input] input:focus {
+    border-radius: 3px 3px 0 0;
+}
+
+div[input] input:focus {
+    outline: none;
+}
+
+div[input] input {
+    border: 0;
+    border-radius: 3px;
+    padding: 1px 20px 1px 5px;
+    height: 20px;
+    width: calc(100% - 30px);
+    margin-left: 5px;
+    background: var(--elements);
+    color: var(--color);
+}
+
+div[input] > div {
+    width: 100%;
+}
+
+div[dropdown]:after {
+    display: none;
+}
+
+div[dropdown] {
+    transition-duration: 100ms;
+    font-size: 13px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: var(--elements);
+    max-height: 135px;
+    width: 132px;
+    border-radius: 0 0 3px 3px;
+    margin: 0 4px;
+    padding: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid var(--background);
+    border-top: 1px solid var(--hover);
+}
+
+div[dropdown] div {
+    white-space: nowrap;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    padding: 3px 0 3px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+}
+
+div[dropdown] div:hover {
+    background: var(--hover);
+}
+
+div.fade {
+    max-height: 0;
+}
+
+div.error input,
+div.error:after {
+    background: #f04747 !important;
+    animation: error 0.3s 2 ease-in-out;
+}
+
+div.error input::placeholder {
+    color: var(--color) !important;
+}
+
+div.error:before {
+    content: attr(error);
+    position: absolute;
+    z-index: 1;
+    font-size: 9px;
+    font-weight: 600;
+    margin: -9px 10px;
+    padding: 2px 5px;
+    background: var(--red);
+    outline: 1px solid var(--background);
+    border-radius: 3px;
+    transition-duration: 0.5s;
+    pointer-events: none;
+}
+
+@keyframes error {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

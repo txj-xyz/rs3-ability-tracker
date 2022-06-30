@@ -24,7 +24,7 @@ app
         windows.tray.destroy();
     })
 
-    .on('quit', _ => process.exit(1))
+    .on('quit', process.exit)
 
     // Disable app hardware acceleration.
     .disableHardwareAcceleration();
