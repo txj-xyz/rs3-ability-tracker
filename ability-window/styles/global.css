@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
 :root {
     --green: #43b581;
     --red: #f04747;
@@ -32,23 +34,54 @@
 /* Page defaults. */
 body {
     background: var(--background);
-    font: 15px system-ui;
+    font: 15px 'Ubuntu', system-ui;
     color: var(--color);
-    margin: 0;
+    margin: 33px 0 0 0;
 }
 
-#darwin {
-    margin-top: 33px;
-}
-
-#darwin nav {
+nav {
     top: 0;
     position: fixed;
     width: 100vw;
     background: var(--elements);
-    padding: 5px 0;
+    padding: 5px;
     text-align: center;
     -webkit-app-region: drag;
     font-weight: bold;
     user-select: none;
+    display: flex;
+}
+
+nav div, nav p {
+    margin: 0;
+    -webkit-app-region: no-drag;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 17px;
+    cursor: context-menu;
+    user-select: none;
+}
+
+div[hide] p {
+    transform: scale(2);
+    margin-top: -5px;
+}
+
+div[hide]:hover {
+    background: var(--hover);
+}
+
+div[exit]:hover {
+    background: var(--red);
+}
+
+nav > div[window] {
+    position: fixed;
+    right: 25px;
+}
+
+div[window] > div {
+    padding: 5px;
 }

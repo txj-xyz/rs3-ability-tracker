@@ -24,6 +24,19 @@ module.exports = class Taskbar {
         ipcMain.on('devMode', event => event.returnValue = __devMode)
         ipcMain.on('config', event => event.returnValue = JSON.parse(JSON.stringify(config)))
         ipcMain.on('random', event => event.returnValue = randomID())
+        ipcMain.on('hide', (event, param) => {
+            windows[param]?.blur()
+            windows[param]?.minimize()
+            event.returnValue = null
+        })
+        ipcMain.on('exit', (event, param) => {
+            if (param === 'main') !config.minimizeToTray ? quitHandler() : windows[param].hide()
+            else {
+                windows[param]?.close()
+                delete windows[param]
+            }
+            event.returnValue = null
+        })
     }
 
     reload() {
