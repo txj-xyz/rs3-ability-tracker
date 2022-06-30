@@ -35,7 +35,7 @@ module.exports = _ => {
     });
 
     // Window close event.
-    windows.main.on('close', _ => app.emit('window-all-closed'));
+    windows.main.on('close', quitHander);
 
     // If no keybinds have been set, show main window, otherwise show main window.
     if (!config.referenceStorage.keybinds.length) keybinds();

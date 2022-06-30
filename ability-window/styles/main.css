@@ -21,7 +21,7 @@ div[buttons] > div {
     padding: 9.5px;
 }
 
-#darwin div[buttons] > div:last-child {
+div[buttons] > div:last-child {
     border-radius: 3px 3px 6px 6px;
 }
 
@@ -170,7 +170,7 @@ div[dropdown]:after {
     display: none;
 }
 
-div[selection] input:focus {
+div#selection input:focus {
     border-radius: 3px 3px 0 0;
 }
 
@@ -189,7 +189,7 @@ div[bar] input {
     color: var(--color);
 }
 
-div[selection] {
+div#selection {
     width: 100%;
 }
 

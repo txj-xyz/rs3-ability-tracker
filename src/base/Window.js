@@ -10,7 +10,7 @@ module.exports = class Window {
         if (windows[this.name]) {
             windows[this.name].show();
             windows[this.name].focus();
-            // windows.tray.reload();
+            windows.tray.reload();
             this.exists = true
         }
         return this
@@ -34,17 +34,26 @@ module.exports = class Window {
         return this
     }
 
+    blurAndMinimize() {
+        windows[param]?.blur()
+        windows[param]?.minimize()
+        return void 0
+    }
+
     #register(show) {
         windows[this.name].on('ready-to-show', _ => {
             show ? new global[this.constructor.name]() : void 0;
             this.#emit('opened')
         })
         windows[this.name].on('close', _ => {
-            this.#emit('closed')
+            if (this.name === 'main') config.minimizeToTray ? windows[this.name].hide() : quitHandler()
+            else {
+                new Main()
+                this.#emit('closed')
+            }
             for (const event in this.listeners) ipcMain.removeListener(event, this.listeners[event])
-            if (this.name === 'main') app.emit('window-all-closed')
-            else new Main()
             delete windows[this.name]
+            return void 0
         })
     }
 

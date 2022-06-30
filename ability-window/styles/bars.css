@@ -16,7 +16,7 @@ div[keys] {
 /* Keybind styles. */
 div[keys]>div {
     display: flex;
-    padding: 5px 30px;
+    padding: 5px;
     align-items: center;
 }
 
@@ -53,7 +53,8 @@ div[button] {
     cursor: pointer;
 }
 
-div[edit] {
+div[buttons] {
+    display: flex;
     margin-right: auto;
 }
 

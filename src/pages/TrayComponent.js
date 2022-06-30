@@ -9,7 +9,7 @@ module.exports = class Taskbar {
         windows.tray.setToolTip('Ability Tracker')
         this.events()
         windows.tray.reload = this.reload
-        // this.reload()
+        this.reload()
     }
 
     registers() {
@@ -24,19 +24,8 @@ module.exports = class Taskbar {
         ipcMain.on('devMode', event => event.returnValue = __devMode)
         ipcMain.on('config', event => event.returnValue = JSON.parse(JSON.stringify(config)))
         ipcMain.on('random', event => event.returnValue = randomID())
-        ipcMain.on('hide', (event, param) => {
-            windows[param]?.blur()
-            windows[param]?.minimize()
-            event.returnValue = null
-        })
-        ipcMain.on('exit', (event, param) => {
-            if (param === 'main') !config.minimizeToTray ? quitHandler() : windows[param].hide()
-            else {
-                windows[param]?.close()
-                delete windows[param]
-            }
-            event.returnValue = null
-        })
+        ipcMain.on('hide', (event, param) => event.returnValue = windows[param]?.blurAndMinimize())
+        ipcMain.on('exit', (event, param) => event.returnValue = windows[param]?.close())
     }
 
     reload() {
@@ -67,13 +56,13 @@ module.exports = class Taskbar {
                 },
 
                 // Open keybinds window.
-                { label: 'Configure Keybinds', click: keybinds },
+                { label: 'Configure Keybinds', click: _ => new Keybinds() },
 
                 // Open bars window.
-                { label: 'Configure Bars', click: bars },
+                { label: 'Configure Bars', click: _ => new Bars() },
 
                 // Quit application.
-                { label: 'Quit', click: _ => app.emit('window-all-closed') },
+                { label: 'Quit', click: quitHandler },
             ])
         );
     }

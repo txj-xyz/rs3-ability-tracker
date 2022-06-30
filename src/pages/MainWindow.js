@@ -5,8 +5,6 @@ module.exports = class Main extends Window {
         super()
             .create({ ...windows.properties, width: 250, height: 385 }, true)
             .ipcLoader(this.mainListener, this.confListener)
-        // if (!config.referenceStorage.keybinds.length) new Bars()
-        // else windows.main.on('ready-to-show', _ => new Main())
     }
 
     mainListener = (event, param) => {

@@ -16,7 +16,9 @@ app
     .on('activate', _ => (!BrowserWindow.getAllWindows().length ? app.emit('ready') : void 0))
 
     // App quit event.
-    .on('window-all-closed', _ => {
+    .on('window-all-closed', _ => null)
+
+    .on('quit', _ => {
         uIOhook.stop();
         app.isQuiting = true;
         app.quit();
@@ -27,4 +29,4 @@ app
     .disableHardwareAcceleration();
 
 // Do not allow second instances and do not allow the app to be started from 'windows.squirrel'.
-!app.requestSingleInstanceLock() || require('electron-squirrel-startup') ? app.emit('window-all-closed') : void 0;
+!app.requestSingleInstanceLock() || require('electron-squirrel-startup') ? quitHander() : void 0;

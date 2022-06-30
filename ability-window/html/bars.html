@@ -7,23 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/bars.css" />
-    <script async>this.name = 'bars'</script>
+    <script async>this.title = 'bars'</script>
     <script src="../javascript/components/electron.js" async></script>
     <script src="../javascript/components/nav.js" async></script>
     <script src="../javascript/components/Dropdown.js" async></script>
     <script src="../javascript/bars.js" async></script>
 </head>
 
-<body>>
+<body>
     <!-- Solution for autofocus issue. -->
     <input style="opacity: 0; position: fixed; pointer-events: none;" autofocus="true" />
     <nav></nav>
-    
+
     <div keys>
 
         <!-- Window popup elements. -->
         <div popup></div>
         <div notify></div>
+
+        <div id="ID">
+            <div onclick="remove('ID')" style="background:#F04747" remove>-</div>
+            <div id="Bar Name" bar><input type="text" placeholder="Bar Name" value="BARNAME" /></div>
+            <div buttons>
+                <!-- <div onclick="edit('ID')" style="background:#FAA61A;" edit>Edit</div> -->
+                <div onclick="edit('ID')" style="background:#FAA61A;" edit>Save</div>
+                <div onclick="edit('ID')" style="background:#FAA61A;" edit>Cancel</div>
+            </div>
+            <p data-after="MULTIPLE">COUNT</p>
+        </div>
 
         <!-- Add/Remove/Manage Bars. -->
         <div manage>

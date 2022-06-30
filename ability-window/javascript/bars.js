@@ -6,11 +6,24 @@ const [bar, buttons, notice] = [
     "<div mount><p>Are you sure you want to remove the BARNAME bar?</p><hr /><p>Doing so will delete COUNT binds.</p><div><div style=\"background:#F04747\" onclick=\"const div = document.getElementById('ID');div.parentNode.removeChild(div); document.querySelector('div[popup] div[button]:last-child').click(); ipcRenderer.sendSync('config', 'EDIT')\" button>Confirm</div><div style=\"background:#00A9FF\" onclick=\"const popup = document.querySelector('div[popup]');popup.style.transform = 'scale(0.7)';popup.style.opacity = 0;popup.style.pointerEvents = 'none';\" button>Cancel</div></div></div >",
 ];
 
-function toggle() {
-    globalSaveToggle = !globalSaveToggle;
-    const saveElement = document.querySelector('div#save')
-    saveElement.style.background = `var(--${globalSaveToggle ? 'green' : 'elements'})`
-}
+// function toggle() {
+//     globalSaveToggle = !globalSaveToggle;
+//     const saveElement = document.querySelector('div#save')
+//     saveElement.style.background = `var(--${globalSaveToggle ? 'green' : 'elements'})`
+// }
+
+// const remove = id => {
+//     const div = document.getElementById(id)
+//     if (parseInt(div.querySelector('p').innerHTML) > 3) popup(id, Array.isArray(editToggle) && editToggle[0] === id ? editToggle[1] : null);
+//     else {
+//         ipcRenderer.sendSync('config', (Array.isArray(editToggle) && editToggle[0] === id ? editToggle[1] : div.querySelector('input').value).toLowerCase());
+//         div.parentNode.removeChild(div);
+//     }
+
+//     // Update save button.
+//     saveToggle ? toggle() : void 0;
+//     emit();
+// }
 
 
 // let [saveToggle, editToggle] = [false, false];

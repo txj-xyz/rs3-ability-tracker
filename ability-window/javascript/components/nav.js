@@ -9,5 +9,9 @@ const darwin = document.querySelector('body#darwin')
 const elem = `<div window><div hide><p>-</p></div><div exit><p>X</p></div></div>`
 nav.innerHTML = `${windowTitle}${darwin ? '' : elem}`
 
-document.querySelector('div[hide]').onclick = _ => request('hide', title)
-document.querySelector('div[exit]').onclick = _ => request('exit', title)
+const [hide, exit] = [document.querySelector('div[hide]'), document.querySelector('div[exit]')]
+
+if (hide) hide.onclick = _ => request('hide', title)
+if (exit) exit.onclick = _ => request('exit', title)
+
+ipc.on('closed', (event, param) => console.log(param))
