@@ -162,8 +162,13 @@ div[bar]:after {
     padding: 0 6px;
     border-radius: 0 5px 5px;
     margin: 1px 2px 0 -21px;
-    transform: rotate(90deg);
+    transform: rotate(180deg);
     color: var(--color);
+    transition-duration: 200ms;
+}
+
+div[bar].active:after {
+    transform: rotate(90deg);
 }
 
 div[dropdown]:after {
@@ -274,4 +279,48 @@ div[dropdown] div:hover {
 
 div.fade {
     max-height: 0;
+}
+
+div.error input,
+div.error:after {
+    background: #f04747 !important;
+    animation: error 0.3s 2 ease-in-out;
+}
+
+div.error input::placeholder {
+    color: var(--color) !important;
+}
+
+
+div.error:before {
+    content: attr(error);
+    position: absolute;
+    z-index: 1;
+    font-size: 9px;
+    font-weight: 600;
+    margin: -9px 10px;
+    padding: 2px 5px;
+    background: var(--red);
+    outline: 1px solid var(--background);
+    border-radius: 3px;
+    transition-duration: 0.5s;
+    pointer-events: none;
+}
+
+@keyframes error {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

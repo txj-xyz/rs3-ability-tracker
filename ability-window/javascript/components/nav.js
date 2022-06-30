@@ -13,5 +13,3 @@ const [hide, exit] = [document.querySelector('div[hide]'), document.querySelecto
 
 if (hide) hide.onclick = _ => request('hide', title)
 if (exit) exit.onclick = _ => request('exit', title)
-
-ipc.on('closed', (event, param) => console.log(param))

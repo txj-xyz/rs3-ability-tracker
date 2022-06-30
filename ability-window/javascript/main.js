@@ -1,3 +1,5 @@
+const saveInfo = false;
+
 for (const property in config) {
     const element = document.getElementById(property)
     if (element) {
@@ -10,12 +12,11 @@ for (const property in config) {
             }
 
             case 'barsSelection': {
-                new Dropdown(element.parentElement, config.referenceStorage.bars)
+                new Dropdown(element.parentElement, ['Global', ...config.referenceStorage.bars], true)
                 break
             }
         }
     }
-
 }
 
 if (!config.referenceStorage.bars.length) document.querySelector('label[bars]').classList.add('disabled')
@@ -35,10 +36,14 @@ slider.addEventListener('input', _ => {
     request('confListener', { id: slider.id, value: parseInt(slider.value) })
 });
 
+const dropdown = document.getElementById('barsSelection')
+dropdown.onclick = null
+
 function lockTrackerWindowToggle() {
     document.querySelector('label[lock] > span').innerHTML = document.getElementById('lockTrackerWindow').checked ? '🔒' : '🔓'
 }
 
 function update(id, value) {
     document.querySelector(`div#${id} input`).value = value
+    request('confListener', { id: 'barsSelection', value })
 }

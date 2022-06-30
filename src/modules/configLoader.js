@@ -6,6 +6,10 @@ module.exports = class Config extends Manager {
     static init() {
         const path = resolve(process.argv[2] === 'dev' ? '' : app.getPath('userData'), 'config.json')
         const config = super.file(path)
+        if (config.barsSelection && !config.referenceStorage.bars.includes(config.barsSelection)) {
+            config.barsSelection = 'Global'
+            writeFileSync(path, JSON.stringify(config, null, 2))
+        }
         const handler = {
             set(data, prop, receiver) {
                 Reflect.set(...arguments);
