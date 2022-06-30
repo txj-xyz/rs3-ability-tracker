@@ -52,6 +52,10 @@ nav {
     display: flex;
 }
 
+#darwin nav {
+    display: block;
+}
+
 nav div, nav p {
     margin: 0;
     -webkit-app-region: no-drag;
