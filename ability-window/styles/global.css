@@ -33,6 +33,7 @@
 
 /* Page defaults. */
 body {
+    user-select: none;
     background: var(--background);
     font: 15px 'Ubuntu', system-ui;
     color: var(--color);
