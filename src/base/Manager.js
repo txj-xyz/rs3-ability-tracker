@@ -53,9 +53,9 @@ module.exports = class Manager {
 
         // In any other case, load default data.
         try {
-            data = require(resolve(__dirname, `../defaults/${path.split('/').pop()}`));
+            data = require(resolve(__dirname, `../default/${path.replace(/\\/g, '/').split('/').pop()}`));
         } catch (e) {
-            throw new Error(`Could not load default config file for ${path}: ${e}`);
+            throw new Error(`Could not load default config file for ${path}:\n${e}`);
         }
 
         // Write data to file.
