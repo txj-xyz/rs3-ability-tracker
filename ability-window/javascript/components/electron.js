@@ -6,6 +6,7 @@ try {
     this.log = (...data) => request('log', data)
     this.config = request('config')
     this.random = _ => request('random')
+    this.resolve = (...paths) => request('resolve', paths)
     success = true
 } catch (e) {
     throw new Error('Electron not found. This application was not initialized properly!')

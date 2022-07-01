@@ -12,8 +12,6 @@ class Dropdown {
     init(initial) {
         if (!initial) this.#resetDropdown()
 
-        
-
         this.input.addEventListener('input', event => {
             if (this.id !== 'selection') saveToggle ? toggle() : void 0;
             this.dropdown.innerHTML = !this.modifiers.includes(event.key) ? this.search(this.input.value) : this.dropdown.innerHTML;

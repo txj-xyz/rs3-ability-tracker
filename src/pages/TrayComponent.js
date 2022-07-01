@@ -19,23 +19,25 @@ module.exports = class Taskbar {
 
     events() {
         windows.tray.on('click', _ => new Main())
-        ipcMain.on('log', (event, param) => event.returnValue = console.log('[FE LOG]:', ...param))
         ipcMain.on('platform', event => event.returnValue = __platform)
         ipcMain.on('devMode', event => event.returnValue = __devMode)
         ipcMain.on('config', event => event.returnValue = JSON.parse(JSON.stringify(config)))
         ipcMain.on('random', event => event.returnValue = randomID())
-        ipcMain.on('hide', (event, param) => event.returnValue = windows[param]?.blurAndMinimize())
-        ipcMain.on('exit', (event, param) => event.returnValue = windows[param]?.close())
+        if (__platform !== 'darwin') {
+            ipcMain.on('hide', (event, param) => event.returnValue = windows[param]?.blurAndMinimize())
+            ipcMain.on('exit', (event, param) => event.returnValue = windows[param]?.close())
+        }
     }
 
     reload() {
+        if (windows.tray.isDestroyed()) return
         windows.tray.setContextMenu(
             buildFromTemplate([
                 // Hide/Show main window.
                 {
-                    label: windows.main.isVisible() ? 'Hide Menu' : 'Show Menu',
+                    label: windows.main?.isVisible() ? 'Hide Menu' : 'Show Menu',
                     click: _ => {
-                        windows.main.isVisible() ? windows.main.hide() : windows.main.show();
+                        windows.main?.isVisible() ? windows.main.hide() : new Main();
                         this.reload();
                     },
                 },
@@ -46,10 +48,10 @@ module.exports = class Taskbar {
                     click: _ => {
                         if (windows.ability) {
                             windows.ability.close();
-                            if (!windows.main.isVisible()) windows.main.show();
+                            if (!windows.main?.isVisible()) new Main();
                         } else {
                             ability();
-                            if (windows.main.isVisible() && config.minimizeToTray) windows.main.hide();
+                            if (windows.main?.isVisible() && config.minimizeToTray) windows.main.hide();
                         }
                         this.reload();
                     },

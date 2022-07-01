@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
 
 :root {
     --green: #43b581;
     --red: #f04747;
     --blue: #00a9ff;
+    --yellow: #faa61a;
 }
 
 /* Dark theme. */
@@ -35,7 +36,7 @@
 body {
     user-select: none;
     background: var(--background);
-    font: 15px 'Ubuntu', system-ui;
+    font: 15px "Ubuntu", system-ui;
     color: var(--color);
     margin: 33px 0 0 0;
 }

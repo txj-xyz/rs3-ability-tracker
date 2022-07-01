@@ -9,19 +9,19 @@ div[header] {
 }
 
 /* Content styles. */
-div[keys] {
+div[bars] {
     margin-bottom: 40px;
 }
 
 /* Keybind styles. */
-div[keys]>div {
+div[bars]>div {
     display: flex;
     padding: 5px;
     align-items: center;
 }
 
 /* Input styles. */
-div[keys]>div input {
+div[bars]>div input {
     border: 0;
     border-radius: 3px;
     padding: 1px 5px;
@@ -31,14 +31,16 @@ div[keys]>div input {
     color: var(--color);
 }
 
-div[keys]>div input {
+div[bars]>div input {
     margin: 0 5px;
 }
 
 /* Action styles. */
 div[remove],
 div[edit],
-div[button] {
+div[button],
+div[save],
+div[cancel] {
     border-radius: 3px;
     user-select: none;
     display: flex;
@@ -51,6 +53,37 @@ div[button] {
     background: var(--elements);
     color: var(--color);
     cursor: pointer;
+}
+
+div[button]:not([save]) {
+    background: var(--blue);
+}
+
+div[remove] {
+    background: var(--red);
+}
+
+div[edit] {
+    background: var(--yellow);
+}
+
+div[saveMod] {
+    display: none;
+    background: var(--green);
+}
+
+div[cancel] {
+    display: none;
+    background: var(--blue);
+}
+
+div[hide] {
+    opacity: 0;
+}
+
+div.global {
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 div[buttons] {
@@ -67,7 +100,7 @@ div.error input::placeholder {
     color: var(--color) !important;
 }
 
-div[keys]>div input:focus {
+div[bars]>div input:focus {
     outline: none;
 }
 
@@ -108,7 +141,7 @@ div[bar]:before {
 }
 
 div[bar]:hover:before,
-div[bar].fixed:before {
+div.global > div[bar]:before {
     opacity: 1;
     margin-top: -10px;
 }

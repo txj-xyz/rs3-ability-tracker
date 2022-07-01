@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/components/dropdown.css" />
+    <link rel="stylesheet" href="../styles/components/nav.css" />
+    <link rel="stylesheet" href="../styles/components/actions.css" />
     <link rel="stylesheet" href="../styles/bars.css" />
     <script async>this.title = 'bars'</script>
     <script src="../javascript/components/electron.js" async></script>
@@ -19,28 +22,10 @@
     <input style="opacity: 0; position: fixed; pointer-events: none;" autofocus="true" />
     <nav></nav>
 
-    <div keys>
+    <div bars>
 
         <!-- Window popup elements. -->
         <div popup></div>
-        <div notify></div>
-
-        <div id="ID">
-            <div onclick="remove('ID')" style="background:#F04747" remove>-</div>
-            <div id="Bar Name" bar><input type="text" placeholder="Bar Name" value="BARNAME" /></div>
-            <div buttons>
-                <!-- <div onclick="edit('ID')" style="background:#FAA61A;" edit>Edit</div> -->
-                <div onclick="edit('ID')" style="background:#FAA61A;" edit>Save</div>
-                <div onclick="edit('ID')" style="background:#FAA61A;" edit>Cancel</div>
-            </div>
-            <p data-after="MULTIPLE">COUNT</p>
-        </div>
-
-        <!-- Add/Remove/Manage Bars. -->
-        <div manage>
-            <div onclick="copy()" style="background:#00A9FF" button>+ New Bar</div>
-            <div onclick="save()" button save>Save</div>
-        </div>
     </div>
 </body>
 

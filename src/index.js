@@ -30,4 +30,4 @@ app
     .disableHardwareAcceleration();
 
 // Do not allow second instances and do not allow the app to be started from 'windows.squirrel'.
-!app.requestSingleInstanceLock() || require('electron-squirrel-startup') ? quitHander() : void 0;
+!app.requestSingleInstanceLock() || require('electron-squirrel-startup') ? app.emit('quit') : void 0;
