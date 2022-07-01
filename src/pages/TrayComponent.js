@@ -18,7 +18,7 @@ module.exports = class Taskbar {
     }
 
     events() {
-        windows.tray.on('click', _ => new Main())
+        windows.tray.on('click', _ => __platform !== 'darwin' ? new Main() : void 0)
         ipcMain.on('platform', event => event.returnValue = __platform)
         ipcMain.on('devMode', event => event.returnValue = __devMode)
         ipcMain.on('config', event => event.returnValue = JSON.parse(JSON.stringify(config)))

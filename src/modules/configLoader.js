@@ -8,14 +8,23 @@ module.exports = class Config extends Manager {
         const config = super.file(path)
         if (config.barsSelection && !config.referenceStorage.bars.includes(config.barsSelection)) {
             config.barsSelection = 'Global'
-            writeFileSync(path, JSON.stringify(config, null, 2))
+            write()
         }
+
         const handler = {
             set(data, prop, receiver) {
                 Reflect.set(...arguments);
-                return writeFileSync(path, JSON.stringify(config, null, 2))
+                write()
+                return true
             },
         };
+
+        config.referenceStorage = new Proxy(config.referenceStorage, handler)
+
         return new Proxy(config, handler)
+
+        function write() {
+            writeFileSync(path, JSON.stringify(config, null, 2))
+        }
     }
 };

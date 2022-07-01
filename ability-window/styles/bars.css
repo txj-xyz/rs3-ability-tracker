@@ -8,31 +8,50 @@ div[header] {
     user-select: none;
 }
 
+div.disable {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 /* Content styles. */
 div[bars] {
     margin-bottom: 40px;
 }
 
 /* Keybind styles. */
-div[bars]>div {
+div[bars] > div {
     display: flex;
     padding: 5px;
     align-items: center;
 }
 
 /* Input styles. */
-div[bars]>div input {
+div[bars] > div input {
     border: 0;
     border-radius: 3px;
     padding: 1px 5px;
     height: 22px;
-    width: 160px;
+    width: 235px;
     background: var(--elements);
     color: var(--color);
+    margin: 0 5px;
+    transition-duration: 400ms;
 }
 
-div[bars]>div input {
-    margin: 0 5px;
+div[bars] div:not([popup]) div[bar]:not(.edit)  {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+div.new {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+div[bars] div.edit input {
+    width: 160px;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Action styles. */
@@ -40,6 +59,7 @@ div[remove],
 div[edit],
 div[button],
 div[save],
+div[saveMod],
 div[cancel] {
     border-radius: 3px;
     user-select: none;
@@ -63,18 +83,35 @@ div[remove] {
     background: var(--red);
 }
 
+div[save].active {
+    background: var(--green);
+    pointer-events: none;
+}
+
 div[edit] {
     background: var(--yellow);
+    animation: show 400ms ease-in-out forwards;
 }
 
 div[saveMod] {
     display: none;
     background: var(--green);
+    animation: show 400ms ease-in-out forwards;
 }
 
 div[cancel] {
     display: none;
     background: var(--blue);
+    animation: show 400ms ease-in-out forwards;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 div[hide] {
@@ -83,6 +120,9 @@ div[hide] {
 
 div.global {
     pointer-events: none;
+}
+
+div.global div[remove], div.global div[buttons] {
     opacity: 0.5;
 }
 
@@ -93,14 +133,14 @@ div[buttons] {
 
 /* Input box error styles. */
 div.error input {
-    background: #F04747 !important;
+    background: #f04747 !important;
 }
 
 div.error input::placeholder {
     color: var(--color) !important;
 }
 
-div[bars]>div input:focus {
+div[bars] > div input:focus {
     outline: none;
 }
 
@@ -159,10 +199,10 @@ div[notify] {
     overflow: scroll;
 }
 
-div[notify]>div {
+div[notify] > div {
     white-space: nowrap;
     display: flex !important;
-    background: #43B581;
+    background: #43b581;
     display: block;
     margin: 5px 0;
     border-radius: 3px;
@@ -173,7 +213,7 @@ div[notify]>div {
     width: auto;
 }
 
-div[notify]>div>div {
+div[notify] > div > div {
     border-radius: 3px 0 0 3px;
     cursor: pointer;
     padding: 3px 7px 5px 7px;
@@ -182,18 +222,17 @@ div[notify]>div>div {
     font-weight: bold;
 }
 
-div[notify]>div>div:hover {
-    background: #F04747BF;
+div[notify] > div > div:hover {
+    background: #f04747bf;
 }
 
-div[notify]>div.deleted {
+div[notify] > div.deleted {
     animation: fadeOut 0.5s forwards;
 }
 
-div[notify]>div.failed {
-    background: #F04747;
+div[notify] > div.failed {
+    background: #f04747;
 }
-
 
 @keyframes fadeIn {
     0% {
@@ -256,7 +295,7 @@ div[popup] div[mount] {
     filter: drop-shadow(0 0 5px var(--color));
 }
 
-div[popup] div[mount]>div {
+div[popup] div[mount] > div {
     display: flex;
     position: absolute;
     bottom: -13px;
