@@ -75,6 +75,10 @@ div[cancel] {
     cursor: pointer;
 }
 
+div[manage] {
+    margin-bottom: 100px;
+}
+
 div[button]:not([save]) {
     background: var(--blue);
 }

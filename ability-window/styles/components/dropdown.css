@@ -97,18 +97,19 @@ div.error input::placeholder {
 }
 
 div.error:before {
-    content: attr(error);
-    position: absolute;
+    content: attr(error) !important;
+    position: absolute !important;
     z-index: 1;
     font-size: 9px;
     font-weight: 600;
-    margin: -9px 10px;
-    padding: 2px 5px;
-    background: var(--red);
+    margin: -9px 10px !important;
+    padding: 2px 5px !important;
+    background: var(--red) !important;
     outline: 1px solid var(--background);
     border-radius: 3px;
     transition-duration: 0.5s;
     pointer-events: none;
+    opacity: 1 !important;
 }
 
 @keyframes error {

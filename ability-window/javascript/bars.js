@@ -28,10 +28,15 @@ function copy(initial, data) {
     bar.setAttribute('info', initial ? data.count : 0);
     _global ? bar.id = '(Non-switching)' : void 0;
     _global ? component.classList.add('global') : void 0;
-    const [edit, save, cancel] = component.querySelectorAll('div[buttons] div');
+    const [edit, saveMod, cancel] = component.querySelectorAll('div[buttons] div');
     if (!initial) {
         edit.style.display = 'none';
         bar.classList.add('new')
+    }
+
+    input.onfocus = _ => {
+        input.select()
+        bar.classList.contains('error') ? bar.classList.remove('error') : void 0;
     }
 
     edit.onclick = _ => {
@@ -42,7 +47,7 @@ function copy(initial, data) {
         toggles.saveMod.value = input.value;
         toggles.saveMod.id = id;
         edit.style.display = 'none';
-        save.style.display = 'block';
+        saveMod.style.display = 'block';
         cancel.style.display = 'block';
         bar.classList.add('edit');
         document.querySelector('div[manage]').classList.add('disable')
@@ -51,18 +56,20 @@ function copy(initial, data) {
         toggle()
     }
 
-    save.onclick = _ => {
+    saveMod.onclick = _ => {
         if (!toggles.saveMod.id) return
         const value = input.value;
         if (value === '') revert()
         else {
-            request('barsListener', { before: toggles.saveMod.value, after: value })
             toggles.saveMod.value = value
             revert()
+            save()
         }
     }
 
     cancel.onclick = revert
+
+    if (!initial) window.scrollTo(0, document.body.scrollHeight);
 
     function revert() {
         input.value = toggles.saveMod.value;
@@ -70,7 +77,7 @@ function copy(initial, data) {
         toggles.saveMod.value = null;
         toggles.saveMod.id = null;
         edit.style.display = 'block';
-        save.style.display = 'none';
+        saveMod.style.display = 'none';
         cancel.style.display = 'none';
         bar.classList.remove('edit')
         document.querySelector('div[manage]').classList.remove('disable')
@@ -98,6 +105,7 @@ function save() {
             bar.classList.contains('error') ? bar.classList.remove('error') : void 0;
             bars.push(value)
         }
+        console.log(bars.includes(value))
     })
     request('barsListener', bars)
     toggle(true)
