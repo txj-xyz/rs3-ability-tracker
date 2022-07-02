@@ -10,6 +10,7 @@ nav {
     font-weight: bold;
     user-select: none;
     display: flex;
+    z-index: 100;
 }
 
 #darwin nav {

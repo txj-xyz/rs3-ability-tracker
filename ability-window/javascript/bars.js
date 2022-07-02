@@ -58,6 +58,8 @@ function copy(initial, data) {
         document.querySelector('div[save]').classList.contains('active') ? document.querySelector('div[save]').classList.remove('active') : void 0;
         document.querySelectorAll('div[edit]').forEach(element => element.setAttribute('disabled', ''))
         document.querySelectorAll('div:not(.global) div[remove]').forEach(element => element.setAttribute('disabled', ''))
+        document.querySelector('div[clear]').classList.add('disable')
+        document.querySelector('div[search]').classList.add('disable')
         toggle()
     }
 
@@ -89,6 +91,8 @@ function copy(initial, data) {
         component.querySelector('div[remove]').classList.remove('disable')
         document.querySelectorAll('div[edit]').forEach(element => element.removeAttribute('disabled'))
         document.querySelectorAll('div:not(.global) div[remove]').forEach(element => element.removeAttribute('disabled'))
+        document.querySelector('div[clear]').classList.remove('disable')
+        document.querySelector('div[search]').classList.remove('disable')
     }
 }
 
@@ -135,3 +139,19 @@ function toggle(value) {
 
 ['Global', ...config.referenceStorage.bars].map(value => copy(true, { value, count: 0 }))
 toggle(true)
+
+document.querySelector('div[clear]').onclick = _ => {
+    document.querySelector('input[search]').value = ''
+    document.querySelector('div.global').style.display = 'flex';
+    document.querySelectorAll('div[bars] > div[id]').forEach(bar => bar.style.display = 'flex')
+}
+
+document.querySelector('input[search]').addEventListener('input', _ => {
+    const value = document.querySelector('input[search]').value;
+    if (value === '') document.querySelector('div.global').style.display = 'flex';
+    else document.querySelector('div.global').style.display = 'none';
+    document.querySelectorAll('div[bars] > div[id]').forEach(bar => {
+        if (!bar.querySelector('input').value.toLowerCase().includes(value.toLowerCase())) bar.style.display = 'none';
+        else bar.style.display = 'flex';
+    })
+})

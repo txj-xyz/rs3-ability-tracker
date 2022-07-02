@@ -13,11 +13,6 @@ div.disable {
     pointer-events: none;
 }
 
-/* Content styles. */
-div[bars] {
-    margin-bottom: 40px;
-}
-
 /* Keybind styles. */
 div[bars] > div {
     display: flex;
@@ -56,6 +51,7 @@ div[bars] div.edit input {
 
 /* Action styles. */
 div[remove],
+div[clear],
 div[edit],
 div[button],
 div[save],
@@ -76,7 +72,18 @@ div[cancel] {
 }
 
 div[manage] {
-    margin-bottom: 100px;
+    margin-bottom: 150px;
+}
+
+div[clear] {
+    background: var(--blue);
+    font-size: 12px;
+    padding: 5.5px 7px;
+    text-shadow: 0.5px 0.5px black;
+}
+
+input[search] {
+    width: 287px !important;
 }
 
 div[button]:not([save]) {

@@ -3,7 +3,7 @@ const Window = require('../base/Window.js')
 module.exports = class Bars extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 355, height: 350 }, true)
+            .create({ ...windows.properties, width: 355, height: 343 }, true)
             .ipcLoader(this.barsListener, this.keybindsEmit)
     }
 

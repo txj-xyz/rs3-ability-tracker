@@ -1,5 +1,4 @@
 const Window = require('../base/Window.js');
-// const { shell, app } = require('electron')
 
 module.exports = class Main extends Window {
     constructor() {
@@ -10,10 +9,7 @@ module.exports = class Main extends Window {
     }
 
     mainListener = (event, param) => {
-        if (param === 'quit') {
-            quitHandler()
-            // shell.openPath(app.getPath('userData'))
-        }
+        if (param === 'quit') quitHandler()
         else new global[param.slice(0, 1).toUpperCase() + param.slice(1)]()
         return event.returnValue = null;
     }
