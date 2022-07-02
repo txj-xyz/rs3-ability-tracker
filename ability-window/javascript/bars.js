@@ -26,8 +26,11 @@ function copy(initial, data) {
     }
     input.value = initial ? data.value : '';
     bar.setAttribute('info', initial ? data.count : 0);
-    _global ? bar.id = '(Non-switching)' : void 0;
-    _global ? component.classList.add('global') : void 0;
+    if (_global) {
+        bar.id = '(Non-switching)'
+        component.classList.add('global')
+        component.removeAttribute('id')
+    }
     const [edit, saveMod, cancel] = component.querySelectorAll('div[buttons] div');
     if (!initial) {
         edit.style.display = 'none';
@@ -53,6 +56,8 @@ function copy(initial, data) {
         document.querySelector('div[manage]').classList.add('disable')
         component.querySelector('div[remove]').classList.add('disable')
         document.querySelector('div[save]').classList.contains('active') ? document.querySelector('div[save]').classList.remove('active') : void 0;
+        document.querySelectorAll('div[edit]').forEach(element => element.setAttribute('disabled', ''))
+        document.querySelectorAll('div:not(.global) div[remove]').forEach(element => element.setAttribute('disabled', ''))
         toggle()
     }
 
@@ -82,21 +87,30 @@ function copy(initial, data) {
         bar.classList.remove('edit')
         document.querySelector('div[manage]').classList.remove('disable')
         component.querySelector('div[remove]').classList.remove('disable')
+        document.querySelectorAll('div[edit]').forEach(element => element.removeAttribute('disabled'))
+        document.querySelectorAll('div:not(.global) div[remove]').forEach(element => element.removeAttribute('disabled'))
     }
 }
 
 function save() {
     const bars = []
+    let failed = false
     document.querySelectorAll('div[bars] div:not(.global) div[bar]').forEach(bar => {
         const value = bar.querySelector('input').value;
         if (!value) {
             bar.classList.add('error')
             bar.setAttribute('error', 'Invalid name')
+            failed = true
         } else if (bars.includes(value)) {
-            document.querySelectorAll(`input[value="${value}"]`).forEach(input => {
-                input.classList.add('error')
-                input.setAttribute('error', 'Duplicate name')
+            toggle()
+
+            document.querySelectorAll(`input`).forEach(input => {
+                if (input.value === value) {
+                    input.parentNode.classList.add('error')
+                    input.parentNode.setAttribute('error', 'Duplicate name')
+                }
             })
+            failed = true
         } else {
             if (bar.classList.contains('new')) {
                 bar.classList.remove('new')
@@ -105,10 +119,11 @@ function save() {
             bar.classList.contains('error') ? bar.classList.remove('error') : void 0;
             bars.push(value)
         }
-        console.log(bars.includes(value))
     })
-    request('barsListener', bars)
-    toggle(true)
+    if (!failed) {
+        request('barsListener', bars)
+        toggle(true)
+    }
 }
 
 function toggle(value) {

@@ -38,7 +38,7 @@ div[bars] > div input {
     transition-duration: 400ms;
 }
 
-div[bars] div:not([popup]) div[bar]:not(.edit)  {
+div[bars] div:not([popup]) div[bar]:not(.edit) {
     opacity: 0.5;
     pointer-events: none;
 }
@@ -126,8 +126,13 @@ div.global {
     pointer-events: none;
 }
 
-div.global div[remove], div.global div[buttons] {
+div.global div[remove],
+div.global div[buttons] {
     opacity: 0.5;
+}
+
+div.global div[buttons] div[disabled] {
+    opacity: 1 !important;
 }
 
 div[buttons] {
@@ -164,7 +169,7 @@ p:after {
 
 /* Disabled divs. */
 div[disabled] {
-    opacity: 0.5;
+    opacity: 0.5 !important;
     user-select: none !important;
     pointer-events: none;
 }
