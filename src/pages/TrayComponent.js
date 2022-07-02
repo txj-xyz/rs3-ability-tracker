@@ -24,7 +24,11 @@ module.exports = class Taskbar {
         ipcMain.on('config', event => event.returnValue = JSON.parse(JSON.stringify(config)))
         ipcMain.on('random', event => event.returnValue = randomID())
         if (__platform !== 'darwin') {
-            ipcMain.on('hide', (event, param) => event.returnValue = windows[param]?.blurAndMinimize())
+            ipcMain.on('hide', (event, param) => {
+                windows[param]?.blur()
+                windows[param]?.minimize()
+                event.returnValue = null
+            })
             ipcMain.on('exit', (event, param) => event.returnValue = windows[param]?.close())
         }
     }

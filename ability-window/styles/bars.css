@@ -82,6 +82,10 @@ div[clear] {
     text-shadow: 0.5px 0.5px black;
 }
 
+body:not(#darwin) div[clear] {
+    padding: 5.5px 5px;
+}
+
 input[search] {
     width: 287px !important;
 }

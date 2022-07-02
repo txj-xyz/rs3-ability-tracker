@@ -34,12 +34,6 @@ module.exports = class Window {
         return this
     }
 
-    blurAndMinimize() {
-        windows[param]?.blur()
-        windows[param]?.minimize()
-        return void 0
-    }
-
     #register(show) {
         windows[this.name].on('ready-to-show', _ => {
             show ? new global[this.constructor.name]() : void 0;
