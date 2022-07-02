@@ -1,8 +1,3 @@
-<h3 align="center">⚠️DO NOT DOWNLOAD THIS TRACKER OUTSIDE OF THIS GITHUB REPOSITORY⚠️
-
-  <p>⚠️ANYTHING OUTSIDE OF THIS GITHUB IS UNTRUSTED AND WILL BE CONSIDERED UNSAFE⚠️</h3>
-  
-
 <p align="center">
   <a href="https://github.com/txj-xyz/rs3-ability-tracker">
     <img src="https://cdn.discordapp.com/attachments/706221433407275029/985653200331870228/image0.png" alt="Logo" width="100" height="100">
