@@ -1,6 +1,5 @@
 const { readdirSync, statSync, writeFileSync } = require('fs')
 const { join, resolve } = require('path')
-const abilFile = require('../src/cfg/game-key-data.json')
 const path = './ability-window/game-asset-groups/'
 const filesMap = [];
 
@@ -23,7 +22,6 @@ const walkSync = (dir, callback) => {
 
 walkSync(path, (filepath, pathDetails) => {
   const abilName = filepath.replace(/(\.png|_)/g, ' ').trim().replace(/\\/g, '\/').split(/\//g).pop()
-  // const iconPath = resolve(__dirname, filepath).replace(/\\/g, '/') //DIRECT
   const iconPath = `../${filepath.replace(/\\/g, '\/').split(/\//g).slice(1).join('/')}`
   filesMap.push({
     name: abilName,
@@ -33,6 +31,6 @@ walkSync(path, (filepath, pathDetails) => {
   })
 })
 
-console.log(JSON.stringify(filesMap, null, 2))
+console.log(JSON.stringify(filesMap, null, 1))
 
-// writeFileSync(`./test.json`, JSON.stringify(filesMap, null, 2))
+writeFileSync(`./src/cfg/game-key-data.json`, JSON.stringify(filesMap, null, 2))
