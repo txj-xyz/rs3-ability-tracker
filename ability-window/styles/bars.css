@@ -272,6 +272,6 @@ div[popup] div[mount] > div {
 hr {
     border: none;
     height: 2px;
-    border-radius: 2px;
     background: var(--elements);
 }
+

@@ -8,8 +8,8 @@
     "abilityWindow": {
         "x": null,
         "y": null,
-        "width": 810,
-        "height": 90
+        "width": 800,
+        "height": 80
     },
     "referenceStorage": {
         "keybinds": [],
