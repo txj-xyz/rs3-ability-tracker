@@ -1,4 +1,5 @@
-const [toggles, { library, keycodes }, element, actions] = [
+let { library, keycodes } = request('config', true)
+const [toggles, element, actions] = [
     {
         save: false,
         order: {
@@ -11,7 +12,6 @@ const [toggles, { library, keycodes }, element, actions] = [
         filter: [],
         popup: null
     },
-    request('config', true),
     id => `<div id="${id}"><div remove>-</div><div name id="Ability / Item"><input type="text" placeholder="Ability / Item" /><div dropdown></div></div> <div keybinds id="Keybind"><input type="text" placeholder="Keybind" /> </div> <div bars id="Bar Name"><input type="text" placeholder="Bar Name" /><div barselect></div> </div> <div image>&#x1F5BC;&#xFE0F;</div></div>`,
     `<div manage><div onclick="copy()" button>+ New Bar</div><div onclick="save()" button save>Save</div></div>`
 ]
@@ -35,7 +35,7 @@ function copy(initial, data) {
     const name = component.querySelector('div[name] input')
     const keybind = component.querySelector('div[keybinds] input')
     const bar = component.querySelector('div[bars] input')
-    const set = initial ? library.find(set => set.name === data.name) : null
+    let set = initial ? library.find(set => set.name === data.name) : null
 
     component.querySelector('div[remove]').onclick = _ => {
         component.remove()
@@ -53,7 +53,7 @@ function copy(initial, data) {
         toggles.popup = id;
         const pickerMount = document.querySelector('div[pickerMount]')
         pickerMount.classList.contains('hide') ? pickerMount.classList.remove('hide') : void 0;
-        if (!set) set = library.find(set => set.name === name.value)
+        set = library.find(set => set.name === name.value)
         if (set && set.customIcon) {
             component.querySelector('div[image]').classList.add('active')
             document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
@@ -241,6 +241,7 @@ document.querySelector('div[revertImage]').onclick = _ => {
     document.querySelector('div[imagePicker] div[image]').style.background = `url(${library.find(set => set.name === name).icon})`
     const image = document.getElementById(toggles.popup).querySelector('div[image]')
     image.classList.contains('active') ? image.classList.remove('active') : void 0
+    library = request('config', true).library
 }
 
 document.querySelector('div[modifyImage]').onclick = _ => {
@@ -250,8 +251,8 @@ document.querySelector('div[modifyImage]').onclick = _ => {
 
 ipc.on('customIcon', (event, param) => {
     if (!toggles.popup) return
-    console.log(param)
     document.getElementById(param.id).querySelector('div[image]').classList.add('active')
     document.querySelector('div[imagePicker] div[image]').style.background = `url(${param.customIcon})`
     document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
+    library = request('config', true).library
 })

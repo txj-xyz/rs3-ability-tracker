@@ -1,5 +1,5 @@
 :root {
-    --revertImg: '';
+    --revertImg: "";
 }
 
 html {
@@ -387,18 +387,11 @@ div[revertImage] {
     background: var(--blue) !important;
     font-size: 12px;
     margin: 0 5px !important;
-}
-
-div[modifyImage]:hover {
     border-radius: 0 3px 3px 0 !important;
 }
 
 div[revertImage] {
     background: var(--red) !important;
-    border-radius: 3px !important;
-}
-
-div[revertImage]:hover {
     border-radius: 3px 0 0 3px !important;
 }
 
@@ -418,15 +411,11 @@ div[modifyImage]:before {
     font-size: 15px;
     position: absolute;
     z-index: -1;
-    margin: 0%;
+    margin-left: -113px;
     transition-duration: 400ms;
     border: 1px solid var(--blue);
     padding: 7px;
     border-radius: 3px 0 0 3px;
-}
-
-div[modifyImage]:hover:before {
-    margin-left: -113px;
 }
 
 div[revertImage]:before {
@@ -437,16 +426,12 @@ div[revertImage]:before {
     display: block;
     font-size: 15px;
     position: absolute;
-    z-index: -1; 
-    margin-right: 0;
+    z-index: -1;
+    margin-right: -145px;
     transition-duration: 400ms;
     border: 1px solid var(--red);
     padding: 14.5px;
     border-radius: 0 3px 3px 0;
-}
-
-div[revertImage]:hover:before {
-    margin-right: -145px;
 }
 
 div[revertImage].disable:before {

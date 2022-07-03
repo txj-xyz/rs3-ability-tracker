@@ -1467,7 +1467,7 @@
     "name": "2H Weapon",
     "type": "slot-icons",
     "icon": "../game-asset-groups/slot-icons/2H_Weapon.png",
-    "customIcon": null
+    "customIcon": "../assets/.custom/jZAgE-Igj2L-kJEzL-yPjAh-0Sal2.png"
   },
   {
     "name": "MH Weapon",
@@ -1773,7 +1773,7 @@
     "name": "Abyssal scourge",
     "type": "melee",
     "icon": "../game-asset-groups/weapons/melee/Abyssal_scourge.png",
-    "customIcon": null
+    "customIcon": "../assets/.custom/OYCzp-Nl61V-3rrjD-rMCe2-DO5XB.png"
   },
   {
     "name": "Ancient defender",

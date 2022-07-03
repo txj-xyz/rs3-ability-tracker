@@ -6,3 +6,4 @@ out/
 .vscode/
 test.js
 !src/default/config.json
+ability-window/assets/.custom/*
