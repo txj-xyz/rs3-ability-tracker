@@ -241,10 +241,7 @@ function save() {
         binds.forEach(set => {
             if (binds.filter(e => e.name === set.name && e.keybind === set.keybind).length > 1 && !failed) {
                 failed = true
-
-                name?.parentNode.classList.add('error')
-                name?.parentNode.setAttribute('error', 'Duplicate Item and Keybind')
-
+                
                 keybind?.parentNode.classList.add('error')
                 keybind?.parentNode.setAttribute('error', 'Duplicate Item and Keybind')
             } else if (binds.filter(e => e.bar === set.bar && e.keybind === set.keybind).length > 1 && !failed) {
