@@ -171,10 +171,11 @@ div[search] > div {
 }
 
 div[abilityIcon] {
+    min-width: 10px !important;
     background-color: var(--hover) !important;
     background-position: center !important;
-    background-repeat: no-repeat;
-    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
     cursor: default !important;
 }
 
