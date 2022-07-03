@@ -58,7 +58,6 @@ module.exports = class Manager {
 
         return oldConfig;
     }
-
     // Import file with error catching logic.
     static file(path) {
         let [failed, data] = [false];

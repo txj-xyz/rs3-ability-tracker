@@ -3,24 +3,27 @@ const [Manager, { uIOhook, UiohookKey }, activeWindows] = ['../base/Manager.js',
 
 // Function to get frontend page paths.
 module.exports = class Trigger extends Manager {
-
     lastKey = {
         value: null,
-        timestamp: 0
-    }
-    keyCheck = []
-    activeBar = config.barsSelection
-    spamCooldown = 2000
+        timestamp: 0,
+    };
+    keyCheck = [];
+    activeBar = config.barsSelection;
+    spamCooldown = 2000;
+    keybinds = null;
 
     constructor() {
-        super()
+        super();
         this.initListeners();
     }
 
     initListeners() {
-        unregister()
+        this.keybinds = new Map();
+        config.referenceStorage.keybinds.map(bind => this.keybinds.set(bind.keybind, bind));
+
+        unregister();
         uIOhook.on('keydown', event => {
-            if (!this.rs3Instance()) return
+            if (!this.rs3Instance()) return;
             const hash = this.hashEvent(event);
             if (!this.keyCheck[event.keycode]) this.keyCheck[event.keycode] = new Map();
             if (!this.keyCheck[event.keycode].get(hash)) this.handleKeyPress(event);
@@ -40,9 +43,11 @@ module.exports = class Trigger extends Manager {
 
     rs3Instance() {
         if (__devMode) return true;
-        activeWindows().getActiveWindow().then(activeWin => {
-            return activeWin.windowName.match(/(rs2client|RuneScape)/g)?.[0] ? true : false
-        });
+        activeWindows()
+            .getActiveWindow()
+            .then(activeWin => {
+                return activeWin.windowName.match(/(rs2client|RuneScape)/g)?.[0] ? true : false;
+            });
     }
 
     getKeyName(name, val) {
@@ -50,42 +55,32 @@ module.exports = class Trigger extends Manager {
     }
 
     handleKeyPress(trigger) {
-        for (const set of config.referenceStorage.keybinds) {
+        let success = false;
+        try {
+            const modifiers = { shiftKey: 'Shift', ctrlKey: 'Ctrl', altKey: 'Alt', metaKey: 'Super' };
+            const pressedModifiers = Object.keys(trigger)
+                .map(prop => (prop.endsWith('Key') && trigger[prop] ? prop : null))
+                .filter(e => e);
+            const key = keycodes.reverseMap.get(trigger.keycode.toString());
+            if (Object.keys(modifiers).map(k => modifiers[k]).includes(key)) return
+            const possibleKeys = pressedModifiers.some(e => e) ? pressedModifiers.map(mod => `${modifiers[mod]} + ${key}`) : [key];
 
-            // For every keybind.
-            for (const key of set.keybind) {
-                // Get modifier keys.
-                const modifier = key.split('+').map(e => e.trim());
-
-                // Get letter.
-                const letter = modifier.pop();
-                let failed = false;
-
-                const modifierKeyMap = { Shift: 'shiftKey', Ctrl: 'ctrlKey', Alt: 'altKey', Super: 'metaKey' };
-
-                // check if modifiers are pressed
-                for (const key of Object.keys(modifierKeyMap)) {
-                    if (modifier.includes(key) && !trigger[modifierKeyMap[key]]) failed = true;
-                    if (!modifier.includes(key) && trigger[modifierKeyMap[key]]) failed = true;
-                }
-
-                // Combat loop found keybind
-                if ((UiohookKey[letter] === trigger.keycode || keycodes.data[letter] === trigger.keycode) && !failed) {
-                    if (set.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < this.spamCooldown) return;
-                    this.lastKey.value = set.name;
+            for (const keybind of possibleKeys) {
+                const bind = this.keybinds.get(keybind);
+                if (bind && !success) {
+                    success = true;
+                    if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < this.spamCooldown) return;
+                    this.lastKey.value = bind.name;
                     this.lastKey.timestamp = Date.now();
-
-
-                    let reference = library.get(set.name)
-
-                    // set timestamp for successfull keybind press
-                    if (config.toggleSwitching && reference.type === 'slot-icons' && set.bar.toLowerCase() !== this.activeBar?.toLowerCase()) this.activeBar = set.bar;
-
-                    if (set.bar.toLowerCase() === (config.toggleSwitching ? this.activeBar : config.barsSelection)?.toLowerCase()) {
-                        windows.ability?.webContents.send('abilityData', { icon: library.get(set.name).icon, perk: set.perk ? library.get(set.perk).icon : null });
+                    const reference = library.get(bind.name);
+                    if (config.toggleSwitching && reference.type === 'slot-icons' && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) this.activeBar = bind.bar;
+                    if (bind.bar.toLowerCase() === (config.toggleSwitching ? this.activeBar : config.barsSelection)?.toLowerCase()) {
+                        windows.ability?.webContents.send('abilityData', { icon: library.get(bind.name).icon, perk: bind.perk ? library.get(bind.perk).icon : null });
                     }
                 }
             }
+        } catch (error) {
+            console.log(error);
         }
     }
 };
