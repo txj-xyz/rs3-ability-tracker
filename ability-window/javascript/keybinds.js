@@ -250,9 +250,6 @@ function save() {
             } else if (binds.filter(e => e.bar === set.bar && e.keybind === set.keybind).length > 1 && !failed) {
                 failed = true
 
-                bar?.parentNode.classList.add('error')
-                bar?.parentNode.setAttribute('error', 'Duplicate Keybind')
-
                 keybind?.parentNode.classList.add('error')
                 keybind?.parentNode.setAttribute('error', 'Duplicate Keybind')
             }
