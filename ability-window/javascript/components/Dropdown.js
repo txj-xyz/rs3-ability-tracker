@@ -2,7 +2,7 @@ class Dropdown {
     constructor(parent, list, initial, id) {
         this.modifiers = ['Shift', 'Control', 'Ctrl', 'Command', 'Cmd', 'Alt', 'Super'];
         this.list = list
-        this.id = parent.id
+        this.id = parent ? parent.id : null
         this.query = id
         this.parent = parent
         this.input = parent.querySelector(id ? `div[${id}] input` : 'input')
@@ -18,7 +18,7 @@ class Dropdown {
                 this.input.style.borderRadius = '3px'
             }
             this.dropdown.style.display = 'none';
-        }
+        }   
 
         this.input.onclick = _ => {
             if (this.dropdown.style.display === 'none') {

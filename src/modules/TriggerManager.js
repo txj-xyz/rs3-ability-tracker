@@ -4,6 +4,10 @@ const [Manager, { uIOhook, UiohookKey }, activeWindows] = ['../base/Manager.js',
 // Function to get frontend page paths.
 module.exports = class Trigger extends Manager {
 
+    lastKey = {
+        value: null,
+        timestamp: 0
+    }
     keyCheck = []
     activeBar = null
 
@@ -20,14 +24,12 @@ module.exports = class Trigger extends Manager {
             if (!this.keyCheck[event.keycode]) this.keyCheck[event.keycode] = new Map();
             if (!this.keyCheck[event.keycode].get(hash)) this.handleKeyPress(event);
             this.keyCheck[event.keycode].set(hash, true);
-            console.log(event)
         });
 
         // Listen to keyup.
         uIOhook.on('keyup', event => {
             if (!this.rs3Instance() || !this.keyCheck[event.keycode]) return;
             this.keyCheck[event.keycode].clear();
-            console.log(event)
         });
     }
 

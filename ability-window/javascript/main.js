@@ -47,3 +47,29 @@ function update(id, value) {
     document.querySelector(`div#${id} input`).value = value
     request('confListener', { id: 'barsSelection', value })
 }
+
+ipc.on('closed', (event, param) => {
+    if (param === 'ability') document.getElementById(param).innerHTML = 'Start Tracker'
+})
+
+ipc.on('opened', (event, param) => {
+    if (param === 'ability') document.getElementById(param).innerHTML = 'Stop Tracker'
+})
+
+ipc.on('fromBars', (event, param) => {
+    if (!Array.isArray(param)) {
+        document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
+        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...request('config').referenceStorage.bars], true)
+    }
+    else if (!param.length) {
+        document.querySelector('label[bars]').classList.add('disabled')
+        document.querySelector('label[bars] input').checked = false
+        document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
+        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...param], true)
+    } else {
+        document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
+        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...param], true)
+        document.querySelector('label[bars]').classList.remove('disabled')
+
+    }
+})

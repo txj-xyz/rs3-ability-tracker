@@ -241,7 +241,7 @@ function save() {
         binds.forEach(set => {
             if (binds.filter(e => e.name === set.name && e.keybind === set.keybind).length > 1 && !failed) {
                 failed = true
-                
+
                 keybind?.parentNode.classList.add('error')
                 keybind?.parentNode.setAttribute('error', 'Duplicate Item and Keybind')
             } else if (binds.filter(e => e.bar === set.bar && e.keybind === set.keybind).length > 1 && !failed) {
@@ -360,4 +360,27 @@ ipc.on('customIcon', (event, param) => {
     document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
     library = request('config', true).library
     document.getElementById(toggles.popup).querySelector('div[abilityIcon]').style.background = getImg(param.name, true)
+})
+
+ipc.on('fromBars', (event, param) => {
+    if (!Array.isArray(param) || (Array.isArray(param) && param.some(e => e))) {
+        document.querySelectorAll('div[keys] > div[id]:not([search]) div[bars]').forEach(div => {
+            div.classList.remove('disable')
+            const id = div.parentNode.id
+            div.parentNode.replaceChild(div.cloneNode(true), div);
+            new Dropdown(document.getElementById(id), ['Global', ...request('config').referenceStorage.bars], true, 'bars')
+        })
+        if (param.before) {
+            document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(div => {
+                const input = div.querySelector('div[name] input').value
+                const bar = div.querySelector('div[bars] input')
+                if (input && param.before === bar.value) bar.value = param.after
+            })
+        }
+    } else {
+        document.querySelectorAll('div[keys] > div[id]:not([search]) div[bars]').forEach(div => {
+            div.classList.add('disable')
+            div.querySelector('input').blur()
+        })
+    }
 })

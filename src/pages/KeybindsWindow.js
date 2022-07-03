@@ -4,10 +4,9 @@ module.exports = class Keybinds extends Window {
     constructor() {
         super()
             .create({ ...windows.properties, width: 635, height: 344 }, true)
-            .ipcLoader(this.keybindsListener, this.barsEmit)
+            .ipcLoader(this.keybindsListener)
     }
 
-    barsEmit = _ => null
     keybindsListener = (event, param) => {
         switch (param.type) {
             case 'revertImage': {
@@ -35,20 +34,14 @@ module.exports = class Keybinds extends Window {
             }
 
             default: {
-                let keybinds = new Map()
-                for (let [key, value] of Object.entries(param)) {
-                    let bind = keybinds.get(value.name)
-                    if (bind) keybinds.set(value.name, { ...bind, keybind: [...bind.keybind, value.keybind] })
-                    else keybinds.set(value.name, { ...value, keybind: [value.keybind] })
-                }
-
-                config.referenceStorage.keybinds = Array.from(keybinds, ([name, value]) => value)
+                config.referenceStorage.keybinds = param
                 library.data.map(item => {
                     if (item.customIcon && !config.referenceStorage.keybinds.map(e => e.name).includes(item.name)) {
                         unlinkSync(resolve(__dirname, '../../ability-window/assets', library.get(item.name).customIcon))
                         library.set(item.name, null)
                     }
                 })
+                windows.bars?.webContents.send('fromKeybinds', config.referenceStorage.keybinds)
                 break;
             }
         }

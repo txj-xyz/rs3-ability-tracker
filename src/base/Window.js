@@ -46,8 +46,8 @@ module.exports = class Window {
                     windows[this.name].hide()
                     if (!windows.main?.isVisible() && !windows.keybinds && !windows.bars) quitHandler()
                 } else quitHandler()
-            } else if (this.name === 'ability') unregister()
-            else {
+            } else {
+                if (this.name === 'ability') unregister()
                 new Main()
                 this.#emit('closed')
             }

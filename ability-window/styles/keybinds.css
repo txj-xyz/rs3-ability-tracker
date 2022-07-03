@@ -461,10 +461,6 @@ div[revertImage]:before {
     border-radius: 0 3px 3px 0;
 }
 
-div[revertImage].disable:before {
-    display: none;
-}
-
 div[closeMount] {
     background: var(--yellow) !important;
     position: absolute;

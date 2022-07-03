@@ -25,7 +25,9 @@ function copy(initial, data) {
         toggle()
     }
     input.value = initial ? data.value : '';
-    bar.setAttribute('info', initial ? data.count : 0);
+
+    bar.setAttribute('info', data && data.count === 1 ? '1 linked bind' : `${data ? data.count : 0} linked binds`)
+    
     if (_global) {
         bar.id = '(Non-switching)'
         component.classList.add('global')
@@ -68,9 +70,10 @@ function copy(initial, data) {
         const value = input.value;
         if (value === '') revert()
         else {
+            const old = toggles.saveMod.value
             toggles.saveMod.value = value
             revert()
-            save()
+            save(old, value)
         }
     }
 
@@ -96,7 +99,7 @@ function copy(initial, data) {
     }
 }
 
-function save() {
+function save(old, value) {
     const bars = []
     let failed = false
     document.querySelectorAll('div[bars] div:not(.global) div[bar]').forEach(bar => {
@@ -125,7 +128,7 @@ function save() {
         }
     })
     if (!failed) {
-        request('barsListener', bars)
+        request('barsListener', old && value ? { before: old, after: value } : bars)
         toggle(true)
     }
 }
@@ -137,8 +140,12 @@ function toggle(value) {
     else save.classList.contains('active') ? save.classList.remove('active') : void 0;
 }
 
-['Global', ...config.referenceStorage.bars].map(value => copy(true, { value, count: 0 }))
+
+const bars = { Global: 0 }
+config.referenceStorage.keybinds.forEach(bind => bars[bind.bar] ? bars[bind.bar]++ : bars[bind.bar] = 1);
+['Global', ...config.referenceStorage.bars].map(value => copy(true, { value, count: bars[value] || 0 }))
 toggle(true)
+
 
 document.querySelector('div[clear]').onclick = _ => {
     document.querySelector('input[search]').value = ''
@@ -160,5 +167,16 @@ document.querySelector('input[search]').addEventListener('input', _ => {
     document.querySelectorAll('div[bars] > div[id]').forEach(bar => {
         if (!bar.querySelector('input').value.toLowerCase().includes(value.toLowerCase())) bar.style.display = 'none';
         else bar.style.display = 'flex';
+    })
+})
+
+ipc.on('fromKeybinds', (event, param) => {
+    const bars = { Global: 0 }
+    console.log(param)
+    param.forEach(bind => bars[bind.bar] ? bars[bind.bar]++ : bars[bind.bar] = 1)
+    document.querySelectorAll('div[bars] div[bar]').forEach(bar => {
+        const name = bar.querySelector('input').value;
+        const value = bars[name] || 0
+        bar.setAttribute('info', value === 1 ? '1 linked bind' : `${value} linked binds`)
     })
 })
