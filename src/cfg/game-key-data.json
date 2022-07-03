@@ -1,29 +1,5 @@
 [
   {
-    "name": "Familiar Special Attack",
-    "type": "abilities",
-    "icon": "../game-asset-groups/abilities/Familiar_Special_Attack.png",
-    "customIcon": null
-  },
-  {
-    "name": "Target Cycle Backwards",
-    "type": "abilities",
-    "icon": "../game-asset-groups/abilities/Target_Cycle_Backwards.png",
-    "customIcon": null
-  },
-  {
-    "name": "Target Cycle Forward",
-    "type": "abilities",
-    "icon": "../game-asset-groups/abilities/Target_Cycle_Forward.png",
-    "customIcon": null
-  },
-  {
-    "name": "Weapon Special attack",
-    "type": "abilities",
-    "icon": "../game-asset-groups/abilities/Weapon_Special_attack.png",
-    "customIcon": null
-  },
-  {
     "name": "Cease (ability)",
     "type": "constitution",
     "icon": "../game-asset-groups/abilities/constitution/Cease_(ability).png",
@@ -195,6 +171,12 @@
     "name": "Revenge",
     "type": "defensive",
     "icon": "../game-asset-groups/abilities/defensive/Revenge.png",
+    "customIcon": null
+  },
+  {
+    "name": "Familiar Special Attack",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Familiar_Special_Attack.png",
     "customIcon": null
   },
   {
@@ -756,6 +738,24 @@
     "customIcon": null
   },
   {
+    "name": "Target Cycle Backwards",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Target_Cycle_Backwards.png",
+    "customIcon": null
+  },
+  {
+    "name": "Target Cycle Forward",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Target_Cycle_Forward.png",
+    "customIcon": null
+  },
+  {
+    "name": "Weapon Special attack",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Weapon_Special_attack.png",
+    "customIcon": null
+  },
+  {
     "name": "Ancient elven ritual shard",
     "type": "items",
     "icon": "../game-asset-groups/items/Ancient_elven_ritual_shard.png",
@@ -777,24 +777,6 @@
     "name": "Dreadnip",
     "type": "items",
     "icon": "../game-asset-groups/items/Dreadnip.png",
-    "customIcon": null
-  },
-  {
-    "name": "Sticky Bomb",
-    "type": "items",
-    "icon": "../game-asset-groups/items/Sticky_Bomb.png",
-    "customIcon": null
-  },
-  {
-    "name": "Sticky bombs",
-    "type": "items",
-    "icon": "../game-asset-groups/items/Sticky_bombs.png",
-    "customIcon": null
-  },
-  {
-    "name": "Vulnerability Bomb",
-    "type": "items",
-    "icon": "../game-asset-groups/items/Vulnerability_Bomb.png",
     "customIcon": null
   },
   {
@@ -1032,15 +1014,15 @@
     "customIcon": null
   },
   {
-    "name": "Scrimshaw of Vampyrism",
-    "type": "pocket-slot",
-    "icon": "../game-asset-groups/items/pocket-slot/Scrimshaw_of_Vampyrism.png",
-    "customIcon": null
-  },
-  {
     "name": "Scrimshaw of sacrifice",
     "type": "pocket-slot",
     "icon": "../game-asset-groups/items/pocket-slot/Scrimshaw_of_sacrifice.png",
+    "customIcon": null
+  },
+  {
+    "name": "Scrimshaw of Vampyrism",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Scrimshaw_of_Vampyrism.png",
     "customIcon": null
   },
   {
@@ -1263,6 +1245,18 @@
     "name": "Tokkul-zo",
     "type": "rings",
     "icon": "../game-asset-groups/items/rings/Tokkul-zo.png",
+    "customIcon": null
+  },
+  {
+    "name": "Sticky Bomb",
+    "type": "items",
+    "icon": "../game-asset-groups/items/Sticky_Bomb.png",
+    "customIcon": null
+  },
+  {
+    "name": "Vulnerability Bomb",
+    "type": "items",
+    "icon": "../game-asset-groups/items/Vulnerability_Bomb.png",
     "customIcon": null
   },
   {
@@ -1788,6 +1782,12 @@
     "customIcon": null
   },
   {
+    "name": "Darklight",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Darklight.png",
+    "customIcon": null
+  },
+  {
     "name": "Dark Shard of Leng",
     "type": "melee",
     "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng.png",
@@ -1800,18 +1800,6 @@
     "customIcon": null
   },
   {
-    "name": "Darklight",
-    "type": "melee",
-    "icon": "../game-asset-groups/weapons/melee/Darklight.png",
-    "customIcon": null
-  },
-  {
-    "name": "Dragon battleaxe",
-    "type": "melee",
-    "icon": "../game-asset-groups/weapons/melee/Dragon_battleaxe.png",
-    "customIcon": null
-  },
-  {
     "name": "Dragonbane 2h sword",
     "type": "melee",
     "icon": "../game-asset-groups/weapons/melee/Dragonbane_2h_sword.png",
@@ -1821,6 +1809,12 @@
     "name": "Dragonride lance",
     "type": "melee",
     "icon": "../game-asset-groups/weapons/melee/Dragonride_lance.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragon battleaxe",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dragon_battleaxe.png",
     "customIcon": null
   },
   {
