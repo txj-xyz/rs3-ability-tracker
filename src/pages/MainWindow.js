@@ -3,7 +3,7 @@ const Window = require('../base/Window.js');
 module.exports = class Main extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 250, height: 385 }, true)
+            .create({ ...windows.properties, width: 250, height: 358 }, true)
             .ipcLoader(this.mainListener, this.confListener)
     }
 
