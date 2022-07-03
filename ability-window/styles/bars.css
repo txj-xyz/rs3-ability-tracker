@@ -87,6 +87,9 @@ div[order]:not(.active) {
     background: var(--elements);
 }
 
+body:not(#darwin) div[clear] {
+    padding: 5.5px 5px;
+}
 
 input[search] {
     width: 287px !important;

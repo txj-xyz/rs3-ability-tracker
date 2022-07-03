@@ -29,6 +29,10 @@ nav div, nav p {
     user-select: none;
 }
 
+nav div[hide] {
+    opacity: 1 !important;
+}
+
 div[hide] p {
     transform: scale(2);
     margin-top: -5px;
