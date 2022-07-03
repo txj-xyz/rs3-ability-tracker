@@ -120,8 +120,10 @@ function toggleImage(id, value) {
     const image = document.getElementById(id).querySelector('div[image]')
     const item = config.referenceStorage.keybinds.find(e => e.name === value && e.keybind === document.getElementById(id).querySelector('div[keybinds] input').value)
     if (!value) {
-        image.classList.add('disable')
-        image.classList.remove('active')
+        if (image) {
+            image.classList.add('disable')
+            image.classList.remove('active')
+        }
         document.getElementById(id).querySelector('div[abilityIcon]').style.background = ''
         document.getElementById(id).querySelector('div[perkMod]').classList.add('disable')
         document.getElementById(id).querySelector('div[perkMod]').classList.remove('active')
@@ -237,7 +239,7 @@ function save() {
         }
         binds.push({ name: name.value, keybind: keybind.value, bar: bar.value, perk: perk ? perk.innerHTML : null })
         binds.forEach(set => {
-            if (binds.filter(e => e.name === set.name && e.keybind === set.keybind).length > 1) {
+            if (binds.filter(e => e.name === set.name && e.keybind === set.keybind).length > 1 && !failed) {
                 failed = true
 
                 name?.parentNode.classList.add('error')
@@ -245,6 +247,14 @@ function save() {
 
                 keybind?.parentNode.classList.add('error')
                 keybind?.parentNode.setAttribute('error', 'Duplicate Item and Keybind')
+            } else if (binds.filter(e => e.bar === set.bar && e.keybind === set.keybind).length > 1 && !failed) {
+                failed = true
+
+                bar?.parentNode.classList.add('error')
+                bar?.parentNode.setAttribute('error', 'Duplicate Keybind')
+
+                keybind?.parentNode.classList.add('error')
+                keybind?.parentNode.setAttribute('error', 'Duplicate Keybind')
             }
         })
     })

@@ -55,7 +55,7 @@ div[barselect] {
     font-size: 13px;
     display: none;
     position: absolute;
-    z-index: 1;
+    z-index: 70;
     background-color: var(--elements);
     max-height: 130px;
     width: 132px;
