@@ -1,4 +1,5 @@
 const { BrowserWindow, app, ipcMain } = require("electron");
+const { windows } = require("./Manager");
 
 module.exports = class Window {
 
@@ -46,13 +47,19 @@ module.exports = class Window {
             this.#emit('opened')
         })
         windows[this.name].on('close', _ => {
-            if (this.name === 'main') config.minimizeToTray ? windows[this.name].hide() : quitHandler()
-            else {
-                new Main()
+            if (this.name === 'main') {
+                if (config.minimizeToTray || windows.keybinds || windows.bars) {
+                    windows[this.name].hide()
+                    if (!windows.main?.isVisible() && !windows.keybinds && !windows.bars) quitHandler()
+                } else quitHandler()
+            } else {
+                if (!windows.keybinds && !windows.bars) new Main()
                 this.#emit('closed')
             }
             for (const event in this.listeners) ipcMain.removeListener(event, this.listeners[event])
             delete windows[this.name]
+            windows.tray.reload()
+            if (!windows.main?.isVisible() && !windows.keybinds && !windows.bars) quitHandler()
             return void 0
         })
     }

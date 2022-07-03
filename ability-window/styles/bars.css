@@ -82,6 +82,12 @@ div[clear] {
     text-shadow: 0.5px 0.5px black;
 }
 
+div[clear]:not(.active),
+div[order]:not(.active) {
+    background: var(--elements);
+}
+
+
 input[search] {
     width: 287px !important;
 }

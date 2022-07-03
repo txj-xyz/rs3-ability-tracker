@@ -9,6 +9,7 @@ module.exports = class Manager {
             icon: resolve(__dirname, '../icons/icon.png'),
             autoHideMenuBar: true,
             resizable: false,
+            fullscreen: false,
             show: false,
             titleBarStyle: 'hidden',
             webPreferences: {

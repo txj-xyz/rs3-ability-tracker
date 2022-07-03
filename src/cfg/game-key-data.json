@@ -1,1339 +1,2048 @@
 [
   {
-    "name": "Cease (ability)",
-    "type": "constitution",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/abilities/constitution/Cease_(ability).png",
-    "customIcon": null
-  },
-  {
-    "name": "Eat Food",
-    "type": "constitution",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/abilities/constitution/Eat_Food.png",
-    "customIcon": null
-  },
-  {
-    "name": "Essence of Finality",
-    "type": "constitution",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/abilities/constitution/Essence_of_Finality.png",
-    "customIcon": null
-  },
-  {
-    "name": "Guthixs Blessing",
-    "type": "constitution",
-    "cooldown": 300,
-    "icon": "../game-asset-groups/abilities/constitution/Guthixs_Blessing.png",
-    "customIcon": null
-  },
-  {
-    "name": "Ice Asylum",
-    "type": "constitution",
-    "cooldown": 300,
-    "icon": "../game-asset-groups/abilities/constitution/Ice_Asylum.png",
-    "customIcon": null
-  },
-  {
-    "name": "Incite",
-    "type": "constitution",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/abilities/constitution/Incite.png",
-    "customIcon": null
-  },
-  {
-    "name": "Onslaught",
-    "type": "constitution",
-    "cooldown": 120,
-    "icon": "../game-asset-groups/abilities/constitution/Onslaught.png",
-    "customIcon": null
-  },
-  {
-    "name": "Regenerate (ability)",
-    "type": "constitution",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/abilities/constitution/Regenerate_(ability).png",
-    "customIcon": null
-  },
-  {
-    "name": "Reprisal",
-    "type": "constitution",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/constitution/Reprisal.png",
-    "customIcon": null
-  },
-  {
-    "name": "Sacrifice",
-    "type": "constitution",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/constitution/Sacrifice.png",
-    "customIcon": null
-  },
-  {
-    "name": "Shatter",
-    "type": "constitution",
-    "cooldown": 120,
-    "icon": "../game-asset-groups/abilities/constitution/Shatter.png",
-    "customIcon": null
-  },
-  {
-    "name": "Siphon",
-    "type": "constitution",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/constitution/Siphon.png",
-    "customIcon": null
-  },
-  {
-    "name": "Storm Shards",
-    "type": "constitution",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/constitution/Storm_Shards.png",
-    "customIcon": null
-  },
-  {
-    "name": "Tuskas Wrath",
-    "type": "constitution",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/constitution/Tuskas_Wrath.png",
-    "customIcon": null
-  },
-  {
-    "name": "Anticipation",
-    "type": "defensive",
-    "cooldown": 24.6,
-    "icon": "../game-asset-groups/abilities/defensive/Anticipation.png",
-    "customIcon": null
-  },
-  {
-    "name": "Barricade",
-    "type": "defensive",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/defensive/Barricade.png",
-    "customIcon": null
-  },
-  {
-    "name": "Bash",
-    "type": "defensive",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/defensive/Bash.png",
-    "customIcon": null
-  },
-  {
-    "name": "Debilitate",
-    "type": "defensive",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/defensive/Debilitate.png",
-    "customIcon": null
-  },
-  {
-    "name": "Devotion",
-    "type": "defensive",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/defensive/Devotion.png",
-    "customIcon": null
-  },
-  {
-    "name": "Divert",
-    "type": "defensive",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/defensive/Divert.png",
-    "customIcon": null
-  },
-  {
-    "name": "Freedom",
-    "type": "defensive",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/defensive/Freedom.png",
-    "customIcon": null
-  },
-  {
-    "name": "Immortality",
-    "type": "defensive",
-    "cooldown": 120,
-    "icon": "../game-asset-groups/abilities/defensive/Immortality.png",
-    "customIcon": null
-  },
-  {
-    "name": "Natural Instinct",
-    "type": "defensive",
-    "cooldown": 120,
-    "icon": "../game-asset-groups/abilities/defensive/Natural_Instinct.png",
-    "customIcon": null
-  },
-  {
-    "name": "Preparation",
-    "type": "defensive",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/defensive/Preparation.png",
-    "customIcon": null
-  },
-  {
-    "name": "Provoke",
-    "type": "defensive",
-    "cooldown": 10.2,
-    "icon": "../game-asset-groups/abilities/defensive/Provoke.png",
-    "customIcon": null
-  },
-  {
-    "name": "Reflect",
-    "type": "defensive",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/defensive/Reflect.png",
-    "customIcon": null
-  },
-  {
-    "name": "Rejuvenate",
-    "type": "defensive",
-    "cooldown": 300,
-    "icon": "../game-asset-groups/abilities/defensive/Rejuvenate.png",
-    "customIcon": null
-  },
-  {
-    "name": "Resonance",
-    "type": "defensive",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/defensive/Resonance.png",
-    "customIcon": null
-  },
-  {
-    "name": "Revenge",
-    "type": "defensive",
-    "cooldown": 45,
-    "icon": "../game-asset-groups/abilities/defensive/Revenge.png",
-    "customIcon": null
-  },
-  {
     "name": "Familiar Special Attack",
     "type": "abilities",
-    "cooldown": 0,
     "icon": "../game-asset-groups/abilities/Familiar_Special_Attack.png",
-    "customIcon": null
-  },
-  {
-    "name": "Asphyxiate",
-    "type": "magic",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/magic/Asphyxiate.png",
-    "customIcon": null
-  },
-  {
-    "name": "Chain",
-    "type": "magic",
-    "cooldown": 10.2,
-    "icon": "../game-asset-groups/abilities/magic/Chain.png",
-    "customIcon": null
-  },
-  {
-    "name": "Combust",
-    "type": "magic",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/magic/Combust.png",
-    "customIcon": null
-  },
-  {
-    "name": "Concentrated Blast",
-    "type": "magic",
-    "cooldown": 5.4,
-    "icon": "../game-asset-groups/abilities/magic/Concentrated_Blast.png",
-    "customIcon": null
-  },
-  {
-    "name": "Corruption Blast",
-    "type": "magic",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/magic/Corruption_Blast.png",
-    "customIcon": null
-  },
-  {
-    "name": "Deep Impact",
-    "type": "magic",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/magic/Deep_Impact.png",
-    "customIcon": null
-  },
-  {
-    "name": "Detonate",
-    "type": "magic",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/magic/Detonate.png",
-    "customIcon": null
-  },
-  {
-    "name": "Dragon Breath",
-    "type": "magic",
-    "cooldown": 10.2,
-    "icon": "../game-asset-groups/abilities/magic/Dragon_Breath.png",
-    "customIcon": null
-  },
-  {
-    "name": "Greater Chain",
-    "type": "magic",
-    "cooldown": 10.2,
-    "icon": "../game-asset-groups/abilities/magic/Greater_Chain.png",
-    "customIcon": null
-  },
-  {
-    "name": "Greater Concentrated Blast",
-    "type": "magic",
-    "cooldown": 5.4,
-    "icon": "../game-asset-groups/abilities/magic/Greater_Concentrated_Blast.png",
-    "customIcon": null
-  },
-  {
-    "name": "Horror",
-    "type": "magic",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/magic/Horror.png",
-    "customIcon": null
-  },
-  {
-    "name": "Impact",
-    "type": "magic",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/magic/Impact.png",
-    "customIcon": null
-  },
-  {
-    "name": "Magma Tempest",
-    "type": "magic",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/magic/Magma_Tempest.png",
-    "customIcon": null
-  },
-  {
-    "name": "Magma Tempest (Targeted)",
-    "type": "magic",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/magic/Magma_Tempest_(Targeted).png",
-    "customIcon": null
-  },
-  {
-    "name": "Metamorphosis",
-    "type": "magic",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/magic/Metamorphosis.png",
-    "customIcon": null
-  },
-  {
-    "name": "Omnipower",
-    "type": "magic",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/magic/Omnipower.png",
-    "customIcon": null
-  },
-  {
-    "name": "Shock",
-    "type": "magic",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/magic/Shock.png",
-    "customIcon": null
-  },
-  {
-    "name": "Smoke Tendrils",
-    "type": "magic",
-    "cooldown": 45,
-    "icon": "../game-asset-groups/abilities/magic/Smoke_Tendrils.png",
-    "customIcon": null
-  },
-  {
-    "name": "Sonic Wave",
-    "type": "magic",
-    "cooldown": 5.4,
-    "icon": "../game-asset-groups/abilities/magic/Sonic_Wave.png",
-    "customIcon": null
-  },
-  {
-    "name": "Sunshine",
-    "type": "magic",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/magic/Sunshine.png",
-    "customIcon": null
-  },
-  {
-    "name": "Surge",
-    "type": "magic",
-    "cooldown": 7.2,
-    "icon": "../game-asset-groups/abilities/magic/Surge.png",
-    "customIcon": null
-  },
-  {
-    "name": "Transfigure",
-    "type": "magic",
-    "cooldown": 180,
-    "icon": "../game-asset-groups/abilities/magic/Transfigure.png",
-    "customIcon": null
-  },
-  {
-    "name": "Tsunami",
-    "type": "magic",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/magic/Tsunami.png",
-    "customIcon": null
-  },
-  {
-    "name": "Wild Magic",
-    "type": "magic",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/magic/Wild_Magic.png",
-    "customIcon": null
-  },
-  {
-    "name": "Wrack",
-    "type": "magic",
-    "cooldown": 3,
-    "icon": "../game-asset-groups/abilities/magic/Wrack.png",
-    "customIcon": null
-  },
-  {
-    "name": "Wrack and Ruin",
-    "type": "magic",
-    "cooldown": 3,
-    "icon": "../game-asset-groups/abilities/magic/Wrack_and_Ruin.png",
-    "customIcon": null
-  },
-  {
-    "name": "Assault",
-    "type": "melee",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/melee/Assault.png",
-    "customIcon": null
-  },
-  {
-    "name": "Backhand",
-    "type": "melee",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/melee/Backhand.png",
-    "customIcon": null
-  },
-  {
-    "name": "Balanced Strike",
-    "type": "melee",
-    "cooldown": 120,
-    "icon": "../game-asset-groups/abilities/melee/Balanced_Strike.png",
-    "customIcon": null
-  },
-  {
-    "name": "Barge",
-    "type": "melee",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/melee/Barge.png",
-    "customIcon": null
-  },
-  {
-    "name": "Berserk",
-    "type": "melee",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/melee/Berserk.png",
-    "customIcon": null
-  },
-  {
-    "name": "Bladed Dive",
-    "type": "melee",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/melee/Bladed_Dive.png",
-    "customIcon": null
-  },
-  {
-    "name": "Blood Tendrils",
-    "type": "melee",
-    "cooldown": 45,
-    "icon": "../game-asset-groups/abilities/melee/Blood_Tendrils.png",
-    "customIcon": null
-  },
-  {
-    "name": "Cleave",
-    "type": "melee",
-    "cooldown": 7.2,
-    "icon": "../game-asset-groups/abilities/melee/Cleave.png",
-    "customIcon": null
-  },
-  {
-    "name": "Decimate",
-    "type": "melee",
-    "cooldown": 7.2,
-    "icon": "../game-asset-groups/abilities/melee/Decimate.png",
-    "customIcon": null
-  },
-  {
-    "name": "Destroy",
-    "type": "melee",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/melee/Destroy.png",
-    "customIcon": null
-  },
-  {
-    "name": "Dismember",
-    "type": "melee",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/melee/Dismember.png",
-    "customIcon": null
-  },
-  {
-    "name": "Flurry",
-    "type": "melee",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/melee/Flurry.png",
-    "customIcon": null
-  },
-  {
-    "name": "Forceful Backhand",
-    "type": "melee",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/melee/Forceful_Backhand.png",
-    "customIcon": null
-  },
-  {
-    "name": "Frenzy",
-    "type": "melee",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/melee/Frenzy.png",
-    "customIcon": null
-  },
-  {
-    "name": "Fury",
-    "type": "melee",
-    "cooldown": 5.4,
-    "icon": "../game-asset-groups/abilities/melee/Fury.png",
-    "customIcon": null
-  },
-  {
-    "name": "Greater Barge",
-    "type": "melee",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/melee/Greater_Barge.png",
-    "customIcon": null
-  },
-  {
-    "name": "Greater Flurry",
-    "type": "melee",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/melee/Greater_Flurry.png",
-    "customIcon": null
-  },
-  {
-    "name": "Greater Fury",
-    "type": "melee",
-    "cooldown": 5.4,
-    "icon": "../game-asset-groups/abilities/melee/Greater_Fury.png",
-    "customIcon": null
-  },
-  {
-    "name": "Havoc",
-    "type": "melee",
-    "cooldown": 10.2,
-    "icon": "../game-asset-groups/abilities/melee/Havoc.png",
-    "customIcon": null
-  },
-  {
-    "name": "Hurricane",
-    "type": "melee",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/melee/Hurricane.png",
-    "customIcon": null
-  },
-  {
-    "name": "Kick",
-    "type": "melee",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/melee/Kick.png",
-    "customIcon": null
-  },
-  {
-    "name": "Massacre",
-    "type": "melee",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/melee/Massacre.png",
-    "customIcon": null
-  },
-  {
-    "name": "Meteor Strike",
-    "type": "melee",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/melee/Meteor_Strike.png",
-    "customIcon": null
-  },
-  {
-    "name": "Overpower",
-    "type": "melee",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/melee/Overpower.png",
-    "customIcon": null
-  },
-  {
-    "name": "Pulverise",
-    "type": "melee",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/melee/Pulverise.png",
-    "customIcon": null
-  },
-  {
-    "name": "Punish",
-    "type": "melee",
-    "cooldown": 3,
-    "icon": "../game-asset-groups/abilities/melee/Punish.png",
-    "customIcon": null
-  },
-  {
-    "name": "Quake",
-    "type": "melee",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/melee/Quake.png",
-    "customIcon": null
-  },
-  {
-    "name": "Sever",
-    "type": "melee",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/melee/Sever.png",
-    "customIcon": null
-  },
-  {
-    "name": "Slaughter",
-    "type": "melee",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/melee/Slaughter.png",
-    "customIcon": null
-  },
-  {
-    "name": "Slice",
-    "type": "melee",
-    "cooldown": 3,
-    "icon": "../game-asset-groups/abilities/melee/Slice.png",
-    "customIcon": null
-  },
-  {
-    "name": "Smash",
-    "type": "melee",
-    "cooldown": 10,
-    "icon": "../game-asset-groups/abilities/melee/Smash.png",
-    "customIcon": null
-  },
-  {
-    "name": "Stomp (ability)",
-    "type": "melee",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/melee/Stomp_(ability).png",
-    "customIcon": null
-  },
-  {
-    "name": "Binding Shot",
-    "type": "range",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/range/Binding_Shot.png",
-    "customIcon": null
-  },
-  {
-    "name": "Bombardment",
-    "type": "range",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/range/Bombardment.png",
-    "customIcon": null
-  },
-  {
-    "name": "Corruption Shot",
-    "type": "range",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/range/Corruption_Shot.png",
-    "customIcon": null
-  },
-  {
-    "name": "Dazing Shot",
-    "type": "range",
-    "cooldown": 5.4,
-    "icon": "../game-asset-groups/abilities/range/Dazing_Shot.png",
-    "customIcon": null
-  },
-  {
-    "name": "Deadshot",
-    "type": "range",
-    "cooldown": 30,
-    "icon": "../game-asset-groups/abilities/range/Deadshot.png",
-    "customIcon": null
-  },
-  {
-    "name": "Deaths Swiftness",
-    "type": "range",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/range/Deaths_Swiftness.png",
-    "customIcon": null
-  },
-  {
-    "name": "Demoralise",
-    "type": "range",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/range/Demoralise.png",
-    "customIcon": null
-  },
-  {
-    "name": "Escape",
-    "type": "range",
-    "cooldown": 7.2,
-    "icon": "../game-asset-groups/abilities/range/Escape.png",
-    "customIcon": null
-  },
-  {
-    "name": "Fragmentation Shot",
-    "type": "range",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/range/Fragmentation_Shot.png",
-    "customIcon": null
-  },
-  {
-    "name": "Greater Dazing Shot",
-    "type": "range",
-    "cooldown": 5.4,
-    "icon": "../game-asset-groups/abilities/range/Greater_Dazing_Shot.png",
-    "customIcon": null
-  },
-  {
-    "name": "Greater Ricochet",
-    "type": "range",
-    "cooldown": 10.2,
-    "icon": "../game-asset-groups/abilities/range/Greater_Ricochet.png",
-    "customIcon": null
-  },
-  {
-    "name": "Incendiary Shot",
-    "type": "range",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/range/Incendiary_Shot.png",
-    "customIcon": null
-  },
-  {
-    "name": "Needle Strike",
-    "type": "range",
-    "cooldown": 5.4,
-    "icon": "../game-asset-groups/abilities/range/Needle_Strike.png",
-    "customIcon": null
-  },
-  {
-    "name": "Piercing Shot",
-    "type": "range",
-    "cooldown": 3,
-    "icon": "../game-asset-groups/abilities/range/Piercing_Shot.png",
-    "customIcon": null
-  },
-  {
-    "name": "Quiver ammo slot 1",
-    "type": "range",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/abilities/range/Quiver_ammo_slot_1.png",
-    "customIcon": null
-  },
-  {
-    "name": "Quiver ammo slot 2",
-    "type": "range",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/abilities/range/Quiver_ammo_slot_2.png",
-    "customIcon": null
-  },
-  {
-    "name": "Rapid Fire",
-    "type": "range",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/range/Rapid_Fire.png",
-    "customIcon": null
-  },
-  {
-    "name": "Ricochet",
-    "type": "range",
-    "cooldown": 10.2,
-    "icon": "../game-asset-groups/abilities/range/Ricochet.png",
-    "customIcon": null
-  },
-  {
-    "name": "Rout",
-    "type": "range",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/range/Rout.png",
-    "customIcon": null
-  },
-  {
-    "name": "Salt the Wound",
-    "type": "range",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/range/Salt_the_Wound.png",
-    "customIcon": null
-  },
-  {
-    "name": "Shadow Tendrils",
-    "type": "range",
-    "cooldown": 45,
-    "icon": "../game-asset-groups/abilities/range/Shadow_Tendrils.png",
-    "customIcon": null
-  },
-  {
-    "name": "Snap Shot",
-    "type": "range",
-    "cooldown": 20.4,
-    "icon": "../game-asset-groups/abilities/range/Snap_Shot.png",
-    "customIcon": null
-  },
-  {
-    "name": "Snipe",
-    "type": "range",
-    "cooldown": 10.2,
-    "icon": "../game-asset-groups/abilities/range/Snipe.png",
-    "customIcon": null
-  },
-  {
-    "name": "Tight Bindings",
-    "type": "range",
-    "cooldown": 15,
-    "icon": "../game-asset-groups/abilities/range/Tight_Bindings.png",
-    "customIcon": null
-  },
-  {
-    "name": "Unload",
-    "type": "range",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/range/Unload.png",
-    "customIcon": null
-  },
-  {
-    "name": "Aggression",
-    "type": "sigil",
-    "cooldown": 24.6,
-    "icon": "../game-asset-groups/abilities/sigil/Aggression.png",
-    "customIcon": null
-  },
-  {
-    "name": "Demon Slayer (ability)",
-    "type": "sigil",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/sigil/Demon_Slayer_(ability).png",
-    "customIcon": null
-  },
-  {
-    "name": "Dragon Slayer (ability)",
-    "type": "sigil",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/sigil/Dragon_Slayer_(ability).png",
-    "customIcon": null
-  },
-  {
-    "name": "Golden Touch",
-    "type": "sigil",
-    "cooldown": 120,
-    "icon": "../game-asset-groups/abilities/sigil/Golden_Touch.png",
-    "customIcon": null
-  },
-  {
-    "name": "Ingenuity of the Humans",
-    "type": "sigil",
-    "cooldown": 90,
-    "icon": "../game-asset-groups/abilities/sigil/Ingenuity_of_the_Humans.png",
-    "customIcon": null
-  },
-  {
-    "name": "Kuradals Favour",
-    "type": "sigil",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/sigil/Kuradals_Favour.png",
-    "customIcon": null
-  },
-  {
-    "name": "Limitless",
-    "type": "sigil",
-    "cooldown": 90,
-    "icon": "../game-asset-groups/abilities/sigil/Limitless.png",
-    "customIcon": null
-  },
-  {
-    "name": "Slayers Insight",
-    "type": "sigil",
-    "cooldown": 120,
-    "icon": "../game-asset-groups/abilities/sigil/Slayers_Insight.png",
-    "customIcon": null
-  },
-  {
-    "name": "Undead Slayer (ability)",
-    "type": "sigil",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/sigil/Undead_Slayer_(ability).png",
-    "customIcon": null
-  },
-  {
-    "name": "Unsullied",
-    "type": "sigil",
-    "cooldown": 60,
-    "icon": "../game-asset-groups/abilities/sigil/Unsullied.png",
     "customIcon": null
   },
   {
     "name": "Target Cycle Backwards",
     "type": "abilities",
-    "cooldown": 0,
     "icon": "../game-asset-groups/abilities/Target_Cycle_Backwards.png",
     "customIcon": null
   },
   {
     "name": "Target Cycle Forward",
     "type": "abilities",
-    "cooldown": 0,
     "icon": "../game-asset-groups/abilities/Target_Cycle_Forward.png",
     "customIcon": null
   },
   {
     "name": "Weapon Special attack",
     "type": "abilities",
-    "cooldown": 0,
     "icon": "../game-asset-groups/abilities/Weapon_Special_attack.png",
     "customIcon": null
   },
   {
-    "name": "Spiritual Prayer",
+    "name": "Cease (ability)",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Cease_(ability).png",
+    "customIcon": null
+  },
+  {
+    "name": "Eat Food",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Eat_Food.png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Essence_of_Finality.png",
+    "customIcon": null
+  },
+  {
+    "name": "Guthixs Blessing",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Guthixs_Blessing.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ice Asylum",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Ice_Asylum.png",
+    "customIcon": null
+  },
+  {
+    "name": "Incite",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Incite.png",
+    "customIcon": null
+  },
+  {
+    "name": "Onslaught",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Onslaught.png",
+    "customIcon": null
+  },
+  {
+    "name": "Regenerate (ability)",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Regenerate_(ability).png",
+    "customIcon": null
+  },
+  {
+    "name": "Reprisal",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Reprisal.png",
+    "customIcon": null
+  },
+  {
+    "name": "Sacrifice",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Sacrifice.png",
+    "customIcon": null
+  },
+  {
+    "name": "Shatter",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Shatter.png",
+    "customIcon": null
+  },
+  {
+    "name": "Siphon",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Siphon.png",
+    "customIcon": null
+  },
+  {
+    "name": "Storm Shards",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Storm_Shards.png",
+    "customIcon": null
+  },
+  {
+    "name": "Tuskas Wrath",
+    "type": "constitution",
+    "icon": "../game-asset-groups/abilities/constitution/Tuskas_Wrath.png",
+    "customIcon": null
+  },
+  {
+    "name": "Anticipation",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Anticipation.png",
+    "customIcon": null
+  },
+  {
+    "name": "Barricade",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Barricade.png",
+    "customIcon": null
+  },
+  {
+    "name": "Bash",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Bash.png",
+    "customIcon": null
+  },
+  {
+    "name": "Debilitate",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Debilitate.png",
+    "customIcon": null
+  },
+  {
+    "name": "Devotion",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Devotion.png",
+    "customIcon": null
+  },
+  {
+    "name": "Divert",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Divert.png",
+    "customIcon": null
+  },
+  {
+    "name": "Freedom",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Freedom.png",
+    "customIcon": null
+  },
+  {
+    "name": "Immortality",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Immortality.png",
+    "customIcon": null
+  },
+  {
+    "name": "Natural Instinct",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Natural_Instinct.png",
+    "customIcon": null
+  },
+  {
+    "name": "Preparation",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Preparation.png",
+    "customIcon": null
+  },
+  {
+    "name": "Provoke",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Provoke.png",
+    "customIcon": null
+  },
+  {
+    "name": "Reflect",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Reflect.png",
+    "customIcon": null
+  },
+  {
+    "name": "Rejuvenate",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Rejuvenate.png",
+    "customIcon": null
+  },
+  {
+    "name": "Resonance",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Resonance.png",
+    "customIcon": null
+  },
+  {
+    "name": "Revenge",
+    "type": "defensive",
+    "icon": "../game-asset-groups/abilities/defensive/Revenge.png",
+    "customIcon": null
+  },
+  {
+    "name": "Asphyxiate",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Asphyxiate.png",
+    "customIcon": null
+  },
+  {
+    "name": "Chain",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Chain.png",
+    "customIcon": null
+  },
+  {
+    "name": "Combust",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Combust.png",
+    "customIcon": null
+  },
+  {
+    "name": "Concentrated Blast",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Concentrated_Blast.png",
+    "customIcon": null
+  },
+  {
+    "name": "Corruption Blast",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Corruption_Blast.png",
+    "customIcon": null
+  },
+  {
+    "name": "Deep Impact",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Deep_Impact.png",
+    "customIcon": null
+  },
+  {
+    "name": "Detonate",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Detonate.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragon Breath",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Dragon_Breath.png",
+    "customIcon": null
+  },
+  {
+    "name": "Greater Chain",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Greater_Chain.png",
+    "customIcon": null
+  },
+  {
+    "name": "Greater Concentrated Blast",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Greater_Concentrated_Blast.png",
+    "customIcon": null
+  },
+  {
+    "name": "Horror",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Horror.png",
+    "customIcon": null
+  },
+  {
+    "name": "Impact",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Impact.png",
+    "customIcon": null
+  },
+  {
+    "name": "Magma Tempest",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Magma_Tempest.png",
+    "customIcon": null
+  },
+  {
+    "name": "Magma Tempest (Targeted)",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Magma_Tempest_(Targeted).png",
+    "customIcon": null
+  },
+  {
+    "name": "Metamorphosis",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Metamorphosis.png",
+    "customIcon": null
+  },
+  {
+    "name": "Omnipower",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Omnipower.png",
+    "customIcon": null
+  },
+  {
+    "name": "Shock",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Shock.png",
+    "customIcon": null
+  },
+  {
+    "name": "Smoke Tendrils",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Smoke_Tendrils.png",
+    "customIcon": null
+  },
+  {
+    "name": "Sonic Wave",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Sonic_Wave.png",
+    "customIcon": null
+  },
+  {
+    "name": "Sunshine",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Sunshine.png",
+    "customIcon": null
+  },
+  {
+    "name": "Surge",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Surge.png",
+    "customIcon": null
+  },
+  {
+    "name": "Transfigure",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Transfigure.png",
+    "customIcon": null
+  },
+  {
+    "name": "Tsunami",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Tsunami.png",
+    "customIcon": null
+  },
+  {
+    "name": "Wild Magic",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Wild_Magic.png",
+    "customIcon": null
+  },
+  {
+    "name": "Wrack",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Wrack.png",
+    "customIcon": null
+  },
+  {
+    "name": "Wrack and Ruin",
+    "type": "magic",
+    "icon": "../game-asset-groups/abilities/magic/Wrack_and_Ruin.png",
+    "customIcon": null
+  },
+  {
+    "name": "Assault",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Assault.png",
+    "customIcon": null
+  },
+  {
+    "name": "Backhand",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Backhand.png",
+    "customIcon": null
+  },
+  {
+    "name": "Balanced Strike",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Balanced_Strike.png",
+    "customIcon": null
+  },
+  {
+    "name": "Barge",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Barge.png",
+    "customIcon": null
+  },
+  {
+    "name": "Berserk",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Berserk.png",
+    "customIcon": null
+  },
+  {
+    "name": "Bladed Dive",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Bladed_Dive.png",
+    "customIcon": null
+  },
+  {
+    "name": "Blood Tendrils",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Blood_Tendrils.png",
+    "customIcon": null
+  },
+  {
+    "name": "Cleave",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Cleave.png",
+    "customIcon": null
+  },
+  {
+    "name": "Decimate",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Decimate.png",
+    "customIcon": null
+  },
+  {
+    "name": "Destroy",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Destroy.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dismember",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Dismember.png",
+    "customIcon": null
+  },
+  {
+    "name": "Flurry",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Flurry.png",
+    "customIcon": null
+  },
+  {
+    "name": "Forceful Backhand",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Forceful_Backhand.png",
+    "customIcon": null
+  },
+  {
+    "name": "Frenzy",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Frenzy.png",
+    "customIcon": null
+  },
+  {
+    "name": "Fury",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Fury.png",
+    "customIcon": null
+  },
+  {
+    "name": "Greater Barge",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Greater_Barge.png",
+    "customIcon": null
+  },
+  {
+    "name": "Greater Flurry",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Greater_Flurry.png",
+    "customIcon": null
+  },
+  {
+    "name": "Greater Fury",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Greater_Fury.png",
+    "customIcon": null
+  },
+  {
+    "name": "Havoc",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Havoc.png",
+    "customIcon": null
+  },
+  {
+    "name": "Hurricane",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Hurricane.png",
+    "customIcon": null
+  },
+  {
+    "name": "Kick",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Kick.png",
+    "customIcon": null
+  },
+  {
+    "name": "Massacre",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Massacre.png",
+    "customIcon": null
+  },
+  {
+    "name": "Meteor Strike",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Meteor_Strike.png",
+    "customIcon": null
+  },
+  {
+    "name": "Overpower",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Overpower.png",
+    "customIcon": null
+  },
+  {
+    "name": "Pulverise",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Pulverise.png",
+    "customIcon": null
+  },
+  {
+    "name": "Punish",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Punish.png",
+    "customIcon": null
+  },
+  {
+    "name": "Quake",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Quake.png",
+    "customIcon": null
+  },
+  {
+    "name": "Sever",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Sever.png",
+    "customIcon": null
+  },
+  {
+    "name": "Slaughter",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Slaughter.png",
+    "customIcon": null
+  },
+  {
+    "name": "Slice",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Slice.png",
+    "customIcon": null
+  },
+  {
+    "name": "Smash",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Smash.png",
+    "customIcon": null
+  },
+  {
+    "name": "Stomp (ability)",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Stomp_(ability).png",
+    "customIcon": null
+  },
+  {
+    "name": "Binding Shot",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Binding_Shot.png",
+    "customIcon": null
+  },
+  {
+    "name": "Bombardment",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Bombardment.png",
+    "customIcon": null
+  },
+  {
+    "name": "Corruption Shot",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Corruption_Shot.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dazing Shot",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Dazing_Shot.png",
+    "customIcon": null
+  },
+  {
+    "name": "Deadshot",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Deadshot.png",
+    "customIcon": null
+  },
+  {
+    "name": "Deaths Swiftness",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Deaths_Swiftness.png",
+    "customIcon": null
+  },
+  {
+    "name": "Demoralise",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Demoralise.png",
+    "customIcon": null
+  },
+  {
+    "name": "Escape",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Escape.png",
+    "customIcon": null
+  },
+  {
+    "name": "Fragmentation Shot",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Fragmentation_Shot.png",
+    "customIcon": null
+  },
+  {
+    "name": "Greater Dazing Shot",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Greater_Dazing_Shot.png",
+    "customIcon": null
+  },
+  {
+    "name": "Greater Ricochet",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Greater_Ricochet.png",
+    "customIcon": null
+  },
+  {
+    "name": "Incendiary Shot",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Incendiary_Shot.png",
+    "customIcon": null
+  },
+  {
+    "name": "Needle Strike",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Needle_Strike.png",
+    "customIcon": null
+  },
+  {
+    "name": "Piercing Shot",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Piercing_Shot.png",
+    "customIcon": null
+  },
+  {
+    "name": "Quiver ammo slot 1",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Quiver_ammo_slot_1.png",
+    "customIcon": null
+  },
+  {
+    "name": "Quiver ammo slot 2",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Quiver_ammo_slot_2.png",
+    "customIcon": null
+  },
+  {
+    "name": "Rapid Fire",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Rapid_Fire.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ricochet",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Ricochet.png",
+    "customIcon": null
+  },
+  {
+    "name": "Rout",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Rout.png",
+    "customIcon": null
+  },
+  {
+    "name": "Salt the Wound",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Salt_the_Wound.png",
+    "customIcon": null
+  },
+  {
+    "name": "Shadow Tendrils",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Shadow_Tendrils.png",
+    "customIcon": null
+  },
+  {
+    "name": "Snap Shot",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Snap_Shot.png",
+    "customIcon": null
+  },
+  {
+    "name": "Snipe",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Snipe.png",
+    "customIcon": null
+  },
+  {
+    "name": "Tight Bindings",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Tight_Bindings.png",
+    "customIcon": null
+  },
+  {
+    "name": "Unload",
+    "type": "range",
+    "icon": "../game-asset-groups/abilities/range/Unload.png",
+    "customIcon": null
+  },
+  {
+    "name": "Aggression",
+    "type": "sigil",
+    "icon": "../game-asset-groups/abilities/sigil/Aggression.png",
+    "customIcon": null
+  },
+  {
+    "name": "Demon Slayer (ability)",
+    "type": "sigil",
+    "icon": "../game-asset-groups/abilities/sigil/Demon_Slayer_(ability).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragon Slayer (ability)",
+    "type": "sigil",
+    "icon": "../game-asset-groups/abilities/sigil/Dragon_Slayer_(ability).png",
+    "customIcon": null
+  },
+  {
+    "name": "Golden Touch",
+    "type": "sigil",
+    "icon": "../game-asset-groups/abilities/sigil/Golden_Touch.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ingenuity of the Humans",
+    "type": "sigil",
+    "icon": "../game-asset-groups/abilities/sigil/Ingenuity_of_the_Humans.png",
+    "customIcon": null
+  },
+  {
+    "name": "Kuradals Favour",
+    "type": "sigil",
+    "icon": "../game-asset-groups/abilities/sigil/Kuradals_Favour.png",
+    "customIcon": null
+  },
+  {
+    "name": "Limitless",
+    "type": "sigil",
+    "icon": "../game-asset-groups/abilities/sigil/Limitless.png",
+    "customIcon": null
+  },
+  {
+    "name": "Slayers Insight",
+    "type": "sigil",
+    "icon": "../game-asset-groups/abilities/sigil/Slayers_Insight.png",
+    "customIcon": null
+  },
+  {
+    "name": "Undead Slayer (ability)",
+    "type": "sigil",
+    "icon": "../game-asset-groups/abilities/sigil/Undead_Slayer_(ability).png",
+    "customIcon": null
+  },
+  {
+    "name": "Unsullied",
+    "type": "sigil",
+    "icon": "../game-asset-groups/abilities/sigil/Unsullied.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ancient elven ritual shard",
     "type": "items",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/items/Spiritual_Prayer.png",
+    "icon": "../game-asset-groups/items/Ancient_elven_ritual_shard.png",
+    "customIcon": null
+  },
+  {
+    "name": "Combat dummy MKII",
+    "type": "items",
+    "icon": "../game-asset-groups/items/Combat_dummy_MKII.png",
+    "customIcon": null
+  },
+  {
+    "name": "Combat training dummy",
+    "type": "items",
+    "icon": "../game-asset-groups/items/Combat_training_dummy.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dreadnip",
+    "type": "items",
+    "icon": "../game-asset-groups/items/Dreadnip.png",
     "customIcon": null
   },
   {
     "name": "Sticky Bomb",
     "type": "items",
-    "cooldown": 0,
     "icon": "../game-asset-groups/items/Sticky_Bomb.png",
+    "customIcon": null
+  },
+  {
+    "name": "Sticky bombs",
+    "type": "items",
+    "icon": "../game-asset-groups/items/Sticky_bombs.png",
     "customIcon": null
   },
   {
     "name": "Vulnerability Bomb",
     "type": "items",
-    "cooldown": 0,
     "icon": "../game-asset-groups/items/Vulnerability_Bomb.png",
+    "customIcon": null
+  },
+  {
+    "name": "Blue blubber jellyfish",
+    "type": "food",
+    "icon": "../game-asset-groups/items/food/Blue_blubber_jellyfish.png",
+    "customIcon": null
+  },
+  {
+    "name": "Great gunkan",
+    "type": "food",
+    "icon": "../game-asset-groups/items/food/Great_gunkan.png",
+    "customIcon": null
+  },
+  {
+    "name": "Green blubber jellyfish",
+    "type": "food",
+    "icon": "../game-asset-groups/items/food/Green_blubber_jellyfish.png",
+    "customIcon": null
+  },
+  {
+    "name": "Primal feast",
+    "type": "food",
+    "icon": "../game-asset-groups/items/food/Primal_feast.png",
+    "customIcon": null
+  },
+  {
+    "name": "Rocktail",
+    "type": "food",
+    "icon": "../game-asset-groups/items/food/Rocktail.png",
+    "customIcon": null
+  },
+  {
+    "name": "Rocktail soup",
+    "type": "food",
+    "icon": "../game-asset-groups/items/food/Rocktail_soup.png",
+    "customIcon": null
+  },
+  {
+    "name": "Sailfish",
+    "type": "food",
+    "icon": "../game-asset-groups/items/food/Sailfish.png",
+    "customIcon": null
+  },
+  {
+    "name": "Sailfish soup",
+    "type": "food",
+    "icon": "../game-asset-groups/items/food/Sailfish_soup.png",
+    "customIcon": null
+  },
+  {
+    "name": "Amulet of souls (or)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Amulet_of_souls_(or).png",
+    "customIcon": null
+  },
+  {
+    "name": "Arcane blood necklace",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Arcane_blood_necklace.png",
+    "customIcon": null
+  },
+  {
+    "name": "Brawlers blood necklace",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Brawlers_blood_necklace.png",
+    "customIcon": null
+  },
+  {
+    "name": "Demon horn necklace",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Demon_horn_necklace.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragonrider amulet",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Dragonrider_amulet.png",
+    "customIcon": null
+  },
+  {
+    "name": "Farsight blood necklace",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Farsight_blood_necklace.png",
+    "customIcon": null
+  },
+  {
+    "name": "Grace of the elves",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Grace_of_the_elves.png",
+    "customIcon": null
+  },
+  {
+    "name": "Reaper necklace (or)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Reaper_necklace_(or).png",
+    "customIcon": null
+  },
+  {
+    "name": "Salve amulet (e)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Salve_amulet_(e).png",
+    "customIcon": null
+  },
+  {
+    "name": "Ascendri bolts (e)",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Ascendri_bolts_(e).png",
+    "customIcon": null
+  },
+  {
+    "name": "Ascension bolts",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Ascension_bolts.png",
+    "customIcon": null
+  },
+  {
+    "name": "Bik arrow",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Bik_arrow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Blight bolts",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Blight_bolts.png",
+    "customIcon": null
+  },
+  {
+    "name": "Book of balance",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Book_of_balance.png",
+    "customIcon": null
+  },
+  {
+    "name": "Book of chaos",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Book_of_chaos.png",
+    "customIcon": null
+  },
+  {
+    "name": "Book of law",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Book_of_law.png",
+    "customIcon": null
+  },
+  {
+    "name": "Book of wisdom",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Book_of_wisdom.png",
+    "customIcon": null
+  },
+  {
+    "name": "Deathspore arrows",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Deathspore_arrows.png",
+    "customIcon": null
+  },
+  {
+    "name": "Diamond bakriminel bolts (e)",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Diamond_bakriminel_bolts_(e).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragonbane arrows",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Dragonbane_arrows.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragonbane bolts",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Dragonbane_bolts.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragonstone bakriminel bolts (e)",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Dragonstone_bakriminel_bolts_(e).png",
+    "customIcon": null
+  },
+  {
+    "name": "Emerald bakriminel bolts (e)",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Emerald_bakriminel_bolts_(e).png",
+    "customIcon": null
+  },
+  {
+    "name": "Erethdors grimoire",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Erethdors_grimoire.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ful arrow",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Ful_arrow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Hydrix bakriminel bolts (e)",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Hydrix_bakriminel_bolts_(e).png",
+    "customIcon": null
+  },
+  {
+    "name": "Jas demonbane arrow",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Jas_demonbane_arrow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Jas dragonbane arrow",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Jas_dragonbane_arrow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Pernix Quiver",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Pernix_Quiver.png",
+    "customIcon": null
+  },
+  {
+    "name": "Scrimshaw of Cruelty",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Scrimshaw_of_Cruelty.png",
+    "customIcon": null
+  },
+  {
+    "name": "Scrimshaw of Elements",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Scrimshaw_of_Elements.png",
+    "customIcon": null
+  },
+  {
+    "name": "Scrimshaw of Vampyrism",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Scrimshaw_of_Vampyrism.png",
+    "customIcon": null
+  },
+  {
+    "name": "Scrimshaw of sacrifice",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Scrimshaw_of_sacrifice.png",
+    "customIcon": null
+  },
+  {
+    "name": "Scripture of Ful",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Scripture_of_Ful.png",
+    "customIcon": null
+  },
+  {
+    "name": "Scripture of Jas",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Scripture_of_Jas.png",
+    "customIcon": null
+  },
+  {
+    "name": "Scripture of Wen",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Scripture_of_Wen.png",
+    "customIcon": null
+  },
+  {
+    "name": "Splintering arrows",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Splintering_arrows.png",
+    "customIcon": null
+  },
+  {
+    "name": "Tirannwn quiver 4",
+    "type": "pocket-slot",
+    "icon": "../game-asset-groups/items/pocket-slot/Tirannwn_quiver_4.png",
+    "customIcon": null
+  },
+  {
+    "name": "Adrenaline renewal",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Adrenaline_renewal.png",
+    "customIcon": null
+  },
+  {
+    "name": "Adrenaline renewal flask",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Adrenaline_renewal_flask.png",
+    "customIcon": null
+  },
+  {
+    "name": "Aggression flask",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Aggression_flask.png",
+    "customIcon": null
+  },
+  {
+    "name": "Aggression potion (4)",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Aggression_potion_(4).png",
+    "customIcon": null
+  },
+  {
+    "name": "Blessed flask",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Blessed_flask.png",
+    "customIcon": null
+  },
+  {
+    "name": "Enhanced luck potion",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Enhanced_luck_potion.png",
+    "customIcon": null
+  },
+  {
+    "name": "Enhanced replenishment",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Enhanced_replenishment.png",
+    "customIcon": null
+  },
+  {
+    "name": "Extreme prayer",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Extreme_prayer.png",
+    "customIcon": null
+  },
+  {
+    "name": "Grand magic potion (6)",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Grand_magic_potion_(6).png",
+    "customIcon": null
+  },
+  {
+    "name": "Guthix rest",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Guthix_rest.png",
+    "customIcon": null
+  },
+  {
+    "name": "Holy overload (6)",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Holy_overload_(6).png",
+    "customIcon": null
+  },
+  {
+    "name": "Powerburst of acceleration",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Powerburst_of_acceleration.png",
+    "customIcon": null
+  },
+  {
+    "name": "Powerburst of vitality",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Powerburst_of_vitality.png",
+    "customIcon": null
+  },
+  {
+    "name": "Saradomin brew",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Saradomin_brew.png",
+    "customIcon": null
+  },
+  {
+    "name": "Spiritual Prayer",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Spiritual_Prayer.png",
+    "customIcon": null
+  },
+  {
+    "name": "Super guthix brew",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Super_guthix_brew.png",
+    "customIcon": null
+  },
+  {
+    "name": "Super prayer",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Super_prayer.png",
+    "customIcon": null
+  },
+  {
+    "name": "Super prayer renewal",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Super_prayer_renewal.png",
+    "customIcon": null
+  },
+  {
+    "name": "Super restore",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Super_restore.png",
+    "customIcon": null
+  },
+  {
+    "name": "Super saradomin brew",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Super_saradomin_brew.png",
+    "customIcon": null
+  },
+  {
+    "name": "Supreme overload salve (6)",
+    "type": "potions",
+    "icon": "../game-asset-groups/items/potions/Supreme_overload_salve_(6).png",
+    "customIcon": null
+  },
+  {
+    "name": "Asylum surgeons ring",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Asylum_surgeons_ring.png",
+    "customIcon": null
+  },
+  {
+    "name": "Champions ring",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Champions_ring.png",
+    "customIcon": null
+  },
+  {
+    "name": "Channellers ring",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Channellers_ring.png",
+    "customIcon": null
+  },
+  {
+    "name": "Deathtouched bracelet",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Deathtouched_bracelet.png",
+    "customIcon": null
+  },
+  {
+    "name": "Hazelmeres signet",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Hazelmeres_signet.png",
+    "customIcon": null
+  },
+  {
+    "name": "Luck of the dwarves",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Luck_of_the_dwarves.png",
+    "customIcon": null
+  },
+  {
+    "name": "Reavers ring",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Reavers_ring.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ring of death",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Ring_of_death.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ring of vigour",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Ring_of_vigour.png",
+    "customIcon": null
+  },
+  {
+    "name": "Stalkers ring",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Stalkers_ring.png",
+    "customIcon": null
+  },
+  {
+    "name": "Tokkul-zo",
+    "type": "rings",
+    "icon": "../game-asset-groups/items/rings/Tokkul-zo.png",
+    "customIcon": null
+  },
+  {
+    "name": "Caroming Perk",
+    "type": "perks",
+    "icon": "../game-asset-groups/perks/Caroming_Perk.png",
+    "customIcon": null
+  },
+  {
+    "name": "Flanking Perk",
+    "type": "perks",
+    "icon": "../game-asset-groups/perks/Flanking_Perk.png",
+    "customIcon": null
+  },
+  {
+    "name": "Lunging Perk",
+    "type": "perks",
+    "icon": "../game-asset-groups/perks/Lunging_Perk.png",
+    "customIcon": null
+  },
+  {
+    "name": "Planted Feet",
+    "type": "perks",
+    "icon": "../game-asset-groups/perks/Planted_Feet.png",
     "customIcon": null
   },
   {
     "name": "Affliction",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Affliction.png",
     "customIcon": null
   },
   {
     "name": "Anguish",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Anguish.png",
     "customIcon": null
   },
   {
     "name": "Berserker",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Berserker.png",
     "customIcon": null
   },
   {
     "name": "Chronicle Attraction",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Chronicle_Attraction.png",
     "customIcon": null
   },
   {
     "name": "Dark Form",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Dark_Form.png",
     "customIcon": null
   },
   {
     "name": "Deflect Magic",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Deflect_Magic.png",
     "customIcon": null
   },
   {
     "name": "Deflect Melee",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Deflect_Melee.png",
     "customIcon": null
   },
   {
     "name": "Deflect Missiles",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Deflect_Missiles.png",
     "customIcon": null
   },
   {
     "name": "Deflect Summoning",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Deflect_Summoning.png",
     "customIcon": null
   },
   {
     "name": "Desolation",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Desolation.png",
     "customIcon": null
   },
   {
     "name": "Fortitude",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Fortitude.png",
     "customIcon": null
   },
   {
     "name": "Light Form",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Light_Form.png",
     "customIcon": null
   },
   {
     "name": "Malevolence",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Malevolence.png",
     "customIcon": null
   },
   {
     "name": "Protect Item",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Protect_Item.png",
     "customIcon": null
   },
   {
     "name": "Sap Defence",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Sap_Defence.png",
     "customIcon": null
   },
   {
     "name": "Soul Link",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Soul_Link.png",
     "customIcon": null
   },
   {
     "name": "Soul Split",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Soul_Split.png",
     "customIcon": null
   },
   {
     "name": "Superheat Form",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Superheat_Form.png",
     "customIcon": null
   },
   {
     "name": "Teamwork Protection",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Teamwork_Protection.png",
     "customIcon": null
   },
   {
     "name": "Torment",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Torment.png",
     "customIcon": null
   },
   {
     "name": "Turmoil",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Turmoil.png",
     "customIcon": null
   },
   {
     "name": "Wrath",
     "type": "prayers",
-    "cooldown": 0,
     "icon": "../game-asset-groups/prayers/Wrath.png",
+    "customIcon": null
+  },
+  {
+    "name": "Arcane spirit shield",
+    "type": "shields",
+    "icon": "../game-asset-groups/shields/Arcane_spirit_shield.png",
+    "customIcon": null
+  },
+  {
+    "name": "Divine spirit shield",
+    "type": "shields",
+    "icon": "../game-asset-groups/shields/Divine_spirit_shield.png",
+    "customIcon": null
+  },
+  {
+    "name": "Elder rune round shield",
+    "type": "shields",
+    "icon": "../game-asset-groups/shields/Elder_rune_round_shield.png",
+    "customIcon": null
+  },
+  {
+    "name": "Elysian spirit shield",
+    "type": "shields",
+    "icon": "../game-asset-groups/shields/Elysian_spirit_shield.png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent kiteshield",
+    "type": "shields",
+    "icon": "../game-asset-groups/shields/Malevolent_kiteshield.png",
+    "customIcon": null
+  },
+  {
+    "name": "Merciless kiteshield",
+    "type": "shields",
+    "icon": "../game-asset-groups/shields/Merciless_kiteshield.png",
+    "customIcon": null
+  },
+  {
+    "name": "Vengful kiteshield",
+    "type": "shields",
+    "icon": "../game-asset-groups/shields/Vengful_kiteshield.png",
     "customIcon": null
   },
   {
     "name": "2H Weapon",
     "type": "slot-icons",
-    "cooldown": 0,
     "icon": "../game-asset-groups/slot-icons/2H_Weapon.png",
     "customIcon": null
   },
   {
     "name": "MH Weapon",
     "type": "slot-icons",
-    "cooldown": 0,
     "icon": "../game-asset-groups/slot-icons/MH_Weapon.png",
     "customIcon": null
   },
   {
     "name": "OH Weapon",
     "type": "slot-icons",
-    "cooldown": 0,
     "icon": "../game-asset-groups/slot-icons/OH_Weapon.png",
     "customIcon": null
   },
   {
     "name": "Pocket Slot",
     "type": "slot-icons",
-    "cooldown": 0,
     "icon": "../game-asset-groups/slot-icons/Pocket_Slot.png",
     "customIcon": null
   },
   {
     "name": "Shield Slot",
     "type": "slot-icons",
-    "cooldown": 0,
     "icon": "../game-asset-groups/slot-icons/Shield_Slot.png",
     "customIcon": null
   },
   {
     "name": "Blood Barrage",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Blood_Barrage.png",
     "customIcon": null
   },
   {
     "name": "Blood Blitz",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Blood_Blitz.png",
     "customIcon": null
   },
   {
     "name": "Blood Burst",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Blood_Burst.png",
     "customIcon": null
   },
   {
     "name": "Blood Rush",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Blood_Rush.png",
     "customIcon": null
   },
   {
     "name": "Disruption Shield",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Disruption_Shield.png",
     "customIcon": null
   },
   {
     "name": "Emerald Aurora",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Emerald_Aurora.png",
     "customIcon": null
   },
   {
     "name": "Ice Barrage",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Ice_Barrage.png",
     "customIcon": null
   },
   {
     "name": "Ice Blitz",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Ice_Blitz.png",
     "customIcon": null
   },
   {
     "name": "Ice Burst",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Ice_Burst.png",
     "customIcon": null
   },
   {
     "name": "Ice Rush",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Ice_Rush.png",
     "customIcon": null
   },
   {
     "name": "Intercept",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Intercept.png",
     "customIcon": null
   },
   {
     "name": "Opal Aurora",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Opal_Aurora.png",
     "customIcon": null
   },
   {
     "name": "Prism of Loyalty",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Prism_of_Loyalty.png",
     "customIcon": null
   },
   {
     "name": "Prism of Restoration",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Prism_of_Restoration.png",
     "customIcon": null
   },
   {
     "name": "Prism of Salvation",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Prism_of_Salvation.png",
     "customIcon": null
   },
   {
     "name": "Ruby Aurora",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Ruby_Aurora.png",
     "customIcon": null
   },
   {
     "name": "Sapphire Aurora",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Sapphire_Aurora.png",
     "customIcon": null
   },
   {
     "name": "Shadow Barrage",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Shadow_Barrage.png",
     "customIcon": null
   },
   {
     "name": "Shadow Blitz",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Shadow_Blitz.png",
     "customIcon": null
   },
   {
     "name": "Shadow Burst",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Shadow_Burst.png",
     "customIcon": null
   },
   {
     "name": "Shadow Rush",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Shadow_Rush.png",
     "customIcon": null
   },
   {
     "name": "Shield Dome",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Shield_Dome.png",
     "customIcon": null
   },
   {
     "name": "Smoke Barrage",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Smoke_Barrage.png",
     "customIcon": null
   },
   {
     "name": "Smoke Blitz",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Smoke_Blitz.png",
     "customIcon": null
   },
   {
     "name": "Smoke Burst",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Smoke_Burst.png",
     "customIcon": null
   },
   {
     "name": "Smoke Cloud",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Smoke_Cloud.png",
     "customIcon": null
   },
   {
     "name": "Smoke Rush",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Smoke_Rush.png",
     "customIcon": null
   },
   {
     "name": "Spellbook Swap",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Spellbook_Swap.png",
     "customIcon": null
   },
   {
     "name": "Vengeance",
     "type": "spells",
-    "cooldown": 0,
     "icon": "../game-asset-groups/spells/Vengeance.png",
     "customIcon": null
   },
   {
-    "name": "Caroming Perk",
-    "type": "weapon-modifiers",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/weapon-modifiers/Caroming_Perk.png",
+    "name": "Abyssal wand",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Abyssal_wand.png",
     "customIcon": null
   },
   {
-    "name": "Flanking Perk",
-    "type": "weapon-modifiers",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/weapon-modifiers/Flanking_Perk.png",
+    "name": "Ancient lantern",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Ancient_lantern.png",
     "customIcon": null
   },
   {
-    "name": "Lunging Perk",
-    "type": "weapon-modifiers",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/weapon-modifiers/Lunging_Perk.png",
+    "name": "Armadyl battlestaff",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Armadyl_battlestaff.png",
     "customIcon": null
   },
   {
-    "name": "Planted Feet",
-    "type": "weapon-modifiers",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/weapon-modifiers/Planted_Feet.png",
+    "name": "Cywir orb",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Cywir_orb.png",
     "customIcon": null
   },
   {
-    "name": "Pernix Quiver",
-    "type": "weapons",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/weapons/Pernix_Quiver.png",
+    "name": "Cywir wand",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Cywir_wand.png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite seasinger makigai",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Elite_seasinger_makigai.png",
+    "customIcon": null
+  },
+  {
+    "name": "Guthix staff",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Guthix_staff.png",
+    "customIcon": null
+  },
+  {
+    "name": "Imperium core",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Imperium_core.png",
+    "customIcon": null
+  },
+  {
+    "name": "Inquisitor staff",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Inquisitor_staff.png",
+    "customIcon": null
+  },
+  {
+    "name": "Kalphite rebounder",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Kalphite_rebounder.png",
+    "customIcon": null
+  },
+  {
+    "name": "Noxious staff",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Noxious_staff.png",
+    "customIcon": null
+  },
+  {
+    "name": "Seismic singularity",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Seismic_singularity.png",
+    "customIcon": null
+  },
+  {
+    "name": "Seismic wand",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Seismic_wand.png",
+    "customIcon": null
+  },
+  {
+    "name": "Staff of Armadyl",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Staff_of_Armadyl.png",
+    "customIcon": null
+  },
+  {
+    "name": "Staff of sliske",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Staff_of_sliske.png",
+    "customIcon": null
+  },
+  {
+    "name": "Vanquish",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Vanquish.png",
+    "customIcon": null
+  },
+  {
+    "name": "Wand of the praesul",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Wand_of_the_praesul.png",
+    "customIcon": null
+  },
+  {
+    "name": "Abyssal scourge",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Abyssal_scourge.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ancient defender",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Ancient_defender.png",
+    "customIcon": null
+  },
+  {
+    "name": "Blade of nymora",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Blade_of_nymora.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Shard of Leng",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Sliver of Leng",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng.png",
+    "customIcon": null
+  },
+  {
+    "name": "Darklight",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Darklight.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragon battleaxe",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dragon_battleaxe.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragonbane 2h sword",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dragonbane_2h_sword.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragonride lance",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dragonride_lance.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ek-ZekKil",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Ek-ZekKil.png",
+    "customIcon": null
+  },
+  {
+    "name": "Enhanced excalibur",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Enhanced_excalibur.png",
+    "customIcon": null
+  },
+  {
+    "name": "Kalphite defender",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Kalphite_defender.png",
+    "customIcon": null
+  },
+  {
+    "name": "Khopesh of elidinis",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Khopesh_of_elidinis.png",
+    "customIcon": null
+  },
+  {
+    "name": "Khopesh of tumeken",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Khopesh_of_tumeken.png",
+    "customIcon": null
+  },
+  {
+    "name": "Laniakeas spear",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Laniakeas_spear.png",
+    "customIcon": null
+  },
+  {
+    "name": "Mainhand drygore mace",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Mainhand_drygore_mace.png",
+    "customIcon": null
+  },
+  {
+    "name": "Masterwork spear of annihilation",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Masterwork_spear_of_annihilation.png",
+    "customIcon": null
+  },
+  {
+    "name": "Masutas warspear",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Masutas_warspear.png",
+    "customIcon": null
+  },
+  {
+    "name": "Noxious scythe",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Noxious_scythe.png",
+    "customIcon": null
+  },
+  {
+    "name": "Offhand drygore longsword",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Offhand_drygore_longsword.png",
+    "customIcon": null
+  },
+  {
+    "name": "Offhand drygore mace",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Offhand_drygore_mace.png",
+    "customIcon": null
+  },
+  {
+    "name": "Offhand drygore rapier",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Offhand_drygore_rapier.png",
+    "customIcon": null
+  },
+  {
+    "name": "Revenant bane 2h sword",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Revenant_bane_2h_sword.png",
+    "customIcon": null
+  },
+  {
+    "name": "Saradomin godsword",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Saradomin_godsword.png",
+    "customIcon": null
+  },
+  {
+    "name": "Superior statius warhammer",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Superior_statius_warhammer.png",
+    "customIcon": null
+  },
+  {
+    "name": "Superior vestas longsword",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Superior_vestas_longsword.png",
+    "customIcon": null
+  },
+  {
+    "name": "Terrasaur maul",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Terrasaur_maul.png",
+    "customIcon": null
+  },
+  {
+    "name": "Zaros godsword",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Zaros_godsword.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ancient repriser",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Ancient_repriser.png",
+    "customIcon": null
+  },
+  {
+    "name": "Chaotic crossbow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Chaotic_crossbow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark bow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Dark_bow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Decimation",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Decimation.png",
+    "customIcon": null
+  },
+  {
+    "name": "Eldrich crossbow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Eldrich_crossbow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Hexhunter bow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Hexhunter_bow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Kalphite repriser",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Kalphite_repriser.png",
+    "customIcon": null
+  },
+  {
+    "name": "Mainhand ascension crossbow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Mainhand_ascension_crossbow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Mainhand blightbound crossbow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Mainhand_blightbound_crossbow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Mainhand shadow glaive",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Mainhand_shadow_glaive.png",
+    "customIcon": null
+  },
+  {
+    "name": "Mechanised chinchompa",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Mechanised_chinchompa.png",
+    "customIcon": null
+  },
+  {
+    "name": "Noxious longbow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Noxious_longbow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Off-hand Chaotic crossbow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Off-hand_Chaotic_crossbow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Offhand ascension crossbow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Offhand_ascension_crossbow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Offhand blightbound crossbow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Offhand_blightbound_crossbow.png",
     "customIcon": null
   },
   {
     "name": "Seren Godbow",
-    "type": "weapons",
-    "cooldown": 0,
-    "icon": "../game-asset-groups/weapons/Seren_Godbow.png",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Seren_Godbow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Wyvern crossbow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Wyvern_crossbow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Zaryte bow",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Zaryte_bow.png",
     "customIcon": null
   }
 ]

@@ -7,10 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/global.css" />
     <link rel="stylesheet" href="../styles/keybinds.css" />
-    <script async>this.name = 'keybinds'</script>
+    <link rel="stylesheet" href="../styles/components/nav.css" />
+    <link rel="stylesheet" href="../styles/components/button.css" />
+    <link rel="stylesheet" href="../styles/components/dropdown.css" />
+    <script async>this.title = 'keybinds'</script>
     <script src="../javascript/components/electron.js" async></script>
     <script src="../javascript/components/nav.js" async></script>
     <script src="../javascript/components/Dropdown.js" async></script>
+    <script src="../javascript/components/Keybind.js" async></script>
     <script src="../javascript/keybinds.js" async></script>
 </head>
 
@@ -21,16 +25,40 @@
     <nav></nav>
 
     <div keys>
-
-        <div notify></div>
-
-        <!-- Solution for autofocus issue. -->
-        <input style="opacity: 0; position: fixed; pointer-events: none;" autofocus="true" />
-
-        <!-- Add/Remove/Manage keybinds. -->
-        <div manage>
-            <div onclick="copy()" style="background:#00A9FF" button>+ New Bind</div>
-            <div onclick="save()" button save>Save</div>
+        <div pickerMount class="hide">
+            <div imagePicker>
+                <div buttons>
+                    <div modifyImage>Upload New</div>
+                    <div revertImage>Revert to Default</div>
+                    <div closeMount>Close</div>
+                </div>
+                <div image></div>
+            </div>
+        </div>
+        <div search id="Search by Ability / Item">
+            <div clear title="Clear Search">&#x1F9F9;</div>
+            <div options>
+                &#x2699;&#xFE0F;
+                <div list>
+                    <div class="active">Search by Ability / Item</div>
+                    <div>Search by Keybinds</div>
+                    <div>Search by Bars</div>
+                </div>
+            </div>
+            <input type="text" placeholder="Search by Ability / Item" search />
+            <div dropdown></div>
+            <div filter>
+                &#x1F5C2;&#xFE0F;
+                <div list></div>
+            </div>
+            <div order>
+                <div action>&#x1F501;</div>
+                <div list>
+                    <div class="active">Order by Ability / Item</div>
+                    <div>Order by Keybinds</div>
+                    <div>Order by Bars</div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

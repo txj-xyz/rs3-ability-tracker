@@ -1,321 +1,257 @@
-// // Import dependencies.
-// const { ipcRenderer } = require('electron');
+const [toggles, { library, keycodes }, element, actions] = [
+    {
+        save: false,
+        order: {
+            available: false,
+            query: 'name',
+        },
+        clear: false,
+        search: 'name',
+        hidden: false,
+        filter: [],
+        popup: null
+    },
+    request('config', true),
+    id => `<div id="${id}"><div remove>-</div><div name id="Ability / Item"><input type="text" placeholder="Ability / Item" /><div dropdown></div></div> <div keybinds id="Keybind"><input type="text" placeholder="Keybind" /> </div> <div bars id="Bar Name"><input type="text" placeholder="Bar Name" /><div barselect></div> </div> <div image>&#x1F5BC;&#xFE0F;</div></div>`,
+    `<div manage><div onclick="copy()" button>+ New Bar</div><div onclick="save()" button save>Save</div></div>`
+]
 
-// // Frontend to backend communication.
-// ipcRenderer.request = query => ipcRenderer.sendSync('keybinds', query);
+if (config.referenceStorage.keybinds.length) config.referenceStorage.keybinds.map(set => copy(true, set))
+else document.querySelector('div[keys]').insertAdjacentHTML('beforeend', actions)
 
-// // Request data from backend.
-// let [keycache, abilities, bars, keycodes] = ['keycache', 'abilities', 'bars', 'keycodes'].map(query => ipcRenderer.request({ query }));
+document.querySelector('div[filter] div[list]').innerHTML = `<div>${[...new Set(library.map(set => set.type.split('-').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' ')))].join('</div><div>')}</div>`
 
-// bars.unshift('Global');
+function getImg(query) {
+    const data = library.find(element => element.name === query)
+    return data ? `<div style="background: url(${data.customIcon ?? data.icon.replace(/\(/g, '%28').replace(/\)/g, '%29')}); width: 10px; height: 10px;" abilityImg></div>` : ''
+}
 
-// // Default values.
-// const modifiers = ['Shift', 'Control', 'Ctrl', 'Command', 'Cmd', 'Alt', 'AltGr', 'Super', 'Backspace'];
+function copy(initial, data) {
+    const [id, manage] = [random(), document.querySelector('div[manage]')]
+    manage ? manage.remove() : void 0;
+    document.querySelector('div[keys]').insertAdjacentHTML('beforeend', element(id));
+    document.querySelector('div[keys]').insertAdjacentHTML('beforeend', actions);
+    const component = document.getElementById(id);
+    const name = component.querySelector('div[name] input')
+    const keybind = component.querySelector('div[keybinds] input')
+    const bar = component.querySelector('div[bars] input')
+    const set = initial ? library.find(set => set.name === data.name) : null
 
-// const [keybinds, buttons] = [
-//     '<div id="ID"><div onclick="remove(\'ID\')" style="background:#F04747" remove>-</div><div ability id="Ability"><input type="text" placeholder="Ability" value="ABILITY" onclick="show(\'ID\')" /><div dropdown></div></div><div keybinds id="Keybind"><input type="text" placeholder="Keybind" value="KEYBIND" key /></div><div bars id="Bar Name"><input type="text" placeholder="Bar Name" value="BARNAME" /><div barselect></div></div></div>',
-//     '<div manage><div onclick="copy()" style="background:#00A9FF" button>+ New Bind</div><div onclick="save()" button save>Save</div></div>',
-// ];
-// let saveToggle = false;
+    component.querySelector('div[remove]').onclick = _ => {
+        component.remove()
+        toggle()
+        toggleOrder()
+    }
 
-// // Random ID generator.
-// const randomID = (sections, phrase, join, random = a => a[Math.floor(Math.random() * a.length)]) =>
-//     [...Array(sections)]
-//         .map(_ =>
-//             [...Array(phrase)]
-//                 .map(_ => random([...[...Array(26)].map((_, i) => String.fromCharCode(i + 65)), ...[...Array(26)].map((_, i) => String.fromCharCode(i + 65).toLowerCase()), ...[...Array(10).keys()]]))
-//                 .join('')
-//         )
-//         .join(join ?? '-');
+    if (set && set.customIcon) {
+        component.querySelector('div[image]').classList.add('active')
+        document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
+    } else document.querySelector('div[revertImage]').classList.add('disable')
 
-// // Update input box value from dropdown selection.
-// const update = (id, ability, input = document.getElementById(id).querySelector('div[ability] input')) => {
-//     input.value = ability;
-//     saveToggle ? toggle() : void 0;
-// };
-// const updateBar = (id, ability) => {
-//     document.getElementById(id).querySelector('div[bars] input').value = ability;
-//     sendBars();
-//     saveToggle ? toggle() : void 0;
-// };
 
-// // Action for remove button.
-// const remove = (id, div = document.getElementById(id)) => {
-//     div.parentNode.removeChild(div);
+    component.querySelector('div[image]').onclick = _ => {
+        toggles.popup = id;
+        const pickerMount = document.querySelector('div[pickerMount]')
+        pickerMount.classList.contains('hide') ? pickerMount.classList.remove('hide') : void 0;
+        if (!set) set = library.find(set => set.name === name.value)
+        if (set && set.customIcon) {
+            component.querySelector('div[image]').classList.add('active')
+            document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
+        } else document.querySelector('div[revertImage]').classList.add('disable')
+        document.documentElement.style.setProperty('--revertImg', `url(${set.icon})`);
+        document.querySelector('div[imagePicker] div[image]').style.background = `url(${set.customIcon ?? set.icon})`
+    }
 
-//     sendBars();
+    name.value = initial ? data.name : '';
+    keybind.value = initial ? data.keybind : '';
+    bar.value = initial ? data.bar : 'Global';
 
-//     // Update save button.
-//     saveToggle ? toggle() : void 0;
-// };
+    if (!config.referenceStorage.bars.length) bar.parentNode.classList.add('disable')
 
-// // Toggle save button.
-// const toggle = _ => {
-//     saveToggle = !saveToggle;
-//     const element = document.querySelector('div[save]');
-//     element.style.background = saveToggle ? '#43B581' : 'var(--elements)';
-// };
+    new Dropdown(component, library.map(set => set.name), initial, 'name')
+    new Dropdown(component, ['Global', ...config.referenceStorage.bars], initial, 'bars')
+    new Keybind(keybind)
 
-// function show(id) {
-//     const dropdown = document.getElementById(id).querySelector('div[dropdown]');
-//     dropdown.style.display = 'block';
-// }
+    if (!initial) {
+        window.scrollTo(0, document.body.scrollHeight);
+        toggleOrder()
+    } else toggle(true)
+}
 
-// // Kebind input manager class.
-// class Keybind {
-//     constructor(input, key) {
-//         let list = key.split('+').map(e => e.trim());
-//         this.key = list.pop();
-//         this.modify = list[0] ?? null;
-//         this.input = input;
-//         this.init();
-//     }
+function toggle(value) {
+    const save = document.querySelector('div[save]')
+    toggles.save = value ? true : false;
+    if (toggles.save) save.classList.add('active')
+    else save.classList.contains('active') ? save.classList.remove('active') : void 0;
+}
 
-//     // Initialize keybind listener.
-//     init() {
-//         this.input.addEventListener('focus', _ => {
-//             this.input.parentNode.classList.contains('error') ? this.input.parentNode.classList.remove('error') : void 0;
-//             this.input.setAttribute('placeholder', 'Listening...');
-//         });
-//         this.input.addEventListener('blur', _ => this.input.setAttribute('placeholder', 'Keybind'));
-//         this.input.addEventListener('keydown', e => {
-//             // Prevent default action.
-//             e.preventDefault();
+function toggleOrder(value) {
+    const order = document.querySelector('div[order]')
+    toggles.order.available = value ? true : false;
+    if (toggles.order.available) {
+        order.classList.add('active')
+        const list = []
+        document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(element => {
+            const name = element.querySelector('div[name] input');
+            const keybind = element.querySelector('div[keybinds] input');
+            const bar = element.querySelector('div[bars] input');
+            list.push({ name: name.value, keybinds: keybind.value, bars: bar.value })
+        })
+        document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(element => element.remove())
+        list.sort((a, b) => a[toggles.order.query] > b[toggles.order.query] ? 1 : -1).map(set => copy(true, { name: set.name, keybind: set.keybinds, bar: set.bars }))
+    }
+    else order.classList.contains('active') ? order.classList.remove('active') : void 0;
+}
 
-//             // Update save button.
-//             saveToggle ? toggle() : void 0;
+function toggleClear(value) {
+    const clear = document.querySelector('div[clear]')
+    toggles.clear = value ? true : false;
+    if (toggles.clear) clear.classList.add('active')
+    else clear.classList.contains('active') ? clear.classList.remove('active') : void 0;
+}
 
-//             // If backspace is pressed, remove from list.
-//             if (keycodes[e.code || e.key] === 'Backspace') this.key ? (this.key = '') : (this.modify = '');
-//             // Check if modifier is pressed.
-//             else if (modifiers.includes(keycodes[e.code || e.key]) && this.modify !== keycodes[e.code || e.key]) this.modify = keycodes[e.code || e.key];
-//             // Check if key is pressed.
-//             else if (this.modify !== keycodes[e.code || e.key]) this.key = keycodes[e.code || e.key];
+function update(id, value, query) {
+    if (query === 'undefined') {
+        document.querySelector('div[search] input').value = value;
+        document.querySelectorAll(`div[keys] > div[id]:not([search])`).forEach(element => {
+            const input = element.querySelector(`div[${toggles.search}] input`)
+            if (!input.value.includes(value)) input.parentNode.parentNode.classList.add('hide')
+            else input.parentNode.parentNode.classList.contains('hide') ? input.parentNode.parentNode.classList.remove('hide') : void 0;
+        })
+        return toggleClear(true)
+    }
+    document.getElementById(id).querySelector(`div[${query}] input`).value = value;
+    toggles.save ? toggle() : void 0;
+}
 
-//             // Update frontend.
-//             this.write();
-//         });
-//     }
+function save() {
+    let failed = false;
+    const binds = []
+    if (document.querySelector('div.error')) return
+    document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(element => {
+        const name = element.querySelector('div[name] input');
+        const keybind = element.querySelector('div[keybinds] input');
+        const bar = element.querySelector('div[bars] input');
+        if (!name?.value) {
+            name?.parentNode.classList.add('error')
+            name?.parentNode.setAttribute('error', 'Invalid Ability / Item')
+            failed = true
+        }
+        if (!keybind?.value) {
+            keybind?.parentNode.classList.add('error')
+            keybind?.parentNode.setAttribute('error', 'Invalid Keybind')
+            failed = true
+        }
+        if (!bar?.value) {
+            bar?.parentNode.classList.add('error')
+            bar?.parentNode.setAttribute('error', 'Invalid Bar')
+            failed = true
+        }
+        binds.push({ name: name.value, keybind: keybind.value, bar: bar.value })
+    })
+    if (failed) return
 
-//     // Update frontend.
-//     write() {
-//         // Show result.
-//         this.input.value = `${this.modify ?? ''}${this.modify ? ' + ' : ''}${this.key}`;
-//     }
-// }
+    request('keybindsListener', binds)
+    toggle(true)
+}
 
-// // Dropdown input manager class.
-// class Ability {
-//     constructor(div, fromConfig) {
-//         this.fromConfig = fromConfig || false;
-//         this.div = div;
-//         this.id = div.id;
-//         this.input = div.querySelector('div[ability] input');
-//         this.dropdown = div.querySelector('div[dropdown]');
-//         this.dropdown.innerHTML = this.search();
-//         this.init();
-//     }
+new Dropdown(document.querySelector('div[search]'), library.map(set => set.name))
 
-//     // Initialize dropdown listener.
-//     init() {
-//         if (!this.fromConfig) this.input.focus();
-//         // When input is received from the input box, check if it is a valid character and then filter the list.
-//         this.input.addEventListener('input', e => {
-//             if (!this.fromConfig) this.dropdown.style.display = 'block';
-//             !modifiers.includes(e.key) ? (this.dropdown.innerHTML = this.search(this.input.value)) : void 0;
+document.querySelector('div[clear]').onclick = _ => {
+    document.querySelector('input[search]').value = ''
+    document.querySelectorAll('div[keys] > div[id]').forEach(element => element.classList.contains('hide') ? element.classList.remove('hide') : void 0)
+    document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.remove('active') : void 0;
+    toggleClear()
+}
 
-//             // Update save button.
-//             saveToggle ? toggle() : void 0;
-//         });
+document.querySelectorAll('div[options] div[list] > div').forEach(element => {
+    element.onclick = _ => {
+        document.querySelectorAll('div[options] div[list] > div').forEach(element => element.classList.contains('active') ? element.classList.remove('active') : void 0)
+        element.classList.add('active')
+        if (element.innerHTML.split(' ').pop() === 'Item') toggles.search = 'name'
+        else toggles.search = element.innerHTML.split(' ').pop().toLowerCase()
+        var search = document.querySelector('div[search] input');
+        search.parentNode.replaceChild(search.cloneNode(true), search);
+        switch (toggles.search) {
+            case 'name': {
+                new Dropdown(document.querySelector('div[search]'), library.map(set => set.name))
+                break;
+            }
 
-//         // Show dropdown when input box is clicked.
-//         this.input.addEventListener('focus', _ => {
-//             this.dropdown.style.display = 'block';
-//             this.input.select();
-//             this.input.parentNode.classList.contains('error') ? this.input.parentNode.classList.remove('error') : void 0;
-//         });
+            case 'keybinds': {
+                new Keybind(document.querySelector('div[search] input'))
+                break
+            }
 
-//         // Hide dropdown when input box focus is lost.
-//         this.input.addEventListener('blur', _ => setTimeout(_ => (this.dropdown.style.display = 'none'), 150));
-//     }
+            case 'bars': {
+                new Dropdown(document.querySelector('div[search]'), ['Global', ...config.referenceStorage.bars])
+                break;
+            }
+        }
+        document.querySelector('div[search]').id = element.innerHTML
+        document.querySelector('div[search] input').placeholder = element.innerHTML
+    }
+})
 
-//     // Filter the list.
-//     search(query) {
-//         // Remove all underscores from the list.
-//         let list = abilities.map(e => e.replace(/_/g, ' ')).sort();
 
-//         // Filter the list.
-//         list = query ? list.filter(e => e.toLowerCase().includes(query.toLowerCase())) : list;
+document.querySelectorAll('div[order] div[list] > div').forEach(element => {
+    element.onclick = _ => {
+        document.querySelectorAll('div[order] div[list] > div').forEach(element => element.classList.contains('active') ? element.classList.remove('active') : void 0)
+        element.classList.add('active')
+        if (element.innerHTML.split(' ').pop() === 'Item') toggles.order.query = 'name'
+        else toggles.order.query = element.innerHTML.split(' ').pop().toLowerCase()
+        toggleOrder(true)
+    }
+})
 
-//         // Convert string to HTML.
-//         const result = [];
-//         list.map(e => result.push(`<div onclick="update('${this.id}', '${e}')" title="${e}">${e}</div>`));
+document.querySelector('div[order] div[action]').onclick = _ => !toggles.order.available ? toggleOrder(true) : void 0
 
-//         // Return list.
-//         return result.length ? result.join('') : '<div>No results</div>';
-//     }
-// }
+document.querySelectorAll('div[filter] div[list] > div').forEach(element => {
+    element.onclick = _ => {
+        if (toggles.filter.includes(element.innerHTML)) {
+            element.classList.remove('active')
+            toggles.filter = toggles.filter.filter(set => set !== element.innerHTML)
+        } else {
+            element.classList.add('active')
+            toggles.filter.push(element.innerHTML)
+        }
+        if (!toggles.filter.length) document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(element => element.classList.contains('hide') ? element.classList.remove('hide') : void 0)
+        else {
+            document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(element => {
+                const input = element.querySelector('div[name] input').value
+                const set = library.find(set => set.name === input)
+                if (input && !toggles.filter.includes(set.type.split('-').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' '))) element.classList.add('hide')
+                else element.classList.contains('hide') ? element.classList.remove('hide') : void 0;
+            })
+        }
+    }
+})
 
-// class Bar {
-//     constructor(div) {
-//         this.id = div.id;
-//         this.input = div.querySelector('div[bars] input');
-//         this.dropdown = div.querySelector('div[barselect]');
-//         this.dropdown.innerHTML = this.search();
-//         this.init();
-//     }
+document.querySelector('div[closeMount]').onclick = _ => {
+    document.querySelector('div[pickerMount]').classList.add('hide')
+    toggles.popup = null
+}
 
-//     // Initialize dropdown listener.
-//     init() {
-//         // When input is received from the input box, check if it is a valid character and then filter the list.
-//         this.input.addEventListener('input', e => {
-//             !modifiers.includes(e.key) ? (this.dropdown.innerHTML = this.search(this.input.value)) : void 0;
+document.querySelector('div[revertImage]').onclick = _ => {
+    if (!toggles.popup) return
+    const name = document.getElementById(toggles.popup).querySelector('div[name] input').value
+    if (!name) return
+    request('keybindsListener', { type: 'revertImage', name })
+    document.querySelector('div[revertImage]').classList.add('disable')
+    document.querySelector('div[imagePicker] div[image]').style.background = `url(${library.find(set => set.name === name).icon})`
+    const image = document.getElementById(toggles.popup).querySelector('div[image]')
+    image.classList.contains('active') ? image.classList.remove('active') : void 0
+}
 
-//             sendBars();
+document.querySelector('div[modifyImage]').onclick = _ => {
+    if (!toggles.popup) return
+    request('keybindsListener', { type: 'dialog', name: document.getElementById(toggles.popup).querySelector('div[name] input').value, id: toggles.popup })
+}
 
-//             // Update save button.
-//             saveToggle ? toggle() : void 0;
-//         });
-
-//         // Show dropdown when input box is clicked.
-//         this.input.addEventListener('focus', _ => {
-//             this.dropdown.style.display = 'block';
-//             this.input.select();
-//             this.input.parentNode.classList.contains('error') ? this.input.parentNode.classList.remove('error') : void 0;
-//             this.dropdown.innerHTML = this.search();
-//         });
-
-//         // Hide dropdown when input box focus is lost.
-//         this.input.addEventListener('blur', _ => setTimeout(_ => (this.dropdown.style.display = 'none'), 150));
-//     }
-
-//     // Filter the list.
-//     search(query) {
-//         // Remove all underscores from the list.
-//         let list = bars.map(e => e.replace(/( |_)/g, ' ')).sort();
-
-//         // Filter the list.
-//         list = query ? list.filter(e => e.toLowerCase().includes(query.toLowerCase())) : list;
-
-//         // Convert string to HTML.
-//         const result = [];
-//         list.map(e => result.push(`<div onclick="updateBar('${this.id}', '${e}')" title="${e}">${e}</div>`));
-
-//         // Return list.
-//         return result.length ? result.join('') : '<div>No results</div>';
-//     }
-// }
-
-// // Load saved keybinds from cache.
-// keycache.map(a => (a.key.length > 0 ? a.key.map(k => copy(a.name.replace(/( |_)/g, ' '), k, a.bar, true)) : void 0));
-// if (keycache.length) toggle();
-
-// // Make a new keybind field.
-// function copy(ability, key, bar, initial) {
-//     // Declare varibales.
-//     const [id, btns] = [randomID(5, 5), document.querySelector('div[manage]')];
-
-//     // Update preset element string values.
-//     let field = keybinds
-//         .replace(/ID/g, id)
-//         .replace(/ABILITY/g, ability || '')
-//         .replace(/KEYBIND/g, key || '');
-//     for (let name of bars) if (name.toLowerCase() === (bar || 'Global').toLowerCase()) field = field.replace(/BARNAME/g, name);
-//     if (field.includes('BARNAME')) field = field.replace(/BARNAME/g, 'Global');
-
-//     // Remove buttons.
-//     btns.parentNode.removeChild(btns);
-
-//     // Add new element and buttons.
-//     document.querySelector('div[keys]').insertAdjacentHTML('beforeend', field + buttons);
-
-//     // Setup dropdown and keybind actions for new element.
-//     new Ability(document.getElementById(id), initial);
-//     new Keybind(document.getElementById(id).querySelector('input[key]'), key ? key : key = '');
-//     new Bar(document.getElementById(id));
-//     sendBars();
-
-//     if (!initial) window.scrollTo(0, document.body.scrollHeight);
-// }
-
-// // Save keybinds to file.
-// function save() {
-//     // Declare variables.
-//     let failed = false;
-//     const [keys, binds] = [document.querySelectorAll('div[keys] > div[id]'), []];
-
-//     // Fetch values from HTML.
-//     keys.forEach(e => {
-//         const [ability, key, bar] = [e.querySelector('div[ability] input').value, e.querySelector('input[key]').value, e.querySelector('div[bars] input').value];
-//         if (!key || !ability || !bar || !abilities.map(e => e.toLowerCase()).includes(ability.toLowerCase()) || !bars.map(e => e.toLowerCase()).includes(bar.toLowerCase())) {
-//             failed = true;
-//             if (!key) e.querySelector('div[keybinds]').classList.add('error');
-//             if (!ability || !abilities.map(e => e.toLowerCase()).includes(ability.toLowerCase())) e.querySelector('div[ability]').classList.add('error');
-//             if (!bar || !bars.map(e => e.toLowerCase()).includes(bar.toLowerCase())) e.querySelector('div[bars]').classList.add('error');
-//             return notify('Missing or improper keybinds.', true);
-//         }
-
-//         let list = key.split('+').map(e => e.trim());
-//         const value = list.pop();
-//         const modify = list[0] ?? null;
-//         if (!value) {
-//             e.querySelector('div[keybinds]').classList.add('error');
-//             return notify('Missing or improper keybinds.', true);
-//         }
-
-//         binds.push({ name: ability.replace(/( |_)/g, '_'), key, bar });
-//     });
-//     if (failed) return;
-
-//     // Send data to backend.
-//     ipcRenderer.request({ query: 'binds', binds });
-
-//     // Send a notification to the user.
-//     !saveToggle ? notify('Keybinds updated successfully!') : void 0;
-
-//     // Set save button background.
-//     !saveToggle ? toggle() : void 0;
-// }
-
-// // Notification triggers.
-// function notify(msg, failed) {
-//     const id = randomID(5, 5);
-//     let [notification, parent] = [document.createElement('div'), document.querySelector('div[notify]')];
-
-//     // Notification properties.
-//     if (failed) notification.classList.add('failed');
-//     notification.id = id;
-//     notification.innerHTML = `<div onclick="removeNotif('${id}')">x</div>${msg}`;
-//     parent.insertBefore(notification, parent.childNodes[0]);
-
-//     // Notification timeout case.
-//     setTimeout(_ => {
-//         if (!notification.classList.contains('deleted')) notification?.classList?.add('deleted');
-//         setTimeout(_ => notification.parentNode.removeChild(notification), 490);
-//     }, 4000);
-// }
-
-// // Remove notification.
-// const removeNotif = id => document.getElementById(id)?.classList?.add('deleted');
-
-// // Send keybinds to bars window.
-// function sendBars() {
-//     const [bars, data] = [document.querySelectorAll('div[bars] input'), []];
-//     bars.forEach(bar => data.push(bar.value.toLowerCase()));
-//     ipcRenderer.sendSync('passToBars', data);
-// }
-
-// // Incoming data events.
-// ipcRenderer.on('passToKeys', (event, args) => (bars = [...new Set(['Global', ...args.filter(e => e)])]));
-// ipcRenderer.on('updateKeys', (event, arg) => {
-//     const bars = document.querySelectorAll('div[bars]');
-
-//     // Remove keybind if it is linked to deleted bar.
-//     bars.forEach(bar => {
-//         if (arg === bar.querySelector('input').value.toLowerCase()) {
-//             bar.parentNode.parentNode.removeChild(bar.parentNode);
-//         }
-//     });
-//     // Set save button background.
-//     !saveToggle ? toggle() : void 0;
-// });
+ipc.on('customIcon', (event, param) => {
+    if (!toggles.popup) return
+    console.log(param)
+    document.getElementById(param.id).querySelector('div[image]').classList.add('active')
+    document.querySelector('div[imagePicker] div[image]').style.background = `url(${param.customIcon})`
+    document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
+})

@@ -5,7 +5,7 @@ module.exports = class Main extends Window {
         super()
             .create({ ...windows.properties, width: 250, height: 385 })
             .ipcLoader(this.mainListener, this.confListener)
-        new Bars()
+        new Keybinds()
     }
 
     mainListener = (event, param) => {

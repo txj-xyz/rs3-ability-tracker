@@ -44,20 +44,22 @@ div[input] > div {
     width: 100%;
 }
 
-div[dropdown]:after {
+div[dropdown]:after,
+div[barselect]:after {
     display: none;
 }
 
-div[dropdown] {
+div[dropdown],
+div[barselect] {
     transition-duration: 100ms;
     font-size: 13px;
     display: none;
     position: absolute;
     z-index: 1;
     background-color: var(--elements);
-    max-height: 135px;
+    max-height: 130px;
     width: 132px;
-    border-radius: 0 0 3px 3px;
+    border-radius: 0 0 4px 4px;
     margin: 0 4px;
     padding: 5px;
     overflow-y: auto;
@@ -66,7 +68,8 @@ div[dropdown] {
     border-top: 1px solid var(--hover);
 }
 
-div[dropdown] div {
+div[dropdown] div,
+div[barselect] div {
     white-space: nowrap;
     overflow-y: hidden;
     text-overflow: ellipsis;
@@ -78,7 +81,8 @@ div[dropdown] div {
     user-select: none;
 }
 
-div[dropdown] div:hover {
+div[dropdown] div:hover,
+div[barselect] div:hover {
     background: var(--hover);
 }
 

@@ -144,12 +144,19 @@ document.querySelector('div[clear]').onclick = _ => {
     document.querySelector('input[search]').value = ''
     document.querySelector('div.global').style.display = 'flex';
     document.querySelectorAll('div[bars] > div[id]').forEach(bar => bar.style.display = 'flex')
+    document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.remove('active') : void 0;
 }
 
 document.querySelector('input[search]').addEventListener('input', _ => {
     const value = document.querySelector('input[search]').value;
-    if (value === '') document.querySelector('div.global').style.display = 'flex';
-    else document.querySelector('div.global').style.display = 'none';
+    if (value === '') {
+        document.querySelector('div.global').style.display = 'flex';
+        document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.remove('active') : void 0;
+    }
+    else {
+        document.querySelector('div.global').style.display = 'none';
+        !document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.add('active') : void 0;
+    }
     document.querySelectorAll('div[bars] > div[id]').forEach(bar => {
         if (!bar.querySelector('input').value.toLowerCase().includes(value.toLowerCase())) bar.style.display = 'none';
         else bar.style.display = 'flex';
