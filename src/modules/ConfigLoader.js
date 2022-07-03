@@ -20,6 +20,7 @@ module.exports = class Config extends Manager {
         };
 
         config.referenceStorage = new Proxy(config.referenceStorage, handler)
+        config.abilityWindow = new Proxy(config.abilityWindow, handler)
 
         return new Proxy(config, handler)
 

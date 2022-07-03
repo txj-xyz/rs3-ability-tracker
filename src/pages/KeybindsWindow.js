@@ -1,7 +1,4 @@
-const Window = require('../base/Window.js')
-const { dialog } = require('electron')
-const { resolve } = require('path')
-const { copyFileSync, unlinkSync } = require('fs')
+const [{ copyFileSync, unlinkSync }, { resolve }, { dialog }, Window] = ['fs', 'path', 'electron', '../base/Window.js'].map(require)
 
 module.exports = class Keybinds extends Window {
     constructor() {

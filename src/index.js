@@ -21,7 +21,7 @@ app
     // Clear tray icon before quitting
     .on('before-quit', _ => {
         uIOhook.stop();
-        windows.tray.destroy();
+        windows.tray?.destroy();
     })
 
     .on('quit', process.exit)

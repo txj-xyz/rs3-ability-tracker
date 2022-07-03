@@ -1,3 +1,7 @@
+body {
+    margin-top: 0;
+}
+
 /* Contents styles. */
 main {
     pointer-events: none;
@@ -16,13 +20,26 @@ main > div {
     align-items: center;
 }
 
-main > div:last-child {
-    /* box-shadow: 0 0 5px white inset; */
+main > div:last-child::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: inherit;
+    margin-top: -3px;
+    transform: scale(0.9);
+    height: 100%;
     border: 3px solid white;
+    border-radius: 7px !important;
 }
+
 
 img {
     height: 80%;
     max-height: 80%;
     max-width: 80%;
+}
+
+main > div > img:not(:first-child) {
+    position: absolute;
+    z-index: 100;
 }
