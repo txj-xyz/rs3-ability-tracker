@@ -12,7 +12,6 @@ module.exports = class Bars extends Window {
         else {
             config.referenceStorage.bars = [...config.referenceStorage.bars.filter(bar => ![param.before, param.after].includes(bar)), param.after].filter(e => e)
             const keybinds = []
-            console.log(param.before, param.after)
             !param.after ? config.referenceStorage.keybinds.map(keybind => keybind.bar !== param.before ? keybinds.push(keybind) : void 0) : config.referenceStorage.keybinds.map(keybind => keybinds.push({ ...keybind, bar: keybind.bar === param.before ? param.after : keybind.bar }))
             config.referenceStorage.keybinds = keybinds
         }
