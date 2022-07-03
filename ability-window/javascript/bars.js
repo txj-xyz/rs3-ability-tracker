@@ -1,4 +1,4 @@
-const [toggles, element, actions] = [
+const [toggles, element, actions, notice] = [
     {
         save: false,
         edit: false,
@@ -9,6 +9,7 @@ const [toggles, element, actions] = [
     },
     id => `<div id=${id}><div remove>-</div><div id="Bar Name" bar><input type="text" placeholder="Bar Name" /></div><div buttons><div edit>Edit</div><div saveMod>Save</div><div cancel>Cancel</div></div></div>`,
     `<div manage><div onclick="copy()" button>+ New Bar</div><div onclick="save()" button save>Save</div></div>`
+
 ]
 
 
@@ -21,13 +22,24 @@ function copy(initial, data) {
     const bar = component.querySelector('div[bar]')
     const input = component.querySelector('input');
     component.querySelector('div[remove]').onclick = _ => {
-        component.remove()
-        toggle()
+        if (parseInt(component.querySelector('div[bar]').getAttribute('info').split(' ').shift()) > 3) {
+            document.querySelector('div[popup] div[info]').innerHTML = `<p>Are you sure you want to remove the ${component.querySelector('div[bar] input').value} bar?</p><hr /><p>Doing so will delete ${component.querySelector('div[bar]').getAttribute('info').split(' ').shift()} binds.</p>`
+            document.querySelector('div[popup] div[button]:first-child').setAttribute('bar', component.id)
+            const popup = document.querySelector('div[popup]');
+            popup.style.transform = 'scale(1)';
+            popup.style.opacity = 1;
+            popup.style.pointerEvents = 'auto';
+        } else {
+            const value = component.querySelector('div[bar] input').value;
+            component.remove()
+            save(value)
+            toggle(true)
+        }
     }
     input.value = initial ? data.value : '';
 
     bar.setAttribute('info', data && data.count === 1 ? '1 linked bind' : `${data ? data.count : 0} linked binds`)
-    
+
     if (_global) {
         bar.id = '(Non-switching)'
         component.classList.add('global')
@@ -102,8 +114,9 @@ function copy(initial, data) {
 function save(old, value) {
     const bars = []
     let failed = false
+    if (old) return request('barsListener', { before: old, after: value })
     document.querySelectorAll('div[bars] div:not(.global) div[bar]').forEach(bar => {
-        const value = bar.querySelector('input').value;
+        const value = bar.querySelector('input').value
         if (!value) {
             bar.classList.add('error')
             bar.setAttribute('error', 'Invalid name')
@@ -128,7 +141,7 @@ function save(old, value) {
         }
     })
     if (!failed) {
-        request('barsListener', old && value ? { before: old, after: value } : bars)
+        request('barsListener', bars)
         toggle(true)
     }
 }
@@ -179,3 +192,20 @@ ipc.on('fromKeybinds', (event, param) => {
         bar.setAttribute('info', value === 1 ? '1 linked bind' : `${value} linked binds`)
     })
 })
+
+document.querySelector('div[popup] div[button]:last-child').onclick = _ => {
+    const popup = document.querySelector('div[popup]');
+    popup.style.transform = 'scale(0.7)';
+    popup.style.opacity = 0;
+    popup.style.pointerEvents = 'none';
+}
+
+const confirm = document.querySelector('div[popup] div[button]:first-child')
+confirm.onclick = _ => {
+    const bar = document.getElementById(confirm.getAttribute('bar'))
+    const value = bar.querySelector('input').value;
+    bar.remove()
+    document.querySelector('div[popup] div[button]:last-child').click();
+    save(value)
+    toggle(true)
+}

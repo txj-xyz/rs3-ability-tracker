@@ -99,7 +99,7 @@ function copy(initial, data) {
     if (!request('config').referenceStorage.bars.length) bar.parentNode.classList.add('disable')
 
     new Dropdown(component, library.map(set => set.name), initial, 'name')
-    new Dropdown(component, ['Global', ...config.referenceStorage.bars], initial, 'bars')
+    new Dropdown(component, ['Global', ...request('config').referenceStorage.bars], initial, 'bars')
     new Keybind(keybind)
 
     if (!initial) {
@@ -370,10 +370,16 @@ ipc.on('fromBars', (event, param) => {
             new Dropdown(document.getElementById(id), ['Global', ...request('config').referenceStorage.bars], true, 'bars')
         })
         if (param.before) {
+            let disable = !request('config').referenceStorage.bars.length
             document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(div => {
-                const input = div.querySelector('div[name] input').value
+                const input = div.querySelector('div[name] input')
                 const bar = div.querySelector('div[bars] input')
-                if (input && param.before === bar.value) bar.value = param.after
+                if (disable) {
+                    input.blur()
+                    bar.classList.add('disable')
+                }
+                if (input.value && param.before === bar.value) !param.after ? div.remove() : bar.value = param.after
+
             })
         }
     } else {

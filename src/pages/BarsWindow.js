@@ -10,9 +10,10 @@ module.exports = class Bars extends Window {
     barsListener = (event, param) => {
         if (Array.isArray(param)) config.referenceStorage.bars = param.filter(bar => bar !== 'Global')
         else {
-            config.referenceStorage.bars = [...config.referenceStorage.bars.filter(bar => ![param.before, param.after].includes(bar)), param.after]
+            config.referenceStorage.bars = [...config.referenceStorage.bars.filter(bar => ![param.before, param.after].includes(bar)), param.after].filter(e => e)
             const keybinds = []
-            config.referenceStorage.keybinds.map(keybind => keybinds.push({ ...keybind, bar: keybind.bar === param.before ? param.after : keybind.bar }))
+            console.log(param.before, param.after)
+            !param.after ? config.referenceStorage.keybinds.map(keybind => keybind.bar !== param.before ? keybinds.push(keybind) : void 0) : config.referenceStorage.keybinds.map(keybind => keybinds.push({ ...keybind, bar: keybind.bar === param.before ? param.after : keybind.bar }))
             config.referenceStorage.keybinds = keybinds
         }
         if (!config.referenceStorage.bars.length) config.toggleSwitching = false

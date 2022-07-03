@@ -214,7 +214,7 @@ div[bar]:after {
 }
 
 div[bar].edit:after {
-     opacity: 0;
+    opacity: 0;
 }
 
 div[bar]:hover:before,
@@ -232,7 +232,7 @@ div[popup] {
     opacity: 0;
     pointer-events: none;
     position: fixed;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
     top: 0;
     width: 100%;
     height: 100%;
@@ -252,7 +252,7 @@ div[popup] div[mount] {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: -10px -30px;
+    min-height: 100px;
     transform: translate(-50%, -50%);
     padding: 10px;
     width: 250px;
@@ -262,7 +262,7 @@ div[popup] div[mount] {
     filter: drop-shadow(0 0 5px var(--color));
 }
 
-div[popup] div[mount] > div {
+div[popup] div[mount] > div > div {
     display: flex;
     position: absolute;
     bottom: -13px;
@@ -275,3 +275,23 @@ hr {
     background: var(--elements);
 }
 
+div[popup] div[button]:first-child {
+    background: var(--red);
+    margin-right: 75px;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+div[popup] div[button]:first-child:before,
+div[popup] div[button]:first-child:after {
+    display: none;
+}
+
+div[popup] div[button]:last-child {
+    background: var(--blue);
+}
+
+div[popup] div[info] {
+    margin: 0;
+    display: block !important;
+}
