@@ -59,7 +59,7 @@ class Dropdown {
         this.input.addEventListener('blur', _ => {
             this.parent.hasAttribute('search') ? this.input.style.borderRadius = '3px' : void 0;
             this.query ? (this.parent.querySelector(`div[${this.query}]`).classList.contains('active') ? this.parent.querySelector(`div[${this.query}]`).classList.remove('active') : void 0) : (this.parent.parentNode.classList.contains('active') ? this.parent.parentNode.classList.remove('active') : void 0)
-            setTimeout(_ => this.dropdown.classList.add('fade'), 100)
+            setTimeout(_ => this.dropdown.classList.add('fade'), 150)
             setTimeout(_ => {
                 this.dropdown.style.display = 'none'
                 const index = this.list.map(word => word.toLowerCase()).indexOf(this.input.value.toLowerCase())
@@ -78,7 +78,7 @@ class Dropdown {
                     this.input.value = this.list[index]
                     title === 'main' ? request('confListener', { id: this.input.id, value: this.input.value }) : void 0;
                 }
-            }, 200)
+            }, 300)
         });
     }
 
