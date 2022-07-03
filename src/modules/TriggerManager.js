@@ -9,7 +9,8 @@ module.exports = class Trigger extends Manager {
         timestamp: 0
     }
     keyCheck = []
-    activeBar = null
+    activeBar = config.barsSelection
+    spamCooldown = 2000
 
     constructor() {
         super()
@@ -70,6 +71,11 @@ module.exports = class Trigger extends Manager {
 
                 // Combat loop found keybind
                 if ((UiohookKey[letter] === trigger.keycode || keycodes.data[letter] === trigger.keycode) && !failed) {
+                    if (set.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < this.spamCooldown) return;
+                    this.lastKey.value = set.name;
+                    this.lastKey.timestamp = Date.now();
+
+
                     let reference = library.get(set.name)
 
                     // set timestamp for successfull keybind press
