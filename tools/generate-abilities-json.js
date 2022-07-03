@@ -23,18 +23,16 @@ const walkSync = (dir, callback) => {
 
 walkSync(path, (filepath, pathDetails) => {
   const abilName = filepath.replace(/(\.png|_)/g, ' ').trim().replace(/\\/g, '\/').split(/\//g).pop()
-  const foundCD = abilFile.find(abil => abil.name === abilName)?.cooldown ?? null
   // const iconPath = resolve(__dirname, filepath).replace(/\\/g, '/') //DIRECT
   const iconPath = `../${filepath.replace(/\\/g, '\/').split(/\//g).slice(1).join('/')}`
-  // console.log(foundCD, abilName)
-  console.log(pathDetails.name.replace(/\\/g, '\/').split(/\//g))
   filesMap.push({
     name: abilName,
     type: pathDetails.name.replace(/\\/g, '\/').split(/\//g).pop(),
-    icon: `../${pathDetails.name.replace(/\\/g, '\/').split(/\//g).slice(1).join('/')}/${abilName.replace(/ /g, '_')}.png`,
+    icon: iconPath,
     customIcon: null
   })
 })
 
-// console.log(JSON.stringify(filesMap, null, 2))
-writeFileSync(`./test.json`, JSON.stringify(filesMap, null, 2))
+console.log(JSON.stringify(filesMap, null, 2))
+
+// writeFileSync(`./test.json`, JSON.stringify(filesMap, null, 2))
