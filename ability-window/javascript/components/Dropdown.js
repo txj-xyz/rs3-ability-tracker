@@ -18,7 +18,7 @@ class Dropdown {
                 this.input.style.borderRadius = '3px'
             }
             this.dropdown.style.display = 'none';
-        }   
+        }
 
         this.input.onclick = _ => {
             if (this.dropdown.style.display === 'none') {
@@ -28,8 +28,14 @@ class Dropdown {
             }
         }
 
-        this.input.addEventListener('input', event => {
+        document.addEventListener('keydown', event => {
+            if (this.dropdown && this.dropdown.style.display === 'block' && ['Enter', 'Tab'].includes(event.key)) {
+                event.preventDefault()
+                update(this.id, this.dropdown.querySelector('div').textContent, this.query)
+            }
+        });
 
+        this.input.addEventListener('input', event => {
             this.dropdown.style.display = 'block';
             if (this.id !== 'selection' && !this.parent.hasAttribute('search') && toggles.save) {
                 toggle()
@@ -44,7 +50,7 @@ class Dropdown {
                     else query.parentNode.parentNode.classList.contains('hide') ? query.parentNode.parentNode.classList.remove('hide') : void 0;
                 })
             }
-            toggleImage(this.id, this.query === 'name' && this.list.find(word => word.toLowerCase() === this.input.value.toLowerCase()))
+            if (this.input.id !== 'barsSelection') toggleImage(this.id, this.query === 'name' && this.list.find(word => word.toLowerCase() === this.input.value.toLowerCase()))
         })
 
         this.input.addEventListener('focus', _ => {

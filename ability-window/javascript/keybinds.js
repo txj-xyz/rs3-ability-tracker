@@ -200,7 +200,6 @@ function update(id, value, query) {
     else document.getElementById(id).querySelector('div[perkMod]').classList.add('disable')
     const item = config.referenceStorage.keybinds.find(e => e.name === value && e.keybind === document.getElementById(id).querySelector('div[keybinds] input').value)
     if (item && item.perk) {
-        console.log('ran')
         document.getElementById(id).querySelector('div[perkMod]').classList.add('active')
         document.getElementById(id).querySelectorAll('div[perkMod] div[list] > div').forEach(div => div.innerHTML === item.perk ? div.classList.add('active') : void 0)
         document.getElementById(id).querySelector('div[abilityIcon] img').src = getImg(item.perk, true).slice(4, -1)

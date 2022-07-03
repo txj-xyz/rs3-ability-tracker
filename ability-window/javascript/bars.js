@@ -172,7 +172,6 @@ document.querySelector('input[search]').addEventListener('input', _ => {
 
 ipc.on('fromKeybinds', (event, param) => {
     const bars = { Global: 0 }
-    console.log(param)
     param.forEach(bind => bars[bind.bar] ? bars[bind.bar]++ : bars[bind.bar] = 1)
     document.querySelectorAll('div[bars] div[bar]').forEach(bar => {
         const name = bar.querySelector('input').value;
