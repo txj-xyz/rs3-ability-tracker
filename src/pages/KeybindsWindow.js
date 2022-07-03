@@ -35,7 +35,14 @@ module.exports = class Keybinds extends Window {
             }
 
             default: {
-                config.referenceStorage.keybinds = param
+                let keybinds = new Map()
+                for (let [key, value] of Object.entries(param)) {
+                    let bind = keybinds.get(value.name)
+                    if (bind) keybinds.set(value.name, { ...bind, keybind: [...bind.keybind, value.keybind] })
+                    else keybinds.set(value.name, { ...value, keybind: [value.keybind] })
+                }
+
+                config.referenceStorage.keybinds = Array.from(keybinds, ([name, value]) => value)
                 library.data.map(item => {
                     if (item.customIcon && !config.referenceStorage.keybinds.map(e => e.name).includes(item.name)) {
                         unlinkSync(resolve(__dirname, '../../ability-window/assets', library.get(item.name).customIcon))

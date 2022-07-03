@@ -61,7 +61,7 @@ const file = (_path, data, failed = false) => {
 };
 
 // Start keybinds listener.
-uIOhook.start();
+// uIOhook.start();
 
 module.exports = {
     // Check for dev mode

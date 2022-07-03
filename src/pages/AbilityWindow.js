@@ -1,5 +1,3 @@
-const { windows } = require("../base/Manager");
-
 const [{ screen }, Window] = ['electron', '../base/Window.js'].map(require)
 
 module.exports = class Ability extends Window {
@@ -20,7 +18,7 @@ module.exports = class Ability extends Window {
                 movable: !config.lockTrackerWindow,
             }, true)
 
-        // triggers()
+        new Trigger()
         if (__platform === 'darwin') windows.ability.setWindowButtonVisibility(false);
 
         windows.ability.setAlwaysOnTop(true, "screen-saver");
