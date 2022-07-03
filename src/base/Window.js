@@ -47,7 +47,7 @@ module.exports = class Window {
                     if (!windows.main?.isVisible() && !windows.keybinds && !windows.bars) quitHandler()
                 } else quitHandler()
             } else {
-                if (!windows.keybinds && !windows.bars) new Main()
+                new Main()
                 this.#emit('closed')
             }
             for (const event in this.listeners) ipcMain.removeListener(event, this.listeners[event])
