@@ -203,9 +203,10 @@ document.querySelector('div[popup] div[button]:last-child').onclick = _ => {
 const confirm = document.querySelector('div[popup] div[button]:first-child')
 confirm.onclick = _ => {
     const bar = document.getElementById(confirm.getAttribute('bar'))
-    const value = bar.querySelector('input').value;
+    const value = bar ? bar.querySelector('input').value : null;
     bar.remove()
     document.querySelector('div[popup] div[button]:last-child').click();
+    confirm.removeAttribute('bar')
     save(value)
     toggle(true)
 }
