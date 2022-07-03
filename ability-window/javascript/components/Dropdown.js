@@ -29,6 +29,7 @@ class Dropdown {
         }
 
         this.input.addEventListener('input', event => {
+
             this.dropdown.style.display = 'block';
             if (this.id !== 'selection' && !this.parent.hasAttribute('search') && toggles.save) {
                 toggle()

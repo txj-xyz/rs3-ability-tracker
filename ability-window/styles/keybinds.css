@@ -174,7 +174,7 @@ div[abilityIcon] {
     background-color: var(--hover) !important;
     background-position: center !important;
     background-repeat: no-repeat;
-    background-size: contain !important;
+    background-size: cover !important;
     cursor: default !important;
 }
 

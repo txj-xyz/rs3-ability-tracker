@@ -96,7 +96,7 @@ function copy(initial, data) {
     keybind.value = initial ? data.keybind : '';
     bar.value = initial ? data.bar : 'Global';
 
-    if (!config.referenceStorage.bars.length) bar.parentNode.classList.add('disable')
+    if (!request('config').referenceStorage.bars.length) bar.parentNode.classList.add('disable')
 
     new Dropdown(component, library.map(set => set.name), initial, 'name')
     new Dropdown(component, ['Global', ...config.referenceStorage.bars], initial, 'bars')
