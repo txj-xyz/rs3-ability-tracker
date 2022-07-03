@@ -30,7 +30,7 @@ div[keys] > div input {
     border-radius: 3px;
     padding: 1px 5px;
     height: 22px;
-    width: 165px;
+    width: 141px;
     background: var(--elements);
     color: var(--color);
 }
@@ -138,13 +138,15 @@ div[search] div[dropdown] {
     margin: 24px 76px !important;
     border-radius: 0 0 4px 4px;
     width: 72% !important;
-    max-height: 22px !important;
+    cursor: pointer;
 }
 
 /* Action styles. */
 div[remove],
 div[button],
 div[image],
+div[abilityIcon],
+div[perkMod],
 div[search] > div {
     border-radius: 3px;
     user-select: none;
@@ -168,8 +170,20 @@ div[search] > div {
     text-shadow: 0.5px 0.5px black;
 }
 
-div[image] {
+div[abilityIcon] {
+    background-color: var(--hover) !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    background-size: contain !important;
+    cursor: default !important;
+}
+
+div[perkMod] {
     margin-left: 7px;
+}
+
+div[perkMod].active {
+    background: var(--blue);
 }
 
 div[clear]:not(.active),
@@ -211,7 +225,7 @@ div[manage] {
 div[dropdown],
 div[barselect] {
     margin: 23px 4px !important;
-    width: 165px !important;
+    width: 141px !important;
 }
 
 /* Input box error styles. */
@@ -328,18 +342,31 @@ div[order] div[list] {
 }
 
 div[filter] div[list] {
-    margin: 62px 45px !important;
     right: 0;
     height: 135px;
     overflow-y: auto;
     left: auto;
 }
 
+div[perkMod] div[list] {
+    margin-right: 45px !important;
+    margin-top: 0 !important;
+    margin-bottom: -124px !important;
+    top: auto;
+    right: 0;
+    left: auto;
+}
+
 div[options]:hover div[list],
 div[order]:hover div[list],
-div[filter]:hover div[list] {
+div[filter]:hover div[list],
+div[perkMod]:hover div[list] {
     opacity: 1;
     pointer-events: auto;
+}
+
+div[perkMod] div[list] div {
+    font-size: 12px;
 }
 
 div[list] div {
@@ -446,4 +473,17 @@ div[closeMount] {
     bottom: 5px;
     right: 9px;
     border-radius: 3px !important;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: var(--elements);
+}
+
+div[abilityIcon] img {
+    margin-bottom: -4px;
+    margin-top: -2px;
+    max-width: 25px;
+    max-height: 23px;
 }

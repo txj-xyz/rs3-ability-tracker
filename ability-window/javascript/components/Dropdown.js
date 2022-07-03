@@ -22,8 +22,8 @@ class Dropdown {
 
         this.input.onclick = _ => {
             if (this.dropdown.style.display === 'none') {
-                this.#resetDropdown()
                 this.dropdown.style.display = 'block';
+                this.#resetDropdown()
                 this.input.style.borderRadius = '3px 3px 0 0';
             }
         }
@@ -43,6 +43,7 @@ class Dropdown {
                     else query.parentNode.parentNode.classList.contains('hide') ? query.parentNode.parentNode.classList.remove('hide') : void 0;
                 })
             }
+            toggleImage(this.id, this.query === 'name' && this.list.find(word => word.toLowerCase() === this.input.value.toLowerCase()))
         })
 
         this.input.addEventListener('focus', _ => {

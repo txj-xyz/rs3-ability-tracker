@@ -39,6 +39,12 @@ module.exports = class Keybinds extends Window {
 
             default: {
                 config.referenceStorage.keybinds = param
+                library.data.map(item => {
+                    if (item.customIcon && !config.referenceStorage.keybinds.map(e => e.name).includes(item.name)) {
+                        unlinkSync(resolve(__dirname, '../../ability-window/assets', library.get(item.name).customIcon))
+                        library.set(item.name, null)
+                    }
+                })
                 break;
             }
         }

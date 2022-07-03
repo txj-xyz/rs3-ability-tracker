@@ -12,18 +12,20 @@ const [toggles, element, actions] = [
         filter: [],
         popup: null
     },
-    id => `<div id="${id}"><div remove>-</div><div name id="Ability / Item"><input type="text" placeholder="Ability / Item" /><div dropdown></div></div> <div keybinds id="Keybind"><input type="text" placeholder="Keybind" /> </div> <div bars id="Bar Name"><input type="text" placeholder="Bar Name" /><div barselect></div> </div> <div image>&#x1F5BC;&#xFE0F;</div></div>`,
-    `<div manage><div onclick="copy()" button>+ New Bar</div><div onclick="save()" button save>Save</div></div>`
+    id => `<div id="${id}"><div remove>-</div><div abilityIcon><img /><img /></div><div name id="Ability / Item"><input type="text" placeholder="Ability / Item" /><div dropdown></div></div> <div keybinds id="Keybind"><input type="text" placeholder="Keybind" /> </div> <div bars id="Bar Name"><input type="text" placeholder="Bar Name" /><div barselect></div></div><div perkMod></div><div image>&#x1F5BC;&#xFE0F;</div></div>`,
+    `<div manage><div onclick="copy()" button>+ New Bind</div><div onclick="save()" button save>Save</div></div>`
 ]
+
+const perks = ['Caroming Perk', 'Flanking Perk', 'Lunging Perk', 'Planted Feet']
 
 if (config.referenceStorage.keybinds.length) config.referenceStorage.keybinds.map(set => copy(true, set))
 else document.querySelector('div[keys]').insertAdjacentHTML('beforeend', actions)
 
-document.querySelector('div[filter] div[list]').innerHTML = `<div>${[...new Set(library.map(set => set.type.split('-').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' ')))].join('</div><div>')}</div>`
+document.querySelector('div[filter] div[list]').innerHTML = `<div>${[...new Set(library.map(set => 'Filter by ' + set.type.split('-').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' ')))].join('</div><div>')}</div>`
 
-function getImg(query) {
+function getImg(query, raw) {
     const data = library.find(element => element.name === query)
-    return data ? `<div style="background: url(${data.customIcon ?? data.icon.replace(/\(/g, '%28').replace(/\)/g, '%29')}); width: 10px; height: 10px;" abilityImg></div>` : ''
+    return raw && data ? `url(${data.customIcon ?? data.icon.replace(/\(/g, '%28').replace(/\)/g, '%29')})` : data ? `<div style="background: url(${data.icon.replace(/\(/g, '%28').replace(/\)/g, '%29')}); width: 10px; height: 10px;" abilityImg></div>` : ''
 }
 
 function copy(initial, data) {
@@ -35,6 +37,8 @@ function copy(initial, data) {
     const name = component.querySelector('div[name] input')
     const keybind = component.querySelector('div[keybinds] input')
     const bar = component.querySelector('div[bars] input')
+    const abilityIcon = component.querySelector('div[abilityIcon]')
+    initial ? abilityIcon.style.background = getImg(data.name, true) : void 0
     let set = initial ? library.find(set => set.name === data.name) : null
 
     component.querySelector('div[remove]').onclick = _ => {
@@ -47,6 +51,32 @@ function copy(initial, data) {
         component.querySelector('div[image]').classList.add('active')
         document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
     } else document.querySelector('div[revertImage]').classList.add('disable')
+
+    // let weapon = set.icon.match(/weapons\/(magic|melee|range)/g)
+    component.querySelector('div[perkMod]').innerHTML = `&#x1F527;<div list><div>${perks.join('</div><div>')}</div></div>`
+    component.querySelectorAll('div[perkMod] div[list] > div').forEach(div => div.onclick = _ => {
+        toggle()
+        const active = div.classList.contains('active')
+        component.querySelector('div[perkMod]').classList.add('active')
+        component.querySelectorAll('div[perkMod] div[list] > div').forEach(e => e.classList.contains('active') ? e.classList.remove('active') : void 0)
+        if (!active) {
+            div.classList.add('active')
+            component.querySelector('div[abilityIcon] img').src = getImg(div.innerText, true).slice(4, -1)
+        } else {
+            component.querySelector('div[perkMod]').classList.remove('active')
+            component.querySelector('div[abilityIcon] img').src = ''
+        }
+    })
+
+    if (initial && data.perk) {
+        component.querySelector('div[perkMod]').classList.add('active')
+        component.querySelectorAll('div[perkMod] div[list] > div').forEach(div => div.innerHTML === data.perk ? div.classList.add('active') : void 0)
+        component.querySelector('div[abilityIcon] img').src = getImg(data.perk, true).slice(4, -1)
+    }
+
+    const weapon = set ? set.icon.match(/weapons\/(magic|melee|range)/g) : false
+    if ((Array.isArray(weapon) && weapon.some(e => e)) || (set && set.type === 'slot-icons')) document.getElementById(id).querySelector('div[perkMod]').classList.contains('disable') ? document.getElementById(id).querySelector('div[perkMod]').classList.remove('disable') : void 0
+    else document.getElementById(id).querySelector('div[perkMod]').classList.add('disable')
 
 
     component.querySelector('div[image]').onclick = _ => {
@@ -73,6 +103,7 @@ function copy(initial, data) {
     new Keybind(keybind)
 
     if (!initial) {
+        component.querySelector('div[image]').classList.add('disable')
         window.scrollTo(0, document.body.scrollHeight);
         toggleOrder()
     } else toggle(true)
@@ -83,6 +114,40 @@ function toggle(value) {
     toggles.save = value ? true : false;
     if (toggles.save) save.classList.add('active')
     else save.classList.contains('active') ? save.classList.remove('active') : void 0;
+}
+
+function toggleImage(id, value) {
+    const image = document.getElementById(id).querySelector('div[image]')
+    const item = config.referenceStorage.keybinds.find(e => e.name === value && e.keybind === document.getElementById(id).querySelector('div[keybinds] input').value)
+    if (!value) {
+        image.classList.add('disable')
+        image.classList.remove('active')
+        document.getElementById(id).querySelector('div[abilityIcon]').style.background = ''
+        document.getElementById(id).querySelector('div[perkMod]').classList.add('disable')
+        document.getElementById(id).querySelector('div[perkMod]').classList.remove('active')
+        document.getElementById(id).querySelectorAll('div[perkMod] div[list] > div').forEach(div => div.classList.remove('active'))
+        document.getElementById(id).querySelector('div[abilityIcon] img').src = ''
+    }
+    else {
+        image.classList.contains('disable') ? image.classList.remove('disable') : void 0
+        let set = library.find(set => set.name === document.getElementById(id).querySelector('div[name] input').value)
+        if (set) {
+            if (set.customIcon) image.classList.add('active')
+            document.getElementById(id).querySelector('div[abilityIcon]').style.background = getImg(set.name, true)
+            const perkMod = document.getElementById(id).querySelector('div[perkMod]')
+            perkMod.classList.contains('disable') ? perkMod.classList.remove('disable') : void 0
+
+            const weapon = set.icon.match(/weapons\/(magic|melee|range)/g)
+            if ((Array.isArray(weapon) && weapon.some(e => e)) || set.type === 'slot-icons') document.getElementById(id).querySelector('div[perkMod]').classList.contains('disable') ? document.getElementById(id).querySelector('div[perkMod]').classList.remove('disable') : void 0
+            else document.getElementById(id).querySelector('div[perkMod]').classList.add('disable')
+        }
+
+        if (item && item.perk) {
+            document.getElementById(id).querySelector('div[perkMod]').classList.add('active')
+            document.getElementById(id).querySelectorAll('div[perkMod] div[list] > div').forEach(div => div.innerHTML === item.perk ? div.classList.add('active') : void 0)
+            document.getElementById(id).querySelector('div[abilityIcon] img').src = getImg(item.perk, true).slice(4, -1)
+        }
+    }
 }
 
 function toggleOrder(value) {
@@ -120,8 +185,30 @@ function update(id, value, query) {
         })
         return toggleClear(true)
     }
+    if (query === 'name') {
+        document.getElementById(id).querySelector('div[perkMod]').classList.remove('active')
+        document.getElementById(id).querySelectorAll('div[perkMod] div[list] > div').forEach(div => div.classList.remove('active'))
+        document.getElementById(id).querySelector('div[abilityIcon] img').src = ''
+    }
     document.getElementById(id).querySelector(`div[${query}] input`).value = value;
+    document.getElementById(id).querySelector('div[abilityIcon]').style.background = getImg(value, true)
+    let set = library.find(set => set.name === value)
+    const weapon = set ? set.icon.match(/weapons\/(magic|melee|range)/g) : false
+    if ((Array.isArray(weapon) && weapon.some(e => e)) || (set && set.type === 'slot-icons')) document.getElementById(id).querySelector('div[perkMod]').classList.contains('disable') ? document.getElementById(id).querySelector('div[perkMod]').classList.remove('disable') : void 0
+    else document.getElementById(id).querySelector('div[perkMod]').classList.add('disable')
+    const item = config.referenceStorage.keybinds.find(e => e.name === value && e.keybind === document.getElementById(id).querySelector('div[keybinds] input').value)
+    if (item && item.perk) {
+        console.log('ran')
+        document.getElementById(id).querySelector('div[perkMod]').classList.add('active')
+        document.getElementById(id).querySelectorAll('div[perkMod] div[list] > div').forEach(div => div.innerHTML === item.perk ? div.classList.add('active') : void 0)
+        document.getElementById(id).querySelector('div[abilityIcon] img').src = getImg(item.perk, true).slice(4, -1)
+    }
+    if (set && set.customIcon) {
+        document.getElementById(id).querySelector('div[image]').classList.add('active')
+        document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
+    } else document.querySelector('div[revertImage]').classList.add('disable')
     toggles.save ? toggle() : void 0;
+    toggleImage(id, true)
 }
 
 function save() {
@@ -132,6 +219,7 @@ function save() {
         const name = element.querySelector('div[name] input');
         const keybind = element.querySelector('div[keybinds] input');
         const bar = element.querySelector('div[bars] input');
+        const perk = element.querySelector('div[perkMod]:not(.disable) div.active');
         if (!name?.value) {
             name?.parentNode.classList.add('error')
             name?.parentNode.setAttribute('error', 'Invalid Ability / Item')
@@ -147,7 +235,18 @@ function save() {
             bar?.parentNode.setAttribute('error', 'Invalid Bar')
             failed = true
         }
-        binds.push({ name: name.value, keybind: keybind.value, bar: bar.value })
+        binds.push({ name: name.value, keybind: keybind.value, bar: bar.value, perk: perk ? perk.innerHTML : null })
+        binds.forEach(set => {
+            if (binds.filter(e => e.name === set.name && e.keybind === set.keybind).length > 1) {
+                failed = true
+
+                name?.parentNode.classList.add('error')
+                name?.parentNode.setAttribute('error', 'Duplicate Item and Keybind')
+
+                keybind?.parentNode.classList.add('error')
+                keybind?.parentNode.setAttribute('error', 'Duplicate Item and Keybind')
+            }
+        })
     })
     if (failed) return
 
@@ -242,6 +341,7 @@ document.querySelector('div[revertImage]').onclick = _ => {
     const image = document.getElementById(toggles.popup).querySelector('div[image]')
     image.classList.contains('active') ? image.classList.remove('active') : void 0
     library = request('config', true).library
+    document.getElementById(toggles.popup).querySelector('div[abilityIcon]').style.background = getImg(name, true)
 }
 
 document.querySelector('div[modifyImage]').onclick = _ => {
@@ -255,4 +355,5 @@ ipc.on('customIcon', (event, param) => {
     document.querySelector('div[imagePicker] div[image]').style.background = `url(${param.customIcon})`
     document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
     library = request('config', true).library
+    document.getElementById(toggles.popup).querySelector('div[abilityIcon]').style.background = getImg(param.name, true)
 })
