@@ -14,17 +14,10 @@ module.exports = class Ability extends Window {
                 hasShadow: false,
                 resizable: !config.lockTrackerWindow,
                 alwaysOnTop: true,
-                show: true,
+                // show: true,
                 movable: !config.lockTrackerWindow,
-            }, true)
-
-        new Trigger()
-        if (__platform === 'darwin') windows.ability.setWindowButtonVisibility(false);
-
-        windows.ability.setAlwaysOnTop(true, "screen-saver");
-        windows.ability.setVisibleOnAllWorkspaces(true);
-        windows.ability.setBackgroundThrottling(false);
-
+            }, false)
+        new Confirmation()
         windows.ability.on('moved', this.updateConfig);
         windows.ability.on('resize', this.updateConfig);
         this.updateConfig()

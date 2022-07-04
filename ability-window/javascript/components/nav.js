@@ -4,7 +4,7 @@ document.title = windowTitle
 
 const nav = document.querySelector('nav')
 const darwin = document.querySelector('body#darwin')
-const elem = `<div window><div hide><p>-</p></div><div exit><p>X</p></div></div>`
+const elem = this.title !== 'confirmation' ? `<div window><div hide><p>-</p></div><div exit><p>X</p></div></div>` : ''
 if (nav) nav.innerHTML = `${windowTitle}${darwin ? '' : elem}`
 
 const [hide, exit] = [document.querySelector('div[hide]'), document.querySelector('div[exit]')]

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/components/dropdown.css" />
+    <link rel="stylesheet" href="../styles/components/nav.css" />
+    <link rel="stylesheet" href="../styles/components/button.css" />
+    <link rel="stylesheet" href="../styles/components/toggle.css" />
+    <link rel="stylesheet" href="../styles/confirmation.css" />
+    <script async>this.title = 'confirmation'</script>
+    <script src="../javascript/components/electron.js" async></script>
+    <script src="../javascript/components/nav.js" async></script>
+    <script src="../javascript/confirmation.js" async></script>
+</head>
+
+<body>
+    <!-- Solution for autofocus issue. -->
+    <input style="opacity: 0; position: fixed; pointer-events: none;" autofocus="true" />
+
+    <nav></nav>
+    <main>
+        <div warning>⚠️‼️⚠️‼️WARNING‼️⚠️‼️⚠️</div>
+        <div content>DO NOT ENTER PASSWORDS WHILE THE TRACKER WINDOW IS OPEN</div>
+        <div buttons>
+            <div confirm>Confirm</div>
+            <div deny>Deny</div>
+        </div>
+    </main>
+</body>
+
+</html>

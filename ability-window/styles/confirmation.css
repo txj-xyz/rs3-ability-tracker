@@ -1,0 +1,30 @@
+main div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+main div[buttons] div {
+    margin: 0 5px;
+    border-radius: 3px !important;
+    background: var(--blue);
+}
+
+main div[warning] {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--red);
+}
+
+main div[content] {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+main div[confirm] {
+    background: var(--green) !important;
+}
+main div[deny] {
+    background: var(--red) !important;
+}
