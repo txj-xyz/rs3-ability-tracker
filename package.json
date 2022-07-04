@@ -1,6 +1,6 @@
 {
   "name": "rs3-ability-tracker",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Ability Tracker for RuneScape 3",
   "type": "commonjs",
   "main": "src/index.js",
@@ -42,14 +42,14 @@
             "setupIcon": "./src/icons/icon.ico",
             "setupExe": "RS3-Ability-Tracker.exe",
             "skipUpdateIcon": true,
-            "name": "rs3-ability-tracker"
+            "name": "RS3 Ability Tracker"
           }
         },
         {
           "name": "@electron-forge/maker-dmg",
           "config": {
             "icon": "./src/icons/icon.icns",
-            "name": "rs3-ability-tracker",
+            "name": "RS3 Ability Tracker",
             "overwrite": true
           }
         }
