@@ -4,7 +4,7 @@ const [Manager, { resolve }, { writeFileSync }] = ['../base/Manager.js', 'path',
 // Check if app is running in a dev environment.
 module.exports = class Library extends Manager {
     static init() {
-        const path = resolve(__dirname, `../cfg/game-key-data.json`)
+        const path = resolve(super.__userData, 'game-key-data.json')
         const data = super.file(path)
         const map = super.mapify(data, 'name')
         return {
