@@ -75,7 +75,7 @@ module.exports = class Trigger extends Manager {
                     const reference = library.get(bind.name);
                     if (config.toggleSwitching && reference.type === 'slot-icons' && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) this.activeBar = bind.bar;
                     if (bind.bar.toLowerCase() === (config.toggleSwitching ? this.activeBar : config.barsSelection)?.toLowerCase()) {
-                        windows.ability?.webContents.send('abilityData', { icon: library.get(bind.name).icon, perk: bind.perk ? library.get(bind.perk).icon : null });
+                        windows.ability?.webContents.send('abilityData', { icon: reference.customIcon ?? reference.icon, perk: bind.perk ? library.get(bind.perk).icon : null });
                     }
                 }
             }
