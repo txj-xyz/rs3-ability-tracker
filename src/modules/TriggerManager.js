@@ -72,7 +72,7 @@ module.exports = class Trigger extends Manager {
                     this.lastKey.timestamp = Date.now();
                     const reference = library.get(bind.name);
                     if (config.toggleSwitching && reference.icon.match((/(weapons\/(magic|melee|range)|slot-icons)/g)).some(e => e) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) this.activeBar = bind.bar;
-                    if (bind.bar.toLowerCase() === (config.toggleSwitching ? this.activeBar : config.barsSelection)?.toLowerCase()) {
+                    if ([(config.toggleSwitching ? this.activeBar : config.barsSelection), 'Global'].includes(bind.bar)) {
                         windows.ability?.webContents.send('abilityData', { icon: reference.customIcon ?? reference.icon, perk: bind.perk ? library.get(bind.perk).icon : null });
                     }
                 }
