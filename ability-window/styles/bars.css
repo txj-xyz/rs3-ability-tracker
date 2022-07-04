@@ -72,7 +72,7 @@ div[cancel] {
 }
 
 div[manage] {
-    margin-bottom: 150px;
+    margin-bottom: 50px;
 }
 
 div[clear] {
@@ -103,8 +103,13 @@ div[remove] {
     background: var(--red);
 }
 
-div[save].active {
+
+div[save] {
     background: var(--green);
+}
+
+div[save].active {
+    background: var(--elements);
     pointer-events: none;
 }
 

@@ -30,9 +30,13 @@ div[keys] > div input {
     border-radius: 3px;
     padding: 1px 5px;
     height: 22px;
-    width: 141px;
+    width: 80px;
     background: var(--elements);
     color: var(--color);
+}
+
+div[keys] div[name] input {
+    width: 263px !important;
 }
 
 div[name]:before,
@@ -213,9 +217,21 @@ div[remove] {
     background: var(--red);
 }
 
-div[save].active {
+div[save] {
     background: var(--green);
+}
+
+div[save].active {
+    background: var(--elements);
     pointer-events: none;
+}
+
+div[cancel].active {
+    background: var(--red) !important;
+}
+
+div[cancel] {
+    background: var(--elements) !important;
 }
 
 div[manage] {
@@ -226,7 +242,11 @@ div[manage] {
 div[dropdown],
 div[barselect] {
     margin: 23px 4px !important;
-    width: 141px !important;
+    width: 80px !important;
+}
+
+div[dropdown] {
+    width: 263px !important
 }
 
 /* Input box error styles. */
