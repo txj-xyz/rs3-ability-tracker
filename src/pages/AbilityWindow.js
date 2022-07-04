@@ -27,6 +27,7 @@ module.exports = class Ability extends Window {
 
         windows.ability.on('moved', this.updateConfig);
         windows.ability.on('resize', this.updateConfig);
+        this.updateConfig()
     }
 
     updateConfig = _ => {
@@ -36,7 +37,7 @@ module.exports = class Ability extends Window {
             config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons;
 
             // Update aspect ratio to prevent buggy resize.
-            windows.ability.setAspectRatio((config.abilityWindow.height * config.numberOfIcons) / config.abilityWindow.height);
+            windows.ability.setAspectRatio(+config.numberOfIcons.toFixed(2));
         }
     };
 }
