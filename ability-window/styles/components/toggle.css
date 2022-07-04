@@ -1,0 +1,98 @@
+label {
+    display: flex;
+    white-space: nowrap;
+    user-select: none;
+    margin-bottom: 5px;
+    width: min-content;
+}
+
+label:not([lock]) span {
+    cursor: pointer;
+    width: 35px;
+    height: 21px;
+    background-color: var(--elements);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+label:not([lock]) span:before {
+    content: " ";
+    height: 15px;
+    width: 15px;
+    display: block;
+    margin: 3px 4px;
+    left: 3px;
+    bottom: 3px;
+    background: var(--background);
+    transition: 0.2s;
+    border-radius: 3px;
+}
+
+label input {
+    display: none;
+}
+
+input:checked + span {
+    background: var(--green);
+}
+
+input:checked + span:before {
+    transform: translateX(12px);
+}
+
+label[lock] input:checked + span {
+    background: var(--red);
+}
+
+label[lock] input + span {
+    background: var(--green);
+}
+
+label.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+label.disabled div[info] {
+    pointer-events: auto;
+}
+
+label p {
+    margin: auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 21px;
+}
+
+label[lock] span {
+    margin: 0;
+    width: 35px;
+    line-height: 1;
+    height: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--elements);
+    border-radius: 3px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+label div[info]:after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: "?";
+    margin-left: 2px;
+    font-weight: bold;
+    color: var(--background);
+    padding: 3px;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    font-size: 10px;
+    background: var(--blue);
+}

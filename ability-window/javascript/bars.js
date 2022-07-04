@@ -1,254 +1,220 @@
-// Import dependencies.
-const { ipcRenderer } = require('electron');
+const [toggles, element, actions, notice] = [
+    {
+        save: false,
+        edit: false,
+        saveMod: {
+            value: null,
+            id: null
+        }
+    },
+    id => `<div id=${id}><div remove>-</div><div id="Bar Name" bar><input type="text" placeholder="Bar Name" /></div><div buttons><div edit>Edit</div><div saveMod>Save</div><div cancel>Cancel</div></div></div>`,
+    `<div manage><div onclick="copy()" button>+ New Bar</div><div onclick="save()" button save>Save</div></div>`
 
-// Request data from backend.
-const config = ipcRenderer.sendSync('config');
+]
 
-// Random ID generator.
-const randomID = (sections, phrase, join, random = a => a[Math.floor(Math.random() * a.length)]) =>
-    [...Array(sections)]
-        .map(_ =>
-            [...Array(phrase)]
-                .map(_ => random([...[...Array(26)].map((_, i) => String.fromCharCode(i + 65)), ...[...Array(26)].map((_, i) => String.fromCharCode(i + 65).toLowerCase()), ...[...Array(10).keys()]]))
-                .join('')
-        )
-        .join(join ?? '-');
 
-let [saveToggle, editToggle] = [false, false];
+function copy(initial, data) {
+    const [_global, id, manage] = [initial ? data.value === 'Global' : false, random(), document.querySelector('div[manage]')]
+    manage ? manage.remove() : void 0;
+    document.querySelector('div[bars]').insertAdjacentHTML('beforeend', element(id));
+    document.querySelector('div[bars]').insertAdjacentHTML('beforeend', actions);
+    const component = document.getElementById(id);
+    const bar = component.querySelector('div[bar]')
+    const input = component.querySelector('input');
+    component.querySelector('div[remove]').onclick = _ => {
+        if (parseInt(component.querySelector('div[bar]').getAttribute('info').split(' ').shift()) > 3) {
+            document.querySelector('div[popup] div[info]').innerHTML = `<p>Are you sure you want to remove the ${component.querySelector('div[bar] input').value} bar?</p><hr /><p>Doing so will delete ${component.querySelector('div[bar]').getAttribute('info').split(' ').shift()} binds.</p>`
+            document.querySelector('div[popup] div[button]:first-child').setAttribute('bar', component.id)
+            const popup = document.querySelector('div[popup]');
+            popup.style.transform = 'scale(1)';
+            popup.style.opacity = 1;
+            popup.style.pointerEvents = 'auto';
+        } else {
+            const value = component.querySelector('div[bar] input').value;
+            component.remove()
+            save(value)
+            toggle(true)
+        }
+    }
+    input.value = initial ? data.value : '';
 
-// Default data.
-const [bar, buttons, notice] = [
-    '<div id="ID" GLBLDISABLE><div onclick="remove(\'ID\')" style="background:#F04747" remove>-</div><div id="Bar Name" bar DISABLED><input type="text" placeholder="Bar Name" value="BARNAME" /></div><div onclick="edit(\'ID\')" style="background:#FAA61A; DISPLAY" edit>Edit</div><p data-after="MULTIPLE">COUNT</p></div>',
-    '<div manage><div onclick="copy()" style="background:#00A9FF" button>+ New Bar</div><div onclick="save()" button save>Save</div></div>',
-    "<div mount><p>Are you sure you want to remove the BARNAME bar?</p><hr /><p>Doing so will delete COUNT binds.</p><div><div style=\"background:#F04747\" onclick=\"const div = document.getElementById('ID');div.parentNode.removeChild(div); document.querySelector('div[popup] div[button]:last-child').click(); ipcRenderer.sendSync('config', 'EDIT')\" button>Confirm</div><div style=\"background:#00A9FF\" onclick=\"const popup = document.querySelector('div[popup]');popup.style.transform = 'scale(0.7)';popup.style.opacity = 0;popup.style.pointerEvents = 'none';\" button>Cancel</div></div></div >",
-];
+    bar.setAttribute('info', data && data.count === 1 ? '1 linked bind' : `${data ? data.count : 0} linked binds`)
 
-// Toggle save button.
-const toggle = _ => {
-    saveToggle = !saveToggle;
-    const element = document.querySelector('div[save]');
-    element.style.background = saveToggle ? '#43B581' : 'var(--elements)';
-};
-
-// Action for remove button.
-const remove = (id, div = document.getElementById(id)) => {
-    if (parseInt(div.querySelector('p').innerHTML) > 3) popup(id, Array.isArray(editToggle) && editToggle[0] === id ? editToggle[1] : null);
-    else {
-        ipcRenderer.sendSync('config', (Array.isArray(editToggle) && editToggle[0] === id ? editToggle[1] : div.querySelector('input').value).toLowerCase());
-        div.parentNode.removeChild(div);
+    if (_global) {
+        bar.id = '(Non-switching)'
+        component.classList.add('global')
+        component.removeAttribute('id')
+    }
+    const [edit, saveMod, cancel] = component.querySelectorAll('div[buttons] div');
+    if (!initial) {
+        edit.style.display = 'none';
+        bar.classList.add('new')
     }
 
-    // Update save button.
-    saveToggle ? toggle() : void 0;
-    sendBars();
-};
-
-// Show popup.
-function popup(id, edit) {
-    const bar = document.getElementById(id);
-    let field = notice
-        .replace(/COUNT/g, bar.querySelector('p').innerHTML)
-        .replace(/BARNAME/g, bar.querySelector('input').value)
-        .replace(/ID/g, id)
-        .replace(/EDIT/g, (edit || bar.querySelector('input').value).toLowerCase());
-    const popup = document.querySelector('div[popup]');
-    popup.innerHTML = field;
-    popup.style.transform = 'scale(1)';
-    popup.style.opacity = 1;
-    popup.style.pointerEvents = 'auto';
-}
-
-// Send removed bar to backend.
-function filter(bar, edit) {
-    ipcRenderer.sendSync('config', (edit || bar).toLowerCase());
-}
-
-// Action for edit button.
-const edit = (id, div = document.getElementById(id)) => {
-    const add = document.querySelector('div[manage] > div[button]:first-child');
-
-    // If the bar is not being edited.
-    if (div.querySelector('input').value === editToggle[1] && editToggle[0] === id) reset();
-    // If the bar is being edited and user wants a reset.
-    else if (Array.isArray(editToggle) && editToggle.some(e => e) && editToggle[0] === id) reset(true);
-    // If a bar is being edited, and the user wants to edit another bar.
-    else if (Array.isArray(editToggle) && editToggle.some(e => e)) notify('Save or cancel your current changes.', true);
-    else {
-        // Show the edit field.
-        div.querySelector('div[edit]').innerHTML = 'Cancel';
-        div.querySelector('div[bar]').removeAttribute('disabled');
-        add.setAttribute('disabled', '');
-        saveToggle ? toggle() : void 0;
-        editToggle = [id, div.querySelector('input').value];
+    input.onfocus = _ => {
+        input.select()
+        bar.classList.contains('error') ? bar.classList.remove('error') : void 0;
     }
 
-    // Reset the edit toggle.
-    function reset(revert) {
-        // If true then reset the data within the bar.
-        if (revert) div.querySelector('input').value = editToggle[1];
-        div.querySelector('div[edit]').innerHTML = 'Edit';
-        div.querySelector('div[bar]').setAttribute('disabled', '');
-        add.removeAttribute('disabled');
-        editToggle = false;
-    }
-};
-
-// Create new bar input.
-function copy(name, count, read, initial) {
-    // If a bar is being edited, do not allow new bars to be created.
-    if (Array.isArray(editToggle) && editToggle.some(e => e)) return;
-
-    let field;
-
-    // Declare varibales.
-    const [id, btns] = [randomID(5, 5), document.querySelector('div[manage]')];
-
-    // Remove more stuff if bar is global.
-    if (name === 'Global')
-        field = bar
-            .replace(/(onclick="remove(.*?)"|id="ID")/g, '')
-            .replace(/Bar Name"/, '(Non-switching)" class="fixed"')
-            .replace(/GLBLDISABLE/g, 'disabled');
-
-    // Update values for bars.
-    field = (field || bar)
-        .replace(/MULTIPLE/g, `linked bind${count === 1 ? '' : 's'}`)
-        .replace(/ID/g, id)
-        .replace(/BARNAME/g, name || '')
-        .replace(/COUNT/g, count?.toLocaleString() || 0)
-        .replace(/GLBLDISABLE/g, '')
-        .replace(/DISABLED/g, read && name !== 'Global' ? 'disabled' : '')
-        .replace(/DISPLAY/g, !read ? 'opacity:0;pointer-events:none' : '');
-
-    // Remove buttons.
-    btns.parentNode.removeChild(btns);
-
-    // Add new element and buttons.
-    document.querySelector('div[keys]').insertAdjacentHTML('beforeend', field + buttons);
-
-    // Add listeners to all divs except global.
-    if (name !== 'Global') {
-        const input = document.getElementById(id).querySelector('input');
-        input.addEventListener('change', _ => (saveToggle ? toggle() : void 0));
-        input.addEventListener('focus', _ => {
-            input.select();
-            input.parentNode.classList.contains('error') ? input.parentNode.classList.remove('error') : void 0;
-        });
+    edit.onclick = _ => {
+        if (_global || toggles.edit) return
+        input.focus();
+        input.select();
+        toggles.edit = true;
+        toggles.saveMod.value = input.value;
+        toggles.saveMod.id = id;
+        edit.style.display = 'none';
+        saveMod.style.display = 'block';
+        cancel.style.display = 'block';
+        bar.classList.add('edit');
+        document.querySelector('div[manage]').classList.add('disable')
+        component.querySelector('div[remove]').classList.add('disable')
+        document.querySelector('div[save]').classList.contains('active') ? document.querySelector('div[save]').classList.remove('active') : void 0;
+        document.querySelectorAll('div[edit]').forEach(element => element.setAttribute('disabled', ''))
+        document.querySelectorAll('div:not(.global) div[remove]').forEach(element => element.setAttribute('disabled', ''))
+        document.querySelector('div[clear]').classList.add('disable')
+        document.querySelector('div[search]').classList.add('disable')
+        toggle()
     }
 
-    // Do not scoll to top on window open.
+    saveMod.onclick = _ => {
+        if (!toggles.saveMod.id) return
+        const value = input.value;
+        if (value === '') revert()
+        else {
+            const old = toggles.saveMod.value
+            toggles.saveMod.value = value
+            revert()
+            save(old, value)
+            toggle(true)
+        }
+    }
+
+    cancel.onclick = revert
+
     if (!initial) window.scrollTo(0, document.body.scrollHeight);
-}
 
-// Window load initial setup.
-let bars = { Global: 0 };
-config.referenceStorage.bars.map(bar => (bars[bar] = 0));
-config.referenceStorage.keybinds.map(e => {
-    for (let bar in bars) if (bar.toLowerCase() === e.bar.toLowerCase()) return bars[bar]++;
-});
-
-copy('Global', bars.Global, true, true);
-delete bars.Global;
-
-for (const bar in bars) copy(bar, bars[bar], true, true);
-if (config.referenceStorage.bars.length) toggle();
-
-// Notification triggers.
-function notify(msg, failed) {
-    const id = randomID(5, 5);
-    let [notification, parent] = [document.createElement('div'), document.querySelector('div[notify]')];
-
-    // Notification properties.
-    if (failed) notification.classList.add('failed');
-    notification.id = id;
-    notification.innerHTML = `<div onclick="removeNotif('${id}')">x</div>${msg}`;
-    parent.insertBefore(notification, parent.childNodes[0]);
-
-    // Notification timeout case.
-    setTimeout(_ => {
-        if (!notification.classList.contains('deleted')) notification?.classList?.add('deleted');
-        setTimeout(_ => notification.parentNode.removeChild(notification), 490);
-    }, 4000);
-}
-
-// Remove notification.
-const removeNotif = id => document.getElementById(id)?.classList?.add('deleted');
-
-// Save data and update config.
-function save() {
-    let failed = false;
-
-    // If only one element is being updated.
-    if (editToggle) {
-        config.referenceStorage.keybinds.map(e => (e.bar === editToggle[1] ? (e.bar = document.getElementById(editToggle[0]).querySelector('input').value) : void 0));
-        config.referenceStorage.bars = [...config.referenceStorage.bars.filter(e => e !== editToggle[1]), document.getElementById(editToggle[0]).querySelector('input').value];
+    function revert() {
+        input.value = toggles.saveMod.value;
+        toggles.edit = false;
+        toggles.saveMod.value = null;
+        toggles.saveMod.id = null;
+        edit.style.display = 'block';
+        saveMod.style.display = 'none';
+        cancel.style.display = 'none';
+        bar.classList.remove('edit')
+        document.querySelector('div[manage]').classList.remove('disable')
+        component.querySelector('div[remove]').classList.remove('disable')
+        document.querySelectorAll('div[edit]').forEach(element => element.removeAttribute('disabled'))
+        document.querySelectorAll('div:not(.global) div[remove]').forEach(element => element.removeAttribute('disabled'))
+        document.querySelector('div[clear]').classList.remove('disable')
+        document.querySelector('div[search]').classList.remove('disable')
     }
+}
 
-    // If all the elements are being updated.
-    else {
-        const [bars, binds] = [document.querySelectorAll('div[keys] > div[id]'), []];
-        bars.forEach(e => {
-            const bar = e.querySelector('input').value;
-            if (!bar) {
-                failed = true;
-                if (!bar) e.querySelector('div[bar]').classList.add('error');
-                return notify('Missing value.', true);
-            } else if (binds.includes(bar)) {
-                failed = true;
-                e.querySelector('div[bar]').classList.add('error');
-                return notify('Bar already exists.', true);
+function save(old, value) {
+    const bars = []
+    let failed = false
+    if (old) return request('barsListener', { before: old, after: value })
+    document.querySelectorAll('div[bars] div:not(.global) div[bar]').forEach(bar => {
+        if(!bar.querySelector('input')) return;
+        const value = bar.querySelector('input').value
+        if (!value) {
+            bar.classList.add('error')
+            bar.setAttribute('error', 'Invalid name')
+            failed = true
+        } else if (bars.includes(value)) {
+            toggle()
+
+            document.querySelectorAll(`input`).forEach(input => {
+                if (input.value === value) {
+                    input.parentNode.classList.add('error')
+                    input.parentNode.setAttribute('error', 'Duplicate name')
+                }
+            })
+            failed = true
+        } else {
+            if (bar.classList.contains('new')) {
+                bar.classList.remove('new')
+                bar.parentNode.querySelector('div[edit]').style.display = 'block'
             }
-            binds.push(bar);
-        });
-        config.referenceStorage.bars = binds;
+            bar.classList.contains('error') ? bar.classList.remove('error') : void 0;
+            bars.push(value)
+        }
+    })
+    if (!failed) {
+        request('barsListener', bars)
+        toggle(true)
     }
-
-    if (failed) return;
-
-    // Send data to backend.
-    ipcRenderer.sendSync('config', config.referenceStorage.bars);
-
-    // Send a notification to the user.
-    !saveToggle ? notify('Bars updated successfully!') : void 0;
-
-    // Set save button background.
-    !saveToggle ? toggle() : void 0;
-
-    editToggle = false;
-
-    // Reset buttons.
-    document.querySelectorAll('div[keys] > div[id]').forEach(e => {
-        const edit = e.querySelector('div[edit]');
-        edit.innerHTML = 'Edit';
-        edit.style.opacity = 1;
-        edit.style.pointerEvents = 'auto';
-        if (!e.querySelector('div[bar]').hasAttribute('disabled')) e.querySelector('div[bar]').setAttribute('disabled', '');
-        document.querySelector('div[manage] > div[button]:first-child').removeAttribute('disabled');
-    });
 }
 
-// Incoming data handler.
-ipcRenderer.on('passToBars', (e, data) => {
-    let bars = { global: 0 };
-    config.referenceStorage.bars.map(bar => (bars[bar.toLowerCase()] = 0));
-    data.map(e => bars[e.toLowerCase()]++);
+function toggle(value) {
+    const save = document.querySelector('div[save]')
+    toggles.save = value ? true : false;
+    if (toggles.save) {
+        save.classList.add('disable')
+        save.classList.add('active')
+    }
+    else {
+        save.classList.contains('active') ? save.classList.remove('active') : void 0;
+        save.classList.remove('disable')
+    }
+}
 
-    const elements = document.querySelectorAll('div[keys] > div[id]');
-    const global = document.querySelector('div[disabled]').querySelector('p');
 
-    // Update bar counts.
-    global.innerHTML = bars.global.toLocaleString();
-    global.setAttribute('data-after', `linked bind${bars.global === 1 ? '' : 's'}`);
-    elements.forEach(e => {
-        const [bar, value] = [e.querySelector('p'), bars[e.querySelector('input').value.toLowerCase()]];
-        bar.innerHTML = value.toLocaleString();
-        bar.setAttribute('data-after', `linked bind${value === 1 ? '' : 's'}`);
-    });
-});
+const bars = { Global: 0 }
+config.referenceStorage.keybinds.forEach(bind => bars[bind.bar] ? bars[bind.bar]++ : bars[bind.bar] = 1);
+['Global', ...config.referenceStorage.bars].map(value => copy(true, { value, count: bars[value] || 0 }))
+toggle(true)
 
-// Send bar info to backend.
-function sendBars() {
-    const [bars, data] = [document.querySelectorAll('div[keys] input'), []];
-    bars.forEach(bar => data.push(bar.value));
-    ipcRenderer.sendSync('passToKeys', data);
+
+document.querySelector('div[clear]').onclick = _ => {
+    document.querySelector('input[search]').value = ''
+    document.querySelector('div.global').style.display = 'flex';
+    document.querySelectorAll('div[bars] > div[id]').forEach(bar => bar.style.display = 'flex')
+    document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.remove('active') : void 0;
+}
+
+document.querySelector('input[search]').addEventListener('input', _ => {
+    const value = document.querySelector('input[search]').value;
+    if (value === '') {
+        document.querySelector('div.global').style.display = 'flex';
+        document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.remove('active') : void 0;
+    }
+    else {
+        document.querySelector('div.global').style.display = 'none';
+        !document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.add('active') : void 0;
+    }
+    document.querySelectorAll('div[bars] > div[id]').forEach(bar => {
+        if (!bar.querySelector('input').value.toLowerCase().includes(value.toLowerCase())) bar.style.display = 'none';
+        else bar.style.display = 'flex';
+    })
+})
+
+ipc.on('fromKeybinds', (event, param) => {
+    const bars = { Global: 0 }
+    param.forEach(bind => bars[bind.bar] ? bars[bind.bar]++ : bars[bind.bar] = 1)
+    document.querySelectorAll('div[bars] div[bar]').forEach(bar => {
+        const name = bar.querySelector('input').value;
+        const value = bars[name] || 0
+        bar.setAttribute('info', value === 1 ? '1 linked bind' : `${value} linked binds`)
+    })
+})
+
+document.querySelector('div[popup] div[button]:last-child').onclick = _ => {
+    const popup = document.querySelector('div[popup]');
+    popup.style.transform = 'scale(0.7)';
+    popup.style.opacity = 0;
+    popup.style.pointerEvents = 'none';
+}
+
+const confirm = document.querySelector('div[popup] div[button]:first-child')
+confirm.onclick = _ => {
+    const bar = document.getElementById(confirm.getAttribute('bar'))
+    const value = bar ? bar.querySelector('input').value : null;
+    bar.remove()
+    document.querySelector('div[popup] div[button]:last-child').click();
+    confirm.removeAttribute('bar')
+    save(value)
+    toggle(true)
 }

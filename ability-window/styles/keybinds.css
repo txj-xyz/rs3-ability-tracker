@@ -1,44 +1,50 @@
+:root {
+    --revertImg: "";
+}
+
 html {
     scroll-behavior: smooth;
 }
+/* Content styles. */
 
-/* Page header styles. */
-div[header] {
-    margin: 15px 0;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    user-select: none;
+div.hide {
+    display: none !important;
 }
 
-/* Content styles. */
-div[keys] {
-    margin-bottom: 40px;
+div.disable {
+    opacity: 0.5 !important;
+    user-select: none !important;
+    pointer-events: none;
 }
 
 /* Keybind styles. */
-div[keys]>div {
+div[keys] > div {
     display: flex;
-    padding: 5px 27px;
+    padding: 5px;
+    transition-duration: 400ms;
 }
 
 /* Input styles. */
-div[keys]>div input {
+div[keys] > div input {
     border: 0;
     border-radius: 3px;
     padding: 1px 5px;
     height: 22px;
-    width: 160px;
+    width: 80px;
     background: var(--elements);
     color: var(--color);
 }
 
-div[ability]:before,
+div[keys] div[name] input {
+    width: 263px !important;
+}
+
+div[name]:before,
 div[keybinds]:before,
-div[bars]:before {
+div[bars]:before,
+div[search]:before {
     content: attr(id);
-    pointer-events: auto;
+    pointer-events: none;
     position: absolute;
     font-size: 9px;
     margin: -10px 10px;
@@ -50,54 +56,102 @@ div[bars]:before {
     margin-top: -14px;
 }
 
-div[ability]:hover:before,
+div[name]:hover:before,
 div[keybinds]:hover:before,
-div[bars]:hover:before {
+div[bars]:hover:before,
+div[search]:hover:before {
     opacity: 1;
     margin-top: -10px;
 }
 
-div[keys]>div input {
+div[search]:before {
+    margin-left: 85px;
+}
+
+div[keys] > div input {
     margin-left: 5px !important;
 }
 
-div[keys]>div input:nth-child(odd):focus {
+div[keys] > div input:nth-child(odd):focus {
     border-radius: 3px 3px 0 0;
 }
 
-div[keys]>div input:focus {
+div[keys] > div input:focus {
     outline: none;
 }
 
 /* Allow input styles to match. */
-div[keys] div[ability],
+div[keys] div[name],
 div[keys] div[bars] {
     display: flex;
 }
 
-div[ability]:after,
+div[name]:after,
 div[bars]:after {
-    content: '\276F';
-    background: var(--elements);
+    content: "\276F";
+    background: inherit;
+    pointer-events: none;
     padding: 0 6px;
-
     border-radius: 0 5px 5px;
-    margin: 1px 6px 0 -21px;
-    transform: rotate(90deg);
+    margin: 1px 5px 2.5px -21px;
+    transform: rotate(180deg);
     color: var(--color);
+    background: var(--elements);
+    border-radius: 3px;
+    transition-duration: 200ms;
+}
+
+div[name].active:after,
+div[bars].active:after {
+    transform: rotate(90deg);
 }
 
 div[bars] {
     margin-left: 4px;
 }
 
-div[ability] div[dropdown]:after {
+div[name] div[dropdown]:after,
+div[search] div[dropdown]:after {
     display: none;
+}
+
+div[name] div[dropdown] > div,
+div[search] div[dropdown] > div {
+    display: flex;
+}
+
+div[name] div[dropdown] > div > p,
+div[search] div[dropdown] > div > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+    margin: auto 0;
+}
+
+div[name] div[dropdown] > div > div,
+div[search] div[dropdown] > div > div {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-right: 4px;
+}
+
+div[search] div[dropdown] {
+    background: var(--elements);
+    margin: 24px 76px !important;
+    border-radius: 0 0 4px 4px;
+    width: 72% !important;
+    cursor: pointer;
 }
 
 /* Action styles. */
 div[remove],
-div[button] {
+div[button],
+div[image],
+div[abilityIcon],
+div[perkMod],
+div[search] > div {
     border-radius: 3px;
     user-select: none;
     display: flex;
@@ -112,48 +166,93 @@ div[button] {
     cursor: pointer;
 }
 
+div[image],
+div[search] > div {
+    background: var(--blue);
+    font-size: 12px;
+    padding: 5.5px 7px;
+    text-shadow: 0.5px 0.5px black;
+}
+
+div[abilityIcon] {
+    min-width: 10px !important;
+    background-color: var(--hover) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    cursor: default !important;
+}
+
+div[perkMod] {
+    margin-left: 7px;
+}
+
+div[perkMod].active {
+    background: var(--blue);
+}
+
+div[clear]:not(.active),
+div[order]:not(.active),
+div[image]:not(.active) {
+    background: var(--elements);
+}
+
+div[filter] {
+    margin-left: 10px !important;
+}
+
+div[keybinds] input {
+    border-radius: 3px !important;
+}
+
+input[search] {
+    width: 100% !important;
+}
+
+div[button]:not([save]) {
+    background: var(--blue);
+}
+
+div[remove] {
+    background: var(--red);
+}
+
+div[save] {
+    background: var(--green);
+}
+
+div[save].active {
+    background: var(--elements);
+    pointer-events: none;
+}
+
+div[cancel].active {
+    background: var(--red) !important;
+}
+
+div[cancel] {
+    background: var(--elements) !important;
+}
+
 div[manage] {
-    margin-bottom: 135px;
+    margin-bottom: 144px;
 }
 
 /* Dropdown styles. */
-div[dropdown], div[barselect] {
-    font-size: 13px;
-    display: none;
-    position: absolute;
-    z-index: 1;
-    background-color: var(--elements);
-    max-height: 135px;
-    width: 150px;
-    border-radius: 0 0 3px 3px;
-    margin: 22px 5px;
-    padding: 10px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    border-top: 1px solid var(--hover);
+div[dropdown],
+div[barselect] {
+    margin: 23px 4px !important;
+    width: 80px !important;
 }
 
-div[dropdown] div,
-div[barselect] div {
-    white-space: nowrap;
-    overflow-y: hidden;
-    text-overflow: ellipsis;
-    margin-block-end: 0;
-    margin-block-start: 0;
-    padding: 3px 0 3px 3px;
-    border-radius: 3px;
-    cursor: pointer;
-    user-select: none;
-}
-
-div[dropdown] div:hover,
-div[barselect] div:hover {
-    background: var(--hover);
+div[dropdown] {
+    width: 263px !important
 }
 
 /* Input box error styles. */
-div.error input, div.error:after {
-    background: #F04747 !important;
+div.error input,
+div.error:after {
+    background: #f04747 !important;
 }
 
 div.error input::placeholder {
@@ -173,10 +272,10 @@ div[notify] {
     overflow: scroll;
 }
 
-div[notify]>div {
+div[notify] > div {
     white-space: nowrap;
     display: flex !important;
-    background: #43B581;
+    background: #43b581;
     display: block;
     margin: 5px 0;
     border-radius: 3px;
@@ -187,7 +286,7 @@ div[notify]>div {
     width: auto;
 }
 
-div[notify]>div>div {
+div[notify] > div > div {
     border-radius: 3px 0 0 3px;
     cursor: pointer;
     padding: 3px 7px 5px 7px;
@@ -196,18 +295,17 @@ div[notify]>div>div {
     font-weight: bold;
 }
 
-div[notify]>div>div:hover {
-    background: #F04747BF;
+div[notify] > div > div:hover {
+    background: #f04747bf;
 }
 
-div[notify]>div.deleted {
+div[notify] > div.deleted {
     animation: fadeOut 0.5s forwards;
 }
 
-div[notify]>div.failed {
-    background: #F04747;
+div[notify] > div.failed {
+    background: #f04747;
 }
-
 
 @keyframes fadeIn {
     0% {
@@ -231,4 +329,178 @@ div[notify]>div.failed {
         opacity: 0;
         transform: scale(0);
     }
+}
+
+div.error input {
+    background: #f04747 !important;
+}
+
+div.error input::placeholder {
+    color: var(--color) !important;
+}
+
+div[list] {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    z-index: 12;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    border: 1px solid var(--background);
+    margin: 62px 45px !important;
+    background: var(--elements);
+    font-weight: 500;
+    padding: 5px;
+    transition-duration: 400ms;
+    pointer-events: none;
+}
+
+div[order] div[list] {
+    margin: 62px 9px !important;
+    right: 0;
+    left: auto;
+}
+
+div[filter] div[list] {
+    right: 0;
+    height: 135px;
+    overflow-y: auto;
+    left: auto;
+}
+
+div[perkMod] div[list] {
+    margin-right: 45px !important;
+    margin-top: 0 !important;
+    margin-bottom: -124px !important;
+    top: auto;
+    right: 0;
+    left: auto;
+}
+
+div[options]:hover div[list],
+div[order]:hover div[list],
+div[filter]:hover div[list],
+div[perkMod]:hover div[list] {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+div[perkMod] div[list] div {
+    font-size: 12px;
+}
+
+div[list] div {
+    padding: 5px 7px 5px 17px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+div[list] div.active:before {
+    content: "✓";
+    margin: 0 3px 0 -13.5px;
+    font-size: 12px;
+    color: var(--color);
+}
+
+div[list] div:hover {
+    background: var(--hover);
+}
+
+div[pickerMount] {
+    position: fixed;
+    z-index: 50;
+    display: flex;
+    width: 100%;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(6px);
+    margin-top: -10px;
+}
+
+div[imagePicker] {
+    background: var(--elements);
+    padding: 15px 35px 5px 35px;
+    border-radius: 3px;
+    filter: drop-shadow(0 0 10px var(--background));
+}
+
+div[buttons] {
+    display: flex;
+}
+
+div[modifyImage],
+div[revertImage] {
+    background: var(--blue) !important;
+    font-size: 12px;
+    margin: 0 5px !important;
+    border-radius: 0 3px 3px 0 !important;
+}
+
+div[revertImage] {
+    background: var(--red) !important;
+    border-radius: 3px 0 0 3px !important;
+}
+
+div[imagePicker] div[image] {
+    margin: 20px auto;
+    width: 50px;
+    height: 50px;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+div[modifyImage]:before {
+    content: "📁";
+    display: block;
+    background: transparent;
+    font-size: 15px;
+    position: absolute;
+    z-index: -1;
+    margin-left: -113px;
+    transition-duration: 400ms;
+    border: 1px solid var(--blue);
+    padding: 7px;
+    border-radius: 3px 0 0 3px;
+}
+
+div[revertImage]:before {
+    content: "";
+    background: var(--revertImg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: block;
+    font-size: 15px;
+    position: absolute;
+    z-index: -1;
+    margin-right: -145px;
+    transition-duration: 400ms;
+    border: 1px solid var(--red);
+    padding: 14.5px;
+    border-radius: 0 3px 3px 0;
+}
+
+div[closeMount] {
+    background: var(--yellow) !important;
+    position: absolute;
+    z-index: 2;
+    font-size: 12px;
+    bottom: 5px;
+    right: 9px;
+    border-radius: 3px !important;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: var(--elements);
+}
+
+div[abilityIcon] img {
+    margin-bottom: -4px;
+    margin-top: -2px;
+    max-width: 25px;
+    max-height: 23px;
 }

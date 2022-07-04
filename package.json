@@ -1,12 +1,12 @@
 {
   "name": "rs3-ability-tracker",
-  "version": "1.1.5",
+  "version": "1.2.1",
   "description": "Ability Tracker for RuneScape 3",
   "type": "commonjs",
   "main": "src/index.js",
   "scripts": {
-    "test": "node test.js",
-    "startdev": "electron-forge start -- dev",
+    "icon-rebuild": "node ./tools/generate-abilities-json.js",
+    "startdev": "electron-forge start --enable-logging -- dev",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
@@ -24,25 +24,37 @@
   "dependencies": {
     "electron-active-window": "^0.0.6",
     "electron-squirrel-startup": "^1.0.0",
+    "github-version-checker": "^2.3.0",
     "lodash.throttle": "^4.1.1",
     "uiohook-napi": "^1.2.0"
   },
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "./src/icons/icon.png",
+        "executableName": "RS3-Ability-Tracker",
+        "name": "RS3 Ability Tracker",
+        "icon": "./src/icons/icon",
         "asar": true
       },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "rs3-ability-tracker"
+            "iconUrl": "https://raw.githubusercontent.com/txj-xyz/rs3-ability-tracker/totally-not-master/src/icons/icon.ico",
+            "setupIcon": "./src/icons/icon.ico",
+            "setupExe": "RS3-Ability-Tracker-Installer.exe",
+            "skipUpdateIcon": true,
+            "title": "RS3 Ability Tracker",
+            "name": "RS3AbilityTracker"
           }
         },
         {
           "name": "@electron-forge/maker-dmg",
-          "config": {}
+          "config": {
+            "icon": "./src/icons/icon.icns",
+            "name": "RS3AbilityTracker",
+            "overwrite": true
+          }
         }
       ]
     }

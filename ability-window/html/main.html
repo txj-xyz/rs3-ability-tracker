@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/components/dropdown.css" />
+    <link rel="stylesheet" href="../styles/components/nav.css" />
+    <link rel="stylesheet" href="../styles/components/button.css" />
+    <link rel="stylesheet" href="../styles/components/toggle.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <script async>this.title = 'main'</script>
+    <script src="../javascript/components/electron.js" async></script>
+    <script src="../javascript/components/nav.js" async></script>
+    <script src="../javascript/components/Dropdown.js" async></script>
+    <script src="../javascript/main.js" async></script>
+</head>
+
+<body>
+    <!-- Solution for autofocus issue. -->
+    <input style="opacity: 0; position: fixed; pointer-events: none;" autofocus="true" />
+
+    <nav></nav>
+    <main>
+        <div toggles>
+            <label lock>
+                <input type="checkbox" id="lockTrackerWindow" />
+                <span></span>
+                <p>Lock Ability Window</p>
+                <div info title="This toggle will lock the location of the tracker and will not allow the tracker to be moved or resized."></div>
+            </label>
+            <label>
+                <input type="checkbox" id="minimizeToTray" />
+                <span></span>
+                <p>Minimize to Tray</p>
+                <div info title="This toggle will quickly hide the menu window (current window) when the ability window is started allowing you to get into the gaming faster!"></div>
+            </label>
+            <label bars style="display:none;">
+                <input type="checkbox" id="toggleSwitching" />
+                <span></span>
+                <p>Toggle Switching</p>
+                <div info title="This will allow the ability tracker to autoswitch the current bar based on keybinds pressed."></div>
+            </label>
+        </div>
+        <div interact>
+            <div input>
+                <p>Default Bar:</p>
+                <div id="selection" error="Invalid Selection">
+                    <input type="text" placeholder="Bar Name" id="barsSelection" />
+                    <div dropdown></div>
+                </div>
+            </div>
+            <div slider>
+                <p>Number of Icons on Tracker: <b label>10</b></p>
+                <input type="range" min="4" max="14" step="1" id="numberOfIcons" />
+            </div>
+        </div>
+        <div buttons>
+            <div id="ability">Start Tracker</div>
+            <div id="keybinds">Manage Keybinds</div>
+            <div id="bars">Manage Bars</div>
+            <div id="quit">Quit Application</div>
+        </div>
+    </main>
+</body>
+
+</html>

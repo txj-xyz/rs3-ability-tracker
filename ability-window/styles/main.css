@@ -1,0 +1,69 @@
+main {
+    margin: 5px 5px 0 5px;
+    display: block;
+    height: calc(100vh - 33px);
+}
+
+main > div {
+    margin-bottom: 10px;
+}
+
+/* Input styles. */
+div[interact] {
+    margin: 1px 0 0 5px;
+}
+
+div[interact] > div {
+    margin-bottom: 5px;
+}
+
+div[interact] p {
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+}
+
+div[slider] p {
+    padding-bottom: 15px;
+}
+
+input[type="range"] {
+    width: calc(100% - 5px);
+    -webkit-appearance: none;
+    background: var(--green);
+    border-radius: 2px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 5px;
+    -webkit-appearance: none;
+    margin-top: -1px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    width: 15px;
+    -webkit-appearance: none;
+    margin-top: -5px;
+    height: 15px;
+    overflow: visible;
+    cursor: ew-resize;
+    background: var(--elements);
+    border-radius: 3px;
+}
+
+input[type="range"]:before {
+    content: "4";
+    position: absolute;
+    margin: -22px 0 0 4px;
+    color: var(--color);
+}
+
+input[type="range"]:after {
+    content: "14";
+    position: absolute;
+    margin: -22px 9px 0 0;
+    right: 0;
+    color: var(--color);
+}

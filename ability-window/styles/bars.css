@@ -8,37 +8,55 @@ div[header] {
     user-select: none;
 }
 
-/* Content styles. */
-div[keys] {
-    margin-bottom: 40px;
+div.disable {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 /* Keybind styles. */
-div[keys]>div {
+div[bars] > div {
     display: flex;
-    padding: 5px 30px;
+    padding: 5px;
     align-items: center;
 }
 
 /* Input styles. */
-div[keys]>div input {
+div[bars] > div input {
     border: 0;
     border-radius: 3px;
     padding: 1px 5px;
     height: 22px;
-    width: 160px;
+    width: 235px;
     background: var(--elements);
     color: var(--color);
+    margin: 0 5px;
+    transition-duration: 400ms;
 }
 
-div[keys]>div input {
-    margin: 0 5px;
+div[bars] div:not([popup]) div[bar]:not(.edit) {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+div.new {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+div[bars] div.edit input {
+    width: 160px;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* Action styles. */
 div[remove],
+div[clear],
 div[edit],
-div[button] {
+div[button],
+div[save],
+div[saveMod],
+div[cancel] {
     border-radius: 3px;
     user-select: none;
     display: flex;
@@ -53,20 +71,106 @@ div[button] {
     cursor: pointer;
 }
 
+div[manage] {
+    margin-bottom: 50px;
+}
+
+div[clear] {
+    background: var(--blue);
+    font-size: 12px;
+    padding: 5.5px 7px;
+    text-shadow: 0.5px 0.5px black;
+}
+
+div[clear]:not(.active),
+div[order]:not(.active) {
+    background: var(--elements);
+}
+
+body:not(#darwin) div[clear] {
+    padding: 5.5px 5px;
+}
+
+input[search] {
+    width: 287px !important;
+}
+
+div[button]:not([save]) {
+    background: var(--blue);
+}
+
+div[remove] {
+    background: var(--red);
+}
+
+
+div[save] {
+    background: var(--green);
+}
+
+div[save].active {
+    background: var(--elements);
+    pointer-events: none;
+}
+
 div[edit] {
+    background: var(--yellow);
+    animation: show 400ms ease-in-out forwards;
+}
+
+div[saveMod] {
+    display: none;
+    background: var(--green);
+    animation: show 400ms ease-in-out forwards;
+}
+
+div[cancel] {
+    display: none;
+    background: var(--blue);
+    animation: show 400ms ease-in-out forwards;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+div[hide] {
+    opacity: 0;
+}
+
+div.global {
+    pointer-events: none;
+}
+
+div.global div[remove],
+div.global div[buttons] {
+    opacity: 0.5;
+}
+
+div.global div[buttons] div[disabled] {
+    opacity: 1 !important;
+}
+
+div[buttons] {
+    display: flex;
     margin-right: auto;
 }
 
 /* Input box error styles. */
 div.error input {
-    background: #F04747 !important;
+    background: #f04747 !important;
 }
 
 div.error input::placeholder {
     color: var(--color) !important;
 }
 
-div[keys]>div input:focus {
+div[bars] > div input:focus {
     outline: none;
 }
 
@@ -86,12 +190,13 @@ p:after {
 
 /* Disabled divs. */
 div[disabled] {
-    opacity: 0.5;
+    opacity: 0.5 !important;
     user-select: none !important;
     pointer-events: none;
 }
 
-div[bar]:before {
+div[bar]:before,
+div[bar]:after {
     content: attr(id);
     pointer-events: auto;
     position: absolute;
@@ -106,83 +211,23 @@ div[bar]:before {
     pointer-events: none;
 }
 
+div[bar]:after {
+    content: attr(info);
+    white-space: nowrap;
+    margin-right: 58px !important;
+    right: 0;
+}
+
+div[bar].edit:after {
+    opacity: 0;
+}
+
 div[bar]:hover:before,
-div[bar].fixed:before {
+div[bar]:after,
+div.global > div[bar]:before,
+div.global > div[bar]:after {
     opacity: 1;
     margin-top: -10px;
-}
-
-/* Notification styles. */
-
-div[notify] {
-    position: fixed;
-    z-index: 1;
-    bottom: 5px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    display: block !important;
-    max-height: 80px;
-    overflow: scroll;
-}
-
-div[notify]>div {
-    white-space: nowrap;
-    display: flex !important;
-    background: #43B581;
-    display: block;
-    margin: 5px 0;
-    border-radius: 3px;
-    animation: fadeIn 0.5s forwards;
-    padding-right: 5px;
-    align-items: center;
-    line-height: 1;
-    width: auto;
-}
-
-div[notify]>div>div {
-    border-radius: 3px 0 0 3px;
-    cursor: pointer;
-    padding: 3px 7px 5px 7px;
-    margin-right: 3px;
-    background: var(--hover);
-    font-weight: bold;
-}
-
-div[notify]>div>div:hover {
-    background: #F04747BF;
-}
-
-div[notify]>div.deleted {
-    animation: fadeOut 0.5s forwards;
-}
-
-div[notify]>div.failed {
-    background: #F04747;
-}
-
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0);
-    }
-
-    100% {
-        opacity: 0.9;
-        transform: scale(1);
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 0.9;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0);
-    }
 }
 
 /* Popup styles. */
@@ -192,7 +237,7 @@ div[popup] {
     opacity: 0;
     pointer-events: none;
     position: fixed;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
     top: 0;
     width: 100%;
     height: 100%;
@@ -212,7 +257,7 @@ div[popup] div[mount] {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin: -10px -30px;
+    min-height: 100px;
     transform: translate(-50%, -50%);
     padding: 10px;
     width: 250px;
@@ -222,7 +267,7 @@ div[popup] div[mount] {
     filter: drop-shadow(0 0 5px var(--color));
 }
 
-div[popup] div[mount]>div {
+div[popup] div[mount] > div > div {
     display: flex;
     position: absolute;
     bottom: -13px;
@@ -232,6 +277,26 @@ div[popup] div[mount]>div {
 hr {
     border: none;
     height: 2px;
-    border-radius: 2px;
     background: var(--elements);
+}
+
+div[popup] div[button]:first-child {
+    background: var(--red);
+    margin-right: 75px;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+div[popup] div[button]:first-child:before,
+div[popup] div[button]:first-child:after {
+    display: none;
+}
+
+div[popup] div[button]:last-child {
+    background: var(--blue);
+}
+
+div[popup] div[info] {
+    margin: 0;
+    display: block !important;
 }

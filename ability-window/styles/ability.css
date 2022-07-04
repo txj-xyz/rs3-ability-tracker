@@ -1,3 +1,7 @@
+body {
+    margin-top: 0;
+}
+
 /* Contents styles. */
 main {
     pointer-events: none;
@@ -8,7 +12,7 @@ main {
 }
 
 /* Cell styles. */
-main>div {
+main > div {
     background: url(../assets/bg.png) no-repeat;
     background-size: cover;
     display: flex;
@@ -16,32 +20,45 @@ main>div {
     align-items: center;
 }
 
-main>div:last-child {
-    /* box-shadow: 0 0 5px white inset; */
+main > div:last-child::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: inherit;
+    margin-top: -3px;
+    transform: scale(0.9);
+    height: 100%;
     border: 3px solid white;
+    border-radius: 7px !important;
 }
+
 
 img {
     height: 80%;
+    width: 80%;
+    object-fit: contain;
     max-height: 80%;
     max-width: 80%;
 }
 
-div[lock] {
-    transition-duration: 0.4s;
-    margin-top: -30px;
-    font-size: 20px;
-    opacity: 0.7;
-    position: fixed;
-    padding: 3px 7px;
-    user-select: none;
+main > div > div > img {
+
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 5px;
 }
 
-body:hover div[lock] {
-    margin-top: 0;
-}
-
-body:hover div[lock]:active {
-    opacity: 1;
-    filter: brightness(1.2);
+main > div > div {
+    height: 50%;
+    width: inherit;
+    bottom: 5px;
+    max-height: 50%;
+    max-width: 50%;
+    object-fit: contain;
+    display: block !important;
+    position: absolute;
+    z-index: 100;
 }

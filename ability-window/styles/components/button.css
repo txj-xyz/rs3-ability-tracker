@@ -1,0 +1,25 @@
+
+div[buttons] > div {
+    margin: 0 0 5px 0;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--elements);
+    border-radius: 3px;
+    user-select: none;
+    cursor: pointer;
+    padding: 9.5px;
+}
+
+div[buttons] > div:last-child {
+    border-radius: 3px 3px 6px 6px;
+}
+
+div[buttons] > div:hover {
+    background: var(--hover);
+}
+
+div#quit {
+    background: var(--red);
+}

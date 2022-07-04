@@ -1,0 +1,56 @@
+
+nav {
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    background: var(--elements);
+    padding: 5px;
+    text-align: center;
+    -webkit-app-region: drag;
+    font-weight: bold;
+    user-select: none;
+    display: flex;
+    z-index: 100;
+}
+
+#darwin nav {
+    display: block;
+}
+
+nav div, nav p {
+    margin: 0;
+    -webkit-app-region: no-drag;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 17px;
+    cursor: context-menu;
+    user-select: none;
+}
+
+nav div[hide] {
+    opacity: 1 !important;
+}
+
+div[hide] p {
+    transform: scale(2);
+    margin-top: -5px;
+}
+
+div[hide]:hover {
+    background: var(--hover);
+}
+
+div[exit]:hover {
+    background: var(--red);
+}
+
+nav > div[window] {
+    position: fixed;
+    right: 25px;
+}
+
+div[window] > div {
+    padding: 5px;
+}

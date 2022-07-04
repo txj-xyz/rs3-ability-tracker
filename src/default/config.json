@@ -1,0 +1,17 @@
+{
+    "minimizeToTray": false,
+    "toggleSwitching": false,
+    "lockTrackerWindow": false,
+    "numberOfIcons": 10,
+    "barsSelection": "Global",
+    "abilityWindow": {
+        "x": null,
+        "y": null,
+        "width": 800,
+        "height": 80
+    },
+    "referenceStorage": {
+        "keybinds": [],
+        "bars": []
+    }
+}
