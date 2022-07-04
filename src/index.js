@@ -18,12 +18,6 @@ app
     // App quit event.
     .on('window-all-closed', _ => null)
 
-    // Clear tray icon before quitting
-    .on('before-quit', _ => {
-        uIOhook.stop();
-        windows.tray?.destroy();
-    })
-
     .on('quit', process.exit)
 
     // Disable app hardware acceleration.
