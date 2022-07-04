@@ -1,5 +1,5 @@
 // Import dependencies.
-const [{ readdirSync, existsSync, writeFileSync }, { resolve }] = ['fs', 'path'].map(require);
+const [{ readdirSync, existsSync, writeFileSync }, { resolve }, { app }] = ['fs', 'path', 'electron'].map(require);
 
 // Load all modules into global.
 module.exports = class Manager {
@@ -17,6 +17,9 @@ module.exports = class Manager {
             },
         },
     };
+
+    static __userData = app.getPath('userData')
+    
 
     // Loading logic.
     static load() {
