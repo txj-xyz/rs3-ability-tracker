@@ -22,8 +22,8 @@ module.exports = class Trigger extends Manager {
         config.referenceStorage.keybinds.map(bind => this.keybinds.set(bind.keybind, bind));
 
         unregister();
-        uIOhook.on('keydown', event => {
-            if (!this.rs3Instance()) return;
+        uIOhook.on('keydown', async event => {
+            if (!await this.rs3Instance()) return;
             const hash = this.hashEvent(event);
             if (!this.keyCheck[event.keycode]) this.keyCheck[event.keycode] = new Map();
             if (!this.keyCheck[event.keycode].get(hash)) this.handleKeyPress(event);
@@ -32,7 +32,7 @@ module.exports = class Trigger extends Manager {
 
         // Listen to keyup.
         uIOhook.on('keyup', event => {
-            if (!this.rs3Instance() || !this.keyCheck[event.keycode]) return;
+            if (!this.keyCheck[event.keycode]) return;
             this.keyCheck[event.keycode].clear();
         });
     }
@@ -41,13 +41,11 @@ module.exports = class Trigger extends Manager {
         return this.getKeyName('a', ev.altKey) + this.getKeyName('c', ev.ctrlKey) + this.getKeyName('m', ev.metaKey) + this.getKeyName('s', ev.shiftKey) + ev.keycode;
     }
 
-    rs3Instance() {
+    async rs3Instance() {
         if (__devMode) return true;
-        activeWindows()
-            .getActiveWindow()
-            .then(activeWin => {
-                return activeWin.windowName.match(/(rs2client|RuneScape)/g)?.[0] ? true : false;
-            });
+        const window = await activeWindows().getActiveWindow()
+        const instance = window.windowName.match(/(rs2client|RuneScape)/g)?.[0] ? true : false;
+        return instance
     }
 
     getKeyName(name, val) {
@@ -73,7 +71,7 @@ module.exports = class Trigger extends Manager {
                     this.lastKey.value = bind.name;
                     this.lastKey.timestamp = Date.now();
                     const reference = library.get(bind.name);
-                    if (config.toggleSwitching && reference.type === 'slot-icons' && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) this.activeBar = bind.bar;
+                    if (config.toggleSwitching && reference.icon.match((/(weapons\/(magic|melee|range)|slot-icons)/g)).some(e => e) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) this.activeBar = bind.bar;
                     if (bind.bar.toLowerCase() === (config.toggleSwitching ? this.activeBar : config.barsSelection)?.toLowerCase()) {
                         windows.ability?.webContents.send('abilityData', { icon: reference.customIcon ?? reference.icon, perk: bind.perk ? library.get(bind.perk).icon : null });
                     }
