@@ -34,5 +34,4 @@ walkSync(path, (filepath, pathDetails) => {
 
 console.log(JSON.stringify(filesMap, null, 1))
 
-// writeFileSync(`./src/cfg/game-key-data.json`, JSON.stringify(filesMap, null, 2))
-writeFileSync(resolve(app.getPath('userData'), 'game-key-data.json'), JSON.stringify(filesMap, null, 2))
+writeFileSync(`./src/default/game-key-data.json`, JSON.stringify(filesMap, null, 2))
