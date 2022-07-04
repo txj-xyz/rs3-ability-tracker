@@ -1,5 +1,5 @@
 // Import dependencies.
-const [{ readdirSync, existsSync, writeFileSync }, { resolve }, { app }] = ['fs', 'path', 'electron'].map(require);
+const [{ readdirSync, existsSync, writeFileSync, mkdirSync, unlinkSync }, { resolve }, { app }] = ['fs', 'path', 'electron'].map(require);
 
 // Load all modules into global.
 module.exports = class Manager {
@@ -18,8 +18,7 @@ module.exports = class Manager {
         },
     };
 
-    static __userData = app.getPath('userData')
-    
+    static __userData = app.getPath('userData');
 
     // Loading logic.
     static load() {
@@ -36,6 +35,38 @@ module.exports = class Manager {
             this.once = true;
         }
         return this;
+    }
+
+    static checkCustomFolder () {
+        const customPath = resolve(this.__userData, '.custom');
+        if(!existsSync(customPath)){
+            mkdirSync(customPath)
+        }
+        return customPath;
+    }
+    
+    // Update AppData assets with new files from generated on build assets (aka: new icons)
+    static checkAssets(oldAssets, newAssets) {
+        let oldProps = oldAssets.map(set => set.name);
+        let newProps = newAssets.map(set => set.name);
+
+        const oldMap = this.mapify(oldAssets, 'name');
+        const newMap = this.mapify(newAssets, 'name');
+
+        let oldDiff = oldProps.map(key => (!newMap.get(key) ? key : null)).filter(e => e);
+        oldDiff.map(key => oldMap.delete(key));
+
+        let newDiff = newProps.map(key => (!oldMap.get(key) ? key : null)).filter(e => e);
+        newDiff.map(key => oldMap.set(key, newMap.get(key)));
+
+        const merged = Array.from(oldMap.values());
+
+        readdirSync(this.checkCustomFolder()).map(file => {
+            const filepath = resolve(this.checkCustomFolder(), file).replace(/\\/g, '/');
+            if (!merged.find(set => set.customIcon === filepath)) unlinkSync(filepath);
+        })
+
+        return merged;
     }
 
     static checkConfig(oldConfig, newConfig) {
@@ -70,19 +101,22 @@ module.exports = class Manager {
             // Check if file data is corrupted.
             try {
                 data = require(path);
+
                 if (path.endsWith('config.json')) {
                     data = this.checkConfig(require(path), require(resolve(__dirname, `../default/${path.replace(/\\/g, '/').split('/').pop()}`)));
+                    writeFileSync(path, JSON.stringify(data, null, 2));
+                } else if (path.endsWith('game-key-data.json')) {
+                    data = this.checkAssets(require(path), require(resolve(__dirname, `../default/${path.replace(/\\/g, '/').split('/').pop()}`)));
+                    writeFileSync(path, JSON.stringify(data, null, 2));
                 }
             } catch (e) {
-                console.log(e)
+                console.log(e);
                 failed = true;
             }
 
             // If not corrupted, return data.
             if (!failed) return data;
         }
-
-        
 
         // In any other case, load default data.
         try {
