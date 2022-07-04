@@ -31,6 +31,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
+        "name": "RS3 Ability Tracker",
         "icon": "./src/icons/icon",
         "asar": true
       },
@@ -42,14 +43,15 @@
             "setupIcon": "./src/icons/icon.ico",
             "setupExe": "RS3-Ability-Tracker.exe",
             "skipUpdateIcon": true,
-            "name": "RS3 Ability Tracker"
+            "title": "RS3 Ability Tracker",
+            "name": "RS3AbilityTracker"
           }
         },
         {
           "name": "@electron-forge/maker-dmg",
           "config": {
             "icon": "./src/icons/icon.icns",
-            "name": "RS3 Ability Tracker",
+            "name": "RS3AbilityTracker",
             "overwrite": true
           }
         }
