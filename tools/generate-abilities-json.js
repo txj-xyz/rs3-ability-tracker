@@ -1,4 +1,5 @@
 const { readdirSync, statSync, writeFileSync } = require('fs')
+const { app } = require('electron')
 const { join, resolve } = require('path')
 const path = './ability-window/game-asset-groups/'
 const filesMap = [];
@@ -33,4 +34,5 @@ walkSync(path, (filepath, pathDetails) => {
 
 console.log(JSON.stringify(filesMap, null, 1))
 
-writeFileSync(`./src/cfg/game-key-data.json`, JSON.stringify(filesMap, null, 2))
+// writeFileSync(`./src/cfg/game-key-data.json`, JSON.stringify(filesMap, null, 2))
+writeFileSync(resolve(app.getPath('userData'), 'game-key-data.json'), JSON.stringify(filesMap, null, 2))
