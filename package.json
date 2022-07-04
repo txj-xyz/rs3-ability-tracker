@@ -24,6 +24,7 @@
   "dependencies": {
     "electron-active-window": "^0.0.6",
     "electron-squirrel-startup": "^1.0.0",
+    "github-version-checker": "^2.3.0",
     "lodash.throttle": "^4.1.1",
     "uiohook-napi": "^1.2.0"
   },

@@ -376,7 +376,7 @@ ipc.on('fromBars', (event, param) => {
                 const bar = div.querySelector('div[bars] input')
                 if (disable) {
                     input.blur()
-                    bar.classList.add('disable')
+                    bar.parentNode.classList.add('disable')
                 }
                 if (input.value && param.before === bar.value) !param.after ? div.remove() : bar.value = param.after
 

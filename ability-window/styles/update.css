@@ -1,0 +1,24 @@
+main div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+main div p {
+    margin: 0 5px;
+}
+
+main div[buttons] div {
+    border-radius: 3px !important;
+    background: var(--blue);
+}
+
+main > div[update] {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+main > div[current] {
+    margin-top: 40px;
+}

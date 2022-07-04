@@ -1,9 +1,11 @@
-const { uIOhook } = require("uiohook-napi")
+const { uIOhook } = require("uiohook-napi");
+const Update = require( "./UpdateWindow" );
 
 const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app, BrowserWindow: { getFocusedWindow }, globalShortcut, ipcMain }] = ['path', 'electron'].map(require)
 
 module.exports = class Taskbar {
     constructor() {
+        
         new Main()
         this.registers()
         if (windows.tray) return
@@ -13,6 +15,7 @@ module.exports = class Taskbar {
         windows.tray.reload = this.reload
         this.reload()
         uIOhook.start()
+        new Update()
     }
 
     registers() {

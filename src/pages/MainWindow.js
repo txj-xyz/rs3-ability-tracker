@@ -5,6 +5,7 @@ module.exports = class Main extends Window {
         super()
             .create({ ...windows.properties, width: 250, height: 358 }, true)
             .ipcLoader(this.mainListener, this.confListener)
+        windows.update?.focus();
     }
 
     mainListener = (event, param) => {
