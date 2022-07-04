@@ -13,7 +13,7 @@ const [toggles, element, actions] = [
         popup: null
     },
     id => `<div id="${id}"><div remove>-</div><div abilityIcon><img /><img /></div><div name id="Ability / Item"><input type="text" placeholder="Ability / Item" /><div dropdown></div></div> <div keybinds id="Keybind"><input type="text" placeholder="Keybind" /> </div> <div bars id="Bar Name"><input type="text" placeholder="Bar Name" /><div barselect></div></div><div perkMod></div><div image>&#x1F5BC;&#xFE0F;</div></div>`,
-    `<div manage><div onclick="copy()" button>+ New Bind</div><div onclick="save()" button save>Save</div></div>`
+    `<div manage><div onclick="copy()" button>+ New Bind</div><div onclick="save()" button save>Save</div><div onclick="cancel()" class="active" button cancel>Cancel</div></div>`
 ]
 
 const perks = ['Caroming Perk', 'Flanking Perk', 'Lunging Perk', 'Planted Feet']
@@ -106,18 +106,32 @@ function copy(initial, data) {
         component.querySelector('div[image]').classList.add('disable')
         window.scrollTo(0, document.body.scrollHeight);
         toggleOrder()
+        toggle()
     } else toggle(true)
 }
 
 function toggle(value) {
     const save = document.querySelector('div[save]')
+    const cancel = document.querySelector('div[cancel]')
     toggles.save = value ? true : false;
-    if (toggles.save) save.classList.add('active')
-    else save.classList.contains('active') ? save.classList.remove('active') : void 0;
+    if (toggles.save){ 
+        cancel.classList.add('disable')
+        cancel.classList.remove('active')
+        save.classList.add('disable')
+        save.classList.add('active')
+    }
+    else {
+        save.classList.contains('active') ? save.classList.remove('active') : void 0;
+        cancel.classList.remove('disable')
+        save.classList.remove('disable')
+        cancel.classList.add('active')
+    }
 }
 
 function toggleImage(id, value) {
-    const image = document.getElementById(id).querySelector('div[image]')
+    const elem = document.getElementById(id)
+    if(!elem) return;
+    const image = elem ? document.getElementById(id).querySelector('div[image]') : void 0
     const item = config.referenceStorage.keybinds.find(e => e.name === value && e.keybind === document.getElementById(id).querySelector('div[keybinds] input').value)
     if (!value) {
         if (image) {
@@ -290,7 +304,6 @@ document.querySelectorAll('div[options] div[list] > div').forEach(element => {
                 break;
             }
         }
-        document.querySelector('div[search]').id = element.innerHTML
         document.querySelector('div[search] input').placeholder = element.innerHTML
     }
 })
@@ -389,3 +402,7 @@ ipc.on('fromBars', (event, param) => {
         })
     }
 })
+
+function cancel() {
+    if(!toggles.save) window.location.reload()
+}

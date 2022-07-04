@@ -86,6 +86,7 @@ function copy(initial, data) {
             toggles.saveMod.value = value
             revert()
             save(old, value)
+            toggle(true)
         }
     }
 
@@ -116,6 +117,7 @@ function save(old, value) {
     let failed = false
     if (old) return request('barsListener', { before: old, after: value })
     document.querySelectorAll('div[bars] div:not(.global) div[bar]').forEach(bar => {
+        if(!bar.querySelector('input')) return;
         const value = bar.querySelector('input').value
         if (!value) {
             bar.classList.add('error')
@@ -149,8 +151,14 @@ function save(old, value) {
 function toggle(value) {
     const save = document.querySelector('div[save]')
     toggles.save = value ? true : false;
-    if (toggles.save) save.classList.add('active')
-    else save.classList.contains('active') ? save.classList.remove('active') : void 0;
+    if (toggles.save) {
+        save.classList.add('disable')
+        save.classList.add('active')
+    }
+    else {
+        save.classList.contains('active') ? save.classList.remove('active') : void 0;
+        save.classList.remove('disable')
+    }
 }
 
 
