@@ -53,6 +53,7 @@ module.exports = class Trigger extends Manager {
     }
 
     handleKeyPress(trigger) {
+        
         let success = false;
         try {
             const modifiers = { shiftKey: 'Shift', ctrlKey: 'Ctrl', altKey: 'Alt', metaKey: 'Super' };

@@ -5,7 +5,7 @@ const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app, BrowserWindow: { g
 
 module.exports = class Taskbar {
     constructor() {
-        
+        // new Confirmation()
         new Main()
         this.registers()
         if (windows.tray) return

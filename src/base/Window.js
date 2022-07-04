@@ -46,6 +46,14 @@ module.exports = class Window {
                     windows[this.name].hide()
                     if (!windows.main?.isVisible() && !windows.keybinds && !windows.bars) quitHandler()
                 } else quitHandler()
+            } else if(this.name === 'confirmation') {
+                windows.ability?.show();
+                windows.ability?.focus();
+                if (__platform === 'darwin') windows.ability.setWindowButtonVisibility(false);
+                windows.ability.setAlwaysOnTop(true, "screen-saver");
+                windows.ability.setVisibleOnAllWorkspaces(true);
+                windows.ability.setBackgroundThrottling(false);
+                new Trigger()
             } else {
                 if (this.name === 'ability') unregister()
                 new Main()
