@@ -12,9 +12,6 @@
   </p>
 </p>
 
-<h1><p align="center"> !!!!WARNING DO NOT ENTER PASSWORDS WHILE THE TRACKER IS STARTED!!!! </p> </h1>
-
-
 ## Building
 
 - You can build the project by reading the `package.json` file to get an idea of what needs to be done.
