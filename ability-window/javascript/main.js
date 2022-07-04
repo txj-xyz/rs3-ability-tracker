@@ -30,6 +30,7 @@ document.querySelectorAll('input[id]').forEach(input => {
 document.querySelectorAll('div[buttons] > div').forEach(button => button.onclick = _ => request('mainListener', button.id))
 
 const slider = document.getElementById('numberOfIcons')
+document.querySelector('b[label]').innerHTML = config.numberOfIcons;
 slider.onclick = null
 slider.addEventListener('input', _ => {
     document.querySelector('b[label]').innerHTML = slider.value;
