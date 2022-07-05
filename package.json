@@ -32,7 +32,7 @@
     "forge": {
       "packagerConfig": {
         "executableName": "RS3-Ability-Tracker",
-        "name": "RS3 Ability Tracker",
+        "name": "RS3-Ability-Tracker",
         "icon": "./src/icons/icon",
         "asar": true
       },
