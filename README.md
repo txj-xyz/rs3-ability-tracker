@@ -12,20 +12,29 @@
   </p>
 </p>
 
-## Building
+## Downloading / Installation
+ - You can read the [Wiki Page for instructions on how to use / install the program](https://github.com/txj-xyz/rs3-ability-tracker/wiki)
 
-- You can build the project by reading the `package.json` file to get an idea of what needs to be done.
 
-This project is not anywhere near done in functionality at the time of you reading this, the README will be updated accordingly however you're welcome to go through and read the code.
+## Building from Source
 
-Releases will be auto-built and posted under the [Releases Page](https://github.com/txj-xyz/rs3-ability-tracker/releases) using GitHub Workflows.
+- You can build the project by reading the `package.json` file to get an idea of what needs to be done
+ 
+ Install:
+ ```
+ npm i
+ ```
+ 
+ Start:
+ ```
+ npm electron-forge start
+ ```
+ 
+Releases will be built and posted under the [Releases Page](https://github.com/txj-xyz/rs3-ability-tracker/releases/latest) using GitHub Workflows soon™️.
 
-We use [Electron Forge](https://www.electronforge.io/) for building into Installers and Zip files with a pre-compiled `asar` given to compress the data.
+We use [Electron Forge](https://www.electronforge.io/) for building into Installers and Zip files with a pre-compiled `asar` given to compress the data for maximum deployability, you can disable this inside of the `packagerConfig: {}` object inside of `package.json`
 
-    
-## Things to Note
- - Currently this is a Work in Progress and is not functioning.
- - There is currently a recode going on.
- - There will be a major Interface rework.
- - This is not intended for public use as of writing this readme.
+# Screenshots
 
+![](https://l.txj-dev.xyz/MPz2F)
+![](https://l.txj-dev.xyz/PTE1i)
