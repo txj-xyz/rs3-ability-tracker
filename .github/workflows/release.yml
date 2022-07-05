@@ -5,7 +5,8 @@ on:
     tags:
       - '*'
   pull_request:
-
+    branches:
+      - totally-not-master
 jobs:
   build:
     name: Build (${{ matrix.os }} - ${{ matrix.arch }})
