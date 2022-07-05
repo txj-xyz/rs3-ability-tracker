@@ -51,7 +51,6 @@
           "name": "@electron-forge/maker-dmg",
           "config": {
             "icon": "./src/icons/icon.icns",
-            "name": "RS3 Ability Tracker",
             "overwrite": true,
             "background": "./src/icons/backgroundMacOS.png",
             "additionalDMGOptions": {
