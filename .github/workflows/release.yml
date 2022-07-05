@@ -39,4 +39,4 @@ jobs:
           files: |
             out/**/*.dmg
             out/**/*-Installer.exe
-            out/**/*.zip
+            out/**/*win32*.zip
