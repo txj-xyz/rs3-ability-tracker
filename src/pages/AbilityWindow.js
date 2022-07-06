@@ -14,7 +14,6 @@ module.exports = class Ability extends Window {
                 hasShadow: false,
                 resizable: !config.lockTrackerWindow,
                 alwaysOnTop: true,
-                // show: true,
                 movable: !config.lockTrackerWindow,
             }, false)
         new Confirmation()
@@ -30,6 +29,7 @@ module.exports = class Ability extends Window {
             config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons;
 
             // Update aspect ratio to prevent buggy resize.
+            windows.ability.setSize(config.abilityWindow.width, config.abilityWindow.height);
             windows.ability.setAspectRatio(+config.numberOfIcons.toFixed(2));
         }
     };
