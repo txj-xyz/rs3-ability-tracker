@@ -9,7 +9,7 @@ module.exports = class Ability extends Window {
                 height: config.abilityWindow.height,
                 x: config.abilityWindow.x ?? (screen.getPrimaryDisplay().workArea.width - config.abilityWindow.width) / 2,
                 y: config.abilityWindow.y ?? (screen.getPrimaryDisplay().workArea.height - config.abilityWindow.height) / 2,
-                rame: false,
+                frame: false,
                 transparent: true,
                 hasShadow: false,
                 resizable: !config.lockTrackerWindow,
