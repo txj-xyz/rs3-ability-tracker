@@ -18,9 +18,6 @@ module.exports = class Trigger extends Manager {
     }
 
     initListeners() {
-        this.keybinds = new Map();
-        config.referenceStorage.keybinds.map(bind => this.keybinds.set(bind.keybind, bind));
-
         unregister();
         uIOhook.on('keydown', async event => {
             if (!await this.rs3Instance()) return;
@@ -53,7 +50,6 @@ module.exports = class Trigger extends Manager {
     }
 
     handleKeyPress(trigger) {
-        
         let success = false;
         try {
             const modifiers = { shiftKey: 'Shift', ctrlKey: 'Ctrl', altKey: 'Alt', metaKey: 'Super' };
@@ -65,16 +61,25 @@ module.exports = class Trigger extends Manager {
             const possibleKeys = pressedModifiers.some(e => e) ? pressedModifiers.map(mod => `${modifiers[mod]} + ${key}`) : [key];
 
             for (const keybind of possibleKeys) {
-                const bind = this.keybinds.get(keybind);
-                if (bind && !success) {
-                    success = true;
-                    if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < this.spamCooldown) return;
-                    this.lastKey.value = bind.name;
-                    this.lastKey.timestamp = Date.now();
-                    const reference = library.get(bind.name);
-                    if (config.toggleSwitching && reference.icon.match((/(weapons\/(magic|melee|range)|slot-icons)/g)).some(e => e) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) this.activeBar = bind.bar;
-                    if ([(config.toggleSwitching ? this.activeBar : config.barsSelection), 'Global'].includes(bind.bar)) {
-                        windows.ability?.webContents.send('abilityData', { icon: reference.customIcon ?? reference.icon, perk: bind.perk ? library.get(bind.perk).icon : null });
+                let binds = config.referenceStorage.keybinds.filter(e => e.keybind === keybind);
+                let globals = binds.filter(e => e.bar === 'Global');
+                binds = binds.filter(e => e.bar !== 'Global');
+                globals.map(e => binds.push(e));
+                for (const bind of binds) {
+                    if (!success) {
+                        if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < this.spamCooldown) return;
+                        const reference = library.get(bind.name);
+
+                        //swap bar if triggered bind is not on the same bar
+                        if (config.toggleSwitching && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase())
+                            this.activeBar = bind.bar;
+
+                        if ([this.activeBar, 'Global'].includes(bind.bar)) {
+                            success = true;
+                            this.lastKey.value = bind.name;
+                            this.lastKey.timestamp = Date.now();
+                            windows.ability?.webContents.send('abilityData', { icon: reference.customIcon ?? reference.icon, perk: bind.perk ? library.get(bind.perk).icon : null });
+                        }
                     }
                 }
             }
