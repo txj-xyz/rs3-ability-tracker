@@ -28,11 +28,9 @@ module.exports = class Main extends Window {
             }
 
             case 'numberOfIcons': {
-                config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons;
-                windows.ability?.setResizable(true);
-                windows.ability.setSize(config.abilityWindow.height * config.numberOfIcons, config.abilityWindow.height);
-                windows.ability?.setAspectRatio(+config.numberOfIcons.toFixed(2));
-                windows.ability?.setResizable(!config.lockTrackerWindow);
+                windows.ability?.setAspectRatio(config.numberOfIcons);
+                let _bounds = windows.ability?.getBounds();
+                _bounds ? config.abilityWindow = windows.ability?.getBounds() : void 0;
                 windows.ability?.webContents.send('updateView', config.numberOfIcons);
                 break;
             }
