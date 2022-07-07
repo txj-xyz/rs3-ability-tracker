@@ -18,7 +18,8 @@ module.exports = class Ability extends Window {
         });
         new Confirmation();
         this.fixBounds();
-        windows.ability?.on('moved', this.updatePostition);
+        windows.ability?.on('ready-to-show', this.updateSize)
+        windows.ability?.on('moved', this.updateSize);
         windows.ability?.on('resized', this.updateSize);
         windows.ability?.setAspectRatio(config.numberOfIcons);
         
@@ -32,14 +33,21 @@ module.exports = class Ability extends Window {
         }, 50);
     };
 
-    updatePostition = _ => {
+    // updatePostition = _ => {
+    //     const [x, y] = windows.ability.getPosition();
+    //     config.abilityWindow.x = x;
+    //     config.abilityWindow.y = y;
+    //     this.fixBounds();
+    // };
+
+    updateSize = _ => {
+        // get position
         const [x, y] = windows.ability.getPosition();
         config.abilityWindow.x = x;
         config.abilityWindow.y = y;
         this.fixBounds();
-    };
 
-    updateSize = _ => {
+        // fix resize bounds
         let [width, height] = windows.ability.getSize();
         height = height < 50 ? 50 : height;
         config.abilityWindow.height = height;
