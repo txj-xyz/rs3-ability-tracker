@@ -41,7 +41,9 @@ const dropdown = document.getElementById('barsSelection')
 dropdown.onclick = null
 
 function lockTrackerWindowToggle() {
-    document.querySelector('label[lock] > span').innerHTML = document.getElementById('lockTrackerWindow').checked ? '🔒' : '🔓'
+    const checked = document.getElementById('lockTrackerWindow').checked
+    document.querySelector('label[lock] > span').innerHTML = checked ? '🔒' : '🔓'
+    checked ? document.querySelector('div[slider]').classList.add('disable') : document.querySelector('div[slider]').classList.remove('disable')
 }
 
 function update(id, value) {

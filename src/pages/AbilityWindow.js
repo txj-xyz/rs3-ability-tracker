@@ -27,7 +27,7 @@ module.exports = class Ability extends Window {
     fixBounds = _ => {
         setTimeout(_ => {
             if (windows.ability?.getSize()[0] !== config.abilityWindow.height * config.numberOfIcons) {
-                windows.ability.setSize(config.abilityWindow.height * config.numberOfIcons, config.abilityWindow.height);
+                windows.ability?.setSize(config.abilityWindow.height * config.numberOfIcons, config.abilityWindow.height);
             }
         }, 50);
     };
@@ -44,6 +44,6 @@ module.exports = class Ability extends Window {
         height = height < 50 ? 50 : height;
         config.abilityWindow.height = height;
         config.abilityWindow.width = config.numberOfIcons * height;
-        windows.ability.setSize(config.numberOfIcons * height, height);
+        windows.ability?.setSize(config.numberOfIcons * height, height);
     };
 };

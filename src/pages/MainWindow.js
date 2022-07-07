@@ -31,7 +31,7 @@ module.exports = class Main extends Window {
                 if(config.lockTrackerWindow){
                     config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons;
                     windows.ability?.setResizable(true)
-                    windows.ability.setSize(config.abilityWindow.height * config.numberOfIcons, config.abilityWindow.height);
+                    windows.ability?.setSize(config.abilityWindow.height * config.numberOfIcons, config.abilityWindow.height);
                     windows.ability?.setResizable(!config.lockTrackerWindow);
                 }
 
@@ -44,4 +44,4 @@ module.exports = class Main extends Window {
         }
         event.returnValue = null
     }
-}
+}   
