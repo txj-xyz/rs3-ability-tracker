@@ -28,10 +28,12 @@ module.exports = class Main extends Window {
             }
 
             case 'numberOfIcons': {
-                windows.ability?.setAspectRatio(config.numberOfIcons);
-                let _bounds = windows.ability?.getBounds();
-                _bounds ? config.abilityWindow = windows.ability?.getBounds() : void 0;
-                windows.ability?.webContents.send('updateView', config.numberOfIcons);
+                if(!config.lockTrackerWindow) {
+                    windows.ability?.setAspectRatio(config.numberOfIcons);
+                    let _bounds = windows.ability?.getBounds();
+                    _bounds ? config.abilityWindow = windows.ability?.getBounds() : void 0;
+                    windows.ability?.webContents.send('updateView', config.numberOfIcons);
+                }
                 break;
             }
         }
