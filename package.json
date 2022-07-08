@@ -8,7 +8,7 @@
     "icon-rebuild": "node ./tools/generate-abilities-json.js",
     "startdev": "electron-forge start -- dev",
     "start": "electron-forge start",
-    "make": "electron-forge make"
+    "make": "electron-rebuild && electron-forge make"
   },
   "author": "TXJ + Kurasad",
   "license": "ISC",
