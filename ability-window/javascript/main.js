@@ -61,6 +61,9 @@ ipc.on('opened', (event, param) => {
 
 ipc.on('fromBars', (event, param) => {
     if (!Array.isArray(param)) {
+        if(document.getElementById('barsSelection').value === param.before) {
+            document.getElementById('barsSelection').value = param.after ?? 'Global'
+        }
         document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
         new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...request('config').referenceStorage.bars], true)
     }
