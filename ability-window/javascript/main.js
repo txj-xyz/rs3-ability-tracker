@@ -41,7 +41,9 @@ const dropdown = document.getElementById('barsSelection')
 dropdown.onclick = null
 
 function lockTrackerWindowToggle() {
-    document.querySelector('label[lock] > span').innerHTML = document.getElementById('lockTrackerWindow').checked ? '🔒' : '🔓'
+    const checked = document.getElementById('lockTrackerWindow').checked
+    document.querySelector('label[lock] > span').innerHTML = checked ? '🔒' : '🔓'
+    checked ? document.querySelector('div[slider]').classList.add('disable') : document.querySelector('div[slider]').classList.remove('disable')
 }
 
 function update(id, value) {
@@ -59,6 +61,9 @@ ipc.on('opened', (event, param) => {
 
 ipc.on('fromBars', (event, param) => {
     if (!Array.isArray(param)) {
+        if(document.getElementById('barsSelection').value === param.before) {
+            document.getElementById('barsSelection').value = param.after ?? 'Global'
+        }
         document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
         new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...request('config').referenceStorage.bars], true)
     }

@@ -252,7 +252,7 @@ function save() {
         }
         binds.push({ name: name.value, keybind: keybind.value, bar: bar.value, perk: perk ? perk.innerHTML : null })
         binds.forEach(set => {
-            if (binds.filter(e => e.name === set.name && e.keybind === set.keybind).length > 1 && !failed) {
+            if (binds.filter(e => e.name === set.name && e.keybind === set.keybind && e.bar === set.bar).length > 1 && !failed) {
                 failed = true
 
                 keybind?.parentNode.classList.add('error')

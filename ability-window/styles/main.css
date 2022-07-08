@@ -67,3 +67,9 @@ input[type="range"]:after {
     right: 0;
     color: var(--color);
 }
+
+div.disable {
+    opacity: 0.5 !important;
+    user-select: none !important;
+    pointer-events: none;
+}

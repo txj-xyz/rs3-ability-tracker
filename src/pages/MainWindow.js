@@ -4,7 +4,7 @@ const Window = require('../base/Window.js');
 module.exports = class Main extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 250, height: 334 }, true)
+            .create({ ...windows.properties, width: 250, height: 358 }, true)
             .ipcLoader(this.mainListener, this.confListener)
         windows.update?.focus();
     }
@@ -27,13 +27,29 @@ module.exports = class Main extends Window {
                 break;
             }
 
+            case 'barsSelection': {
+                if(windows.ability) {
+                    unregister()
+                    new Trigger()
+                }
+                break;
+            }
+
             case 'numberOfIcons': {
-                config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons;
-                windows.ability?.setAspectRatio(+config.numberOfIcons.toFixed(2));
+                if(config.lockTrackerWindow){
+                    config.abilityWindow.width = config.abilityWindow.height * config.numberOfIcons;
+                    windows.ability?.setResizable(true)
+                    windows.ability?.setSize(config.abilityWindow.height * config.numberOfIcons, config.abilityWindow.height);
+                    windows.ability?.setResizable(!config.lockTrackerWindow);
+                }
+
+                windows.ability?.setAspectRatio(config.numberOfIcons);
+                let _bounds = windows.ability?.getBounds();
+                _bounds ? config.abilityWindow = windows.ability?.getBounds() : void 0;
                 windows.ability?.webContents.send('updateView', config.numberOfIcons);
                 break;
             }
         }
         event.returnValue = null
     }
-}
+}   
