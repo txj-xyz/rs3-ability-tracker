@@ -1,5 +1,11 @@
 [
   {
+    "name": "Auto Attack",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Auto_Attack.png",
+    "customIcon": null
+  },
+  {
     "name": "Cease (ability)",
     "type": "constitution",
     "icon": "../game-asset-groups/abilities/constitution/Cease_(ability).png",
@@ -171,6 +177,12 @@
     "name": "Revenge",
     "type": "defensive",
     "icon": "../game-asset-groups/abilities/defensive/Revenge.png",
+    "customIcon": null
+  },
+  {
+    "name": "Familiar Interaction",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Familiar_Interaction.png",
     "customIcon": null
   },
   {
@@ -375,6 +387,12 @@
     "name": "Blood Tendrils",
     "type": "melee",
     "icon": "../game-asset-groups/abilities/melee/Blood_Tendrils.png",
+    "customIcon": null
+  },
+  {
+    "name": "Chaos Roar",
+    "type": "melee",
+    "icon": "../game-asset-groups/abilities/melee/Chaos_Roar.png",
     "customIcon": null
   },
   {
@@ -738,6 +756,12 @@
     "customIcon": null
   },
   {
+    "name": "Target Cycle",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Target_Cycle.png",
+    "customIcon": null
+  },
+  {
     "name": "Target Cycle Backwards",
     "type": "abilities",
     "icon": "../game-asset-groups/abilities/Target_Cycle_Backwards.png",
@@ -756,6 +780,420 @@
     "customIcon": null
   },
   {
+    "name": "Elite tectonic mask",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_mask.png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic mask (Barrows)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_mask_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic mask (blood)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_mask_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic mask (ice)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_mask_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic mask (shadow)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_mask_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic mask (Third Age)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_mask_(Third_Age).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe bottom",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_bottom.png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe bottom (Barrows)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_bottom_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe bottom (blood)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_bottom_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe bottom (ice)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_bottom_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe bottom (shadow)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_bottom_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe bottom (Third Age)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_bottom_(Third_Age).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe top",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top.png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe top (Barrows)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe top (blood)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe top (ice)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe top (shadow)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe top (Third Age)",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top_(Third_Age).png",
+    "customIcon": null
+  },
+  {
+    "name": "Jaws of the Abyss",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Jaws_of_the_Abyss.png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent cuirass",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_cuirass.png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent cuirass (Barrows)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_cuirass_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent cuirass (blood)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_cuirass_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent cuirass (ice)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_cuirass_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent cuirass (shadow)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_cuirass_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent cuirass (Third Age)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_cuirass_(Third_Age).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent greaves",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_greaves.png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent greaves (Barrows)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_greaves_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent greaves (blood)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_greaves_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent greaves (ice)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_greaves_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent greaves (shadow)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_greaves_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent greaves (Third Age)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_greaves_(Third_Age).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent helm",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_helm.png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent helm (Barrows)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_helm_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent helm (blood)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_helm_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent helm (ice)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_helm_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent helm (shadow)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_helm_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent helm (Third Age)",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Malevolent_helm_(Third_Age).png",
+    "customIcon": null
+  },
+  {
+    "name": "Masterwork boots",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Masterwork_boots.png",
+    "customIcon": null
+  },
+  {
+    "name": "Masterwork gloves",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Masterwork_gloves.png",
+    "customIcon": null
+  },
+  {
+    "name": "Masterwork helm",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Masterwork_helm.png",
+    "customIcon": null
+  },
+  {
+    "name": "Masterwork platebody",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Masterwork_platebody.png",
+    "customIcon": null
+  },
+  {
+    "name": "Masterwork platelegs",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Masterwork_platelegs.png",
+    "customIcon": null
+  },
+  {
+    "name": "Trimmed masterwork boots",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Trimmed_masterwork_boots.png",
+    "customIcon": null
+  },
+  {
+    "name": "Trimmed masterwork gloves",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Trimmed_masterwork_gloves.png",
+    "customIcon": null
+  },
+  {
+    "name": "Trimmed masterwork helm",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Trimmed_masterwork_helm.png",
+    "customIcon": null
+  },
+  {
+    "name": "Trimmed masterwork platebody",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Trimmed_masterwork_platebody.png",
+    "customIcon": null
+  },
+  {
+    "name": "Trimmed masterwork platelegs",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Trimmed_masterwork_platelegs.png",
+    "customIcon": null
+  },
+  {
+    "name": "Vestments of havoc boots",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Vestments_of_havoc_boots.png",
+    "customIcon": null
+  },
+  {
+    "name": "Vestments of havoc hood",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Vestments_of_havoc_hood.png",
+    "customIcon": null
+  },
+  {
+    "name": "Vestments of havoc robe bottom",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Vestments_of_havoc_robe_bottom.png",
+    "customIcon": null
+  },
+  {
+    "name": "Vestments of havoc robe top",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Vestments_of_havoc_robe_top.png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic chaps",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_chaps.png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic chaps (Barrows)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_chaps_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic chaps (blood)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_chaps_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic chaps (ice)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_chaps_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic chaps (shadow)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_chaps_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic chaps (Third Age)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_chaps_(Third_Age).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic hauberk",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_hauberk.png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic hauberk (Barrows)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_hauberk_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic hauberk (blood)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_hauberk_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic hauberk (ice)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_hauberk_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic hauberk (shadow)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_hauberk_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic hauberk (Third Age)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_hauberk_(Third_Age).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic mask",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_mask.png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic mask (Barrows)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_mask_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic mask (blood)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_mask_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic mask (ice)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_mask_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic mask (shadow)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_mask_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic mask (Third Age)",
+    "type": "range",
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_mask_(Third_Age).png",
+    "customIcon": null
+  },
+  {
     "name": "Ancient elven ritual shard",
     "type": "items",
     "icon": "../game-asset-groups/items/Ancient_elven_ritual_shard.png",
@@ -771,6 +1209,12 @@
     "name": "Combat training dummy",
     "type": "items",
     "icon": "../game-asset-groups/items/Combat_training_dummy.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dominion mine",
+    "type": "items",
+    "icon": "../game-asset-groups/items/Dominion_mine.png",
     "customIcon": null
   },
   {
@@ -855,6 +1299,102 @@
     "name": "Dragonrider amulet",
     "type": "necklaces",
     "icon": "../game-asset-groups/items/necklaces/Dragonrider_amulet.png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet.png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (black)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(black).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (blue)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(blue).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (green)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(green).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (or)(black)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(or)(black).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (or)(blue)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(or)(blue).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (or)(green)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(or)(green).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (or)(pink)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(or)(pink).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (or)(purple)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(or)(purple).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (or)(red)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(or)(red).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (or)(yellow)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(or)(yellow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (or)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(or).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (pink)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(pink).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (purple)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(purple).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (red)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(red).png",
+    "customIcon": null
+  },
+  {
+    "name": "Essence of Finality amulet (yellow)",
+    "type": "necklaces",
+    "icon": "../game-asset-groups/items/necklaces/Essence_of_Finality_amulet_(yellow).png",
     "customIcon": null
   },
   {
@@ -1053,6 +1593,12 @@
     "name": "Tirannwn quiver 4",
     "type": "pocket-slot",
     "icon": "../game-asset-groups/items/pocket-slot/Tirannwn_quiver_4.png",
+    "customIcon": null
+  },
+  {
+    "name": "Poison bomb",
+    "type": "items",
+    "icon": "../game-asset-groups/items/Poison_bomb.png",
     "customIcon": null
   },
   {
@@ -1440,6 +1986,12 @@
     "customIcon": null
   },
   {
+    "name": "Kalphite defender",
+    "type": "shields",
+    "icon": "../game-asset-groups/shields/Kalphite_defender.png",
+    "customIcon": null
+  },
+  {
     "name": "Malevolent kiteshield",
     "type": "shields",
     "icon": "../game-asset-groups/shields/Malevolent_kiteshield.png",
@@ -1464,6 +2016,12 @@
     "customIcon": null
   },
   {
+    "name": "Auto Attack",
+    "type": "slot-icons",
+    "icon": "../game-asset-groups/slot-icons/Auto_Attack.png",
+    "customIcon": null
+  },
+  {
     "name": "MH Weapon",
     "type": "slot-icons",
     "icon": "../game-asset-groups/slot-icons/MH_Weapon.png",
@@ -1485,6 +2043,12 @@
     "name": "Shield Slot",
     "type": "slot-icons",
     "icon": "../game-asset-groups/slot-icons/Shield_Slot.png",
+    "customIcon": null
+  },
+  {
+    "name": "Animate Dead",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Animate_Dead.png",
     "customIcon": null
   },
   {
@@ -1524,6 +2088,36 @@
     "customIcon": null
   },
   {
+    "name": "Enfeeble",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Enfeeble.png",
+    "customIcon": null
+  },
+  {
+    "name": "Entangle",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Entangle.png",
+    "customIcon": null
+  },
+  {
+    "name": "Exsanguinate",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Exsanguinate.png",
+    "customIcon": null
+  },
+  {
+    "name": "Heal Grouppng",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Heal_Grouppng.png",
+    "customIcon": null
+  },
+  {
+    "name": "Heal Other",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Heal_Other.png",
+    "customIcon": null
+  },
+  {
     "name": "Ice Barrage",
     "type": "spells",
     "icon": "../game-asset-groups/spells/Ice_Barrage.png",
@@ -1545,6 +2139,12 @@
     "name": "Ice Rush",
     "type": "spells",
     "icon": "../game-asset-groups/spells/Ice_Rush.png",
+    "customIcon": null
+  },
+  {
+    "name": "Incite Fear",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Incite_Fear.png",
     "customIcon": null
   },
   {
@@ -1656,9 +2256,27 @@
     "customIcon": null
   },
   {
+    "name": "Spellbook Swap (Ancient)",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Spellbook_Swap_(Ancient).png",
+    "customIcon": null
+  },
+  {
     "name": "Vengeance",
     "type": "spells",
     "icon": "../game-asset-groups/spells/Vengeance.png",
+    "customIcon": null
+  },
+  {
+    "name": "Vengeance Group",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Vengeance_Group.png",
+    "customIcon": null
+  },
+  {
+    "name": "Vengeance Other",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Vengeance_Other.png",
     "customIcon": null
   },
   {
@@ -1788,6 +2406,12 @@
     "customIcon": null
   },
   {
+    "name": "Virtus Book",
+    "type": "magic",
+    "icon": "../game-asset-groups/weapons/magic/Virtus_Book.png",
+    "customIcon": null
+  },
+  {
     "name": "Wand of the praesul",
     "type": "magic",
     "icon": "../game-asset-groups/weapons/magic/Wand_of_the_praesul.png",
@@ -1893,6 +2517,12 @@
     "name": "Kalphite defender",
     "type": "melee",
     "icon": "../game-asset-groups/weapons/melee/Kalphite_defender.png",
+    "customIcon": null
+  },
+  {
+    "name": "Keris",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Keris.png",
     "customIcon": null
   },
   {
@@ -2028,6 +2658,12 @@
     "customIcon": null
   },
   {
+    "name": "Off-hand ripper claw",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Off-hand_ripper_claw.png",
+    "customIcon": null
+  },
+  {
     "name": "Offhand drygore longsword",
     "type": "melee",
     "icon": "../game-asset-groups/weapons/melee/Offhand_drygore_longsword.png",
@@ -2049,6 +2685,12 @@
     "name": "Revenant bane 2h sword",
     "type": "melee",
     "icon": "../game-asset-groups/weapons/melee/Revenant_bane_2h_sword.png",
+    "customIcon": null
+  },
+  {
+    "name": "Ripper claw",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Ripper_claw.png",
     "customIcon": null
   },
   {
