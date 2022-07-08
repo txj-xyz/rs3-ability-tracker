@@ -23,7 +23,7 @@
     "electron-reloader": "^1.2.3"
   },
   "dependencies": {
-    "electron-active-window": "^0.0.6",
+    "active-win": "^7.7.2",
     "electron-squirrel-startup": "^1.0.0",
     "github-version-checker": "^2.3.0",
     "uiohook-napi": "^1.2.0"
