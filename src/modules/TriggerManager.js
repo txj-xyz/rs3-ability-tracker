@@ -1,5 +1,5 @@
 // Import dependencies.
-const [Manager, { uIOhook, UiohookKey }, activeWindows] = ['../base/Manager.js', 'uiohook-napi', 'electron-active-window'].map(require);
+const [Manager, { uIOhook }, activeWindow] = ['../base/Manager.js', 'uiohook-napi', 'active-win'].map(require);
 
 // Function to get frontend page paths.
 module.exports = class Trigger extends Manager {
@@ -20,11 +20,15 @@ module.exports = class Trigger extends Manager {
     initListeners() {
         unregister();
         uIOhook.on('keydown', async event => {
-            if (!await this.rs3Instance()) return;
-            const hash = this.hashEvent(event);
-            if (!this.keyCheck[event.keycode]) this.keyCheck[event.keycode] = new Map();
-            if (!this.keyCheck[event.keycode].get(hash)) this.handleKeyPress(event);
-            this.keyCheck[event.keycode].set(hash, true);
+            // if (!await this.rs3Instance()) return;
+            activeWindow({ screenRecordingPermission: false }).then(result => {
+                if (__devMode || result.owner.name.match(/(rs2client|RuneScape)/g)) {
+                    const hash = this.hashEvent(event);
+                    if (!this.keyCheck[event.keycode]) this.keyCheck[event.keycode] = new Map();
+                    if (!this.keyCheck[event.keycode].get(hash)) this.handleKeyPress(event);
+                    this.keyCheck[event.keycode].set(hash, true);
+                }
+            })
         });
 
         // Listen to keyup.
@@ -38,12 +42,15 @@ module.exports = class Trigger extends Manager {
         return this.getKeyName('a', ev.altKey) + this.getKeyName('c', ev.ctrlKey) + this.getKeyName('m', ev.metaKey) + this.getKeyName('s', ev.shiftKey) + ev.keycode;
     }
 
-    async rs3Instance() {
-        if (__devMode) return true;
-        const window = await activeWindows().getActiveWindow()
-        const instance = window.windowName.match(/(rs2client|RuneScape)/g)?.[0] ? true : false;
-        return instance
-    }
+    // async rs3Instance() {
+    //     // if (__devMode || (__platform === 'darwin' && process.arch === 'arm64')) return true;
+    //     if (__devMode) return true;
+    //     const window = await activeWindow()
+    //     // console.log(window.owner.name.match(/(rs2client|RuneScape)/g) ? true : false)
+    //     let instance = window.owner.name.match(/(rs2client|RuneScape)/g)?.[0] ? true : false;
+    //     // console.log(instance)
+    //     return instance
+    // }
 
     getKeyName(name, val) {
         return val ? name : '';
