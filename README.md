@@ -14,7 +14,7 @@
 
 ## Downloading / Installation
  - You can read the [Wiki Page for instructions on how to use / install the program](https://github.com/txj-xyz/rs3-ability-tracker/wiki)
-
+ - If you need help, head over to the Discord support server: https://discord.gg/HRqNJeQfz7
 
 ## Building from Source
 
