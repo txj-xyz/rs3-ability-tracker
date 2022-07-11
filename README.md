@@ -16,7 +16,7 @@
 [![Hits](https://hits.sh/github.com/txj-xyz/rs3-ability-tracker.svg)](https://hits.sh/github.com/txj-xyz/rs3-ability-tracker/)
 
 ## Downloading / Installation
- - You can read the [Wiki Page for instructions on how to use / install the program](https://github.com/txj-xyz/rs3-ability-tracker/wiki)
+ - You can read the [Wiki Page for instructions on how to use / install the program](https://github.com/txj-xyz/rs3-ability-tracker/issues)
  - If you need help, head over to the Discord support server: https://discord.gg/HRqNJeQfz7
 
 ## Building from Source
@@ -33,7 +33,7 @@
  npm electron-forge start
  ```
  
-Releases will be built and posted under the [Releases Page](https://github.com/txj-xyz/rs3-ability-tracker/releases/latest) using GitHub Workflows soon™️.
+Releases will be built and posted under the [Releases Page](https://github.com/txj-xyz/rs3-ability-tracker/releases/latest) using GitHub Actions.
 
 We use [Electron Forge](https://www.electronforge.io/) for building into Installers and Zip files with a pre-compiled `asar` given to compress the data for maximum deployability, you can disable this inside of the `packagerConfig: {}` object inside of `package.json`
 
