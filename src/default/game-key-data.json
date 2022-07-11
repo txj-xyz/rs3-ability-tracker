@@ -180,6 +180,36 @@
     "customIcon": null
   },
   {
+    "name": "Extra Action Button(Kera)",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Kera).png",
+    "customIcon": null
+  },
+  {
+    "name": "Extra Action Button(Raksha)",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Raksha).png",
+    "customIcon": null
+  },
+  {
+    "name": "Extra Action Button(Solak)",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Solak).png",
+    "customIcon": null
+  },
+  {
+    "name": "Extra Action Button(Zamorak)",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Zamorak).png",
+    "customIcon": null
+  },
+  {
+    "name": "Extra Action Button(Zuk)",
+    "type": "abilities",
+    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Zuk).png",
+    "customIcon": null
+  },
+  {
     "name": "Familiar Interaction",
     "type": "abilities",
     "icon": "../game-asset-groups/abilities/Familiar_Interaction.png",
@@ -2472,15 +2502,87 @@
     "customIcon": null
   },
   {
+    "name": "Dark Ice Shard",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Ice_Shard.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Ice Sliver",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Ice_Sliver.png",
+    "customIcon": null
+  },
+  {
     "name": "Dark Shard of Leng",
     "type": "melee",
     "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng.png",
     "customIcon": null
   },
   {
+    "name": "Dark Shard of Leng (Barrows)",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Shard of Leng (blood)",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Shard of Leng (ice)",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Shard of Leng (shadow)",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Shard of Leng (Third Age)",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(Third_Age).png",
+    "customIcon": null
+  },
+  {
     "name": "Dark Sliver of Leng",
     "type": "melee",
     "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Sliver of Leng (Barrows)",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Sliver of Leng (blood)",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Sliver of Leng (ice)",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Sliver of Leng (shadow)",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Sliver of Leng (Third Age)",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(Third_Age).png",
     "customIcon": null
   },
   {
@@ -2757,6 +2859,42 @@
     "name": "Ascension crossbow (shadow)",
     "type": "range",
     "icon": "../game-asset-groups/weapons/range/Ascension_crossbow_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Bow of the Last Guardian",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Bow_of_the_Last_Guardian.png",
+    "customIcon": null
+  },
+  {
+    "name": "Bow of the Last Guardian (Barrows)",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Bow_of_the_Last_Guardian_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Bow of the last Guardian (blood)",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Bow_of_the_last_Guardian_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Bow of the last Guardian (ice)",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Bow_of_the_last_Guardian_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Bow of the last Guardian (shadow)",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Bow_of_the_last_Guardian_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Bow of the Last Guardian (Third Age)",
+    "type": "range",
+    "icon": "../game-asset-groups/weapons/range/Bow_of_the_Last_Guardian_(Third_Age).png",
     "customIcon": null
   },
   {
