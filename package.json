@@ -26,6 +26,7 @@
   "dependencies": {
     "active-win": "^7.7.2",
     "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.0.2",
     "github-version-checker": "^2.3.0",
     "uiohook-napi": "^1.2.0"
   }

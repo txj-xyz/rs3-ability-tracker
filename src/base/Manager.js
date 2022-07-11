@@ -1,5 +1,5 @@
 // Import dependencies.
-const [{ readdirSync, existsSync, writeFileSync, mkdirSync, unlinkSync }, { resolve }, { app }] = ['fs', 'path', 'electron'].map(require);
+const [{ readdirSync, existsSync, writeFileSync, mkdirSync, unlinkSync }, { resolve }, { app }, Store] = ['fs', 'path', 'electron', 'electron-store'].map(require);
 
 // Load all modules into global.
 module.exports = class Manager {
@@ -20,6 +20,9 @@ module.exports = class Manager {
 
     static __userData = app.getPath('userData');
 
+    // Load storage
+    static store = new Store({ name: 'local_storage' });
+
     // Loading logic.
     static load() {
         this.once = this.once ? true : false;
@@ -37,14 +40,14 @@ module.exports = class Manager {
         return this;
     }
 
-    static checkCustomFolder () {
+    static checkCustomFolder() {
         const customPath = resolve(this.__userData, '.custom');
-        if(!existsSync(customPath)){
-            mkdirSync(customPath)
+        if (!existsSync(customPath)) {
+            mkdirSync(customPath);
         }
         return customPath;
     }
-    
+
     // Update AppData assets with new files from generated on build assets (aka: new icons)
     static checkAssets(oldAssets, newAssets) {
         let oldProps = oldAssets.map(set => set.name);
@@ -64,7 +67,7 @@ module.exports = class Manager {
         readdirSync(this.checkCustomFolder()).map(file => {
             const filepath = resolve(this.checkCustomFolder(), file).replace(/\\/g, '/');
             if (!merged.find(set => set.customIcon === filepath)) unlinkSync(filepath);
-        })
+        });
 
         return merged;
     }
