@@ -8,6 +8,7 @@ module.exports = class Trigger extends Manager {
         timestamp: 0,
     };
     keyCheck = [];
+    pauseOnChatbox = false;
     activeBar = config.barsSelection;
     spamCooldown = 2000;
     keybinds = null;
@@ -28,7 +29,7 @@ module.exports = class Trigger extends Manager {
                     if (!this.keyCheck[event.keycode].get(hash)) this.handleKeyPress(event);
                     this.keyCheck[event.keycode].set(hash, true);
                 }
-            })
+            });
         });
 
         // Listen to keyup.
@@ -64,28 +65,37 @@ module.exports = class Trigger extends Manager {
                 .map(prop => (prop.endsWith('Key') && trigger[prop] ? prop : null))
                 .filter(e => e);
             const key = keycodes.reverseMap.get(trigger.keycode.toString());
+            //prettier-ignore
             if (Object.keys(modifiers).map(k => modifiers[k]).includes(key)) return
             const possibleKeys = pressedModifiers.some(e => e) ? pressedModifiers.map(mod => `${modifiers[mod]} + ${key}`) : [key];
 
-            for (const keybind of possibleKeys) {
-                let binds = config.referenceStorage.keybinds.filter(e => e.keybind === keybind);
-                let globals = binds.filter(e => e.bar === 'Global');
-                binds = binds.filter(e => e.bar !== 'Global');
-                globals.map(e => binds.push(e));
-                for (const bind of binds) {
-                    if (!success) {
-                        if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < this.spamCooldown) return;
-                        const reference = library.get(bind.name);
+            if(key.toLowerCase() === 'enter'){
+                this.pauseOnChatbox = !this.pauseOnChatbox;
+            }
 
-                        //swap bar if triggered bind is not on the same bar
-                        if (config.toggleSwitching && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase())
-                            this.activeBar = bind.bar;
-
-                        if ([this.activeBar, 'Global'].includes(bind.bar)) {
-                            success = true;
-                            this.lastKey.value = bind.name;
-                            this.lastKey.timestamp = Date.now();
-                            windows.ability?.webContents.send('abilityData', { icon: reference.customIcon ?? reference.icon, perk: bind.perk ? library.get(bind.perk).icon : null });
+            if(this.pauseOnChatbox === false) {
+                for (const keybind of possibleKeys) {
+                    let binds = config.referenceStorage.keybinds.filter(e => e.keybind === keybind);
+                    let globals = binds.filter(e => e.bar === 'Global');
+                    binds = binds.filter(e => e.bar !== 'Global');
+                    globals.map(e => binds.push(e));
+                    for (const bind of binds) {
+                        if (!success) {
+                            if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < this.spamCooldown) return;
+                            const reference = library.get(bind.name);
+    
+                            console.log(key)
+                            //swap bar if triggered bind is not on the same bar
+                            if (config.toggleSwitching && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) {
+                                this.activeBar = bind.bar;
+                            }
+    
+                            if ([this.activeBar, 'Global'].includes(bind.bar)) {
+                                success = true;
+                                this.lastKey.value = bind.name;
+                                this.lastKey.timestamp = Date.now();
+                                windows.ability?.webContents.send('abilityData', { icon: reference.customIcon ?? reference.icon, perk: bind.perk ? library.get(bind.perk).icon : null });
+                            }
                         }
                     }
                 }
