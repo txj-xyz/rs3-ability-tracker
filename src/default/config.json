@@ -12,6 +12,13 @@
     },
     "referenceStorage": {
         "keybinds": [],
-        "bars": []
+        "bars": [
+            "Range Dual Wield",
+            "Range 2h",
+            "Melee Dual Wield",
+            "Melee 2h",
+            "Magic Dual Wield",
+            "Magic 2h"
+          ]
     }
 }
