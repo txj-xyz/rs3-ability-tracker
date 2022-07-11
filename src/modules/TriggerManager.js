@@ -69,9 +69,8 @@ module.exports = class Trigger extends Manager {
             if (Object.keys(modifiers).map(k => modifiers[k]).includes(key)) return
             const possibleKeys = pressedModifiers.some(e => e) ? pressedModifiers.map(mod => `${modifiers[mod]} + ${key}`) : [key];
 
-            if (key.toLowerCase() === 'enter'){
-                this.pauseOnChatbox = !this.pauseOnChatbox;
-            }
+            key.toLowerCase() === 'enter' ? this.pauseOnChatbox = !this.pauseOnChatbox : void 0;
+            if(key.toLowerCase() === 'escape' && this.pauseOnChatbox) this.pauseOnChatbox = !this.pauseOnChatbox
 
             if (this.pauseOnChatbox === false) {
                 for (const keybind of possibleKeys) {
