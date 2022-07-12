@@ -28,7 +28,7 @@ jobs:
         uses: nyaa8/package-version@v1
 
       - name: Install
-        run: yarn --network-timeout 100000 || yarn --network-timeout 100000 || yarn --network-timeout 100000
+        run: yarn --network-timeout 1000000 || yarn --network-timeout 1000000 || yarn --network-timeout 1000000
       
       - name: Rebuild Windows Natives
         if: |
@@ -63,5 +63,7 @@ jobs:
           draft: false
           files: |
             out/**/*.dmg
+            out/**/RELEASES
+            out/**/*.nupkg
             out/**/*-Installer.exe
             out/**/*win32*.zip
