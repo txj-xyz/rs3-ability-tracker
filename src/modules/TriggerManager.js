@@ -21,7 +21,6 @@ module.exports = class Trigger extends Manager {
     initListeners() {
         unregister();
         uIOhook.on('keydown', async event => {
-            // if (!await this.rs3Instance()) return;
             activeWindow({ screenRecordingPermission: false }).then(result => {
                 if (__devMode || result.owner.name.match(/(rs2client|RuneScape)/g)) {
                     const hash = this.hashEvent(event);
@@ -42,16 +41,6 @@ module.exports = class Trigger extends Manager {
     hashEvent(ev) {
         return this.getKeyName('a', ev.altKey) + this.getKeyName('c', ev.ctrlKey) + this.getKeyName('m', ev.metaKey) + this.getKeyName('s', ev.shiftKey) + ev.keycode;
     }
-
-    // async rs3Instance() {
-    //     // if (__devMode || (__platform === 'darwin' && process.arch === 'arm64')) return true;
-    //     if (__devMode) return true;
-    //     const window = await activeWindow()
-    //     // console.log(window.owner.name.match(/(rs2client|RuneScape)/g) ? true : false)
-    //     let instance = window.owner.name.match(/(rs2client|RuneScape)/g)?.[0] ? true : false;
-    //     // console.log(instance)
-    //     return instance
-    // }
 
     getKeyName(name, val) {
         return val ? name : '';
