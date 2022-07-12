@@ -1,4 +1,3 @@
-const { windows, store } = require('../base/Manager.js');
 const Window = require('../base/Window.js');
 
 module.exports = class Main extends Window {

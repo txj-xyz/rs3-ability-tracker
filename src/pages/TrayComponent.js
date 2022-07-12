@@ -1,7 +1,4 @@
-const { uIOhook } = require("uiohook-napi");
-const Update = require( "./UpdateWindow" );
-
-const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app, BrowserWindow: { getFocusedWindow }, globalShortcut, ipcMain }] = ['path', 'electron'].map(require)
+const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app, BrowserWindow: { getFocusedWindow }, globalShortcut, ipcMain }, uIOhook] = ['path', 'electron', 'uiohook-napi'].map(require)
 
 module.exports = class Taskbar {
     constructor() {
