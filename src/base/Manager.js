@@ -20,6 +20,8 @@ module.exports = class Manager {
 
     static __userData = app.getPath('userData');
 
+    static __devMode = process.argv[2] ?? false;
+
     // Load storage
     static store = new Store({ name: 'local_storage' });
 
