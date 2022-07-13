@@ -22,7 +22,6 @@ module.exports = class Ability extends Window {
         windows.ability?.on('moved', this.updateSize);
         windows.ability?.on('resized', this.updateSize);
         windows.ability?.setAspectRatio(config.numberOfIcons);
-        
     }
 
     fixBounds = _ => {
