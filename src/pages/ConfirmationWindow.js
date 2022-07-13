@@ -8,15 +8,16 @@ module.exports = class Confirmation extends Window {
 
     confirmationListener = (event, param) => {
         if(param) {
+            new Ability();
             windows.ability?.show();
             windows.ability?.focus();
             if (__platform === 'darwin') windows.ability?.setWindowButtonVisibility(false);
             windows.ability?.setAlwaysOnTop(true, "screen-saver");
             windows.ability?.setVisibleOnAllWorkspaces(true);
             windows.ability?.setBackgroundThrottling(false);
-            new Trigger()
-        } else {
-            windows.ability?.close()
+            new Trigger();
+            windows.confirmation?.close()
+            setTimeout(_ => windows.main?.isVisible() && config.minimizeToTray ? windows.main.hide() : void 0 , 150);
         }
         windows.confirmation?.close()
         event.returnValue = null;

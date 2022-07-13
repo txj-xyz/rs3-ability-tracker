@@ -16,7 +16,6 @@ module.exports = class Ability extends Window {
             alwaysOnTop: true,
             movable: !config.lockTrackerWindow,
         });
-        new Confirmation();
         this.fixBounds();
         windows.ability?.on('ready-to-show', this.updateSize)
         windows.ability?.on('moved', this.updateSize);
@@ -31,13 +30,6 @@ module.exports = class Ability extends Window {
             }
         }, 50);
     };
-
-    // updatePostition = _ => {
-    //     const [x, y] = windows.ability.getPosition();
-    //     config.abilityWindow.x = x;
-    //     config.abilityWindow.y = y;
-    //     this.fixBounds();
-    // };
 
     updateSize = _ => {
         // get position
