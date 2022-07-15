@@ -55,7 +55,7 @@ main > div > div {
     bottom: 5px;
     max-height: 50%;
     max-width: 50%;
-    padding-left: 80px;
+    margin-left: 9%;
     object-fit: contain;
     display: block !important;
     position: absolute;
