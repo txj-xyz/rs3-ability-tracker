@@ -32,12 +32,13 @@ main > div:last-child::after {
     border-radius: 7px !important;
 }
 
+/* Abilities */
 img {
-    height: 95%;
-    width: 95%;
+    height: 90%;
+    width: 90%;
     object-fit: contain;
-    max-height: 95%;
-    max-width: 95%;
+    max-height: 90%;
+    max-width: 90%;
 }
 
 main > div > div > img {
@@ -49,6 +50,7 @@ main > div > div > img {
     margin-left: 5px;
 }
 
+/* perk images */
 main > div > div {
     height: 50%;
     width: inherit;
@@ -58,6 +60,6 @@ main > div > div {
     object-fit: contain;
     display: block !important;
     position: absolute;
-    /* margin-left: 50px; */
+    margin-left: 9%;
     z-index: 100;
 }
