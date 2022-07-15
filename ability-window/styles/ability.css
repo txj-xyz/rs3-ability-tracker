@@ -55,9 +55,9 @@ main > div > div {
     bottom: 5px;
     max-height: 50%;
     max-width: 50%;
-    margin-left: 9%;
     object-fit: contain;
     display: block !important;
     position: absolute;
+    /* margin-left: 50px; */
     z-index: 100;
 }
