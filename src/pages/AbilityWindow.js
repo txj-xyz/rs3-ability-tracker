@@ -26,12 +26,6 @@ module.exports = class Ability extends Window {
             windows.ability?.setEnabled(false);
             windows.ability?.setEnabled(true);
         });
-        // windows.ability?.hookWindowMessage(WM_MOVING, () => {
-        //     if(config.lockTrackerWindow == true) {
-        //         windows.ability?.setPosition(config.abilityWindow.x, config.abilityWindow.y)
-        //     }
-        // });
-        
         windows.ability?.setAspectRatio(config.numberOfIcons);
     }
 
