@@ -1230,6 +1230,12 @@
     "customIcon": null
   },
   {
+    "name": "Berserk blood essence",
+    "type": "items",
+    "icon": "../game-asset-groups/items/Berserk_blood_essence.png",
+    "customIcon": null
+  },
+  {
     "name": "Combat dummy MKII",
     "type": "items",
     "icon": "../game-asset-groups/items/Combat_dummy_MKII.png",
