@@ -20,9 +20,7 @@ module.exports = class Ability extends Window {
         windows.ability?.on('ready-to-show', this.updateSize)
         windows.ability?.on('moved', this.updateSize);
         windows.ability?.on('resized', this.updateSize);
-        const WM_INITMENU = 0x0116;
-        // const WM_MOVING = 0x0216;
-        windows.ability?.hookWindowMessage(WM_INITMENU, () => {
+        windows.ability?.hookWindowMessage(0x0116, () => {
             windows.ability?.setEnabled(false);
             windows.ability?.setEnabled(true);
         });
