@@ -41,6 +41,7 @@ img {
     max-width: 90%;
 }
 
+
 main > div > div > img {
     height: 100%;
     width: auto;
@@ -60,6 +61,6 @@ main > div > div {
     object-fit: contain;
     display: block !important;
     position: absolute;
-    margin-left: 9%;
+    margin-left: 7%;
     z-index: 100;
 }
