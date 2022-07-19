@@ -810,6 +810,42 @@
     "customIcon": null
   },
   {
+    "name": "Anima core body of Seren",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Anima_core_body_of_Seren.png",
+    "customIcon": null
+  },
+  {
+    "name": "Anima core body of Sliske",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Anima_core_body_of_Sliske.png",
+    "customIcon": null
+  },
+  {
+    "name": "Anima core helm of Seren",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Anima_core_helm_of_Seren.png",
+    "customIcon": null
+  },
+  {
+    "name": "Anima core helm of Sliske",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Anima_core_helm_of_Sliske.png",
+    "customIcon": null
+  },
+  {
+    "name": "Anima core legs of Seren",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Anima_core_legs_of_Seren.png",
+    "customIcon": null
+  },
+  {
+    "name": "Anima core legs of Sliske",
+    "type": "magic",
+    "icon": "../game-asset-groups/armor/magic/Anima_core_legs_of_Sliske.png",
+    "customIcon": null
+  },
+  {
     "name": "Elite tectonic mask",
     "type": "magic",
     "icon": "../game-asset-groups/armor/magic/Elite_tectonic_mask.png",
@@ -915,6 +951,24 @@
     "name": "Elite tectonic robe top (Third Age)",
     "type": "magic",
     "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top_(Third_Age).png",
+    "customIcon": null
+  },
+  {
+    "name": "Anima core body of Zaros",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Anima_core_body_of_Zaros.png",
+    "customIcon": null
+  },
+  {
+    "name": "Anima core helm of Zaros",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Anima_core_helm_of_Zaros.png",
+    "customIcon": null
+  },
+  {
+    "name": "Anima core legs of Zaros",
+    "type": "melee",
+    "icon": "../game-asset-groups/armor/melee/Anima_core_legs_of_Zaros.png",
     "customIcon": null
   },
   {
