@@ -12,6 +12,7 @@ module.exports = class Manager {
             show: false,
             titleBarStyle: 'hidden',
             webPreferences: {
+                // nodeIntegrationInWorker: true, Multithreading experimental
                 nodeIntegration: true,
                 contextIsolation: false,
             },
