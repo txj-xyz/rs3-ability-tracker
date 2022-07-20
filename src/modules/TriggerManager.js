@@ -64,8 +64,10 @@ module.exports = class Trigger extends Manager {
                 globals.map(e => binds.push(e));
                 for (const bind of binds) {
                     if (!success) {
+                        // anti-spam
                         if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < this.spamCooldown) return;
                         const reference = library.get(bind.name);
+
                         //swap bar if triggered bind is not on the same bar
                         if (config.toggleSwitching && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) {
                             this.activeBar = bind.bar;
