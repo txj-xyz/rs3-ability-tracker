@@ -32,7 +32,7 @@ module.exports = class Ability extends Window {
             if (windows.ability?.getSize()[0] !== config.abilityWindow.height * config.numberOfIcons) {
                 windows.ability?.setSize(config.abilityWindow.height * config.numberOfIcons, config.abilityWindow.height);
             }
-        }, 50);
+        }, 100);
     };
 
     updateSize = _ => {
