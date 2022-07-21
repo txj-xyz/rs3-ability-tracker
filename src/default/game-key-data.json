@@ -3395,6 +3395,41 @@
     "customIcon": null
   },
   {
+    "name": "Zaros godsword (Barrows)",
+    "type": "melee",
+    "style": null,
+    "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Zaros godsword (blood)",
+    "type": "melee",
+    "style": null,
+    "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(blood).png",
+    "customIcon": null
+  },
+  {
+    "name": "Zaros godsword (ice)",
+    "type": "melee",
+    "style": null,
+    "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(ice).png",
+    "customIcon": null
+  },
+  {
+    "name": "Zaros godsword (shadow)",
+    "type": "melee",
+    "style": null,
+    "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Zaros godsword (Third Age)",
+    "type": "melee",
+    "style": null,
+    "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(Third_Age).png",
+    "customIcon": null
+  },
+  {
     "name": "Ancient repriser",
     "type": "range",
     "style": null,
