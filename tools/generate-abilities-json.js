@@ -30,6 +30,7 @@ walkSync(path, (filepath, pathDetails) => {
     filesMap.push({
         name: abilName,
         type: pathDetails.name.replace(/\\/g, '/').split(/\//g).pop(),
+        style: null,
         icon: iconPath,
         customIcon: null,
     });
