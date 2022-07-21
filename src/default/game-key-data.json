@@ -2004,6 +2004,12 @@
     "customIcon": null
   },
   {
+    "name": "Quick Prayer",
+    "type": "prayers",
+    "icon": "../game-asset-groups/prayers/Quick_Prayer.png",
+    "customIcon": null
+  },
+  {
     "name": "Sap Defence",
     "type": "prayers",
     "icon": "../game-asset-groups/prayers/Sap_Defence.png",
@@ -2244,6 +2250,12 @@
     "customIcon": null
   },
   {
+    "name": "Max Guild Teleport",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Max_Guild_Teleport.png",
+    "customIcon": null
+  },
+  {
     "name": "Opal Aurora",
     "type": "spells",
     "icon": "../game-asset-groups/spells/Opal_Aurora.png",
@@ -2367,6 +2379,12 @@
     "name": "Vengeance Other",
     "type": "spells",
     "icon": "../game-asset-groups/spells/Vengeance_Other.png",
+    "customIcon": null
+  },
+  {
+    "name": "Wars Retreat Teleport",
+    "type": "spells",
+    "icon": "../game-asset-groups/spells/Wars_Retreat_Teleport.png",
     "customIcon": null
   },
   {
@@ -2841,6 +2859,12 @@
     "name": "Offhand drygore rapier",
     "type": "melee",
     "icon": "../game-asset-groups/weapons/melee/Offhand_drygore_rapier.png",
+    "customIcon": null
+  },
+  {
+    "name": "Purple flowers",
+    "type": "melee",
+    "icon": "../game-asset-groups/weapons/melee/Purple_flowers.png",
     "customIcon": null
   },
   {
