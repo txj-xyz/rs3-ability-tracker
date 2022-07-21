@@ -59,7 +59,7 @@ module.exports = class Taskbar {
                             windows.ability.close();
                             if (!windows.main?.isVisible()) new Main();
                         } else {
-                            ability();
+                            new Confirmation();
                             if (windows.main?.isVisible() && config.minimizeToTray) windows.main.hide();
                         }
                         this.reload();
