@@ -73,3 +73,18 @@ div.disable {
     user-select: none !important;
     pointer-events: none;
 }
+
+/* div[config] {
+    display: none !important;
+} */
+
+div#import {
+    width: 104px;
+    /* width: 50%; */
+    display: inline-flex !important;
+}
+
+div#export {
+    /* width: 110px; */
+    display: inline-flex;
+}

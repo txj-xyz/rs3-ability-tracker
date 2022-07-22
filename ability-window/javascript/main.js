@@ -79,3 +79,14 @@ ipc.on('fromBars', (event, param) => {
 
     }
 })
+
+ipc.on('presetManager', (event, param) => {
+    console.log(param)
+    switch (param) {
+        case 'export': alert('Exported Config!'); break;
+        case 'import': alert('Imported Config Successfully!'); break;
+        case 'failed_import': alert('Failed to Import Config, check the config and try again.'); break;
+        case 'failed_export': alert('Failed to Export Config, check the config and try again.'); break;
+        default: break;
+    }
+})

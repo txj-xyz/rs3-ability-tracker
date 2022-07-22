@@ -1,19 +1,63 @@
-const Window = require('../base/Window.js');
+const [{ dialog }, Window, { resolve, join }, { writeFileSync, readFileSync }] = ['electron', '../base/Window.js', 'node:path', 'node:fs'].map(require);
 
 module.exports = class Main extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 250, height: 358 }, true)
+            .create({ ...windows.properties, width: 250, height: 397 }, true)
             .ipcLoader(this.mainListener, this.confListener);
+        // windows.main?.setAlwaysOnTop(true);
         windows.update?.focus();
     }
 
     mainListener = (event, param) => {
         if (param === 'quit') quitHandler();
-        else if (param === 'ability' && !windows.ability) new Confirmation()
+        else if (param === 'ability' && !windows.ability) new Confirmation();
         else if (param === 'ability' && windows.ability) windows.ability.close();
+        else if (param === 'import' || param === 'export') this.presetManager(event, param);
         else new global[param.slice(0, 1).toUpperCase() + param.slice(1)]();
         return (event.returnValue = null);
+    };
+
+    presetManager = async (event, param) => {
+        switch (param) {
+            case 'import':
+                const _importPath = await dialog.showOpenDialog(null, { filters: [{ name: 'Ability Tracker Config', extensions: ['tconfig'] }], title: 'Import Configuration File' });
+                if(!_importPath.canceled) {
+                    try {
+                        const _importedPath = _importPath.filePaths[0];
+                        const _importedConfig = readFileSync(resolve(_importedPath), 'utf8')
+                        const _importedData = JSON.parse(_importedConfig);
+                        if(_importedData.hasOwnProperty('keybinds') && _importedData.hasOwnProperty('bars')){
+                            config.referenceStorage = _importedData;
+                            windows.main?.webContents.send('presetManager', 'import');
+                        } else {
+                            windows.main?.webContents.send('presetManager', 'failed_import');
+                        }
+                        event.returnValue = null;
+                    } catch (error) {
+                        // TODO: Add a message to pass over
+                        windows.main?.webContents.send('presetManager', 'failed_import');
+                        event.returnValue = null;
+                    }
+                }
+                break;
+
+            case 'export':
+                const _exportPath = await dialog.showSaveDialog(null, { filters: [{ name: 'Ability Tracker Config', extensions: ['tconfig'] }], title: 'Export Configuration File' });
+                if (!_exportPath.canceled) {
+                    try {
+                        writeFileSync(resolve(_exportPath.filePath), JSON.stringify(config.referenceStorage));
+                        windows.main?.webContents.send('presetManager', 'export');
+                        event.returnValue = null;
+                    } catch (error) {
+                        // TODO: Add a message to pass over
+                        windows.main?.webContents.send('presetManager', 'failed_export');
+                        event.returnValue = null;
+                    }
+                }
+                event.returnValue = null;
+                break;
+        }
     };
 
     confListener = (event, param) => {
