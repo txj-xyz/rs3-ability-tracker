@@ -8,9 +8,7 @@ module.exports = class Trigger extends Manager {
         timestamp: 0,
     };
     keyCheck = [];
-    pauseOnChatbox = false;
     activeBar = config.barsSelection;
-    spamCooldown = 2000;
     keybinds = null;
 
     constructor() {
@@ -65,7 +63,7 @@ module.exports = class Trigger extends Manager {
                 for (const bind of binds) {
                     if (!success) {
                         // anti-spam
-                        if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < this.spamCooldown) return;
+                        if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < rsOptions.spamCooldown) return;
                         const reference = library.get(bind.name);
 
                         //swap bar if triggered bind is not on the same bar

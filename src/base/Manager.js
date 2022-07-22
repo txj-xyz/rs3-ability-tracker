@@ -147,15 +147,6 @@ module.exports = class Manager {
 
     // Default game configs.
     static rsOptions = {
-        gcdActive: true,
-        abilityTimingBuffer: 1000,
-        tickTime: 600,
-        duringGCDAbilities: ['Surge', 'Escape', 'Bladed Dive', 'Provoke'],
-        doubleUseAbils: [
-            { name: 'Surge', triggered: false },
-            { name: 'Escape', triggered: false },
-            { name: 'Bladed Dive', triggered: false },
-            { name: 'Provoke', triggered: false },
-        ],
+        spamCooldown: 2000,
     };
 };
