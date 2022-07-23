@@ -1,3 +1,4 @@
+let { library, keycodes } = request('config', true)
 const [toggles, element, actions, notice] = [
     {
         save: false,
@@ -7,20 +8,21 @@ const [toggles, element, actions, notice] = [
             id: null
         }
     },
-    id => `<div id=${id}><div remove>-</div><div id="Bar Name" bar><input type="text" placeholder="Bar Name" /></div><div buttons><div edit>Edit</div><div saveMod>Save</div><div cancel>Cancel</div></div></div>`,
+    id => `<div id=${id}><div remove>-</div><div id="Bar Name" bar><input type="text" placeholder="Bar Name" /></div><div keybinds id="Keybind"><input type="text" placeholder="Keybind" /> </div><div buttons><div edit>Edit</div><div saveMod>Save</div><div cancel>Cancel</div></div></div>`,
     `<div manage><div onclick="copy()" button>+ New Bar</div><div onclick="save()" button save>Save</div></div>`
 
 ]
 
 
 function copy(initial, data) {
-    const [_global, id, manage] = [initial ? data.value === 'Global' : false, random(), document.querySelector('div[manage]')]
+    const [_global, id, manage] = [initial ? data.name === 'Global' : false, random(), document.querySelector('div[manage]')]
     manage ? manage.remove() : void 0;
     document.querySelector('div[bars]').insertAdjacentHTML('beforeend', element(id));
     document.querySelector('div[bars]').insertAdjacentHTML('beforeend', actions);
     const component = document.getElementById(id);
-    const bar = component.querySelector('div[bar]')
-    const input = component.querySelector('input');
+    const bar = component.querySelector('div[bar]');
+    const keybind = component.querySelector('div[keybinds]');
+    const input = bar.querySelector('input');
     component.querySelector('div[remove]').onclick = _ => {
         if (parseInt(component.querySelector('div[bar]').getAttribute('info').split(' ').shift()) > 3) {
             document.querySelector('div[popup] div[info]').innerHTML = `<p>Are you sure you want to remove the ${component.querySelector('div[bar] input').value} bar?</p><hr /><p>Doing so will delete ${component.querySelector('div[bar]').getAttribute('info').split(' ').shift()} binds.</p>`
@@ -36,7 +38,9 @@ function copy(initial, data) {
             toggle(true)
         }
     }
-    input.value = initial ? data.value : '';
+    input.value = initial ? data.name : '';
+    keybind.querySelector('input').value = initial ? data.key : '';
+    new Keybind(keybind.querySelector('input'))
 
     bar.setAttribute('info', data && data.count === 1 ? '1 linked bind' : `${data ? data.count : 0} linked binds`)
 
@@ -49,6 +53,7 @@ function copy(initial, data) {
     if (!initial) {
         edit.style.display = 'none';
         bar.classList.add('new')
+        keybind.classList.add('new')
     }
 
     input.onfocus = _ => {
@@ -62,11 +67,13 @@ function copy(initial, data) {
         input.select();
         toggles.edit = true;
         toggles.saveMod.value = input.value;
+        toggles.saveMod.key = keybind.querySelector('input').value;
         toggles.saveMod.id = id;
         edit.style.display = 'none';
         saveMod.style.display = 'block';
         cancel.style.display = 'block';
         bar.classList.add('edit');
+        keybind.classList.add('edit');
         document.querySelector('div[manage]').classList.add('disable')
         component.querySelector('div[remove]').classList.add('disable')
         document.querySelector('div[save]').classList.contains('active') ? document.querySelector('div[save]').classList.remove('active') : void 0;
@@ -80,12 +87,14 @@ function copy(initial, data) {
     saveMod.onclick = _ => {
         if (!toggles.saveMod.id) return
         const value = input.value;
-        if (value === '') revert()
+        const key = keybind.querySelector('input').value;
+        if (value === '' || key === '') revert()
         else {
             const old = toggles.saveMod.value
             toggles.saveMod.value = value
+            toggles.saveMod.key = key
             revert()
-            save(old, value)
+            save(old, value, key)
             toggle(true)
         }
     }
@@ -103,6 +112,7 @@ function copy(initial, data) {
         saveMod.style.display = 'none';
         cancel.style.display = 'none';
         bar.classList.remove('edit')
+        keybind.classList.remove('edit');
         document.querySelector('div[manage]').classList.remove('disable')
         component.querySelector('div[remove]').classList.remove('disable')
         document.querySelectorAll('div[edit]').forEach(element => element.removeAttribute('disabled'))
@@ -112,38 +122,61 @@ function copy(initial, data) {
     }
 }
 
-function save(old, value) {
+function save(old, value, key) {
     const bars = []
+    const keybinds = []
+    const data = []
     let failed = false
-    if (old) return request('barsListener', { before: old, after: value })
-    document.querySelectorAll('div[bars] div:not(.global) div[bar]').forEach(bar => {
-        if(!bar.querySelector('input')) return;
-        const value = bar.querySelector('input').value
-        if (!value) {
+    if (old) return request('barsListener', { before: old, after: value, key })
+    document.querySelectorAll('div[bars] > div[id]').forEach(set => {
+        console.log(set)
+        let bar = set.querySelector('div[bar]');
+        let keybind = set.querySelector('div[keybinds]');
+        if (!bar.querySelector('input') || !keybind.querySelector('input')) return;
+        let barValue = bar.querySelector('input').value
+        let keybindValue = keybind.querySelector('input').value
+        if (!barValue) {
             bar.classList.add('error')
             bar.setAttribute('error', 'Invalid name')
             failed = true
-        } else if (bars.includes(value)) {
+        } else if (!keybindValue) {
+            keybind.classList.add('error')
+            bar.setAttribute('error', 'Invalid keybind')
+            failed = true
+        } else if (bars.includes(barValue)) {
             toggle()
 
             document.querySelectorAll(`input`).forEach(input => {
-                if (input.value === value) {
+                if (input.value === barValue) {
+                    input.parentNode.classList.add('error')
+                    input.parentNode.setAttribute('error', 'Duplicate name')
+                }
+            })
+            failed = true
+        } else if (keybinds.includes(keybindValue)) {
+            toggle()
+
+            document.querySelectorAll(`input`).forEach(input => {
+                if (input.value === keybindValue) {
                     input.parentNode.classList.add('error')
                     input.parentNode.setAttribute('error', 'Duplicate name')
                 }
             })
             failed = true
         } else {
-            if (bar.classList.contains('new')) {
-                bar.classList.remove('new')
-                bar.parentNode.querySelector('div[edit]').style.display = 'block'
-            }
-            bar.classList.contains('error') ? bar.classList.remove('error') : void 0;
-            bars.push(value)
+            bar.classList.contains('new') ? bar.parentNode.querySelector('div[edit]').style.display = 'block' : void 0;
+            bar.classList.remove('new')
+            keybind.classList.remove('new')
+
+            bar.classList.remove('error')
+            keybind.classList.remove('error')
+            bars.push(barValue)
+            keybinds.push(keybindValue)
+            data.push({ name: barValue, key: keybindValue })
         }
     })
     if (!failed) {
-        request('barsListener', bars)
+        request('barsListener', data)
         toggle(true)
     }
 }
@@ -164,7 +197,7 @@ function toggle(value) {
 
 const bars = { Global: 0 }
 config.referenceStorage.keybinds.forEach(bind => bars[bind.bar] ? bars[bind.bar]++ : bars[bind.bar] = 1);
-['Global', ...config.referenceStorage.bars].map(value => copy(true, { value, count: bars[value] || 0 }))
+[{ name: 'Global', key: null }, ...config.referenceStorage.bars].map(value => copy(true, { ...value, count: bars[value.name] || 0 }))
 toggle(true)
 
 

@@ -5,6 +5,14 @@
     --red: #f04747;
     --blue: #00a9ff;
     --yellow: #faa61a;
+    
+    /* Bars Window. */
+    --bars-window-app-width: 250px;
+    --bars-window-bar-input: 277px;
+    --bars-window-bar-edit-width: calc(var(--bars-window-bar-input) - 75px);
+    --bars-window-keybind-input: 140px;
+    --bars-window-input-width: 490px;
+    
 }
 
 /* Dark theme. */

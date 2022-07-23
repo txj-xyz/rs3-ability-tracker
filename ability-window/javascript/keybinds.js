@@ -16,7 +16,7 @@ const [toggles, element, actions] = [
     `<div manage><div onclick="copy()" button>+ New Bind</div><div onclick="save()" button save>Save</div><div onclick="cancel()" class="active" button cancel>Cancel</div></div>`
 ]
 
-const perks = ['Caroming Perk', 'Flanking Perk', 'Lunging Perk', 'Planted Feet']
+const perks = ['Caroming Perk', 'Flanking Perk', 'Lunging Perk', 'Planted Feet'] // library.data.filter(set => set.icon.includes('/perks')).filter(set => set.type === 'weapon')
 
 if (config.referenceStorage.keybinds.length) config.referenceStorage.keybinds.map(set => copy(true, set))
 else document.querySelector('div[keys]').insertAdjacentHTML('beforeend', actions)

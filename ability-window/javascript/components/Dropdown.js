@@ -61,6 +61,8 @@ class Dropdown {
             this.query ? this.parent.querySelector(`div[${this.query}]`).classList.add('active') : this.parent.parentNode.classList.add('active')
             this.parent.classList.contains('error') ? this.parent.classList.remove('error') : void 0;
             this.input.parentNode.classList.contains('error') ? this.input.parentNode.classList.remove('error') : void 0;
+
+            if (this.query === 'name' && this.input.value) this.dropdown.querySelector(`div[title="${this.input.value}"]`).scrollIntoView()
         })
 
         this.input.addEventListener('blur', _ => {
@@ -96,7 +98,11 @@ class Dropdown {
 
     #resetDropdown() {
         this.dropdown.classList.contains('fade') ? this.dropdown.classList.remove('fade') : void 0;
-        this.dropdown.innerHTML = this.search()
+        this.dropdown.innerHTML = this.search();
         this.dropdown.scrollTop = 0
+        // if (this.query === 'name' && this.input.value) {
+        //     this.dropdown.querySelector(`div[title="${this.input.value}"]`).scrollIntoView()
+        //     // this.dropdown.scrollTop = this.dropdown.querySelector(`div[title="${this.input.value}"]`)
+        // }
     }
 }

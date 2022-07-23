@@ -62,6 +62,13 @@ module.exports = class Manager {
         let oldDiff = oldProps.map(key => (!newMap.get(key) ? key : null)).filter(e => e);
         oldDiff.map(key => oldMap.delete(key));
 
+        oldProps.map(key => {
+            let newSet = newMap.get(key)
+            oldProps.style = newSet.style;
+            oldProps.icon = newSet.icon;
+            oldProps.title = newSet.title;
+        })
+
         let newDiff = newProps.map(key => (!oldMap.get(key) ? key : null)).filter(e => e);
         newDiff.map(key => oldMap.set(key, newMap.get(key)));
 
@@ -95,6 +102,13 @@ module.exports = class Manager {
             oldConfig.abilityWindow.width = 800;
             oldConfig.abilityWindow.height = 80;
         }
+
+        if (typeof oldConfig.referenceStorage.bars[0] === 'string') {
+            oldConfig.referenceStorage.bars = oldConfig.referenceStorage.bars.map(bar => ({ name: bar, key: null }));
+        }
+
+        // this.store.set(oldConfig);
+    
 
         return oldConfig;
     }
