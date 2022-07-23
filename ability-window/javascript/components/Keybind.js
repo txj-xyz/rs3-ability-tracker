@@ -29,7 +29,7 @@ class Keybind {
             if (keycodes[e.code || e.key] === 'Backspace') {
                 this.key ? this.key = '' : this.modify = '';
                 this.input.value = `${this.modify ?? ''}${this.modify ? ' + ' : ''}${this.key}`;
-                toggleClear()
+                this.input.hasAttribute('search') ? toggleClear() : void 0;
                 return
             }
             if (!keycodes[e.code || e.key]) return

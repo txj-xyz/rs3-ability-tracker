@@ -3,14 +3,14 @@ const Window = require('../base/Window.js')
 module.exports = class Bars extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 355, height: 343 }, true)
+            .create({ ...windows.properties, width: 555, height: 373 }, true)
             .ipcLoader(this.barsListener)
     }
 
     barsListener = (event, param) => {
         if (Array.isArray(param)) config.referenceStorage.bars = param.filter(bar => bar !== 'Global')
         else {
-            config.referenceStorage.bars = [...config.referenceStorage.bars.filter(bar => ![param.before, param.after].includes(bar)), param.after].filter(e => e)
+            config.referenceStorage.bars = [...config.referenceStorage.bars.filter(bar => ![param.before, param.after].includes(bar.name)), { name: param.after, key: param.key }].filter(e => e)
             const keybinds = []
             !param.after ? config.referenceStorage.keybinds.map(keybind => keybind.bar !== param.before ? keybinds.push(keybind) : void 0) : config.referenceStorage.keybinds.map(keybind => keybinds.push({ ...keybind, bar: keybind.bar === param.before ? param.after : keybind.bar }))
             config.referenceStorage.keybinds = keybinds

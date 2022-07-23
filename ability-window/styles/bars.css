@@ -26,14 +26,18 @@ div[bars] > div input {
     border-radius: 3px;
     padding: 1px 5px;
     height: 22px;
-    width: 235px;
+    width: var(--bars-window-bar-input);
     background: var(--elements);
     color: var(--color);
     margin: 0 5px;
     transition-duration: 400ms;
 }
 
-div[bars] div:not([popup]) div[bar]:not(.edit) {
+div[bars] div[keybinds] input, div[bars] div[keybinds].edit input {
+    width: var(--bars-window-keybind-input);
+}
+
+div[bars] div:not([popup]) div[bar]:not(.edit), div[bars] div[keybinds]:not(.edit) {
     opacity: 0.5;
     pointer-events: none;
 }
@@ -44,10 +48,11 @@ div.new {
 }
 
 div[bars] div.edit input {
-    width: 160px;
+    width: var(--bars-window-bar-edit-width);
     opacity: 1;
     pointer-events: auto;
 }
+
 
 /* Action styles. */
 div[remove],
@@ -92,7 +97,7 @@ body:not(#darwin) div[clear] {
 }
 
 input[search] {
-    width: 287px !important;
+    width: var(--bars-window-input-width) !important;
 }
 
 div[button]:not([save]) {
@@ -102,7 +107,6 @@ div[button]:not([save]) {
 div[remove] {
     background: var(--red);
 }
-
 
 div[save] {
     background: var(--green);
@@ -230,6 +234,11 @@ div.global > div[bar]:after {
     margin-top: -10px;
 }
 
+div[bar]:after {
+    left: calc(var(--bars-window-bar-input) - 20px);
+    width: max-content;
+}
+
 /* Popup styles. */
 div[popup] {
     transition-duration: 0.4s;
@@ -260,7 +269,7 @@ div[popup] div[mount] {
     min-height: 100px;
     transform: translate(-50%, -50%);
     padding: 10px;
-    width: 250px;
+    width: var(--bars-window-app-width);
     background: var(--color);
     color: var(--background);
     border-radius: 3px;

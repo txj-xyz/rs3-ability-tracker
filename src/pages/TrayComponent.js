@@ -1,7 +1,4 @@
-const { uIOhook } = require("uiohook-napi");
-const Update = require( "./UpdateWindow" );
-
-const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app, BrowserWindow: { getFocusedWindow }, globalShortcut, ipcMain }] = ['path', 'electron'].map(require)
+const [{ resolve }, { Tray, Menu: { buildFromTemplate }, app, BrowserWindow: { getFocusedWindow }, globalShortcut, ipcMain }, { uIOhook }] = ['path', 'electron', 'uiohook-napi'].map(require)
 
 module.exports = class Taskbar {
     constructor() {
@@ -13,9 +10,10 @@ module.exports = class Taskbar {
         windows.tray.setToolTip('Ability Tracker')
         this.events()
         windows.tray.reload = this.reload
+        windows.tray.registers = this.registers;
         this.reload()
         uIOhook.start()
-        new Update()
+        process.platform === 'darwin' ? new Update() : void 0;
     }
 
     registers() {
@@ -41,6 +39,7 @@ module.exports = class Taskbar {
 
     reload() {
         if (windows.tray.isDestroyed()) return
+        windows.tray?.registers()
         windows.tray.setContextMenu(
             buildFromTemplate([
                 // Hide/Show main window.
@@ -60,7 +59,7 @@ module.exports = class Taskbar {
                             windows.ability.close();
                             if (!windows.main?.isVisible()) new Main();
                         } else {
-                            ability();
+                            new Confirmation();
                             if (windows.main?.isVisible() && config.minimizeToTray) windows.main.hide();
                         }
                         this.reload();

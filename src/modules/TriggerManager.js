@@ -9,7 +9,6 @@ module.exports = class Trigger extends Manager {
     };
     keyCheck = [];
     activeBar = config.barsSelection;
-    spamCooldown = 2000;
     keybinds = null;
 
     constructor() {
@@ -20,7 +19,6 @@ module.exports = class Trigger extends Manager {
     initListeners() {
         unregister();
         uIOhook.on('keydown', async event => {
-            // if (!await this.rs3Instance()) return;
             activeWindow({ screenRecordingPermission: false }).then(result => {
                 if (__devMode || result.owner.name.match(/(rs2client|RuneScape)/g)) {
                     const hash = this.hashEvent(event);
@@ -28,7 +26,7 @@ module.exports = class Trigger extends Manager {
                     if (!this.keyCheck[event.keycode].get(hash)) this.handleKeyPress(event);
                     this.keyCheck[event.keycode].set(hash, true);
                 }
-            })
+            });
         });
 
         // Listen to keyup.
@@ -42,16 +40,6 @@ module.exports = class Trigger extends Manager {
         return this.getKeyName('a', ev.altKey) + this.getKeyName('c', ev.ctrlKey) + this.getKeyName('m', ev.metaKey) + this.getKeyName('s', ev.shiftKey) + ev.keycode;
     }
 
-    // async rs3Instance() {
-    //     // if (__devMode || (__platform === 'darwin' && process.arch === 'arm64')) return true;
-    //     if (__devMode) return true;
-    //     const window = await activeWindow()
-    //     // console.log(window.owner.name.match(/(rs2client|RuneScape)/g) ? true : false)
-    //     let instance = window.owner.name.match(/(rs2client|RuneScape)/g)?.[0] ? true : false;
-    //     // console.log(instance)
-    //     return instance
-    // }
-
     getKeyName(name, val) {
         return val ? name : '';
     }
@@ -64,9 +52,9 @@ module.exports = class Trigger extends Manager {
                 .map(prop => (prop.endsWith('Key') && trigger[prop] ? prop : null))
                 .filter(e => e);
             const key = keycodes.reverseMap.get(trigger.keycode.toString());
+            //prettier-ignore
             if (Object.keys(modifiers).map(k => modifiers[k]).includes(key)) return
             const possibleKeys = pressedModifiers.some(e => e) ? pressedModifiers.map(mod => `${modifiers[mod]} + ${key}`) : [key];
-
             for (const keybind of possibleKeys) {
                 let binds = config.referenceStorage.keybinds.filter(e => e.keybind === keybind);
                 let globals = binds.filter(e => e.bar === 'Global');
@@ -74,12 +62,14 @@ module.exports = class Trigger extends Manager {
                 globals.map(e => binds.push(e));
                 for (const bind of binds) {
                     if (!success) {
-                        if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < this.spamCooldown) return;
+                        // anti-spam
+                        if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < rsOptions.spamCooldown) return;
                         const reference = library.get(bind.name);
 
                         //swap bar if triggered bind is not on the same bar
-                        if (config.toggleSwitching && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase())
+                        if (config.toggleSwitching && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) {
                             this.activeBar = bind.bar;
+                        }
 
                         if ([this.activeBar, 'Global'].includes(bind.bar)) {
                             success = true;

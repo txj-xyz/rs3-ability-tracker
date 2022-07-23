@@ -1,5 +1,5 @@
 // Import dependencies.
-const [{ readdirSync, existsSync, writeFileSync, mkdirSync, unlinkSync }, { resolve }, { app }] = ['fs', 'path', 'electron'].map(require);
+const [{ readdirSync, existsSync, writeFileSync, mkdirSync, unlinkSync }, { resolve }, { app }, Store] = ['fs', 'path', 'electron', 'electron-store'].map(require);
 
 // Load all modules into global.
 module.exports = class Manager {
@@ -12,6 +12,7 @@ module.exports = class Manager {
             show: false,
             titleBarStyle: 'hidden',
             webPreferences: {
+                // nodeIntegrationInWorker: true, Multithreading experimental
                 nodeIntegration: true,
                 contextIsolation: false,
             },
@@ -19,6 +20,11 @@ module.exports = class Manager {
     };
 
     static __userData = app.getPath('userData');
+
+    static __devMode = process.argv[2] ?? false;
+
+    // Load storage
+    static store = new Store({ name: 'local_storage' });
 
     // Loading logic.
     static load() {
@@ -37,14 +43,14 @@ module.exports = class Manager {
         return this;
     }
 
-    static checkCustomFolder () {
+    static checkCustomFolder() {
         const customPath = resolve(this.__userData, '.custom');
-        if(!existsSync(customPath)){
-            mkdirSync(customPath)
+        if (!existsSync(customPath)) {
+            mkdirSync(customPath);
         }
         return customPath;
     }
-    
+
     // Update AppData assets with new files from generated on build assets (aka: new icons)
     static checkAssets(oldAssets, newAssets) {
         let oldProps = oldAssets.map(set => set.name);
@@ -56,6 +62,13 @@ module.exports = class Manager {
         let oldDiff = oldProps.map(key => (!newMap.get(key) ? key : null)).filter(e => e);
         oldDiff.map(key => oldMap.delete(key));
 
+        oldProps.map(key => {
+            let newSet = newMap.get(key)
+            oldProps.style = newSet.style;
+            oldProps.icon = newSet.icon;
+            oldProps.title = newSet.title;
+        })
+
         let newDiff = newProps.map(key => (!oldMap.get(key) ? key : null)).filter(e => e);
         newDiff.map(key => oldMap.set(key, newMap.get(key)));
 
@@ -64,7 +77,7 @@ module.exports = class Manager {
         readdirSync(this.checkCustomFolder()).map(file => {
             const filepath = resolve(this.checkCustomFolder(), file).replace(/\\/g, '/');
             if (!merged.find(set => set.customIcon === filepath)) unlinkSync(filepath);
-        })
+        });
 
         return merged;
     }
@@ -89,6 +102,13 @@ module.exports = class Manager {
             oldConfig.abilityWindow.width = 800;
             oldConfig.abilityWindow.height = 80;
         }
+
+        if (typeof oldConfig.referenceStorage.bars[0] === 'string') {
+            oldConfig.referenceStorage.bars = oldConfig.referenceStorage.bars.map(bar => ({ name: bar, key: null }));
+        }
+
+        // this.store.set(oldConfig);
+    
 
         return oldConfig;
     }
@@ -141,15 +161,6 @@ module.exports = class Manager {
 
     // Default game configs.
     static rsOptions = {
-        gcdActive: true,
-        abilityTimingBuffer: 1000,
-        tickTime: 600,
-        duringGCDAbilities: ['Surge', 'Escape', 'Bladed Dive', 'Provoke'],
-        doubleUseAbils: [
-            { name: 'Surge', triggered: false },
-            { name: 'Escape', triggered: false },
-            { name: 'Bladed Dive', triggered: false },
-            { name: 'Provoke', triggered: false },
-        ],
+        spamCooldown: 2000,
     };
 };

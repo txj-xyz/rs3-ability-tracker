@@ -16,29 +16,45 @@ module.exports = class Ability extends Window {
             alwaysOnTop: true,
             movable: !config.lockTrackerWindow,
         });
-        new Confirmation();
         this.fixBounds();
-        windows.ability?.on('ready-to-show', this.updateSize)
+        windows.ability?.on('ready-to-show', _ => {
+            this.updateSize();
+            this.checkMonitorBounds();
+        });
         windows.ability?.on('moved', this.updateSize);
         windows.ability?.on('resized', this.updateSize);
+        windows.ability?.hookWindowMessage(0x0116, () => {
+            windows.ability?.setEnabled(false);
+            windows.ability?.setEnabled(true);
+        });
         windows.ability?.setAspectRatio(config.numberOfIcons);
-        
     }
+
+    isWithinDisplayBounds = pos => {
+        const displays = screen.getAllDisplays();
+        return displays.reduce((result, display) => {
+            const area = display.workArea;
+            return result || (pos.x >= area.x && pos.y >= area.y && pos.x < area.x + area.width && pos.y < area.y + area.height);
+        }, false);
+    }
+
+    checkMonitorBounds = _ => {
+        const abilityPosition = windows.ability?.getBounds();
+        const isOnScreen = this.isWithinDisplayBounds({ x: abilityPosition.x, y: abilityPosition.y });
+        if (!isOnScreen) {
+            config.abilityWindow.x = Math.floor((screen.getPrimaryDisplay().workArea.width - config.abilityWindow.width) / 2);
+            config.abilityWindow.y = Math.floor((screen.getPrimaryDisplay().workArea.height - config.abilityWindow.height) / 2);
+            windows.ability?.setPosition(config.abilityWindow.x, config.abilityWindow.y);
+        }
+    };
 
     fixBounds = _ => {
         setTimeout(_ => {
             if (windows.ability?.getSize()[0] !== config.abilityWindow.height * config.numberOfIcons) {
                 windows.ability?.setSize(config.abilityWindow.height * config.numberOfIcons, config.abilityWindow.height);
             }
-        }, 50);
+        }, 100);
     };
-
-    // updatePostition = _ => {
-    //     const [x, y] = windows.ability.getPosition();
-    //     config.abilityWindow.x = x;
-    //     config.abilityWindow.y = y;
-    //     this.fixBounds();
-    // };
 
     updateSize = _ => {
         // get position
