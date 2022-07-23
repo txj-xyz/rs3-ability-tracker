@@ -12,7 +12,7 @@ for (const property in config) {
             }
 
             case 'barsSelection': {
-                new Dropdown(element.parentNode, ['Global', ...config.referenceStorage.bars], true)
+                new Dropdown(element.parentNode, ['Global', ...config.referenceStorage.bars.map(e => e.name ? e.name : e)], true)
                 break
             }
         }
