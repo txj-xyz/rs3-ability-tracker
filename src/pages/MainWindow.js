@@ -22,21 +22,20 @@ module.exports = class Main extends Window {
         switch (param) {
             case 'import':
                 const _importPath = await dialog.showOpenDialog(null, { filters: [{ name: 'Ability Tracker Config', extensions: ['tconfig'] }], title: 'Import Configuration File' });
-                if(!_importPath.canceled) {
+                if (!_importPath.canceled) {
                     try {
                         const _importedPath = _importPath.filePaths[0];
-                        const _importedConfig = readFileSync(resolve(_importedPath), 'utf8')
-                        const _importedData = JSON.parse(_importedConfig);
-                        if(_importedData.hasOwnProperty('keybinds') && _importedData.hasOwnProperty('bars')){
+                        const _importedConfig = readFileSync(resolve(_importedPath), 'utf8');
+                        const _importedConverted = new Buffer.from(_importedConfig, 'base64').toString();
+                        const _importedData = JSON.parse(_importedConverted);
+                        if (!['keybinds', 'bars'].map(e => _importedData.hasOwnProperty(e)).includes(false)) {
                             config.referenceStorage = _importedData;
-                            windows.main?.webContents.send('presetManager', 'import');
-                        } else {
-                            windows.main?.webContents.send('presetManager', 'failed_import');
-                        }
+                            windows.main?.webContents.send('presetManager', { message: 'import' });
+                        } else windows.main?.webContents.send('presetManager', { message: 'failed_import' });
                         event.returnValue = null;
                     } catch (error) {
                         // TODO: Add a message to pass over
-                        windows.main?.webContents.send('presetManager', 'failed_import');
+                        windows.main?.webContents.send('presetManager', { message: 'failed_import', error: error.message });
                         event.returnValue = null;
                     }
                 }
@@ -46,12 +45,12 @@ module.exports = class Main extends Window {
                 const _exportPath = await dialog.showSaveDialog(null, { filters: [{ name: 'Ability Tracker Config', extensions: ['tconfig'] }], title: 'Export Configuration File' });
                 if (!_exportPath.canceled) {
                     try {
-                        writeFileSync(resolve(_exportPath.filePath), JSON.stringify(config.referenceStorage));
-                        windows.main?.webContents.send('presetManager', 'export');
+                        writeFileSync(resolve(_exportPath.filePath), new Buffer.from(JSON.stringify(config.referenceStorage)).toString('base64'));
+                        windows.main?.webContents.send('presetManager', { message: 'export', path: resolve(_exportPath.filePath) });
                         event.returnValue = null;
                     } catch (error) {
                         // TODO: Add a message to pass over
-                        windows.main?.webContents.send('presetManager', 'failed_export');
+                        windows.main?.webContents.send('presetManager', { message: 'failed_export', error: error.message });
                         event.returnValue = null;
                     }
                 }
