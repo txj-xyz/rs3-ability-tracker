@@ -7,6 +7,83 @@
     "customIcon": null
   },
   {
+    "name": "Extra Action Button(Kera)",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Kera).png",
+    "customIcon": null
+  },
+  {
+    "name": "Extra Action Button(Raksha)",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Raksha).png",
+    "customIcon": null
+  },
+  {
+    "name": "Extra Action Button(Solak)",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Solak).png",
+    "customIcon": null
+  },
+  {
+    "name": "Extra Action Button(Zamorak)",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Zamorak).png",
+    "customIcon": null
+  },
+  {
+    "name": "Extra Action Button(Zuk)",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Zuk).png",
+    "customIcon": null
+  },
+  {
+    "name": "Familiar Interaction",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Familiar_Interaction.png",
+    "customIcon": null
+  },
+  {
+    "name": "Familiar Special Attack",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Familiar_Special_Attack.png",
+    "customIcon": null
+  },
+  {
+    "name": "Target Cycle",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Target_Cycle.png",
+    "customIcon": null
+  },
+  {
+    "name": "Target Cycle Backwards",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Target_Cycle_Backwards.png",
+    "customIcon": null
+  },
+  {
+    "name": "Target Cycle Forward",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Target_Cycle_Forward.png",
+    "customIcon": null
+  },
+  {
+    "name": "Weapon Special attack",
+    "type": "abilities",
+    "style": null,
+    "icon": "../game-asset-groups/abilities/Weapon_Special_attack.png",
+    "customIcon": null
+  },
+  {
     "name": "Cease (ability)",
     "type": "constitution",
     "style": null,
@@ -210,55 +287,6 @@
     "customIcon": null
   },
   {
-    "name": "Extra Action Button(Kera)",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Kera).png",
-    "customIcon": null
-  },
-  {
-    "name": "Extra Action Button(Raksha)",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Raksha).png",
-    "customIcon": null
-  },
-  {
-    "name": "Extra Action Button(Solak)",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Solak).png",
-    "customIcon": null
-  },
-  {
-    "name": "Extra Action Button(Zamorak)",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Zamorak).png",
-    "customIcon": null
-  },
-  {
-    "name": "Extra Action Button(Zuk)",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Extra_Action_Button(Zuk).png",
-    "customIcon": null
-  },
-  {
-    "name": "Familiar Interaction",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Familiar_Interaction.png",
-    "customIcon": null
-  },
-  {
-    "name": "Familiar Special Attack",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Familiar_Special_Attack.png",
-    "customIcon": null
-  },
-  {
     "name": "Asphyxiate",
     "type": "magic",
     "style": null,
@@ -282,7 +310,7 @@
   {
     "name": "Concentrated Blast",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/magic/Concentrated_Blast.png",
     "customIcon": null
   },
@@ -324,7 +352,7 @@
   {
     "name": "Greater Concentrated Blast",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/magic/Greater_Concentrated_Blast.png",
     "customIcon": null
   },
@@ -499,21 +527,21 @@
   {
     "name": "Cleave",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/abilities/melee/Cleave.png",
     "customIcon": null
   },
   {
     "name": "Decimate",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/melee/Decimate.png",
     "customIcon": null
   },
   {
     "name": "Destroy",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/melee/Destroy.png",
     "customIcon": null
   },
@@ -527,7 +555,7 @@
   {
     "name": "Flurry",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/melee/Flurry.png",
     "customIcon": null
   },
@@ -562,7 +590,7 @@
   {
     "name": "Greater Flurry",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/melee/Greater_Flurry.png",
     "customIcon": null
   },
@@ -576,14 +604,14 @@
   {
     "name": "Havoc",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/melee/Havoc.png",
     "customIcon": null
   },
   {
     "name": "Hurricane",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/abilities/melee/Hurricane.png",
     "customIcon": null
   },
@@ -604,7 +632,7 @@
   {
     "name": "Meteor Strike",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/abilities/melee/Meteor_Strike.png",
     "customIcon": null
   },
@@ -632,7 +660,7 @@
   {
     "name": "Quake",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/abilities/melee/Quake.png",
     "customIcon": null
   },
@@ -646,7 +674,7 @@
   {
     "name": "Slaughter",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/abilities/melee/Slaughter.png",
     "customIcon": null
   },
@@ -695,7 +723,7 @@
   {
     "name": "Dazing Shot",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/abilities/range/Dazing_Shot.png",
     "customIcon": null
   },
@@ -737,28 +765,28 @@
   {
     "name": "Greater Dazing Shot",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/range/Greater_Dazing_Shot.png",
     "customIcon": null
   },
   {
     "name": "Greater Ricochet",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/range/Greater_Ricochet.png",
     "customIcon": null
   },
   {
     "name": "Incendiary Shot",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/abilities/range/Incendiary_Shot.png",
     "customIcon": null
   },
   {
     "name": "Needle Strike",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/range/Needle_Strike.png",
     "customIcon": null
   },
@@ -793,7 +821,7 @@
   {
     "name": "Ricochet",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/range/Ricochet.png",
     "customIcon": null
   },
@@ -842,7 +870,7 @@
   {
     "name": "Unload",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/abilities/range/Unload.png",
     "customIcon": null
   },
@@ -917,34 +945,6 @@
     "customIcon": null
   },
   {
-    "name": "Target Cycle",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Target_Cycle.png",
-    "customIcon": null
-  },
-  {
-    "name": "Target Cycle Backwards",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Target_Cycle_Backwards.png",
-    "customIcon": null
-  },
-  {
-    "name": "Target Cycle Forward",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Target_Cycle_Forward.png",
-    "customIcon": null
-  },
-  {
-    "name": "Weapon Special attack",
-    "type": "abilities",
-    "style": null,
-    "icon": "../game-asset-groups/abilities/Weapon_Special_attack.png",
-    "customIcon": null
-  },
-  {
     "name": "Anima core body of Seren",
     "type": "magic",
     "style": null,
@@ -1001,6 +1001,13 @@
     "customIcon": null
   },
   {
+    "name": "Elite tectonic mask (Third Age)",
+    "type": "magic",
+    "style": null,
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_mask_(Third_Age).png",
+    "customIcon": null
+  },
+  {
     "name": "Elite tectonic mask (blood)",
     "type": "magic",
     "style": null,
@@ -1022,13 +1029,6 @@
     "customIcon": null
   },
   {
-    "name": "Elite tectonic mask (Third Age)",
-    "type": "magic",
-    "style": null,
-    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_mask_(Third_Age).png",
-    "customIcon": null
-  },
-  {
     "name": "Elite tectonic robe bottom",
     "type": "magic",
     "style": null,
@@ -1040,6 +1040,13 @@
     "type": "magic",
     "style": null,
     "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_bottom_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe bottom (Third Age)",
+    "type": "magic",
+    "style": null,
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_bottom_(Third_Age).png",
     "customIcon": null
   },
   {
@@ -1064,13 +1071,6 @@
     "customIcon": null
   },
   {
-    "name": "Elite tectonic robe bottom (Third Age)",
-    "type": "magic",
-    "style": null,
-    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_bottom_(Third_Age).png",
-    "customIcon": null
-  },
-  {
     "name": "Elite tectonic robe top",
     "type": "magic",
     "style": null,
@@ -1082,6 +1082,13 @@
     "type": "magic",
     "style": null,
     "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite tectonic robe top (Third Age)",
+    "type": "magic",
+    "style": null,
+    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top_(Third_Age).png",
     "customIcon": null
   },
   {
@@ -1103,13 +1110,6 @@
     "type": "magic",
     "style": null,
     "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top_(shadow).png",
-    "customIcon": null
-  },
-  {
-    "name": "Elite tectonic robe top (Third Age)",
-    "type": "magic",
-    "style": null,
-    "icon": "../game-asset-groups/armor/magic/Elite_tectonic_robe_top_(Third_Age).png",
     "customIcon": null
   },
   {
@@ -1155,6 +1155,13 @@
     "customIcon": null
   },
   {
+    "name": "Malevolent cuirass (Third Age)",
+    "type": "melee",
+    "style": null,
+    "icon": "../game-asset-groups/armor/melee/Malevolent_cuirass_(Third_Age).png",
+    "customIcon": null
+  },
+  {
     "name": "Malevolent cuirass (blood)",
     "type": "melee",
     "style": null,
@@ -1176,13 +1183,6 @@
     "customIcon": null
   },
   {
-    "name": "Malevolent cuirass (Third Age)",
-    "type": "melee",
-    "style": null,
-    "icon": "../game-asset-groups/armor/melee/Malevolent_cuirass_(Third_Age).png",
-    "customIcon": null
-  },
-  {
     "name": "Malevolent greaves",
     "type": "melee",
     "style": null,
@@ -1194,6 +1194,13 @@
     "type": "melee",
     "style": null,
     "icon": "../game-asset-groups/armor/melee/Malevolent_greaves_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent greaves (Third Age)",
+    "type": "melee",
+    "style": null,
+    "icon": "../game-asset-groups/armor/melee/Malevolent_greaves_(Third_Age).png",
     "customIcon": null
   },
   {
@@ -1218,13 +1225,6 @@
     "customIcon": null
   },
   {
-    "name": "Malevolent greaves (Third Age)",
-    "type": "melee",
-    "style": null,
-    "icon": "../game-asset-groups/armor/melee/Malevolent_greaves_(Third_Age).png",
-    "customIcon": null
-  },
-  {
     "name": "Malevolent helm",
     "type": "melee",
     "style": null,
@@ -1236,6 +1236,13 @@
     "type": "melee",
     "style": null,
     "icon": "../game-asset-groups/armor/melee/Malevolent_helm_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Malevolent helm (Third Age)",
+    "type": "melee",
+    "style": null,
+    "icon": "../game-asset-groups/armor/melee/Malevolent_helm_(Third_Age).png",
     "customIcon": null
   },
   {
@@ -1257,13 +1264,6 @@
     "type": "melee",
     "style": null,
     "icon": "../game-asset-groups/armor/melee/Malevolent_helm_(shadow).png",
-    "customIcon": null
-  },
-  {
-    "name": "Malevolent helm (Third Age)",
-    "type": "melee",
-    "style": null,
-    "icon": "../game-asset-groups/armor/melee/Malevolent_helm_(Third_Age).png",
     "customIcon": null
   },
   {
@@ -1379,6 +1379,13 @@
     "customIcon": null
   },
   {
+    "name": "Elite sirenic chaps (Third Age)",
+    "type": "range",
+    "style": null,
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_chaps_(Third_Age).png",
+    "customIcon": null
+  },
+  {
     "name": "Elite sirenic chaps (blood)",
     "type": "range",
     "style": null,
@@ -1400,13 +1407,6 @@
     "customIcon": null
   },
   {
-    "name": "Elite sirenic chaps (Third Age)",
-    "type": "range",
-    "style": null,
-    "icon": "../game-asset-groups/armor/range/Elite_sirenic_chaps_(Third_Age).png",
-    "customIcon": null
-  },
-  {
     "name": "Elite sirenic hauberk",
     "type": "range",
     "style": null,
@@ -1418,6 +1418,13 @@
     "type": "range",
     "style": null,
     "icon": "../game-asset-groups/armor/range/Elite_sirenic_hauberk_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic hauberk (Third Age)",
+    "type": "range",
+    "style": null,
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_hauberk_(Third_Age).png",
     "customIcon": null
   },
   {
@@ -1442,13 +1449,6 @@
     "customIcon": null
   },
   {
-    "name": "Elite sirenic hauberk (Third Age)",
-    "type": "range",
-    "style": null,
-    "icon": "../game-asset-groups/armor/range/Elite_sirenic_hauberk_(Third_Age).png",
-    "customIcon": null
-  },
-  {
     "name": "Elite sirenic mask",
     "type": "range",
     "style": null,
@@ -1460,6 +1460,13 @@
     "type": "range",
     "style": null,
     "icon": "../game-asset-groups/armor/range/Elite_sirenic_mask_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Elite sirenic mask (Third Age)",
+    "type": "range",
+    "style": null,
+    "icon": "../game-asset-groups/armor/range/Elite_sirenic_mask_(Third_Age).png",
     "customIcon": null
   },
   {
@@ -1481,13 +1488,6 @@
     "type": "range",
     "style": null,
     "icon": "../game-asset-groups/armor/range/Elite_sirenic_mask_(shadow).png",
-    "customIcon": null
-  },
-  {
-    "name": "Elite sirenic mask (Third Age)",
-    "type": "range",
-    "style": null,
-    "icon": "../game-asset-groups/armor/range/Elite_sirenic_mask_(Third_Age).png",
     "customIcon": null
   },
   {
@@ -1530,6 +1530,27 @@
     "type": "items",
     "style": null,
     "icon": "../game-asset-groups/items/Dreadnip.png",
+    "customIcon": null
+  },
+  {
+    "name": "Poison bomb",
+    "type": "items",
+    "style": null,
+    "icon": "../game-asset-groups/items/Poison_bomb.png",
+    "customIcon": null
+  },
+  {
+    "name": "Sticky Bomb",
+    "type": "items",
+    "style": null,
+    "icon": "../game-asset-groups/items/Sticky_Bomb.png",
+    "customIcon": null
+  },
+  {
+    "name": "Vulnerability Bomb",
+    "type": "items",
+    "style": null,
+    "icon": "../game-asset-groups/items/Vulnerability_Bomb.png",
     "customIcon": null
   },
   {
@@ -1918,17 +1939,17 @@
     "customIcon": null
   },
   {
-    "name": "Scrimshaw of sacrifice",
-    "type": "pocket-slot",
-    "style": null,
-    "icon": "../game-asset-groups/items/pocket-slot/Scrimshaw_of_sacrifice.png",
-    "customIcon": null
-  },
-  {
     "name": "Scrimshaw of Vampyrism",
     "type": "pocket-slot",
     "style": null,
     "icon": "../game-asset-groups/items/pocket-slot/Scrimshaw_of_Vampyrism.png",
+    "customIcon": null
+  },
+  {
+    "name": "Scrimshaw of sacrifice",
+    "type": "pocket-slot",
+    "style": null,
+    "icon": "../game-asset-groups/items/pocket-slot/Scrimshaw_of_sacrifice.png",
     "customIcon": null
   },
   {
@@ -1964,13 +1985,6 @@
     "type": "pocket-slot",
     "style": null,
     "icon": "../game-asset-groups/items/pocket-slot/Tirannwn_quiver_4.png",
-    "customIcon": null
-  },
-  {
-    "name": "Poison bomb",
-    "type": "items",
-    "style": null,
-    "icon": "../game-asset-groups/items/Poison_bomb.png",
     "customIcon": null
   },
   {
@@ -2195,20 +2209,6 @@
     "type": "rings",
     "style": null,
     "icon": "../game-asset-groups/items/rings/Tokkul-zo.png",
-    "customIcon": null
-  },
-  {
-    "name": "Sticky Bomb",
-    "type": "items",
-    "style": null,
-    "icon": "../game-asset-groups/items/Sticky_Bomb.png",
-    "customIcon": null
-  },
-  {
-    "name": "Vulnerability Bomb",
-    "type": "items",
-    "style": null,
-    "icon": "../game-asset-groups/items/Vulnerability_Bomb.png",
     "customIcon": null
   },
   {
@@ -2788,1022 +2788,1022 @@
   {
     "name": "Abyssal wand",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Abyssal_wand.png",
     "customIcon": null
   },
   {
     "name": "Ancient lantern",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Ancient_lantern.png",
     "customIcon": null
   },
   {
     "name": "Armadyl battlestaff",
     "type": "magic",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/magic/Armadyl_battlestaff.png",
     "customIcon": null
   },
   {
     "name": "Cywir orb",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Cywir_orb.png",
     "customIcon": null
   },
   {
     "name": "Cywir wand",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Cywir_wand.png",
     "customIcon": null
   },
   {
     "name": "Elite seasinger makigai",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Elite_seasinger_makigai.png",
     "customIcon": null
   },
   {
     "name": "Guthix staff",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Guthix_staff.png",
     "customIcon": null
   },
   {
     "name": "Imperium core",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Imperium_core.png",
     "customIcon": null
   },
   {
     "name": "Imperium core (3a)",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Imperium_core_(3a).png",
     "customIcon": null
   },
   {
     "name": "Imperium core (barrows)",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Imperium_core_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Imperium core (blood)",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Imperium_core_(blood).png",
     "customIcon": null
   },
   {
     "name": "Imperium core (ice)",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Imperium_core_(ice).png",
     "customIcon": null
   },
   {
     "name": "Imperium core (shadow)",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Imperium_core_(shadow).png",
     "customIcon": null
   },
   {
     "name": "Inquisitor staff",
     "type": "magic",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/magic/Inquisitor_staff.png",
     "customIcon": null
   },
   {
     "name": "Kalphite rebounder",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Kalphite_rebounder.png",
     "customIcon": null
   },
   {
     "name": "Noxious staff",
     "type": "magic",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/magic/Noxious_staff.png",
     "customIcon": null
   },
   {
     "name": "Seismic singularity",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Seismic_singularity.png",
     "customIcon": null
   },
   {
     "name": "Seismic wand",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Seismic_wand.png",
     "customIcon": null
   },
   {
     "name": "Staff of Armadyl",
     "type": "magic",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/magic/Staff_of_Armadyl.png",
     "customIcon": null
   },
   {
     "name": "Staff of sliske",
     "type": "magic",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/magic/Staff_of_sliske.png",
     "customIcon": null
   },
   {
     "name": "Vanquish",
     "type": "magic",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/magic/Vanquish.png",
     "customIcon": null
   },
   {
     "name": "Virtus Book",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Virtus_Book.png",
     "customIcon": null
   },
   {
     "name": "Wand of the praesul",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Wand_of_the_praesul.png",
     "customIcon": null
   },
   {
     "name": "Wand of the praesul (3a)",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Wand_of_the_praesul_(3a).png",
     "customIcon": null
   },
   {
     "name": "Wand of the praesul (barrows)",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Wand_of_the_praesul_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Wand of the praesul (blood)",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Wand_of_the_praesul_(blood).png",
     "customIcon": null
   },
   {
     "name": "Wand of the praesul (ice)",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Wand_of_the_praesul_(ice).png",
     "customIcon": null
   },
   {
     "name": "Wand of the praesul (shadow)",
     "type": "magic",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/magic/Wand_of_the_praesul_(shadow).png",
     "customIcon": null
   },
   {
     "name": "Abyssal scourge",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Abyssal_scourge.png",
     "customIcon": null
   },
   {
     "name": "Ancient defender",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Ancient_defender.png",
     "customIcon": null
   },
   {
     "name": "Blade of nymora",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Blade_of_nymora.png",
-    "customIcon": null
-  },
-  {
-    "name": "Darklight",
-    "type": "melee",
-    "style": null,
-    "icon": "../game-asset-groups/weapons/melee/Darklight.png",
     "customIcon": null
   },
   {
     "name": "Dark Ice Shard",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Ice_Shard.png",
     "customIcon": null
   },
   {
     "name": "Dark Ice Sliver",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Ice_Sliver.png",
     "customIcon": null
   },
   {
     "name": "Dark Shard of Leng",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng.png",
     "customIcon": null
   },
   {
     "name": "Dark Shard of Leng (Barrows)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Shard of Leng (Third Age)",
+    "type": "melee",
+    "style": "dual-wield",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(Third_Age).png",
     "customIcon": null
   },
   {
     "name": "Dark Shard of Leng (blood)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(blood).png",
     "customIcon": null
   },
   {
     "name": "Dark Shard of Leng (ice)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(ice).png",
     "customIcon": null
   },
   {
     "name": "Dark Shard of Leng (shadow)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(shadow).png",
-    "customIcon": null
-  },
-  {
-    "name": "Dark Shard of Leng (Third Age)",
-    "type": "melee",
-    "style": null,
-    "icon": "../game-asset-groups/weapons/melee/Dark_Shard_of_Leng_(Third_Age).png",
     "customIcon": null
   },
   {
     "name": "Dark Sliver of Leng",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng.png",
     "customIcon": null
   },
   {
     "name": "Dark Sliver of Leng (Barrows)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Dark Sliver of Leng (Third Age)",
+    "type": "melee",
+    "style": "dual-wield",
+    "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(Third_Age).png",
     "customIcon": null
   },
   {
     "name": "Dark Sliver of Leng (blood)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(blood).png",
     "customIcon": null
   },
   {
     "name": "Dark Sliver of Leng (ice)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(ice).png",
     "customIcon": null
   },
   {
     "name": "Dark Sliver of Leng (shadow)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(shadow).png",
     "customIcon": null
   },
   {
-    "name": "Dark Sliver of Leng (Third Age)",
+    "name": "Darklight",
     "type": "melee",
-    "style": null,
-    "icon": "../game-asset-groups/weapons/melee/Dark_Sliver_of_Leng_(Third_Age).png",
+    "style": "dual-wield",
+    "icon": "../game-asset-groups/weapons/melee/Darklight.png",
+    "customIcon": null
+  },
+  {
+    "name": "Dragon battleaxe",
+    "type": "melee",
+    "style": "dual-wield",
+    "icon": "../game-asset-groups/weapons/melee/Dragon_battleaxe.png",
     "customIcon": null
   },
   {
     "name": "Dragonbane 2h sword",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Dragonbane_2h_sword.png",
     "customIcon": null
   },
   {
     "name": "Dragonride lance",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Dragonride_lance.png",
-    "customIcon": null
-  },
-  {
-    "name": "Dragon battleaxe",
-    "type": "melee",
-    "style": null,
-    "icon": "../game-asset-groups/weapons/melee/Dragon_battleaxe.png",
     "customIcon": null
   },
   {
     "name": "Ek-ZekKil",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Ek-ZekKil.png",
     "customIcon": null
   },
   {
     "name": "Enhanced excalibur",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Enhanced_excalibur.png",
     "customIcon": null
   },
   {
     "name": "Kalphite defender",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Kalphite_defender.png",
     "customIcon": null
   },
   {
     "name": "Keris",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Keris.png",
     "customIcon": null
   },
   {
     "name": "Khopesh of elidinis",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_elidinis.png",
     "customIcon": null
   },
   {
     "name": "Khopesh of elidinis (3a)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_elidinis_(3a).png",
     "customIcon": null
   },
   {
     "name": "Khopesh of elidinis (barrows)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_elidinis_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Khopesh of elidinis (blood)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_elidinis_(blood).png",
     "customIcon": null
   },
   {
     "name": "Khopesh of elidinis (ice)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_elidinis_(ice).png",
     "customIcon": null
   },
   {
     "name": "Khopesh of elidinis (shadow)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_elidinis_(shadow).png",
     "customIcon": null
   },
   {
     "name": "Khopesh of tumeken",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_tumeken.png",
     "customIcon": null
   },
   {
     "name": "Khopesh of tumeken (3a)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_tumeken_(3a).png",
     "customIcon": null
   },
   {
     "name": "Khopesh of tumeken (barrows)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_tumeken_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Khopesh of tumeken (blood)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_tumeken_(blood).png",
     "customIcon": null
   },
   {
     "name": "Khopesh of tumeken (ice)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_tumeken_(ice).png",
     "customIcon": null
   },
   {
     "name": "Khopesh of tumeken (shadow)",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Khopesh_of_tumeken_(shadow).png",
     "customIcon": null
   },
   {
     "name": "Laniakeas spear",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Laniakeas_spear.png",
     "customIcon": null
   },
   {
     "name": "Mainhand drygore mace",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Mainhand_drygore_mace.png",
     "customIcon": null
   },
   {
     "name": "Masterwork spear of annihilation",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Masterwork_spear_of_annihilation.png",
     "customIcon": null
   },
   {
     "name": "Masutas warspear",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Masutas_warspear.png",
     "customIcon": null
   },
   {
     "name": "Noxious scythe",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Noxious_scythe.png",
     "customIcon": null
   },
   {
     "name": "Noxious scythe (3a)",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Noxious_scythe_(3a).png",
     "customIcon": null
   },
   {
     "name": "Noxious scythe (barrows)",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Noxious_scythe_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Noxious scythe (blood)",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Noxious_scythe_(blood).png",
     "customIcon": null
   },
   {
     "name": "Noxious scythe (ice)",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Noxious_scythe_(ice).png",
     "customIcon": null
   },
   {
     "name": "Noxious scythe (shadow)",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Noxious_scythe_(shadow).png",
     "customIcon": null
   },
   {
     "name": "Off-hand ripper claw",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Off-hand_ripper_claw.png",
     "customIcon": null
   },
   {
     "name": "Offhand drygore longsword",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Offhand_drygore_longsword.png",
     "customIcon": null
   },
   {
     "name": "Offhand drygore mace",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Offhand_drygore_mace.png",
     "customIcon": null
   },
   {
     "name": "Offhand drygore rapier",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Offhand_drygore_rapier.png",
     "customIcon": null
   },
   {
     "name": "Purple flowers",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Purple_flowers.png",
     "customIcon": null
   },
   {
     "name": "Revenant bane 2h sword",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Revenant_bane_2h_sword.png",
     "customIcon": null
   },
   {
     "name": "Ripper claw",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Ripper_claw.png",
     "customIcon": null
   },
   {
     "name": "Saradomin godsword",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Saradomin_godsword.png",
     "customIcon": null
   },
   {
     "name": "Superior statius warhammer",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Superior_statius_warhammer.png",
     "customIcon": null
   },
   {
     "name": "Superior vestas longsword",
     "type": "melee",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/melee/Superior_vestas_longsword.png",
     "customIcon": null
   },
   {
     "name": "Terrasaur maul",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Terrasaur_maul.png",
     "customIcon": null
   },
   {
     "name": "Zaros godsword",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Zaros_godsword.png",
     "customIcon": null
   },
   {
     "name": "Zaros godsword (Barrows)",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Zaros godsword (Third Age)",
+    "type": "melee",
+    "style": "two-hand",
+    "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(Third_Age).png",
     "customIcon": null
   },
   {
     "name": "Zaros godsword (blood)",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(blood).png",
     "customIcon": null
   },
   {
     "name": "Zaros godsword (ice)",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(ice).png",
     "customIcon": null
   },
   {
     "name": "Zaros godsword (shadow)",
     "type": "melee",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(shadow).png",
-    "customIcon": null
-  },
-  {
-    "name": "Zaros godsword (Third Age)",
-    "type": "melee",
-    "style": null,
-    "icon": "../game-asset-groups/weapons/melee/Zaros_godsword_(Third_Age).png",
     "customIcon": null
   },
   {
     "name": "Ancient repriser",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Ancient_repriser.png",
     "customIcon": null
   },
   {
     "name": "Ascension crossbow (3a)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Ascension_crossbow_(3a).png",
     "customIcon": null
   },
   {
     "name": "Ascension crossbow (barrows)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Ascension_crossbow_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Ascension crossbow (blood)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Ascension_crossbow_(blood).png",
     "customIcon": null
   },
   {
     "name": "Ascension crossbow (ice)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Ascension_crossbow_(ice).png",
     "customIcon": null
   },
   {
     "name": "Ascension crossbow (shadow)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Ascension_crossbow_(shadow).png",
     "customIcon": null
   },
   {
     "name": "Bow of the Last Guardian",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Bow_of_the_Last_Guardian.png",
     "customIcon": null
   },
   {
     "name": "Bow of the Last Guardian (Barrows)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Bow_of_the_Last_Guardian_(Barrows).png",
+    "customIcon": null
+  },
+  {
+    "name": "Bow of the Last Guardian (Third Age)",
+    "type": "range",
+    "style": "two-hand",
+    "icon": "../game-asset-groups/weapons/range/Bow_of_the_Last_Guardian_(Third_Age).png",
     "customIcon": null
   },
   {
     "name": "Bow of the last Guardian (blood)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Bow_of_the_last_Guardian_(blood).png",
     "customIcon": null
   },
   {
     "name": "Bow of the last Guardian (ice)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Bow_of_the_last_Guardian_(ice).png",
     "customIcon": null
   },
   {
     "name": "Bow of the last Guardian (shadow)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Bow_of_the_last_Guardian_(shadow).png",
-    "customIcon": null
-  },
-  {
-    "name": "Bow of the Last Guardian (Third Age)",
-    "type": "range",
-    "style": null,
-    "icon": "../game-asset-groups/weapons/range/Bow_of_the_Last_Guardian_(Third_Age).png",
     "customIcon": null
   },
   {
     "name": "Chaotic crossbow",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Chaotic_crossbow.png",
     "customIcon": null
   },
   {
     "name": "Dark bow",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Dark_bow.png",
     "customIcon": null
   },
   {
     "name": "Decimation",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Decimation.png",
     "customIcon": null
   },
   {
     "name": "Eldrich crossbow",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Eldrich_crossbow.png",
     "customIcon": null
   },
   {
     "name": "Eldrich crossbow (3a)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Eldrich_crossbow_(3a).png",
     "customIcon": null
   },
   {
     "name": "Eldrich crossbow (barrows)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Eldrich_crossbow_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Eldrich crossbow (blood)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Eldrich_crossbow_(blood).png",
     "customIcon": null
   },
   {
     "name": "Eldrich crossbow (ice)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Eldrich_crossbow_(ice).png",
     "customIcon": null
   },
   {
     "name": "Eldrich crossbow (shadow)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Eldrich_crossbow_(shadow).png",
     "customIcon": null
   },
   {
     "name": "Hexhunter bow",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Hexhunter_bow.png",
     "customIcon": null
   },
   {
     "name": "Kalphite repriser",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Kalphite_repriser.png",
     "customIcon": null
   },
   {
     "name": "Mainhand ascension crossbow",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Mainhand_ascension_crossbow.png",
     "customIcon": null
   },
   {
     "name": "Mainhand blightbound crossbow",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Mainhand_blightbound_crossbow.png",
     "customIcon": null
   },
   {
     "name": "Mainhand blightbound crossbow (3a)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Mainhand_blightbound_crossbow_(3a).png",
     "customIcon": null
   },
   {
     "name": "Mainhand blightbound crossbow (barrows)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Mainhand_blightbound_crossbow_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Mainhand blightbound crossbow (blood)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Mainhand_blightbound_crossbow_(blood).png",
     "customIcon": null
   },
   {
     "name": "Mainhand blightbound crossbow (ice)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Mainhand_blightbound_crossbow_(ice).png",
     "customIcon": null
   },
   {
     "name": "Mainhand blightbound crossbow (shadow)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Mainhand_blightbound_crossbow_(shadow).png",
     "customIcon": null
   },
   {
     "name": "Mainhand shadow glaive",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Mainhand_shadow_glaive.png",
     "customIcon": null
   },
   {
     "name": "Mechanised chinchompa",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Mechanised_chinchompa.png",
     "customIcon": null
   },
   {
     "name": "Noxious longbow",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Noxious_longbow.png",
-    "customIcon": null
-  },
-  {
-    "name": "Offhand ascension crossbow",
-    "type": "range",
-    "style": null,
-    "icon": "../game-asset-groups/weapons/range/Offhand_ascension_crossbow.png",
     "customIcon": null
   },
   {
     "name": "Offhand Ascension crossbow (3a)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_Ascension_crossbow_(3a).png",
     "customIcon": null
   },
   {
     "name": "Offhand Ascension crossbow (barrows)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_Ascension_crossbow_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Offhand Ascension crossbow (blood)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_Ascension_crossbow_(blood).png",
     "customIcon": null
   },
   {
     "name": "Offhand Ascension crossbow (ice)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_Ascension_crossbow_(ice).png",
     "customIcon": null
   },
   {
     "name": "Offhand Ascension crossbow (shadow)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_Ascension_crossbow_(shadow).png",
+    "customIcon": null
+  },
+  {
+    "name": "Offhand Chaotic crossbow",
+    "type": "range",
+    "style": "dual-wield",
+    "icon": "../game-asset-groups/weapons/range/Offhand_Chaotic_crossbow.png",
+    "customIcon": null
+  },
+  {
+    "name": "Offhand ascension crossbow",
+    "type": "range",
+    "style": "dual-wield",
+    "icon": "../game-asset-groups/weapons/range/Offhand_ascension_crossbow.png",
     "customIcon": null
   },
   {
     "name": "Offhand blightbound crossbow",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_blightbound_crossbow.png",
     "customIcon": null
   },
   {
     "name": "Offhand blightbound crossbow (3a)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_blightbound_crossbow_(3a).png",
     "customIcon": null
   },
   {
     "name": "Offhand blightbound crossbow (barrows)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_blightbound_crossbow_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Offhand blightbound crossbow (blood)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_blightbound_crossbow_(blood).png",
     "customIcon": null
   },
   {
     "name": "Offhand blightbound crossbow (ice)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_blightbound_crossbow_(ice).png",
     "customIcon": null
   },
   {
     "name": "Offhand blightbound crossbow (shadow)",
     "type": "range",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/weapons/range/Offhand_blightbound_crossbow_(shadow).png",
-    "customIcon": null
-  },
-  {
-    "name": "Offhand Chaotic crossbow",
-    "type": "range",
-    "style": null,
-    "icon": "../game-asset-groups/weapons/range/Offhand_Chaotic_crossbow.png",
     "customIcon": null
   },
   {
     "name": "Seren Godbow",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Seren_Godbow.png",
     "customIcon": null
   },
   {
     "name": "Seren godbow (3a)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Seren_godbow_(3a).png",
     "customIcon": null
   },
   {
     "name": "Seren godbow (barrows)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Seren_godbow_(barrows).png",
     "customIcon": null
   },
   {
     "name": "Seren godbow (blood)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Seren_godbow_(blood).png",
     "customIcon": null
   },
   {
     "name": "Seren godbow (ice)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Seren_godbow_(ice).png",
     "customIcon": null
   },
   {
     "name": "Seren godbow (shadow)",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Seren_godbow_(shadow).png",
     "customIcon": null
   },
   {
     "name": "Wyvern crossbow",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Wyvern_crossbow.png",
     "customIcon": null
   },
   {
     "name": "Zaryte bow",
     "type": "range",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/weapons/range/Zaryte_bow.png",
     "customIcon": null
   }

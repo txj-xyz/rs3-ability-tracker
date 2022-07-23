@@ -1,6 +1,7 @@
 const { readdirSync, statSync, writeFileSync } = require('fs');
 const { app } = require('electron');
 const { join, resolve } = require('path');
+const _default = require('../src/default/game-key-data.json');
 const path = './ability-window/game-asset-groups/';
 const filesMap = [];
 
@@ -30,7 +31,7 @@ walkSync(path, (filepath, pathDetails) => {
     filesMap.push({
         name: abilName,
         type: pathDetails.name.replace(/\\/g, '/').split(/\//g).pop(),
-        style: null,
+        style: _default.find(e => e.name === abilName)?.style,
         icon: iconPath,
         customIcon: null,
     });
