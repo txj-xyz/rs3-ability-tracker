@@ -83,6 +83,7 @@ module.exports = class Trigger extends Manager {
                 }
             }
 
+            // Handle bar switching here directly.
             for(const key of possibleKeys){
                 // Change bar logic
                 let _bind = config.referenceStorage.bars.find(bar => bar.key === key);
@@ -91,6 +92,7 @@ module.exports = class Trigger extends Manager {
                     windows.main?.webContents.send('fromTrigger', this.activeBar)
                 }
             }
+
         } catch (error) {
             console.log(error);
         }
