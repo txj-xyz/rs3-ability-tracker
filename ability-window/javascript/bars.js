@@ -45,7 +45,7 @@ function copy(initial, data) {
     keybind.querySelector('input').value = initial ? data.key : null;
     new Keybind(keybind.querySelector('input'));
 
-    bar.setAttribute('info', data && data.count === 1 ? '1 linked bind' : `${data ? data.count : 0} linked binds`);
+    bar.setAttribute('info', data && data.count === 1 ? '1 linked bind' : `${data?.count ?? 0} linked binds`);
 
     if (_global) {
         bar.id = '(Non-switching)';
@@ -194,9 +194,7 @@ function toggle(value) {
 
 const bars = { Global: 0 };
 config.referenceStorage.keybinds.forEach(bind => (bars[bind.bar] ? bars[bind.bar]++ : (bars[bind.bar] = 1)));
-[{ name: 'Global', key: null }, ...config.referenceStorage.bars].map(value => {
-    copy(true, { ...value, count: bars[value.name] || null })
-});
+[{ name: 'Global', key: null }, ...config.referenceStorage.bars].map(value => copy(true, { ...value, count: bars[value.name] || null }));
 toggle(true);
 
 document.querySelector('div[clear]').onclick = _ => {
@@ -227,7 +225,8 @@ ipc.on('fromKeybinds', (event, param) => {
     document.querySelectorAll('div[bars] div[bar]').forEach(bar => {
         const name = bar.querySelector('input').value;
         const value = bars[name] || 0;
-        bar.setAttribute('info', value === 1 ? '1 linked bind' : `${value} linked binds`);
+        alert(value)
+        bar.setAttribute('info', value === 1 ? '1 linked bind' : `${value ? value : 0} linked binds`);
     });
 });
 
