@@ -6,6 +6,7 @@ const [Manager, { uIOhook }, activeWindow] = ['../base/Manager.js', 'uiohook-nap
 // Function to get frontend page paths.
 module.exports = class Trigger extends Manager {
     lastKey = {
+        style: null,
         value: null,
         timestamp: 0,
     };
@@ -62,11 +63,22 @@ module.exports = class Trigger extends Manager {
                 let globals = binds.filter(e => e.bar === 'Global');
                 binds = binds.filter(e => e.bar !== 'Global');
                 globals.map(e => binds.push(e));
+
                 for (const bind of binds) {
                     if (!success) {
                         // anti-spam
                         if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < rsOptions.spamCooldown) return;
                         const reference = library.get(bind.name);
+                        // console.log('style check', reference)
+
+                        if(reference?.style && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g)) {
+                            console.log('pushed style:', reference.style)
+                            console.log('last style:', this.lastKey.style) 
+                            console.log('------------------')
+                        } else {
+                            console.log('ability style:', reference.style)
+                            console.log('match last push?:', reference.style === this.lastKey.style)
+                        }
 
                         //swap bar if triggered bind is not on the same bar
                         if (config.toggleSwitching && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) {
@@ -76,6 +88,7 @@ module.exports = class Trigger extends Manager {
                         if ([this.activeBar, 'Global'].includes(bind.bar)) {
                             success = true;
                             this.lastKey.value = bind.name;
+                            this.lastKey.style = reference?.style ?? null,
                             this.lastKey.timestamp = Date.now();
                             windows.ability?.webContents.send('abilityData', { icon: reference.customIcon ?? reference.icon, perk: bind.perk ? library.get(bind.perk).icon : null });
                         }
