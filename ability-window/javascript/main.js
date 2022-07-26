@@ -88,7 +88,17 @@ ipc.on('presetManager', (event, param) => {
     if(param.error) return alert(`Error: '${param.error}', please check the config and try again.`)
     switch (param.message) {
         case 'export': alert('Exported Config!'); break;
-        case 'import': alert('Imported Config Successfully!'); break;
+        
+        case 'import': {
+            const _alertMsg = {
+                name: param?.name.split(/\\/g).pop().split('.')?.[0] ?? null,
+                keybinds: param?.data.keybinds.length ?? null,
+                bars: param?.data.bars.length ?? null,
+            }
+            alert(`Imported '${_alertMsg.name}' config successfully with ${_alertMsg.keybinds} keybind${_alertMsg.keybinds > 1 ? 's' : ''} and ${_alertMsg.bars} bar${_alertMsg.bars > 1 ? 's' : ''}!`)
+        };
+        break;
+
         case 'failed_import': alert('Failed to Import Config, check the config and try again.'); break;
         case 'failed_export': alert('Failed to Export Config, check the config and try again.'); break;
         default: break;

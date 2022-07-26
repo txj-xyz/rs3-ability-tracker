@@ -30,7 +30,7 @@ module.exports = class Main extends Window {
                         const _importedData = JSON.parse(_importedConverted);
                         if (!['keybinds', 'bars'].map(e => _importedData.hasOwnProperty(e)).includes(false)) {
                             config.referenceStorage = _importedData;
-                            windows.main?.webContents.send('presetManager', { message: 'import' });
+                            windows.main?.webContents.send('presetManager', { message: 'import', data: _importedData, name: _importedPath});
                         } else windows.main?.webContents.send('presetManager', { message: 'failed_import' });
                         event.returnValue = null;
                     } catch (error) {
