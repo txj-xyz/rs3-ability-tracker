@@ -100,9 +100,5 @@ class Dropdown {
         this.dropdown.classList.contains('fade') ? this.dropdown.classList.remove('fade') : void 0;
         this.dropdown.innerHTML = this.search();
         this.dropdown.scrollTop = 0
-        // if (this.query === 'name' && this.input.value) {
-        //     this.dropdown.querySelector(`div[title="${this.input.value}"]`).scrollIntoView()
-        //     // this.dropdown.scrollTop = this.dropdown.querySelector(`div[title="${this.input.value}"]`)
-        // }
     }
 }
