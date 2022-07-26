@@ -2459,7 +2459,7 @@
   {
     "name": "2H Weapon",
     "type": "slot-icons",
-    "style": null,
+    "style": "two-hand",
     "icon": "../game-asset-groups/slot-icons/2H_Weapon.png",
     "customIcon": null
   },
@@ -2473,14 +2473,14 @@
   {
     "name": "MH Weapon",
     "type": "slot-icons",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/slot-icons/MH_Weapon.png",
     "customIcon": null
   },
   {
     "name": "OH Weapon",
     "type": "slot-icons",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/slot-icons/OH_Weapon.png",
     "customIcon": null
   },
@@ -2494,7 +2494,7 @@
   {
     "name": "Shield Slot",
     "type": "slot-icons",
-    "style": null,
+    "style": "dual-wield",
     "icon": "../game-asset-groups/slot-icons/Shield_Slot.png",
     "customIcon": null
   },
