@@ -99,7 +99,7 @@ function copy(initial, data) {
     if (!request('config').referenceStorage.bars.length) bar.parentNode.classList.add('disable')
 
     new Dropdown(component, library.map(set => set.name), initial, 'name')
-    new Dropdown(component, ['Global', ...request('config').referenceStorage.bars], initial, 'bars')
+    new Dropdown(component, ['Global', ...request('config').referenceStorage.bars.map(bar => bar?.name ? bar.name : bar)], initial, 'bars')
     new Keybind(keybind)
 
     if (!initial) {
@@ -300,7 +300,7 @@ document.querySelectorAll('div[options] div[list] > div').forEach(element => {
             }
 
             case 'bars': {
-                new Dropdown(document.querySelector('div[search]'), ['Global', ...config.referenceStorage.bars])
+                new Dropdown(document.querySelector('div[search]'), ['Global', ...config.referenceStorage.bars.map(bar => bar?.name ? bar.name : bar)])
                 break;
             }
         }

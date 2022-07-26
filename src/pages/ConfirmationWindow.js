@@ -4,7 +4,7 @@ module.exports = class Confirmation extends Window {
     constructor() {
         super().create({ ...windows.properties, width: 650, height: 180 }, true)
         .ipcLoader(this.confirmationListener);
-        windows.confirmation?.setAlwaysOnTop(true)
+        windows.confirmation?.setAlwaysOnTop(true);
     }
 
     confirmationListener = (event, param) => {

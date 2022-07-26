@@ -1,3 +1,5 @@
+const { windows } = require( "../base/Manager" );
+
 // Import dependencies.
 const [Manager, { uIOhook }, activeWindow] = ['../base/Manager.js', 'uiohook-napi', 'active-win'].map(require);
 
@@ -78,6 +80,15 @@ module.exports = class Trigger extends Manager {
                             windows.ability?.webContents.send('abilityData', { icon: reference.customIcon ?? reference.icon, perk: bind.perk ? library.get(bind.perk).icon : null });
                         }
                     }
+                }
+            }
+
+            for(const key of possibleKeys){
+                // Change bar logic
+                let _bind = config.referenceStorage.bars.find(bar => bar.key === key);
+                if(_bind && _bind?.name && !config.toggleSwitching) {
+                    this.activeBar = _bind.name
+                    windows.main?.webContents.send('fromTrigger', this.activeBar)
                 }
             }
         } catch (error) {

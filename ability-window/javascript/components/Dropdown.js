@@ -71,7 +71,7 @@ class Dropdown {
             setTimeout(_ => this.dropdown.classList.add('fade'), 150)
             setTimeout(_ => {
                 this.dropdown.style.display = 'none'
-                const index = this.list.map(word => word.name ? word.name.toLowerCase() : word.toLowerCase()).indexOf(this.input.value.toLowerCase())
+                const index = this.list.map(word => word?.name ? word.name.toLowerCase() : word.toLowerCase()).indexOf(this.input.value.toLowerCase())
                 if (index === -1) {
                     if (this.input.value && !this.parent.hasAttribute('search')) {
                         if (this.query) {

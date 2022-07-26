@@ -12,7 +12,7 @@ for (const property in config) {
             }
 
             case 'barsSelection': {
-                new Dropdown(element.parentNode, ['Global', ...config.referenceStorage.bars.map(e => e.name ? e.name : e)], true)
+                new Dropdown(element.parentNode, ['Global', ...config.referenceStorage.bars.map(e => e?.name ? e.name : e)], true)
                 break
             }
         }
@@ -65,19 +65,23 @@ ipc.on('fromBars', (event, param) => {
             document.getElementById('barsSelection').value = param.after ?? 'Global'
         }
         document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
-        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...request('config').referenceStorage.bars], true)
+        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...request('config').referenceStorage.bars.map(bar => bar?.name ? bar.name : bar)], true)
     }
     else if (!param.length) {
         document.querySelector('label[bars]').classList.add('disabled')
         document.querySelector('label[bars] input').checked = false
         document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
-        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...param], true)
+        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...param.map(bar => bar?.name ? bar.name : bar)], true)
     } else {
         document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
-        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...param], true)
+        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...param.map(bar => bar?.name ? bar.name : bar)], true)
         document.querySelector('label[bars]').classList.remove('disabled')
 
     }
+})
+
+ipc.on('fromTrigger', (event, param) => {
+    document.getElementById('barsSelection').value = param;
 })
 
 ipc.on('presetManager', (event, param) => {

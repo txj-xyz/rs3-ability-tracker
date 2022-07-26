@@ -23,6 +23,7 @@ function copy(initial, data) {
     const bar = component.querySelector('div[bar]');
     const keybind = component.querySelector('div[keybinds]');
     const input = bar.querySelector('input');
+
     component.querySelector('div[remove]').onclick = _ => {
         if (parseInt(component.querySelector('div[bar]').getAttribute('info').split(' ').shift()) > 3) {
             document.querySelector('div[popup] div[info]').innerHTML = `<p>Are you sure you want to remove the ${component.querySelector('div[bar] input').value} bar?</p><hr /><p>Doing so will delete ${component.querySelector('div[bar]').getAttribute('info').split(' ').shift()} binds.</p>`
@@ -38,8 +39,9 @@ function copy(initial, data) {
             toggle(true)
         }
     }
-    input.value = initial ? data.name : '';
-    keybind.querySelector('input').value = initial ? data.key : '';
+
+    input.value = initial ? data.name : null;
+    keybind.querySelector('input').value = initial ? data.key : null;
     new Keybind(keybind.querySelector('input'))
 
     bar.setAttribute('info', data && data.count === 1 ? '1 linked bind' : `${data ? data.count : 0} linked binds`)
@@ -129,19 +131,15 @@ function save(old, value, key) {
     let failed = false
     if (old) return request('barsListener', { before: old, after: value, key })
     document.querySelectorAll('div[bars] > div[id]').forEach(set => {
-        console.log(set)
         let bar = set.querySelector('div[bar]');
         let keybind = set.querySelector('div[keybinds]');
         if (!bar.querySelector('input') || !keybind.querySelector('input')) return;
         let barValue = bar.querySelector('input').value
         let keybindValue = keybind.querySelector('input').value
+
         if (!barValue) {
             bar.classList.add('error')
             bar.setAttribute('error', 'Invalid name')
-            failed = true
-        } else if (!keybindValue) {
-            keybind.classList.add('error')
-            bar.setAttribute('error', 'Invalid keybind')
             failed = true
         } else if (bars.includes(barValue)) {
             toggle()
@@ -153,9 +151,8 @@ function save(old, value, key) {
                 }
             })
             failed = true
-        } else if (keybinds.includes(keybindValue)) {
+        } else if (keybindValue && keybinds.includes(keybindValue)) {
             toggle()
-
             document.querySelectorAll(`input`).forEach(input => {
                 if (input.value === keybindValue) {
                     input.parentNode.classList.add('error')
@@ -171,10 +168,11 @@ function save(old, value, key) {
             bar.classList.remove('error')
             keybind.classList.remove('error')
             bars.push(barValue)
-            keybinds.push(keybindValue)
-            data.push({ name: barValue, key: keybindValue })
+            keybindValue ? keybinds.push(keybindValue) : void 0
+            data.push({ name: barValue, key: keybindValue ?? null })
         }
     })
+
     if (!failed) {
         request('barsListener', data)
         toggle(true)
@@ -197,9 +195,8 @@ function toggle(value) {
 
 const bars = { Global: 0 }
 config.referenceStorage.keybinds.forEach(bind => bars[bind.bar] ? bars[bind.bar]++ : bars[bind.bar] = 1);
-[{ name: 'Global', key: null }, ...config.referenceStorage.bars].map(value => copy(true, { ...value, count: bars[value.name] || 0 }))
+[{ name: 'Global', key: null }, ...config.referenceStorage.bars].map(value => bars[value.name] ? copy(true, { ...value, count: bars[value.name] || null }) : void 0)
 toggle(true)
-
 
 document.querySelector('div[clear]').onclick = _ => {
     document.querySelector('input[search]').value = ''
