@@ -8,7 +8,7 @@ module.exports = class Bars extends Window {
     }
 
     barsListener = (event, param) => {
-        if (Array.isArray(param)) config.referenceStorage.bars = param.filter(bar => bar !== 'Global')
+        if (Array.isArray(param)) config.referenceStorage.bars = param.filter(bar => bar?.name ? bar.name !== 'Global' : bar !== 'Global')
         else {
             config.referenceStorage.bars = [...config.referenceStorage.bars.filter(bar => ![param.before, param.after].includes(bar.name)), { name: param.after, key: param.key }].filter(e => e)
             const keybinds = []
