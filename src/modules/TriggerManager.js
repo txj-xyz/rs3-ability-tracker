@@ -10,6 +10,10 @@ module.exports = class Trigger extends Manager {
         value: null,
         timestamp: 0,
     };
+    currentWeapon = {
+        name: null,
+        style: null,
+    };
     keyCheck = [];
     activeBar = config.barsSelection;
     keybinds = null;
@@ -55,9 +59,11 @@ module.exports = class Trigger extends Manager {
                 .map(prop => (prop.endsWith('Key') && trigger[prop] ? prop : null))
                 .filter(e => e);
             const key = keycodes.reverseMap.get(trigger.keycode.toString());
+            
             //prettier-ignore
             if (Object.keys(modifiers).map(k => modifiers[k]).includes(key)) return
             const possibleKeys = pressedModifiers.some(e => e) ? pressedModifiers.map(mod => `${modifiers[mod]} + ${key}`) : [key];
+            
             for (const keybind of possibleKeys) {
                 let binds = config.referenceStorage.keybinds.filter(e => e.keybind === keybind);
                 let globals = binds.filter(e => e.bar === 'Global');
@@ -68,27 +74,24 @@ module.exports = class Trigger extends Manager {
                     if (!success) {
                         // anti-spam
                         if (bind.name === this.lastKey.value && Date.now() - this.lastKey.timestamp < rsOptions.spamCooldown) return;
+
+                        // GRAB BIND INFORMATION
                         const reference = library.get(bind.name);
-                        // console.log('style check', reference)
+                        const _isWeapon = reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g);
 
-                        if(reference?.style && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g)) {
-                            console.log('pushed style:', reference.style)
-                            console.log('last style:', this.lastKey.style) 
-                            console.log('------------------')
-                        } else {
-                            console.log('ability style:', reference.style)
-                            console.log('match last push?:', reference.style === this.lastKey.style)
-                        }
+                        // SWITCHSCAPE ???
+                        if(reference?.style && _isWeapon) this.currentWeapon.style = reference?.style ?? null;
 
-                        //swap bar if triggered bind is not on the same bar
-                        if (config.toggleSwitching && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) {
-                            this.activeBar = bind.bar;
-                        }
+                        // swap active bar if toggleSwitching is enabled
+                        // if (config.toggleSwitching && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) {
+                        //     this.activeBar = bind.bar;
+                        // }
+
+                        // Show bar only binds, including global
 
                         if ([this.activeBar, 'Global'].includes(bind.bar)) {
                             success = true;
                             this.lastKey.value = bind.name;
-                            this.lastKey.style = reference?.style ?? null,
                             this.lastKey.timestamp = Date.now();
                             windows.ability?.webContents.send('abilityData', { icon: reference.customIcon ?? reference.icon, perk: bind.perk ? library.get(bind.perk).icon : null });
                         }
@@ -96,9 +99,8 @@ module.exports = class Trigger extends Manager {
                 }
             }
 
-            // Handle bar switching here directly.
+            // Handle bar switching here directly for bar keybinds.
             for(const key of possibleKeys){
-                // Change bar logic
                 let _bind = config.referenceStorage.bars.find(bar => bar.key === key);
                 if(_bind && _bind?.name && !config.toggleSwitching) {
                     this.activeBar = _bind.name
