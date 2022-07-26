@@ -225,7 +225,6 @@ ipc.on('fromKeybinds', (event, param) => {
     document.querySelectorAll('div[bars] div[bar]').forEach(bar => {
         const name = bar.querySelector('input').value;
         const value = bars[name] || 0;
-        alert(value)
         bar.setAttribute('info', value === 1 ? '1 linked bind' : `${value ? value : 0} linked binds`);
     });
 });
