@@ -23,8 +23,7 @@ module.exports = class Window {
         windows[this.name].loadFile(page(this.name))
         windows[this.name].removeMenu()
         if(!['main', 'ability'].includes(this.name) && windows['main']) {
-            const _newBounds = windows[this.name]?.getBounds() ?? null;
-            const _mainBounds = windows['main']?.getBounds() ?? null;
+            const [_newBounds, _mainBounds] = [windows[this.name]?.getBounds() ?? null, windows['main']?.getBounds() ?? null];
             const offset = _mainBounds.x - (_newBounds.width - _mainBounds.width) / 2;
             windows[this.name].setPosition(parseInt(offset), _mainBounds.y + 50)
         }
