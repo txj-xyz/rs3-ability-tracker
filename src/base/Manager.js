@@ -61,18 +61,17 @@ module.exports = class Manager {
 
         let oldDiff = oldProps.map(key => (!newMap.get(key) ? key : null)).filter(e => e);
         oldDiff.map(key => oldMap.delete(key));
-
-        oldProps.map(key => {
-            let newSet = newMap.get(key)
-            oldProps.style = newSet.style;
-            oldProps.icon = newSet.icon;
-            oldProps.title = newSet.title;
-        })
-
         let newDiff = newProps.map(key => (!oldMap.get(key) ? key : null)).filter(e => e);
         newDiff.map(key => oldMap.set(key, newMap.get(key)));
 
         const merged = Array.from(oldMap.values());
+
+        merged.map(set => {
+            let newSet = newMap.get(set.name)
+            set.style = newSet.style;
+            set.icon = newSet.icon;
+            set.title = newSet.title;
+        })
 
         readdirSync(this.checkCustomFolder()).map(file => {
             const filepath = resolve(this.checkCustomFolder(), file).replace(/\\/g, '/');
