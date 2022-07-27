@@ -765,7 +765,7 @@
   {
     "name": "Greater Dazing Shot",
     "type": "range",
-    "style": "dual-wield",
+    "style": "two-hand",
     "icon": "../game-asset-groups/abilities/range/Greater_Dazing_Shot.png",
     "customIcon": null
   },
