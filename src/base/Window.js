@@ -22,13 +22,19 @@ module.exports = class Window {
         windows[this.name] = new BrowserWindow(param)
         windows[this.name].loadFile(page(this.name))
         windows[this.name].removeMenu()
-        if(!['main', 'ability'].includes(this.name) && windows['main']) {
-            const [_newBounds, _mainBounds] = [windows[this.name]?.getBounds() ?? null, windows['main']?.getBounds() ?? null];
-            const offset = _mainBounds.x - (_newBounds.width - _mainBounds.width) / 2;
-            windows[this.name].setPosition(parseInt(offset), _mainBounds.y + 50)
-        }
+        !['main', 'ability'].includes(this.name) && windows['main'] ? this.centerToParent(this.name) : void 0;
         this.#register(show)
         return this
+    }
+
+    centerToParent(name) {
+        const [_newBounds, _mainBounds] = [windows[name]?.getBounds() ?? null, windows['main']?.getBounds() ?? null];
+        const offset = _newBounds && _mainBounds ? (_mainBounds.x - (_newBounds.width - _mainBounds.width) / 2) : null;
+        windows[name].setPosition(parseInt(offset), _mainBounds.y + 10);
+        windows[name].setParentWindow(windows['main']);
+        // windows[name].setParentWindow(windows['main']);
+        
+        return offset;
     }
 
     ipcLoader(...events) {
