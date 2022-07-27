@@ -105,10 +105,7 @@ module.exports = class Trigger extends Manager {
                         }
 
                         // If no weapon pushed, then only show Global stuff
-                        if (!this.lastKey.value && _isAbility ? bind.bar !== 'Global' : void 0) {
-                            console.log('false positive')
-                            _falsePositive = true;
-                        }
+                        if (!this.lastKey.value && _isAbility ? bind.bar !== 'Global' : void 0) _falsePositive = true;
 
                         // swap active bar if toggleSwitching is enabled
                         // if (config.toggleSwitching && reference.icon.match(/(weapons\/(magic|melee|range)|slot-icons)/g) && bind.bar.toLowerCase() !== this.activeBar?.toLowerCase()) {
@@ -127,7 +124,6 @@ module.exports = class Trigger extends Manager {
 
             // Handle bar switching here directly for bar keybinds.
             for (const key of possibleKeys) {
-                console.log(key)
                 let _bind = config.referenceStorage.bars.find(bar => bar.key === key);
                 if (_bind && _bind?.name && !config.toggleSwitching) {
                     this.activeBar = _bind.name;
