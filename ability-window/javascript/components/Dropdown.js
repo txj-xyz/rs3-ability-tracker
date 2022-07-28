@@ -89,6 +89,15 @@ class Dropdown {
                 }
             }, 300)
         });
+
+        this.dropdown.addEventListener('mouseleave', _ => {
+            if (this.dropdown.style.display === 'block') {
+                this.dropdown.style.display = 'none';
+                this.input.style.borderRadius = '3px';
+                this.input.blur()
+                this.query ? this.parent.querySelector(`div[${this.query}]`).classList.remove('active') : this.parent.parentNode.classList.remove('active');
+            }
+        });
     }
 
     search(query) {
