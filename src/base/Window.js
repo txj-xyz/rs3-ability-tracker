@@ -1,5 +1,4 @@
-const { BrowserWindow, app, ipcMain } = require("electron");
-const { windows } = require("./Manager");
+const { BrowserWindow, app, ipcMain, screen } = require("electron");
 
 module.exports = class Window {
 
@@ -20,21 +19,11 @@ module.exports = class Window {
     create(param, show) {
         if (this.exists) return this
         windows[this.name] = new BrowserWindow(param)
+        !['main', 'ability'].includes(this.name) && windows['main'] ? tools.centerToParent(windows[this.name]) : void 0;
         windows[this.name].loadFile(page(this.name))
         windows[this.name].removeMenu()
-        !['main', 'ability'].includes(this.name) && windows['main'] ? this.centerToParent(this.name) : void 0;
         this.#register(show)
         return this
-    }
-
-    centerToParent(name) {
-        const [_newBounds, _mainBounds] = [windows[name]?.getBounds() ?? null, windows['main']?.getBounds() ?? null];
-        const offset = _newBounds && _mainBounds ? (_mainBounds.x - (_newBounds.width - _mainBounds.width) / 2) : null;
-        windows[name].setPosition(parseInt(offset), _mainBounds.y + 10);
-        windows[name].setParentWindow(windows['main']);
-        // windows[name].setParentWindow(windows['main']);
-        
-        return offset;
     }
 
     ipcLoader(...events) {
