@@ -21,10 +21,8 @@ module.exports = class Manager {
 
     static __userData = app.getPath('userData');
 
-    static __devMode = process.argv[2] === 'dev' ?? false;
-
     // Load storage
-    static store = new Store({ name: 'local_storage' });
+    static __localStorage = new Store({ name: 'local_storage' });
 
     // Loading logic.
     static load() {
@@ -105,8 +103,6 @@ module.exports = class Manager {
         if (typeof oldConfig.referenceStorage.bars[0] === 'string') {
             oldConfig.referenceStorage.bars = oldConfig.referenceStorage.bars.map(bar => ({ name: bar, key: null }));
         }
-
-        // this.store.set(oldConfig);
     
 
         return oldConfig;
