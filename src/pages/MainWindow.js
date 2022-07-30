@@ -1,3 +1,5 @@
+const { windows } = require('../base/Manager');
+
 const [{ dialog }, Window, { resolve, join }, { writeFileSync, readFileSync }] = ['electron', '../base/Window.js', 'node:path', 'node:fs'].map(require);
 
 module.exports = class Main extends Window {
@@ -7,6 +9,7 @@ module.exports = class Main extends Window {
             .ipcLoader(this.mainListener, this.confListener);
         // windows.main?.setAlwaysOnTop(true);
         windows.update?.focus();
+        windows.main?.isVisible() ? windows.main?.show() : void 0
     }
 
     mainListener = (event, param) => {
@@ -30,7 +33,7 @@ module.exports = class Main extends Window {
                         const _importedData = JSON.parse(_importedConverted);
                         if (!['keybinds', 'bars'].map(e => _importedData.hasOwnProperty(e)).includes(false)) {
                             config.referenceStorage = _importedData;
-                            windows.main?.webContents.send('presetManager', { message: 'import', data: _importedData, name: _importedPath});
+                            windows.main?.webContents.send('presetManager', { message: 'import', data: _importedData, name: _importedPath });
                         } else windows.main?.webContents.send('presetManager', { message: 'failed_import' });
                         event.returnValue = null;
                     } catch (error) {
