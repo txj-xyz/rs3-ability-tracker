@@ -53,13 +53,15 @@ module.exports = class Trigger extends Manager {
 
     checkRSSwitches({ _falsePositive, bind, _isAbility, reference, _isWeapon, _abilityType }) {
         let passed = [];
+        if(bind.bar === 'Global') return true;
         passed.push(!_falsePositive)
         passed.push([this.activeBar, 'Global'].includes(bind.bar))
         passed.push((_isAbility && this.currentWeapon.style === reference.style) || (_isAbility && bind.bar === 'Global') || _isWeapon || !reference?.style)
         passed.push((passed[2] && _isAbility ? _abilityType === this.currentWeapon.type : true ))
 
-        __devMode && console.log('passed check?', !passed.includes(false))
-        __devMode && console.log('passed array', passed)
+        // console.log(bind, bind.bar, passed)
+        // __devMode && console.log('passed check?', !passed.includes(false))
+        // __devMode && console.log('passed array', passed)
         __devMode && console.log('ability type:', _abilityType)
         __devMode && console.log('current weapon', this.currentWeapon)
         __devMode && console.log('------------------------------')
