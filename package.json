@@ -6,10 +6,10 @@
   "main": "src/index.js",
   "repository": "https://github.com/txj-xyz/rs3-ability-tracker",
   "scripts": {
-    "icon-rebuild": "node ./tools/generate-abilities-json.js",
+    "prebuild": "node ./tools/generate-abilities-json.js",
     "startdev": "electron-forge start -- dev",
     "start": "electron-forge start",
-    "make": "electron-rebuild && electron-forge make"
+    "build": "electron-rebuild && electron-forge make"
   },
   "author": "TXJ + Kurasad",
   "license": "ISC",

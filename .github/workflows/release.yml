@@ -35,8 +35,8 @@ jobs:
           matrix.os == 'windows-2019'
         run: ./node_modules/.bin/electron-rebuild.cmd || .\node_modules\.bin\electron-rebuild.cmd
         
-      - name: Make
-        run: yarn make --arch=${{ matrix.arch }}
+      - name: Prebuild and Make
+        run: yarn build --arch=${{ matrix.arch }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

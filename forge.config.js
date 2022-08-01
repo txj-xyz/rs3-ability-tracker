@@ -13,7 +13,6 @@ module.exports = {
                 setupExe: 'RS3-Ability-Tracker-Installer.exe',
                 skipUpdateIcon: true,
                 title: 'RS3-Ability-Tracker',
-                name: 'RS3-Ability-Tracker',
             },
         },
         {
