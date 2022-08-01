@@ -23,7 +23,7 @@ module.exports = class Ability extends Window {
         });
         windows.ability?.on('moved', this.updateSize);
         windows.ability?.on('resized', this.updateSize);
-        windows.ability?.hookWindowMessage(0x0116, () => {
+        __platform === 'win32' && windows.ability?.hookWindowMessage(0x0116, () => {
             windows.ability?.setEnabled(false);
             windows.ability?.setEnabled(true);
         });

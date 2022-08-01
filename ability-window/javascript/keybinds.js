@@ -12,14 +12,14 @@ const [toggles, element, actions] = [
         filter: [],
         popup: null
     },
-    id => `<div id="${id}"><div remove>-</div><div abilityIcon><img /><img /></div><div name id="Ability / Item"><input type="text" placeholder="Ability / Item" /><div dropdown></div></div> <div keybinds id="Keybind"><input type="text" placeholder="Keybind" /> </div> <div bars id="Bar Name"><input type="text" placeholder="Bar Name" /><div barselect></div></div><div perkMod></div><div image>&#x1F5BC;&#xFE0F;</div></div>`,
+    id => `<div id="${id}"><div remove>-</div><div abilityIcon><img /><img /></div><div name id="Ability / Item"><input type="text" placeholder="Ability / Item" /><div dropdown></div></div> <div keybinds id="Keybind"><input type="text" placeholder="Keybind" /></div><div perkMod></div><div image>&#x1F5BC;&#xFE0F;</div></div>`,
     `<div manage><div onclick="copy()" button>+ New Bind</div><div onclick="save()" button save>Save</div><div onclick="cancel()" class="active" button cancel>Cancel</div></div>`
 ]
 
 const perks = [...library.filter(set => set.icon.includes('/perks')).filter(set => set.type === 'perks').map(n=>n.name)]
 
 if (config.referenceStorage.keybinds.length) config.referenceStorage.keybinds.map(set => copy(true, set))
-else document.querySelector('div[keys]').insertAdjacentHTML('beforeend', actions)
+else document.querySelector('main').insertAdjacentHTML('beforeend', actions)
 
 document.querySelector('div[filter] div[list]').innerHTML = `<div>${[...new Set(library.map(set => 'Filter by ' + set.type.split('-').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' ')))].join('</div><div>')}</div>`
 
@@ -31,12 +31,11 @@ function getImg(query, raw) {
 function copy(initial, data) {
     const [id, manage] = [random(), document.querySelector('div[manage]')]
     manage ? manage.remove() : void 0;
-    document.querySelector('div[keys]').insertAdjacentHTML('beforeend', element(id));
-    document.querySelector('div[keys]').insertAdjacentHTML('beforeend', actions);
+    document.querySelector('main').insertAdjacentHTML('beforeend', element(id));
+    document.querySelector('main').insertAdjacentHTML('beforeend', actions);
     const component = document.getElementById(id);
     const name = component.querySelector('div[name] input')
     const keybind = component.querySelector('div[keybinds] input')
-    const bar = component.querySelector('div[bars] input')
     const abilityIcon = component.querySelector('div[abilityIcon]')
     initial ? abilityIcon.style.background = getImg(data.name, true) : void 0
     let set = initial ? library.find(set => set.name === data.name) : null
@@ -94,12 +93,8 @@ function copy(initial, data) {
 
     name.value = initial ? data.name : '';
     keybind.value = initial ? data.keybind : '';
-    bar.value = initial ? data.bar : 'Global';
-
-    if (!request('config').referenceStorage.bars.length) bar.parentNode.classList.add('disable')
 
     new Dropdown(component, library.map(set => set.name), initial, 'name')
-    new Dropdown(component, ['Global', ...request('config').referenceStorage.bars.map(bar => bar?.name ? bar.name : bar)], initial, 'bars')
     new Keybind(keybind)
 
     if (!initial) {
@@ -405,3 +400,10 @@ ipc.on('fromBars', (event, param) => {
 function cancel() {
     if(!toggles.save) window.location.reload()
 }
+
+const tabs = document.querySelector('section.tabs');
+
+tabs.addEventListener('wheel', e => {
+    e.preventDefault();
+    tabs.scrollLeft += e.deltaY / 2;
+});

@@ -5,6 +5,11 @@
 html {
     scroll-behavior: smooth;
 }
+
+body {
+    /* background: var(--elements); */
+}
+
 /* Content styles. */
 
 div.hide {
@@ -18,14 +23,22 @@ div.disable {
 }
 
 /* Keybind styles. */
-div[keys] > div {
+div[keys] > div, main > div {
     display: flex;
     padding: 5px;
     transition-duration: 400ms;
 }
 
+main > div {
+    padding: 5px 5px;
+}
+
+main > div:first-child {
+    padding-top: 10px;
+}
+
 /* Input styles. */
-div[keys] > div input {
+div[keys] > div input, main > div input {
     border: 0;
     border-radius: 3px;
     padding: 1px 5px;
@@ -35,8 +48,8 @@ div[keys] > div input {
     color: var(--color);
 }
 
-div[keys] div[name] input {
-    width: 263px !important;
+div[keys] div[name] input, main div[name] input {
+    width: 300px !important;
 }
 
 div[name]:before,
@@ -68,21 +81,23 @@ div[search]:before {
     margin-left: 85px;
 }
 
-div[keys] > div input {
+div[keys] > div input, main > div input {
     margin-left: 5px !important;
 }
 
-div[keys] > div input:nth-child(odd):focus {
+div[keys] > div input:nth-child(odd):focus, main > div input:nth-child(odd):focus {
     border-radius: 3px 3px 0 0;
 }
 
-div[keys] > div input:focus {
+div[keys] > div input:focus, main > div input:focus {
     outline: none;
 }
 
 /* Allow input styles to match. */
 div[keys] div[name],
-div[keys] div[bars] {
+div[keys] div[bars],
+main div[name],
+main div[bars] {
     display: flex;
 }
 
@@ -184,7 +199,7 @@ div[abilityIcon] {
 }
 
 div[perkMod] {
-    margin-left: 7px;
+    margin-left: 9px;
 }
 
 div[perkMod].active {
@@ -202,6 +217,7 @@ div[filter] {
 }
 
 div[keybinds] input {
+    width: 135px !important;
     border-radius: 3px !important;
 }
 
@@ -246,7 +262,7 @@ div[barselect] {
 }
 
 div[dropdown] {
-    width: 263px !important
+    width: 300px !important;
 }
 
 /* Input box error styles. */
@@ -352,6 +368,7 @@ div[list] {
     background: var(--elements);
     font-weight: 500;
     padding: 5px;
+    transition-delay: 200ms;
     transition-duration: 400ms;
     pointer-events: none;
 }
@@ -496,6 +513,8 @@ hr {
     border: none;
     height: 2px;
     background: var(--elements);
+    margin-block-end: 0;
+    margin-block-start: 0;
 }
 
 div[abilityIcon] img {
@@ -503,4 +522,54 @@ div[abilityIcon] img {
     margin-top: -2px;
     max-width: 25px;
     max-height: 23px;
+}
+
+section.tabs {
+    margin-top: 7px;
+    display: flex;
+    overflow-x: auto;
+    width: 98.5%;
+    /* scroll-snap-type: x mandatory; */
+    scroll-behavior: smooth;
+}
+
+section.tabs > div {
+    padding: 3px 10px;
+    cursor: pointer;
+    margin-right: 2px;
+    border-radius: 3px 3px 0 0;
+    transition-duration: 200ms;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+section.tabs > div:first-child {
+    margin-left: 10px;
+}
+
+section.tabs > div.active {
+    transform: scale(1);
+    background: var(--elements);
+}
+
+section.tabs > div:not(.active):hover {
+    background: var(--hover);
+}
+
+section.tabs > div.add {
+    margin: 2px 3px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: var(--background);
+}
+
+section.tabs > div.add:hover {
+    background: var(--hover);
+}
+
+main {
+    height: calc(100vh - 23px - 34px - 45px);
+    width: calc(100vw - 10px);
+    margin: 0 5px;
+    outline: 2px solid var(--elements);
+    border-radius: 3px 3px 6px 6px;
 }
