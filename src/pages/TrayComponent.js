@@ -70,7 +70,7 @@ module.exports = class Taskbar {
                 { label: 'Configure Keybinds', click: _ => new Keybinds() },
 
                 // Open bars window.
-                { label: 'Configure Bars', click: _ => new Bars() },
+                { label: 'Configure Presets', click: _ => new Bars() },
 
                 // Quit application.
                 { label: 'Quit', click: quitHandler },

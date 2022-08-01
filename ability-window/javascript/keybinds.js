@@ -99,7 +99,7 @@ function copy(initial, data) {
 
     if (!initial) {
         component.querySelector('div[image]').classList.add('disable')
-        window.scrollTo(0, document.body.scrollHeight);
+        // window.scrollTo(0, document.body.scrollHeight);
         toggleOrder()
         toggle()
     } else toggle(true)
@@ -251,12 +251,13 @@ function save() {
                 failed = true
 
                 keybind?.parentNode.classList.add('error')
-                keybind?.parentNode.setAttribute('error', 'Duplicate Item and Keybind')
-            } else if (binds.filter(e => e.bar === set.bar && e.name === set.name).length > 1 && !failed) {
-                failed = true
-                keybind?.parentNode.classList.add('error')
-                keybind?.parentNode.setAttribute('error', 'Duplicate Keybind')
+                keybind?.parentNode.setAttribute('error', 'Duplicate Item / Keybind / Bar')
             }
+            // } else if (binds.filter(e => e.bar === set.bar && e.name === set.name).length > 1 && !failed) {
+            //     failed = true
+            //     keybind?.parentNode.classList.add('error')
+            //     keybind?.parentNode.setAttribute('error', 'Duplicate Keybind')
+            // }
         })
     })
     if (failed) return

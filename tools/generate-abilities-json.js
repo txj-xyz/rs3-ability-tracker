@@ -37,6 +37,6 @@ walkSync(path, (filepath, pathDetails) => {
     });
 });
 
-console.log(JSON.stringify(filesMap, null, 1));
-
+console.log('[INFO]', filesMap.length, 'icons detected');
 writeFileSync(`./src/default/game-key-data.json`, JSON.stringify(filesMap, null, 2));
+process.exit();
