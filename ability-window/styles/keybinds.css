@@ -8,6 +8,7 @@ html {
 
 body {
     /* background: var(--elements); */
+    overflow: hidden;
 }
 
 /* Content styles. */
@@ -23,22 +24,24 @@ div.disable {
 }
 
 /* Keybind styles. */
-div[keys] > div, main > div {
+div[keys] > div,
+main > section > div {
     display: flex;
     padding: 5px;
     transition-duration: 400ms;
 }
 
-main > div {
+main > section > div {
     padding: 5px 5px;
 }
 
-main > div:first-child {
+main > section:first-child > div {
     padding-top: 10px;
 }
 
 /* Input styles. */
-div[keys] > div input, main > div input {
+div[keys] > div input,
+main > section > div input {
     border: 0;
     border-radius: 3px;
     padding: 1px 5px;
@@ -48,8 +51,9 @@ div[keys] > div input, main > div input {
     color: var(--color);
 }
 
-div[keys] div[name] input, main div[name] input {
-    width: 300px !important;
+main div[name],
+main div[name] input {
+    width: 100% !important;
 }
 
 div[name]:before,
@@ -66,6 +70,7 @@ div[search]:before {
     border-radius: 3px;
     opacity: 0;
     transition-duration: 0.5s;
+    transition-delay: 200ms;
     margin-top: -14px;
 }
 
@@ -81,15 +86,18 @@ div[search]:before {
     margin-left: 85px;
 }
 
-div[keys] > div input, main > div input {
+div[keys] > div input,
+main > section > div input {
     margin-left: 5px !important;
 }
 
-div[keys] > div input:nth-child(odd):focus, main > div input:nth-child(odd):focus {
+div[keys] > div input:nth-child(odd):focus,
+main > section > div input:nth-child(odd):focus {
     border-radius: 3px 3px 0 0;
 }
 
-div[keys] > div input:focus, main > div input:focus {
+div[keys] > div input:focus,
+main > section > div input:focus {
     outline: none;
 }
 
@@ -191,14 +199,22 @@ div[search] > div {
 
 div[abilityIcon] {
     min-width: 10px !important;
-    background-color: var(--hover) !important;
+    background: var(--hover);
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     cursor: default !important;
+    border-radius: 5px;
+    /* height: 18px;
+    max-height: 18px;
+    width: 12px;
+    max-width: 12px; */
+    max-width: 12px !important;
 }
 
 div[perkMod] {
+    width: 12px !important;
+    max-width: 12px !important;
     margin-left: 9px;
 }
 
@@ -518,8 +534,8 @@ hr {
 }
 
 div[abilityIcon] img {
+    position: absolute;
     margin-bottom: -4px;
-    margin-top: -2px;
     max-width: 25px;
     max-height: 23px;
 }
@@ -538,7 +554,6 @@ section.tabs > div {
     cursor: pointer;
     margin-right: 2px;
     border-radius: 3px 3px 0 0;
-    transition-duration: 200ms;
     background: rgba(255, 255, 255, 0.05);
 }
 
@@ -567,9 +582,117 @@ section.tabs > div.add:hover {
 }
 
 main {
-    height: calc(100vh - 23px - 34px - 45px);
-    width: calc(100vw - 10px);
-    margin: 0 5px;
+    height: calc(100vh - 23px - 34px - 40px);
+    /* width: calc(100vw - 10px); */
+    /* margin: 0 5px; */
     outline: 2px solid var(--elements);
-    border-radius: 3px 3px 6px 6px;
+    /* border-radius: 3px 3px 6px 6px; */
+    background: var(--elements);
+    padding-top: 5px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+main > section:first-child > div div[perkMod],
+main > section:first-child > div div[image],
+main > section:first-child > div div[name]:after {
+    opacity: 0;
+    pointer-events: none;
+}
+
+main > section:first-child > div div[abilityIcon] {
+    display: none;
+}
+
+main > section:first-child > div div[remove] {
+    color: var(--red);
+}
+
+main > section:first-child > div div[remove]:after {
+    content: "X";
+    color: var(--color);
+    margin-left: -5px;
+}
+
+main > section:first-child > div {
+    padding-bottom: 10px;
+    border-radius: 3px;
+    margin: 0 5px;
+}
+
+main > section > div {
+    background: var(--background);
+}
+
+main > section > div[manage] {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-radius: 0 0 5px 5px;
+}
+
+/* main > section > div:nth-child(2) {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-radius: 5px 5px 0 0;
+} */
+
+div.section {
+    margin-top: 10px;
+    border-radius: 3px 3px 0 0;
+    padding: 15px 15px 5px 15px;
+    width: max-content;
+    cursor: pointer;
+    line-height: 0.5;
+}
+
+div[min] {
+    margin-left: 10px;
+    transform: rotate(180deg);
+    transition-duration: 200ms;
+}
+
+div.section.active div[min] {
+    transform: rotate(90deg);
+}
+
+main > section.active {
+    height: 592px !important;
+    margin-bottom: 10px !important;
+}
+
+main > section:not([header]) {
+    height: 100px;
+    overflow: hidden;
+    border-radius: 3px;
+    margin: 5px;
+    transition-duration: 200ms !important;
+}
+
+main > section:not([header]) > div:not(.section) > div {
+    pointer-events: none;
+    filter: blur(3px);
+}
+
+main > section.active > div:not(.section) > div {
+    pointer-events: auto;
+    filter: blur(0px);
+}
+
+main > section:not([header]):before {
+    content: "";
+    display: block;
+    width: calc(100% - 10px);
+    height: 20px;
+    position: absolute;
+    margin-top: 80px;
+    z-index: 10;
+    background: linear-gradient(to bottom, transparent 0%, var(--elements) 100%);
+    border-radius: 0 0 3px 3px;
+    opacity: 1;
+    transition-duration: 200ms;
+}
+
+main > section.active:before {
+    margin-top: 600px;
+    opacity: 0;
 }
