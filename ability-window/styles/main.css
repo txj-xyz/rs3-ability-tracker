@@ -78,13 +78,33 @@ div.disable {
     display: none !important;
 } */
 
+div#ability {
+    background-color: var(--green);
+}
+
+/* div#keybinds {
+    background-color: var(--yellow);
+} */
+
 div#import {
-    width: 104px;
-    /* width: 50%; */
+    /* width: 104px; */
+    width: 65px;
     display: inline-flex !important;
 }
 
 div#export {
-    /* width: 110px; */
+    width: 55px;
     display: inline-flex;
+}
+
+div#open {
+    width: 55px;
+    display: inline-flex;
+}
+
+break {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    font-weight: 600;
 }
