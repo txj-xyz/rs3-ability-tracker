@@ -3,7 +3,7 @@ const [{ copyFileSync, unlinkSync }, { resolve }, { dialog }, Window] = ['fs', '
 module.exports = class Keybinds extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 635, height: 550 }, true)
+            .create({ ...windows.properties, width: 635, height: 550, resizable: !0, minWidth: 635, minHeight: 550 }, true)
             .ipcLoader(this.keybindsListener)
     }
 
