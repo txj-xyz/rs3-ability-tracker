@@ -21,10 +21,18 @@ module.exports = class Manager {
 
     static __userData = app.getPath('userData');
 
-    // Load storage
-    static __localStorage = new Store({ name: 'local_storage' });
 
-    static __folder = (path) = this.checkCustomFolder(path);
+    static checkCustomFolder(path) {
+        if(typeof path !== 'string') return new TypeError('path must be a string')
+        const customPath = resolve(super.__userData, path);
+        if (!existsSync(customPath)) {
+            mkdirSync(customPath);
+        }
+        return customPath;
+    }
+    
+    // Load storage
+    // static __localStorage = new Store({ name: 'local_storage' });
 
     // Loading logic.
     static load() {
@@ -41,15 +49,6 @@ module.exports = class Manager {
             this.once = true;
         }
         return this;
-    }
-
-    static checkCustomFolder(path) {
-        if(typeof path !== 'string') return new TypeError('path must be a string')
-        const customPath = resolve(this.__userData, path);
-        if (!existsSync(customPath)) {
-            mkdirSync(customPath);
-        }
-        return customPath;
     }
 
     // Update AppData assets with new files from generated on build assets (aka: new icons)
