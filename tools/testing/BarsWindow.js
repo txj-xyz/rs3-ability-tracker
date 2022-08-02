@@ -1,4 +1,4 @@
-const Window = require('../src/base/Window.js')
+const Window = require('../../src/base/Window.js')
 
 module.exports = class Bars extends Window {
     constructor() {
@@ -20,7 +20,7 @@ module.exports = class Bars extends Window {
         if (!config.referenceStorage.bars.length) config.toggleSwitching = false
 
         windows.main?.webContents.send('fromBars', !Array.isArray(param) ? param : config.referenceStorage.bars)
-        windows.keybinds?.webContents.send('fromBars', !Array.isArray(param) ? param : config.referenceStorage.bars)
+        windows.presets?.webContents.send('fromBars', !Array.isArray(param) ? param : config.referenceStorage.bars)
         event.returnValue = null
     }
 }

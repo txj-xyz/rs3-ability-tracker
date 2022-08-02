@@ -42,9 +42,9 @@ module.exports = class Window {
         })
         windows[this.name].on('close', _ => {
             if (this.name === 'main') {
-                if (config.minimizeToTray || windows.keybinds || windows.bars) {
+                if (config.minimizeToTray || windows.presets || windows.bars) {
                     windows[this.name].hide()
-                    if (!windows.main?.isVisible() && !windows.keybinds && !windows.bars) quitHandler()
+                    if (!windows.main?.isVisible() && !windows.presets && !windows.bars) quitHandler()
                 } else quitHandler()
             } else {
                 if (this.name === 'ability') unregister()
@@ -54,7 +54,7 @@ module.exports = class Window {
             for (const event in this.listeners) ipcMain.removeListener(event, this.listeners[event])
             delete windows[this.name]
             windows.tray.reload()
-            if (!windows.main?.isVisible() && !windows.keybinds && !windows.bars) quitHandler()
+            if (!windows.main?.isVisible() && !windows.presets && !windows.bars) quitHandler()
             return void 0
         })
     }

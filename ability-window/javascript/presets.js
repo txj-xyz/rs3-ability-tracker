@@ -285,7 +285,7 @@ function save() {
     })
     if (failed) return
 
-    request('keybindsListener', binds)
+    request('presetsListener', binds)
     toggle(true)
 }
 
@@ -369,7 +369,7 @@ document.querySelector('div[revertImage]').onclick = _ => {
     if (!toggles.popup) return
     const name = document.getElementById(toggles.popup).querySelector('div[name] input').value
     if (!name) return
-    request('keybindsListener', { type: 'revertImage', name })
+    request('presetsListener', { type: 'revertImage', name })
     document.querySelector('div[revertImage]').classList.add('disable')
     document.querySelector('div[imagePicker] div[image]').style.background = `url(${library.find(set => set.name === name).icon})`
     const image = document.getElementById(toggles.popup).querySelector('div[image]')
@@ -380,7 +380,7 @@ document.querySelector('div[revertImage]').onclick = _ => {
 
 document.querySelector('div[modifyImage]').onclick = _ => {
     if (!toggles.popup) return
-    request('keybindsListener', { type: 'dialog', name: document.getElementById(toggles.popup).querySelector('div[name] input').value, id: toggles.popup })
+    request('presetsListener', { type: 'dialog', name: document.getElementById(toggles.popup).querySelector('div[name] input').value, id: toggles.popup })
 }
 
 ipc.on('customIcon', (event, param) => {
