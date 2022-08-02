@@ -41,8 +41,9 @@ module.exports = class Manager {
         return this;
     }
 
-    static checkCustomFolder() {
-        const customPath = resolve(this.__userData, '.custom');
+    static checkCustomFolder(path) {
+        if(typeof path !== 'string') return new TypeError('path must be a string')
+        const customPath = resolve(this.__userData, path);
         if (!existsSync(customPath)) {
             mkdirSync(customPath);
         }
@@ -71,8 +72,8 @@ module.exports = class Manager {
             set.title = newSet.title;
         })
 
-        readdirSync(this.checkCustomFolder()).map(file => {
-            const filepath = resolve(this.checkCustomFolder(), file).replace(/\\/g, '/');
+        readdirSync(this.checkCustomFolder('.custom')).map(file => {
+            const filepath = resolve(this.checkCustomFolder('.custom'), file).replace(/\\/g, '/');
             if (!merged.find(set => set.customIcon === filepath)) unlinkSync(filepath);
         });
 
