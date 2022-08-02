@@ -17,7 +17,9 @@ module.exports = class Main extends Window {
         else if (param === 'ability' && !windows.ability) new Confirmation();
         else if (param === 'ability' && windows.ability) windows.ability.close();
         else if (param === 'import' || param === 'export') this.presetManager(event, param);
-        else if (param === 'open') shell.openPath(resolve(__userData) + 'custom-images');
+        else if (param === 'open') {
+            shell.openPath(__folder('custom-images'));
+        }
         else new global[param.slice(0, 1).toUpperCase() + param.slice(1)]();
         return (event.returnValue = null);
     };

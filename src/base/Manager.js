@@ -24,6 +24,8 @@ module.exports = class Manager {
     // Load storage
     static __localStorage = new Store({ name: 'local_storage' });
 
+    static __folder = (path) = this.checkCustomFolder(path);
+
     // Loading logic.
     static load() {
         this.once = this.once ? true : false;
