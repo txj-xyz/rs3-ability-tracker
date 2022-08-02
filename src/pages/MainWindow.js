@@ -1,15 +1,15 @@
-const { windows } = require('../base/Manager');
+const { windows, __userData } = require('../base/Manager');
 
-const [{ dialog }, Window, { resolve, join }, { writeFileSync, readFileSync }] = ['electron', '../base/Window.js', 'node:path', 'node:fs'].map(require);
+const [{ dialog, shell }, Window, { resolve, join }, { writeFileSync, readFileSync }] = ['electron', '../base/Window.js', 'node:path', 'node:fs'].map(require);
 
 module.exports = class Main extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 250, height: 357 }, true)
+            .create({ ...windows.properties, width: 250, height: 394 }, true)
             .ipcLoader(this.mainListener, this.confListener);
         // windows.main?.setAlwaysOnTop(true);
         windows.update?.focus();
-        windows.main?.isVisible() ? windows.main?.show() : void 0
+        windows.main?.isVisible() ? windows.main?.show() : void 0;
     }
 
     mainListener = (event, param) => {
@@ -17,6 +17,7 @@ module.exports = class Main extends Window {
         else if (param === 'ability' && !windows.ability) new Confirmation();
         else if (param === 'ability' && windows.ability) windows.ability.close();
         else if (param === 'import' || param === 'export') this.presetManager(event, param);
+        else if (param === 'open') shell.openPath(resolve(__userData) + 'custom-images');
         else new global[param.slice(0, 1).toUpperCase() + param.slice(1)]();
         return (event.returnValue = null);
     };
