@@ -24,7 +24,7 @@ module.exports = class Manager {
 
     static checkCustomFolder(path) {
         if(typeof path !== 'string') return new TypeError('path must be a string')
-        const customPath = resolve(super.__userData, path);
+        const customPath = resolve(this.__userData, path);
         if (!existsSync(customPath)) {
             mkdirSync(customPath);
         }
