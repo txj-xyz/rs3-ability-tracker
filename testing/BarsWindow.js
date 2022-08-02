@@ -1,4 +1,4 @@
-const Window = require('../base/Window.js')
+const Window = require('../src/base/Window.js')
 
 module.exports = class Bars extends Window {
     constructor() {
