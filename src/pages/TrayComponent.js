@@ -25,7 +25,7 @@ module.exports = class Taskbar {
         windows.tray.on('click', _ => __platform !== 'darwin' ? new Main() : void 0)
         ipcMain.on('platform', event => event.returnValue = __platform)
         ipcMain.on('devMode', event => event.returnValue = __devMode)
-        ipcMain.on('config', (event, param) => event.returnValue = param ? { config: JSON.parse(JSON.stringify(config)), library: library.data, keycodes: keycodes.data } : JSON.parse(JSON.stringify(config)))
+        ipcMain.on('config', (event, param) => event.returnValue = param ? { config: JSON.parse(JSON.stringify(config)), library: library.data, keycodes: keycodes.data, defaultPresets: [{ name: 'Global' }, { name: 'Items' }] } : JSON.parse(JSON.stringify(config)))
         ipcMain.on('random', event => event.returnValue = randomID())
         if (__platform !== 'darwin') {
             ipcMain.on('hide', (event, param) => {
