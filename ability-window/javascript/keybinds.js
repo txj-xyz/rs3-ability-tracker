@@ -12,14 +12,37 @@ const [toggles, element, actions] = [
         filter: [],
         popup: null
     },
-    id => `<div id="${id}"><div remove>-</div><div abilityIcon><img /><img /></div><div name id="Ability / Item"><input type="text" placeholder="Ability / Item" /><div dropdown></div></div> <div keybinds id="Keybind"><input type="text" placeholder="Keybind" /></div><div perkMod></div><div image>&#x1F5BC;&#xFE0F;</div></div>`,
+    (id, preset) => `<div id="${id}" empty><div remove>-</div><div abilityIcon><img /><img /></div><div name id="${!preset ? 'Ability / Item' : 'Preset Name'}"><input type="text" placeholder="${!preset ? 'Ability / Item' : 'Preset Name'}" /><div dropdown></div></div> <div keybinds id="Keybind"><input type="text" placeholder="Keybind" /></div><div perkMod></div><div image>&#x1F5BC;&#xFE0F;</div></div>`,
     `<div manage><div onclick="copy()" button>+ New Bind</div><div onclick="save()" button save>Save</div><div onclick="cancel()" class="active" button cancel>Cancel</div></div>`
 ]
 
-const perks = [...library.filter(set => set.icon.includes('/perks')).filter(set => set.type === 'perks').map(n=>n.name)]
+const perks = [...library.filter(set => set.icon.includes('/perks')).filter(set => set.type === 'perks').map(n => n.name)];
 
-if (config.referenceStorage.keybinds.length) config.referenceStorage.keybinds.map(set => copy(true, set))
-else document.querySelector('main').insertAdjacentHTML('beforeend', actions)
+[...config.referenceStorage.bars, { name: 'Global', key: null }].map(bar => document.querySelector('.tabs').innerHTML += `<div onclick="toggleTab('${bar.name}')" class="${config.barsSelection === bar.name ? 'active' : ''}">${bar.name}</div>`)
+document.querySelector('.tabs').innerHTML += '<div class="add" onclick="addTab()">+</div>'
+toggleTab(config.barsSelection)
+
+
+function toggleTab(bar) {
+    // document.querySelector('main').innerHTML = ''
+    document.querySelectorAll('.tabs > div').forEach(div => div.classList.remove('active'))
+    document.querySelector(`.tabs > div[onclick="toggleTab('${bar}')"]`).classList.add('active')
+
+    // document.querySelector('main').innerHTML = element('', true)
+    // new Keybind(document.querySelector('main div[keybinds] input'))
+
+
+    // const keys = config.referenceStorage.keybinds.filter(e => e.bar === bar)
+    // if (keys.length) keys.map(key => copy(true, key))
+    // else {
+    //     document.querySelector('main').insertAdjacentHTML('beforeend', actions)
+    //     document.querySelector('div[manage]').style.borderRadius = '5px'
+    // }
+    // toggle(true)
+}
+
+// if (config.referenceStorage.keybinds.length) config.referenceStorage.keybinds.map(set => copy(true, set))
+// else document.querySelector('main').insertAdjacentHTML('beforeend', actions)
 
 document.querySelector('div[filter] div[list]').innerHTML = `<div>${[...new Set(library.map(set => 'Filter by ' + set.type.split('-').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' ')))].join('</div><div>')}</div>`
 
@@ -109,7 +132,7 @@ function toggle(value) {
     const save = document.querySelector('div[save]')
     const cancel = document.querySelector('div[cancel]')
     toggles.save = value ? true : false;
-    if (toggles.save){ 
+    if (toggles.save) {
         cancel.classList.add('disable')
         cancel.classList.remove('active')
         save.classList.add('disable')
@@ -125,7 +148,7 @@ function toggle(value) {
 
 function toggleImage(id, value) {
     const elem = document.getElementById(id)
-    if(!elem) return;
+    if (!elem) return;
     const image = elem ? document.getElementById(id).querySelector('div[image]') : void 0
     const item = config.referenceStorage.keybinds.find(e => e.name === value && e.keybind === document.getElementById(id).querySelector('div[keybinds] input').value)
     if (!value) {
@@ -369,37 +392,37 @@ ipc.on('customIcon', (event, param) => {
     document.getElementById(toggles.popup).querySelector('div[abilityIcon]').style.background = getImg(param.name, true)
 })
 
-ipc.on('fromBars', (event, param) => {
-    if (!Array.isArray(param) || (Array.isArray(param) && param.some(e => e))) {
-        document.querySelectorAll('div[keys] > div[id]:not([search]) div[bars]').forEach(div => {
-            div.classList.remove('disable')
-            const id = div.parentNode.id
-            div.parentNode.replaceChild(div.cloneNode(true), div);
-            new Dropdown(document.getElementById(id), ['Global', ...request('config').referenceStorage.bars], true, 'bars')
-        })
-        if (param.before) {
-            let disable = !request('config').referenceStorage.bars.length
-            document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(div => {
-                const input = div.querySelector('div[name] input')
-                const bar = div.querySelector('div[bars] input')
-                if (disable) {
-                    input.blur()
-                    bar.parentNode.classList.add('disable')
-                }
-                if (input.value && param.before === bar.value) !param.after ? div.remove() : bar.value = param.after
+// ipc.on('fromBars', (event, param) => {
+//     if (!Array.isArray(param) || (Array.isArray(param) && param.some(e => e))) {
+//         document.querySelectorAll('div[keys] > div[id]:not([search]) div[bars]').forEach(div => {
+//             div.classList.remove('disable')
+//             const id = div.parentNode.id
+//             div.parentNode.replaceChild(div.cloneNode(true), div);
+//             new Dropdown(document.getElementById(id), ['Global', ...request('config').referenceStorage.bars], true, 'bars')
+//         })
+//         if (param.before) {
+//             let disable = !request('config').referenceStorage.bars.length
+//             document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(div => {
+//                 const input = div.querySelector('div[name] input')
+//                 const bar = div.querySelector('div[bars] input')
+//                 if (disable) {
+//                     input.blur()
+//                     bar.parentNode.classList.add('disable')
+//                 }
+//                 if (input.value && param.before === bar.value) !param.after ? div.remove() : bar.value = param.after
 
-            })
-        }
-    } else {
-        document.querySelectorAll('div[keys] > div[id]:not([search]) div[bars]').forEach(div => {
-            div.classList.add('disable')
-            div.querySelector('input').blur()
-        })
-    }
-})
+//             })
+//         }
+//     } else {
+//         document.querySelectorAll('div[keys] > div[id]:not([search]) div[bars]').forEach(div => {
+//             div.classList.add('disable')
+//             div.querySelector('input').blur()
+//         })
+//     }
+// })
 
 function cancel() {
-    if(!toggles.save) window.location.reload()
+    if (!toggles.save) window.location.reload()
 }
 
 const tabs = document.querySelector('section.tabs');
