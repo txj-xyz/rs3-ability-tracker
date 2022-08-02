@@ -5,7 +5,7 @@ const [{ dialog }, Window, { resolve, join }, { writeFileSync, readFileSync }] =
 module.exports = class Main extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 250, height: 397 }, true)
+            .create({ ...windows.properties, width: 250, height: 357 }, true)
             .ipcLoader(this.mainListener, this.confListener);
         // windows.main?.setAlwaysOnTop(true);
         windows.update?.focus();
