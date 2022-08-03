@@ -1,0 +1,60 @@
+{
+    "minimizeToTray": false,
+    "toggleSwitching": false,
+    "lockTrackerWindow": false,
+    "numberOfIcons": 10,
+    "barsSelection": [],
+    "barForward": "",
+    "barBackward": "",
+    "abilityWindow": {
+      "x": 767,
+      "y": 326,
+      "width": 800,
+      "height": 80
+    },
+    "presets": [
+      {
+        "presetName": "Primary",
+        "presetBind": "R",
+        "sections": [
+          {
+            "name": "Section 1",
+            "data": {
+              "1": {
+                "name": "2H Weapon",
+                "bind": "Q",
+                "perk": "Planted Feet"
+              },
+              "2": {
+                "name": "2H Weapon",
+                "bind": "W",
+                "perk": "Planted Feet"
+              }
+            }
+          },
+          {
+            "name": "Section 2",
+            "data": {
+              "1": {
+                "name": "2H Weapon",
+                "bind": "E",
+                "perk": "Planted Feet"
+              },
+              "2": {
+                "name": "2H Weapon",
+                "bind": "R",
+                "perk": "Planted Feet"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "global": [
+      {
+        "name": "2H Weapon",
+        "bind": "Q",
+        "perk": "Planted Feet"
+      }
+    ]
+  }
