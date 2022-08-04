@@ -21,16 +21,15 @@ module.exports = class Manager {
 
     static __userData = app.getPath('userData');
 
-
     static checkCustomFolder(path) {
-        if(typeof path !== 'string') return new TypeError('path must be a string')
+        if (typeof path !== 'string') return new TypeError('path must be a string');
         const customPath = resolve(this.__userData, path);
         if (!existsSync(customPath)) {
             mkdirSync(customPath);
         }
         return customPath;
     }
-    
+
     // Load storage
     // static __localStorage = new Store({ name: 'local_storage' });
 
@@ -67,11 +66,11 @@ module.exports = class Manager {
         const merged = Array.from(oldMap.values());
 
         merged.map(set => {
-            let newSet = newMap.get(set.name)
+            let newSet = newMap.get(set.name);
             set.style = newSet.style;
             set.icon = newSet.icon;
             set.title = newSet.title;
-        })
+        });
 
         readdirSync(this.checkCustomFolder('.custom')).map(file => {
             const filepath = resolve(this.checkCustomFolder('.custom'), file).replace(/\\/g, '/');
@@ -94,18 +93,46 @@ module.exports = class Manager {
         // v1.3.0 NEW!!!
         // convert 'keybinds' to new 'presets' with new data format
         if (oldConfig.referenceStorage.keybinds.length && oldConfig.referenceStorage.keybinds[0].keybind && !oldConfig.referenceStorage?.presets) {
-            
             // map each keybind to new layout
             oldConfig.referenceStorage.keybinds.map(k => {
+                const testObj = {
+                    presetName: k.bar
+                    presetBind: null,
+                    sections: [
+                        {
+                            name: 'Primary Bar',
+                            slots: {
+                                1: {
+                                    name: k.name,
+                                    bind: k.keybind,
+                                    perk: null,
+                                },
+                                2: {
+                                    name: k.name,
+                                    bind: k.keybind,
+                                    perk: null,
+                                },
+                                3: {
+                                    name: k.name,
+                                    bind: k.keybind,
+                                    perk: null,
+                                },
+                            }
+                        },
+                    ]
+                    // name: k.name,
+                    // keybind: k.keybind,
+                    // bar: k.bar,
+                    // perk: null
+                };
                 test.push({ name: k.name, keybind: k.keybind, bar: k.bar, perk: null });
             });
-            console.log(test)
+            console.log(test);
             // oldConfig.referenceStorage.presets = keybinds;
         }
 
-
         // v1.2.4
-        // check if keybinds is an array and has 'key' instead of 'keybind' 
+        // check if keybinds is an array and has 'key' instead of 'keybind'
         // this also fixes a bug with improperly saved window resizing
         else if (oldConfig.referenceStorage.keybinds.length && oldConfig.referenceStorage.keybinds[0].key) {
             oldConfig.referenceStorage.keybinds.map(k => {
@@ -122,7 +149,6 @@ module.exports = class Manager {
         else if (typeof oldConfig.referenceStorage.bars[0] === 'string') {
             oldConfig.referenceStorage.bars = oldConfig.referenceStorage.bars.map(bar => ({ name: bar, key: null }));
         }
-    
 
         return oldConfig;
     }
