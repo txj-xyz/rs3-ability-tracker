@@ -22,12 +22,12 @@
             "slots": {
               "1": {
                 "name": "2H Weapon",
-                "bind": "Q",
+                "keybind": "Q",
                 "perk": "Planted Feet"
               },
               "2": {
                 "name": "2H Weapon",
-                "bind": "W",
+                "keybind": "W",
                 "perk": "Planted Feet"
               }
             }
@@ -37,12 +37,12 @@
             "slots": {
               "1": {
                 "name": "2H Weapon",
-                "bind": "E",
+                "keybind": "E",
                 "perk": "Planted Feet"
               },
               "2": {
                 "name": "2H Weapon",
-                "bind": "R",
+                "keybind": "R",
                 "perk": "Planted Feet"
               }
             }
@@ -53,7 +53,7 @@
     "global": [
       {
         "name": "2H Weapon",
-        "bind": "Q",
+        "keybind": "Q",
         "perk": "Planted Feet"
       }
     ]
