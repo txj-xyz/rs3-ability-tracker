@@ -19,7 +19,7 @@
         "sections": [
           {
             "name": "Section 1",
-            "data": {
+            "slots": {
               "1": {
                 "name": "2H Weapon",
                 "bind": "Q",
@@ -34,7 +34,7 @@
           },
           {
             "name": "Section 2",
-            "data": {
+            "slots": {
               "1": {
                 "name": "2H Weapon",
                 "bind": "E",
