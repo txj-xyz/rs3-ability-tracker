@@ -686,7 +686,6 @@ main > section:not([header]):before {
     position: absolute;
     margin-top: 80px;
     z-index: 10;
-    background: linear-gradient(to bottom, transparent 0%, var(--elements) 100%);
     border-radius: 0 0 3px 3px;
     opacity: 1;
     transition-duration: 200ms;
