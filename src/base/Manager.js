@@ -95,40 +95,9 @@ module.exports = class Manager {
         if (oldConfig.referenceStorage.keybinds.length && oldConfig.referenceStorage.keybinds[0].keybind && !oldConfig.referenceStorage?.presets) {
             // map each keybind to new layout
             oldConfig.referenceStorage.keybinds.map(k => {
-                const testObj = {
-                    presetName: k.bar
-                    presetBind: null,
-                    sections: [
-                        {
-                            name: 'Primary Bar',
-                            slots: {
-                                1: {
-                                    name: k.name,
-                                    bind: k.keybind,
-                                    perk: null,
-                                },
-                                2: {
-                                    name: k.name,
-                                    bind: k.keybind,
-                                    perk: null,
-                                },
-                                3: {
-                                    name: k.name,
-                                    bind: k.keybind,
-                                    perk: null,
-                                },
-                            }
-                        },
-                    ]
-                    // name: k.name,
-                    // keybind: k.keybind,
-                    // bar: k.bar,
-                    // perk: null
-                };
-                test.push({ name: k.name, keybind: k.keybind, bar: k.bar, perk: null });
+                keybinds.push({ name: k.name, keybind: k.keybind, bar: k.bar, perk: null });
             });
-            console.log(test);
-            // oldConfig.referenceStorage.presets = keybinds;
+            oldConfig.referenceStorage.global = keybinds;
         }
 
         // v1.2.4
