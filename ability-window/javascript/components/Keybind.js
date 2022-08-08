@@ -45,7 +45,7 @@ class Keybind {
             // Update save button.
             if (this.input.hasAttribute('search')) {
                 toggleClear(true);
-                document.querySelectorAll(`div[keys] > div[id]:not([search])`).forEach(element => {
+                $$(`div[keys] > div[id]:not([search])`).forEach(element => {
                     const query = element.querySelector(`div[${toggles.search}] input`)
                     if (query.value !== this.input.value) query.parentNode.parentNode.classList.add('hide')
                     else query.parentNode.parentNode.classList.contains('hide') ? query.parentNode.parentNode.classList.remove('hide') : void 0;

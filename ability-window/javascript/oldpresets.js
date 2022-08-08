@@ -39,33 +39,33 @@ const bind = `
 
 const perks = [...library.filter(set => set.icon.includes('/perks')).filter(set => set.type === 'perks').map(n => n.name)];
 
-[...config.referenceStorage.bars, { name: 'Global', key: null }].map(bar => document.querySelector('.tabs').innerHTML += `<div onclick="toggleTab('${bar.name}')" class="${config.barsSelection === bar.name ? 'active' : ''}">${bar.name}</div>`)
-document.querySelector('.tabs').innerHTML += '<div class="add" onclick="addTab()">+</div>'
+[...config.referenceStorage.bars, { name: 'Global', key: null }].map(bar => $('.tabs').innerHTML += `<div onclick="toggleTab('${bar.name}')" class="${config.barsSelection === bar.name ? 'active' : ''}">${bar.name}</div>`)
+$('.tabs').innerHTML += '<div class="add" onclick="addTab()">+</div>'
 toggleTab(config.barsSelection)
 
 
 function toggleTab(bar) {
-    // document.querySelector('main').innerHTML = ''
-    document.querySelectorAll('.tabs > div').forEach(div => div.classList.remove('active'))
-    document.querySelector(`.tabs > div[onclick="toggleTab('${bar}')"]`).classList.add('active')
+    // $('main').innerHTML = ''
+    $$('.tabs > div').forEach(div => div.classList.remove('active'))
+    $(`.tabs > div[onclick="toggleTab('${bar}')"]`).classList.add('active')
 
-    // document.querySelector('main').innerHTML = element('', true)
-    // new Keybind(document.querySelector('main div[keybinds] input'))
+    // $('main').innerHTML = element('', true)
+    // new Keybind($('main div[keybinds] input'))
 
 
     // const keys = config.referenceStorage.keybinds.filter(e => e.bar === bar)
     // if (keys.length) keys.map(key => copy(true, key))
     // else {
-    //     document.querySelector('main').insertAdjacentHTML('beforeend', actions)
-    //     document.querySelector('div[manage]').style.borderRadius = '5px'
+    //     $('main').insertAdjacentHTML('beforeend', actions)
+    //     $('div[manage]').style.borderRadius = '5px'
     // }
     // toggle(true)
 }
 
 // if (config.referenceStorage.keybinds.length) config.referenceStorage.keybinds.map(set => copy(true, set))
-// else document.querySelector('main').insertAdjacentHTML('beforeend', actions)
+// else $('main').insertAdjacentHTML('beforeend', actions)
 
-document.querySelector('div[filter] div[list]').innerHTML = `<div>${[...new Set(library.map(set => 'Filter by ' + set.type.split('-').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' ')))].join('</div><div>')}</div>`
+$('div[filter] div[list]').innerHTML = `<div>${[...new Set(library.map(set => 'Filter by ' + set.type.split('-').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' ')))].join('</div><div>')}</div>`
 
 function getImg(query, raw) {
     const data = library.find(element => element.name === query)
@@ -73,10 +73,10 @@ function getImg(query, raw) {
 }
 
 function copy(initial, data) {
-    const [id, manage] = [random(), document.querySelector('div[manage]')]
+    const [id, manage] = [random(), $('div[manage]')]
     manage ? manage.remove() : void 0;
-    document.querySelector('main').insertAdjacentHTML('beforeend', element(id));
-    document.querySelector('main').insertAdjacentHTML('beforeend', actions);
+    $('main').insertAdjacentHTML('beforeend', element(id));
+    $('main').insertAdjacentHTML('beforeend', actions);
     const component = document.getElementById(id);
     const name = component.querySelector('div[name] input')
     const keybind = component.querySelector('div[keybinds] input')
@@ -92,8 +92,8 @@ function copy(initial, data) {
 
     if (set && set.customIcon) {
         component.querySelector('div[image]').classList.add('active')
-        document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
-    } else document.querySelector('div[revertImage]').classList.add('disable')
+        $('div[revertImage]').classList.contains('disable') ? $('div[revertImage]').classList.remove('disable') : void 0
+    } else $('div[revertImage]').classList.add('disable')
 
     // let weapon = set.icon.match(/weapons\/(magic|melee|range)/g)
     component.querySelector('div[perkMod]').innerHTML = `&#x1F527;<div list><div>${perks.join('</div><div>')}</div></div>`
@@ -124,15 +124,15 @@ function copy(initial, data) {
 
     component.querySelector('div[image]').onclick = _ => {
         toggles.popup = id;
-        const pickerMount = document.querySelector('div[pickerMount]')
+        const pickerMount = $('div[pickerMount]')
         pickerMount.classList.contains('hide') ? pickerMount.classList.remove('hide') : void 0;
         set = library.find(set => set.name === name.value)
         if (set && set.customIcon) {
             component.querySelector('div[image]').classList.add('active')
-            document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
-        } else document.querySelector('div[revertImage]').classList.add('disable')
+            $('div[revertImage]').classList.contains('disable') ? $('div[revertImage]').classList.remove('disable') : void 0
+        } else $('div[revertImage]').classList.add('disable')
         document.documentElement.style.setProperty('--revertImg', `url(${set.icon})`);
-        document.querySelector('div[imagePicker] div[image]').style.background = `url(${set.customIcon ?? set.icon})`
+        $('div[imagePicker] div[image]').style.background = `url(${set.customIcon ?? set.icon})`
     }
 
     name.value = initial ? data.name : '';
@@ -150,8 +150,8 @@ function copy(initial, data) {
 }
 
 function toggle(value) {
-    const save = document.querySelector('div[save]')
-    const cancel = document.querySelector('div[cancel]')
+    const save = $('div[save]')
+    const cancel = $('div[cancel]')
     toggles.save = value ? true : false;
     if (toggles.save) {
         cancel.classList.add('disable')
@@ -206,25 +206,25 @@ function toggleImage(id, value) {
 }
 
 function toggleOrder(value) {
-    const order = document.querySelector('div[order]')
+    const order = $('div[order]')
     toggles.order.available = value ? true : false;
     if (toggles.order.available) {
         order.classList.add('active')
         const list = []
-        document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(element => {
+        $$('div[keys] > div[id]:not([search])').forEach(element => {
             const name = element.querySelector('div[name] input');
             const keybind = element.querySelector('div[keybinds] input');
             const bar = element.querySelector('div[bars] input');
             list.push({ name: name.value, keybinds: keybind.value, bars: bar.value })
         })
-        document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(element => element.remove())
+        $$('div[keys] > div[id]:not([search])').forEach(element => element.remove())
         list.sort((a, b) => a[toggles.order.query] > b[toggles.order.query] ? 1 : -1).map(set => copy(true, { name: set.name, keybind: set.keybinds, bar: set.bars }))
     }
     else order.classList.contains('active') ? order.classList.remove('active') : void 0;
 }
 
 function toggleClear(value) {
-    const clear = document.querySelector('div[clear]')
+    const clear = $('div[clear]')
     toggles.clear = value ? true : false;
     if (toggles.clear) clear.classList.add('active')
     else clear.classList.contains('active') ? clear.classList.remove('active') : void 0;
@@ -232,8 +232,8 @@ function toggleClear(value) {
 
 function update(id, value, query) {
     if (query === 'undefined') {
-        document.querySelector('div[search] input').value = value;
-        document.querySelectorAll(`div[keys] > div[id]:not([search])`).forEach(element => {
+        $('div[search] input').value = value;
+        $$(`div[keys] > div[id]:not([search])`).forEach(element => {
             const input = element.querySelector(`div[${toggles.search}] input`)
             if (!input.value.includes(value)) input.parentNode.parentNode.classList.add('hide')
             else input.parentNode.parentNode.classList.contains('hide') ? input.parentNode.parentNode.classList.remove('hide') : void 0;
@@ -259,8 +259,8 @@ function update(id, value, query) {
     }
     if (set && set.customIcon) {
         document.getElementById(id).querySelector('div[image]').classList.add('active')
-        document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
-    } else document.querySelector('div[revertImage]').classList.add('disable')
+        $('div[revertImage]').classList.contains('disable') ? $('div[revertImage]').classList.remove('disable') : void 0
+    } else $('div[revertImage]').classList.add('disable')
     toggles.save ? toggle() : void 0;
     toggleImage(id, true)
 }
@@ -268,8 +268,8 @@ function update(id, value, query) {
 function save() {
     let failed = false;
     const binds = []
-    if (document.querySelector('div.error')) return
-    document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(element => {
+    if ($('div.error')) return
+    $$('div[keys] > div[id]:not([search])').forEach(element => {
         const name = element.querySelector('div[name] input');
         const keybind = element.querySelector('div[keybinds] input');
         const bar = element.querySelector('div[bars] input');
@@ -310,47 +310,47 @@ function save() {
     toggle(true)
 }
 
-new Dropdown(document.querySelector('div[search]'), library.map(set => set.name))
+new Dropdown($('div[search]'), library.map(set => set.name))
 
-document.querySelector('div[clear]').onclick = _ => {
-    document.querySelector('input[search]').value = ''
-    document.querySelectorAll('div[keys] > div[id]').forEach(element => element.classList.contains('hide') ? element.classList.remove('hide') : void 0)
-    document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.remove('active') : void 0;
+$('div[clear]').onclick = _ => {
+    $('input[search]').value = ''
+    $$('div[keys] > div[id]').forEach(element => element.classList.contains('hide') ? element.classList.remove('hide') : void 0)
+    $('div[clear]').classList.contains('active') ? $('div[clear]').classList.remove('active') : void 0;
     toggleClear()
 }
 
-document.querySelectorAll('div[options] div[list] > div').forEach(element => {
+$$('div[options] div[list] > div').forEach(element => {
     element.onclick = _ => {
-        document.querySelectorAll('div[options] div[list] > div').forEach(element => element.classList.contains('active') ? element.classList.remove('active') : void 0)
+        $$('div[options] div[list] > div').forEach(element => element.classList.contains('active') ? element.classList.remove('active') : void 0)
         element.classList.add('active')
         if (element.innerHTML.split(' ').pop() === 'Item') toggles.search = 'name'
         else toggles.search = element.innerHTML.split(' ').pop().toLowerCase()
-        var search = document.querySelector('div[search] input');
+        var search = $('div[search] input');
         search.parentNode.replaceChild(search.cloneNode(true), search);
         switch (toggles.search) {
             case 'name': {
-                new Dropdown(document.querySelector('div[search]'), library.map(set => set.name))
+                new Dropdown($('div[search]'), library.map(set => set.name))
                 break;
             }
 
             case 'keybinds': {
-                new Keybind(document.querySelector('div[search] input'))
+                new Keybind($('div[search] input'))
                 break
             }
 
             case 'bars': {
-                new Dropdown(document.querySelector('div[search]'), ['Global', ...config.referenceStorage.bars.map(bar => bar?.name ? bar.name : bar)])
+                new Dropdown($('div[search]'), ['Global', ...config.referenceStorage.bars.map(bar => bar?.name ? bar.name : bar)])
                 break;
             }
         }
-        document.querySelector('div[search] input').placeholder = element.innerHTML
+        $('div[search] input').placeholder = element.innerHTML
     }
 })
 
 
-document.querySelectorAll('div[order] div[list] > div').forEach(element => {
+$$('div[order] div[list] > div').forEach(element => {
     element.onclick = _ => {
-        document.querySelectorAll('div[order] div[list] > div').forEach(element => element.classList.contains('active') ? element.classList.remove('active') : void 0)
+        $$('div[order] div[list] > div').forEach(element => element.classList.contains('active') ? element.classList.remove('active') : void 0)
         element.classList.add('active')
         if (element.innerHTML.split(' ').pop() === 'Item') toggles.order.query = 'name'
         else toggles.order.query = element.innerHTML.split(' ').pop().toLowerCase()
@@ -358,9 +358,9 @@ document.querySelectorAll('div[order] div[list] > div').forEach(element => {
     }
 })
 
-document.querySelector('div[order] div[action]').onclick = _ => !toggles.order.available ? toggleOrder(true) : void 0
+$('div[order] div[action]').onclick = _ => !toggles.order.available ? toggleOrder(true) : void 0
 
-document.querySelectorAll('div[filter] div[list] > div').forEach(element => {
+$$('div[filter] div[list] > div').forEach(element => {
     element.onclick = _ => {
         if (toggles.filter.includes(element.innerHTML)) {
             element.classList.remove('active')
@@ -369,9 +369,9 @@ document.querySelectorAll('div[filter] div[list] > div').forEach(element => {
             element.classList.add('active')
             toggles.filter.push(element.innerHTML)
         }
-        if (!toggles.filter.length) document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(element => element.classList.contains('hide') ? element.classList.remove('hide') : void 0)
+        if (!toggles.filter.length) $$('div[keys] > div[id]:not([search])').forEach(element => element.classList.contains('hide') ? element.classList.remove('hide') : void 0)
         else {
-            document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(element => {
+            $$('div[keys] > div[id]:not([search])').forEach(element => {
                 const input = element.querySelector('div[name] input').value
                 const set = library.find(set => set.name === input)
                 if (input && !toggles.filter.includes(set.type.split('-').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' '))) element.classList.add('hide')
@@ -381,25 +381,25 @@ document.querySelectorAll('div[filter] div[list] > div').forEach(element => {
     }
 })
 
-document.querySelector('div[closeMount]').onclick = _ => {
-    document.querySelector('div[pickerMount]').classList.add('hide')
+$('div[closeMount]').onclick = _ => {
+    $('div[pickerMount]').classList.add('hide')
     toggles.popup = null
 }
 
-document.querySelector('div[revertImage]').onclick = _ => {
+$('div[revertImage]').onclick = _ => {
     if (!toggles.popup) return
     const name = document.getElementById(toggles.popup).querySelector('div[name] input').value
     if (!name) return
     request('presetsListener', { type: 'revertImage', name })
-    document.querySelector('div[revertImage]').classList.add('disable')
-    document.querySelector('div[imagePicker] div[image]').style.background = `url(${library.find(set => set.name === name).icon})`
+    $('div[revertImage]').classList.add('disable')
+    $('div[imagePicker] div[image]').style.background = `url(${library.find(set => set.name === name).icon})`
     const image = document.getElementById(toggles.popup).querySelector('div[image]')
     image.classList.contains('active') ? image.classList.remove('active') : void 0
     library = request('config', true).library
     document.getElementById(toggles.popup).querySelector('div[abilityIcon]').style.background = getImg(name, true)
 }
 
-document.querySelector('div[modifyImage]').onclick = _ => {
+$('div[modifyImage]').onclick = _ => {
     if (!toggles.popup) return
     request('presetsListener', { type: 'dialog', name: document.getElementById(toggles.popup).querySelector('div[name] input').value, id: toggles.popup })
 }
@@ -407,15 +407,15 @@ document.querySelector('div[modifyImage]').onclick = _ => {
 ipc.on('customIcon', (event, param) => {
     if (!toggles.popup) return
     document.getElementById(param.id).querySelector('div[image]').classList.add('active')
-    document.querySelector('div[imagePicker] div[image]').style.background = `url(${param.customIcon})`
-    document.querySelector('div[revertImage]').classList.contains('disable') ? document.querySelector('div[revertImage]').classList.remove('disable') : void 0
+    $('div[imagePicker] div[image]').style.background = `url(${param.customIcon})`
+    $('div[revertImage]').classList.contains('disable') ? $('div[revertImage]').classList.remove('disable') : void 0
     library = request('config', true).library
     document.getElementById(toggles.popup).querySelector('div[abilityIcon]').style.background = getImg(param.name, true)
 })
 
 // ipc.on('fromBars', (event, param) => {
 //     if (!Array.isArray(param) || (Array.isArray(param) && param.some(e => e))) {
-//         document.querySelectorAll('div[keys] > div[id]:not([search]) div[bars]').forEach(div => {
+//         $$('div[keys] > div[id]:not([search]) div[bars]').forEach(div => {
 //             div.classList.remove('disable')
 //             const id = div.parentNode.id
 //             div.parentNode.replaceChild(div.cloneNode(true), div);
@@ -423,7 +423,7 @@ ipc.on('customIcon', (event, param) => {
 //         })
 //         if (param.before) {
 //             let disable = !request('config').referenceStorage.bars.length
-//             document.querySelectorAll('div[keys] > div[id]:not([search])').forEach(div => {
+//             $$('div[keys] > div[id]:not([search])').forEach(div => {
 //                 const input = div.querySelector('div[name] input')
 //                 const bar = div.querySelector('div[bars] input')
 //                 if (disable) {
@@ -435,7 +435,7 @@ ipc.on('customIcon', (event, param) => {
 //             })
 //         }
 //     } else {
-//         document.querySelectorAll('div[keys] > div[id]:not([search]) div[bars]').forEach(div => {
+//         $$('div[keys] > div[id]:not([search]) div[bars]').forEach(div => {
 //             div.classList.add('disable')
 //             div.querySelector('input').blur()
 //         })
@@ -446,7 +446,7 @@ function cancel() {
     if (!toggles.save) window.location.reload()
 }
 
-const tabs = document.querySelector('section.tabs');
+const tabs = $('section.tabs');
 
 tabs.addEventListener('wheel', e => {
     e.preventDefault();

@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 let [__count, __icons] = [config.numberOfIcons, []];
 
-const main = document.querySelector('main');
+const main = $('main');
 for (let i = __count; i > 0; i--) main.innerHTML += `<div style="width:calc(100% / ${__count})" id="icon-${i}"><div></div></div>`;
 
 
@@ -14,14 +14,14 @@ ipc.on('updateView', (event, param) => {
         }
     } else {
         for (let i = 0; i < __count - param; i++) {
-            const node = document.getElementById([...document.querySelectorAll('main > div')][0].id);
+            const node = document.getElementById([...$$('main > div')][0].id);
             node.parentNode.removeChild(node);
             __icons.shift();
         }
     }
 
     let i = __count = param;
-    document.querySelectorAll('main > div').forEach(div => {
+    $$('main > div').forEach(div => {
         div.style.width = `calc(100% / ${param})`;
         div.id = `icon-${i}`;
         i--;

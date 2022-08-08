@@ -44,7 +44,7 @@ class Dropdown {
             this.dropdown.innerHTML = !this.modifiers.includes(event.key) ? this.search(this.input.value) : this.dropdown.innerHTML;
             if (this.parent.hasAttribute('search')) {
                 toggleClear(true)
-                document.querySelectorAll(`div[keys] > div[id]:not([search])`).forEach(element => {
+                $$(`div[keys] > div[id]:not([search])`).forEach(element => {
                     const query = element.querySelector(`div[${toggles.search}] input`)
                     if (!query.value.toLowerCase().includes(this.input.value.toLowerCase())) query.parentNode.parentNode.classList.add('hide')
                     else query.parentNode.parentNode.classList.contains('hide') ? query.parentNode.parentNode.classList.remove('hide') : void 0;

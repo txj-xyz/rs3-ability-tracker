@@ -14,10 +14,10 @@ const [toggles, element, actions, notice] = [
 ];
 
 function copy(initial, data) {
-    const [_global, id, manage] = [initial ? data.name === 'Global' : false, random(), document.querySelector('div[manage]')];
+    const [_global, id, manage] = [initial ? data.name === 'Global' : false, random(), $('div[manage]')];
     manage ? manage.remove() : void 0;
-    document.querySelector('div[bars]').insertAdjacentHTML('beforeend', element(id));
-    document.querySelector('div[bars]').insertAdjacentHTML('beforeend', actions);
+    $('div[bars]').insertAdjacentHTML('beforeend', element(id));
+    $('div[bars]').insertAdjacentHTML('beforeend', actions);
     const component = document.getElementById(id);
     const bar = component.querySelector('div[bar]');
     const keybind = component.querySelector('div[keybinds]');
@@ -25,11 +25,11 @@ function copy(initial, data) {
 
     component.querySelector('div[remove]').onclick = _ => {
         if (parseInt(component.querySelector('div[bar]').getAttribute('info').split(' ').shift()) > 3) {
-            document.querySelector('div[popup] div[info]').innerHTML = `<p>Are you sure you want to remove the ${
+            $('div[popup] div[info]').innerHTML = `<p>Are you sure you want to remove the ${
                 component.querySelector('div[bar] input').value
             } bar?</p><hr /><p>Doing so will delete ${component.querySelector('div[bar]').getAttribute('info').split(' ').shift()} binds.</p>`;
-            document.querySelector('div[popup] div[button]:first-child').setAttribute('bar', component.id);
-            const popup = document.querySelector('div[popup]');
+            $('div[popup] div[button]:first-child').setAttribute('bar', component.id);
+            const popup = $('div[popup]');
             popup.style.transform = 'scale(1)';
             popup.style.opacity = 1;
             popup.style.pointerEvents = 'auto';
@@ -77,13 +77,13 @@ function copy(initial, data) {
         cancel.style.display = 'block';
         bar.classList.add('edit');
         keybind.classList.add('edit');
-        document.querySelector('div[manage]').classList.add('disable');
+        $('div[manage]').classList.add('disable');
         component.querySelector('div[remove]').classList.add('disable');
-        document.querySelector('div[save]').classList.contains('active') ? document.querySelector('div[save]').classList.remove('active') : void 0;
-        document.querySelectorAll('div[edit]').forEach(element => element.setAttribute('disabled', ''));
-        document.querySelectorAll('div:not(.global) div[remove]').forEach(element => element.setAttribute('disabled', ''));
-        document.querySelector('div[clear]').classList.add('disable');
-        document.querySelector('div[search]').classList.add('disable');
+        $('div[save]').classList.contains('active') ? $('div[save]').classList.remove('active') : void 0;
+        $$('div[edit]').forEach(element => element.setAttribute('disabled', ''));
+        $$('div:not(.global) div[remove]').forEach(element => element.setAttribute('disabled', ''));
+        $('div[clear]').classList.add('disable');
+        $('div[search]').classList.add('disable');
         toggle();
     };
 
@@ -116,12 +116,12 @@ function copy(initial, data) {
         cancel.style.display = 'none';
         bar.classList.remove('edit');
         keybind.classList.remove('edit');
-        document.querySelector('div[manage]').classList.remove('disable');
+        $('div[manage]').classList.remove('disable');
         component.querySelector('div[remove]').classList.remove('disable');
-        document.querySelectorAll('div[edit]').forEach(element => element.removeAttribute('disabled'));
-        document.querySelectorAll('div:not(.global) div[remove]').forEach(element => element.removeAttribute('disabled'));
-        document.querySelector('div[clear]').classList.remove('disable');
-        document.querySelector('div[search]').classList.remove('disable');
+        $$('div[edit]').forEach(element => element.removeAttribute('disabled'));
+        $$('div:not(.global) div[remove]').forEach(element => element.removeAttribute('disabled'));
+        $('div[clear]').classList.remove('disable');
+        $('div[search]').classList.remove('disable');
     }
 }
 
@@ -131,7 +131,7 @@ function save(old, value, key) {
     const data = [];
     let failed = false;
     if (old) return request('barsListener', { before: old, after: value, key });
-    document.querySelectorAll('div[bars] > div[id]').forEach(set => {
+    $$('div[bars] > div[id]').forEach(set => {
         let bar = set.querySelector('div[bar]');
         let keybind = set.querySelector('div[keybinds]');
         if (!bar.querySelector('input') || !keybind.querySelector('input')) return;
@@ -145,7 +145,7 @@ function save(old, value, key) {
         } else if (bars.includes(barValue)) {
             toggle();
 
-            document.querySelectorAll(`input`).forEach(input => {
+            $$(`input`).forEach(input => {
                 if (input.value === barValue) {
                     input.parentNode.classList.add('error');
                     input.parentNode.setAttribute('error', 'Duplicate name');
@@ -154,7 +154,7 @@ function save(old, value, key) {
             failed = true;
         } else if (keybindValue && keybinds.includes(keybindValue)) {
             toggle();
-            document.querySelectorAll(`input`).forEach(input => {
+            $$(`input`).forEach(input => {
                 if (input.value === keybindValue) {
                     input.parentNode.classList.add('error');
                     input.parentNode.setAttribute('error', 'Duplicate name');
@@ -181,7 +181,7 @@ function save(old, value, key) {
 }
 
 function toggle(value) {
-    const save = document.querySelector('div[save]');
+    const save = $('div[save]');
     toggles.save = value ? true : false;
     if (toggles.save) {
         save.classList.add('disable');
@@ -197,23 +197,23 @@ config.referenceStorage.keybinds.forEach(bind => (bars[bind.bar] ? bars[bind.bar
 [{ name: 'Global', key: null }, ...config.referenceStorage.bars].map(value => copy(true, { ...value, count: bars[value.name] || null }));
 toggle(true);
 
-document.querySelector('div[clear]').onclick = _ => {
-    document.querySelector('input[search]').value = '';
-    document.querySelector('div.global').style.display = 'flex';
-    document.querySelectorAll('div[bars] > div[id]').forEach(bar => (bar.style.display = 'flex'));
-    document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.remove('active') : void 0;
+$('div[clear]').onclick = _ => {
+    $('input[search]').value = '';
+    $('div.global').style.display = 'flex';
+    $$('div[bars] > div[id]').forEach(bar => (bar.style.display = 'flex'));
+    $('div[clear]').classList.contains('active') ? $('div[clear]').classList.remove('active') : void 0;
 };
 
-document.querySelector('input[search]').addEventListener('input', _ => {
-    const value = document.querySelector('input[search]').value;
+$('input[search]').addEventListener('input', _ => {
+    const value = $('input[search]').value;
     if (value === '') {
-        document.querySelector('div.global').style.display = 'flex';
-        document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.remove('active') : void 0;
+        $('div.global').style.display = 'flex';
+        $('div[clear]').classList.contains('active') ? $('div[clear]').classList.remove('active') : void 0;
     } else {
-        document.querySelector('div.global').style.display = 'none';
-        !document.querySelector('div[clear]').classList.contains('active') ? document.querySelector('div[clear]').classList.add('active') : void 0;
+        $('div.global').style.display = 'none';
+        !$('div[clear]').classList.contains('active') ? $('div[clear]').classList.add('active') : void 0;
     }
-    document.querySelectorAll('div[bars] > div[id]').forEach(bar => {
+    $$('div[bars] > div[id]').forEach(bar => {
         if (!bar.querySelector('input').value.toLowerCase().includes(value.toLowerCase())) bar.style.display = 'none';
         else bar.style.display = 'flex';
     });
@@ -222,26 +222,26 @@ document.querySelector('input[search]').addEventListener('input', _ => {
 ipc.on('fromKeybinds', (event, param) => {
     const bars = { Global: 0 };
     param.forEach(bind => (bars[bind.bar] ? bars[bind.bar]++ : (bars[bind.bar] = 1)));
-    document.querySelectorAll('div[bars] div[bar]').forEach(bar => {
+    $$('div[bars] div[bar]').forEach(bar => {
         const name = bar.querySelector('input').value;
         const value = bars[name] || 0;
         bar.setAttribute('info', value === 1 ? '1 linked bind' : `${value ? value : 0} linked binds`);
     });
 });
 
-document.querySelector('div[popup] div[button]:last-child').onclick = _ => {
-    const popup = document.querySelector('div[popup]');
+$('div[popup] div[button]:last-child').onclick = _ => {
+    const popup = $('div[popup]');
     popup.style.transform = 'scale(0.7)';
     popup.style.opacity = 0;
     popup.style.pointerEvents = 'none';
 };
 
-const confirm = document.querySelector('div[popup] div[button]:first-child');
+const confirm = $('div[popup] div[button]:first-child');
 confirm.onclick = _ => {
     const bar = document.getElementById(confirm.getAttribute('bar'));
     const value = bar ? bar.querySelector('input').value : null;
     bar.remove();
-    document.querySelector('div[popup] div[button]:last-child').click();
+    $('div[popup] div[button]:last-child').click();
     confirm.removeAttribute('bar');
     save(value);
     toggle(true);
