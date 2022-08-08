@@ -98,6 +98,7 @@ module.exports = class Manager {
             });
 
             delete oldConfig.referenceStorage.keybinds
+            oldConfig.referenceStorage.bars = oldConfig.referenceStorage.bars.map(bar => ({ name: bar, key: null }));
             oldConfig.referenceStorage.presets = [];
             oldConfig.referenceStorage.global = keybinds;
             keybinds = [];
@@ -119,7 +120,7 @@ module.exports = class Manager {
         }
 
         // v1.2.1 old config && v1.3.0 convert to new object
-        else if (typeof oldConfig.referenceStorage.bars[0] === 'string' || oldConfig.referenceStorage.bars[0]?.key) {
+        else if (typeof oldConfig.referenceStorage.bars[0] === 'string' && !oldConfig.referenceStorage.bars[0]?.key) {
             oldConfig.referenceStorage.bars = oldConfig.referenceStorage.bars.map(bar => ({ name: bar, key: null }));
         }
 
