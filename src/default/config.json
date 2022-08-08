@@ -12,6 +12,6 @@
     },
     "referenceStorage": {
         "presets": [],
-        "bars": []
+        "global": []
     }
 }
