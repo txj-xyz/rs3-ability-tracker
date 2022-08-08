@@ -18,7 +18,7 @@ function copy(initial, data) {
     manage ? manage.remove() : void 0;
     $('div[bars]').insertAdjacentHTML('beforeend', element(id));
     $('div[bars]').insertAdjacentHTML('beforeend', actions);
-    const component = document.getElementById(id);
+    const component = $$$(id);
     const bar = component.querySelector('div[bar]');
     const keybind = component.querySelector('div[keybinds]');
     const input = bar.querySelector('input');
@@ -238,7 +238,7 @@ $('div[popup] div[button]:last-child').onclick = _ => {
 
 const confirm = $('div[popup] div[button]:first-child');
 confirm.onclick = _ => {
-    const bar = document.getElementById(confirm.getAttribute('bar'));
+    const bar = $$$(confirm.getAttribute('bar'));
     const value = bar ? bar.querySelector('input').value : null;
     bar.remove();
     $('div[popup] div[button]:last-child').click();

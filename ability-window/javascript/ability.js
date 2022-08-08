@@ -14,7 +14,7 @@ ipc.on('updateView', (event, param) => {
         }
     } else {
         for (let i = 0; i < __count - param; i++) {
-            const node = document.getElementById([...$$('main > div')][0].id);
+            const node = $$$([...$$('main > div')][0].id);
             node.parentNode.removeChild(node);
             __icons.shift();
         }
@@ -32,5 +32,5 @@ ipc.on('abilityData', (event, param) => {
     __icons.push({ icon: resolve(__dirname, param.icon), perk: param.perk ? resolve(__dirname, param.perk) : null });
     if (__icons.length > __count) while (__icons.length > __count) __icons.shift();
     else if (__icons.length < __count) while (__icons.length < __count) __icons.unshift('');
-    __icons.forEach((set, i) => document.getElementById(`icon-${__icons.length - i}`).innerHTML = set ? `<img src="${set.icon}" />${set.perk ? `<div><img src="${set.perk}" /></div>` : ''}` : '');
+    __icons.forEach((set, i) => $$$(`icon-${__icons.length - i}`).innerHTML = set ? `<img src="${set.icon}" />${set.perk ? `<div><img src="${set.perk}" /></div>` : ''}` : '');
 })

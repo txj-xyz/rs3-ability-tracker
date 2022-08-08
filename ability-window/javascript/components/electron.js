@@ -1,5 +1,6 @@
 const $ = (query, element) => (element ?? document).querySelector(query);
 const $$ = (query, element) => (element ?? document).querySelectorAll(query);
+const $$$ = (query, element) => (element ?? document).getElementById(query)
 
 try {
     this.ipc = require('electron').ipcRenderer;

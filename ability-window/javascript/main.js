@@ -1,7 +1,7 @@
 const saveInfo = false;
 
 for (const property in config) {
-    const element = document.getElementById(property);
+    const element = $$$(property);
     if (element) {
         element.getAttribute('type') === 'checkbox' ? (element.checked = config[property]) : (element.value = config[property]);
         switch (element.id) {
@@ -29,7 +29,7 @@ $$('input[id]').forEach(input => {
 });
 $$('div[buttons] > div').forEach(button => (button.onclick = _ => request('mainListener', button.id)));
 
-const slider = document.getElementById('numberOfIcons');
+const slider = $$$('numberOfIcons');
 $('b[label]').innerHTML = config.numberOfIcons;
 slider.onclick = null;
 slider.addEventListener('input', _ => {
@@ -37,11 +37,11 @@ slider.addEventListener('input', _ => {
     request('confListener', { id: slider.id, value: parseInt(slider.value) });
 });
 
-const dropdown = document.getElementById('barsSelection');
+const dropdown = $$$('barsSelection');
 dropdown.onclick = null;
 
 function lockTrackerWindowToggle() {
-    const checked = document.getElementById('lockTrackerWindow').checked;
+    const checked = $$$('lockTrackerWindow').checked;
     $('label[lock] > span').innerHTML = checked ? '🔒' : '🔓';
     checked ? $('div[slider]').classList.add('disable') : $('div[slider]').classList.remove('disable');
 }
@@ -53,39 +53,39 @@ function update(id, value) {
 
 ipc.on('closed', (event, param) => {
     if (param === 'ability') {
-        document.getElementById(param).style.backgroundColor = 'var(--green)'
-        document.getElementById(param).innerHTML = 'Start Ability Tracker';
+        $$$(param).style.backgroundColor = 'var(--green)'
+        $$$(param).innerHTML = 'Start Ability Tracker';
     }
 });
 
 ipc.on('opened', (event, param) => {
     if (param === 'ability') {
-        document.getElementById(param).style.backgroundColor = 'var(--red)'
-        document.getElementById(param).innerHTML = 'Stop Ability Tracker';
+        $$$(param).style.backgroundColor = 'var(--red)'
+        $$$(param).innerHTML = 'Stop Ability Tracker';
     }
 });
 
 ipc.on('fromBars', (event, param) => {
     if (!Array.isArray(param)) {
-        if (document.getElementById('barsSelection').value === param.before) {
-            document.getElementById('barsSelection').value = param.after ?? 'Global';
+        if ($$$('barsSelection').value === param.before) {
+            $$$('barsSelection').value = param.after ?? 'Global';
         }
-        document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
-        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...request('config').referenceStorage.bars.map(bar => (bar?.name ? bar.name : bar))], true);
+        $$$('barsSelection').parentNode.replaceChild($$$('barsSelection').cloneNode(true), $$$('barsSelection'));
+        new Dropdown($$$('barsSelection').parentElement, ['Global', ...request('config').referenceStorage.bars.map(bar => (bar?.name ? bar.name : bar))], true);
     } else if (!param.length) {
         $('label[bars]').classList.add('disabled');
         $('label[bars] input').checked = false;
-        document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
-        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...param.map(bar => (bar?.name ? bar.name : bar))], true);
+        $$$('barsSelection').parentNode.replaceChild($$$('barsSelection').cloneNode(true), $$$('barsSelection'));
+        new Dropdown($$$('barsSelection').parentElement, ['Global', ...param.map(bar => (bar?.name ? bar.name : bar))], true);
     } else {
-        document.getElementById('barsSelection').parentNode.replaceChild(document.getElementById('barsSelection').cloneNode(true), document.getElementById('barsSelection'));
-        new Dropdown(document.getElementById('barsSelection').parentElement, ['Global', ...param.map(bar => (bar?.name ? bar.name : bar))], true);
+        $$$('barsSelection').parentNode.replaceChild($$$('barsSelection').cloneNode(true), $$$('barsSelection'));
+        new Dropdown($$$('barsSelection').parentElement, ['Global', ...param.map(bar => (bar?.name ? bar.name : bar))], true);
         $('label[bars]').classList.remove('disabled');
     }
 });
 
 ipc.on('fromTrigger', (event, param) => {
-    document.getElementById('barsSelection').value = param;
+    $$$('barsSelection').value = param;
 });
 
 ipc.on('presetManager', (event, param) => {
