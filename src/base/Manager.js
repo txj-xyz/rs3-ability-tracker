@@ -85,25 +85,28 @@ module.exports = class Manager {
         let newProps = Object.keys(newConfig).filter(key => !['referenceStorage', 'abilityWindow'].includes(key));
         let oldDiff = oldProps.filter(key => !newProps.includes(key)) || [];
         let keybinds = [];
-        let test = [];
         oldDiff.map(key => delete oldConfig[key]);
         let newDiff = newProps.filter(key => !oldProps.includes(key)) || [];
         newDiff.map(key => (oldConfig[key] = newConfig[key]));
 
         // v1.3.0 NEW!!!
         // convert 'keybinds' to new 'presets' with new data format
-        if (oldConfig.referenceStorage.keybinds.length && oldConfig.referenceStorage.keybinds[0].keybind && !oldConfig.referenceStorage?.presets) {
+        if (oldConfig.referenceStorage?.keybinds?.length && oldConfig.referenceStorage?.keybinds[0]?.keybind && !oldConfig.referenceStorage?.presets) {
             // map each keybind to new layout
             oldConfig.referenceStorage.keybinds.map(k => {
                 keybinds.push({ name: k.name, keybind: k.keybind, bar: k.bar, perk: null });
             });
+
+            delete oldConfig.referenceStorage.keybinds
+            oldConfig.referenceStorage.presets = [];
             oldConfig.referenceStorage.global = keybinds;
+            keybinds = [];
         }
 
         // v1.2.4
         // check if keybinds is an array and has 'key' instead of 'keybind'
         // this also fixes a bug with improperly saved window resizing
-        else if (oldConfig.referenceStorage.keybinds.length && oldConfig.referenceStorage.keybinds[0].key) {
+        else if (oldConfig.referenceStorage?.keybinds?.length && oldConfig.referenceStorage?.keybinds[0]?.key) {
             oldConfig.referenceStorage.keybinds.map(k => {
                 for (const entry of k.key) {
                     keybinds.push({ name: k.name.replace(/_/g, ' '), keybind: entry, bar: k.bar, perk: null });
@@ -112,10 +115,11 @@ module.exports = class Manager {
             oldConfig.referenceStorage.keybinds = keybinds;
             oldConfig.abilityWindow.width = 800;
             oldConfig.abilityWindow.height = 80;
+            keybinds = [];
         }
 
-        // v1.2.1 old config
-        else if (typeof oldConfig.referenceStorage.bars[0] === 'string') {
+        // v1.2.1 old config && v1.3.0 convert to new object
+        else if (typeof oldConfig.referenceStorage.bars[0] === 'string' || oldConfig.referenceStorage.bars[0]?.key) {
             oldConfig.referenceStorage.bars = oldConfig.referenceStorage.bars.map(bar => ({ name: bar, key: null }));
         }
 
