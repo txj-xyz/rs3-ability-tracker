@@ -1,11 +1,11 @@
 
-div[buttons] > div {
+div[buttons] > div#ability, div[buttons] > div > div {
     margin: 0 0 5px 0;
     line-height: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--elements);
+    background: var(--background);
     border-radius: 3px;
     user-select: none;
     cursor: pointer;
@@ -16,10 +16,11 @@ div[buttons] > div:last-child {
     border-radius: 3px 3px 6px 6px;
 }
 
-div[buttons] > div:hover {
+div[buttons] > div > div:hover {
     background: var(--hover);
 }
 
 div#quit {
     background: var(--red);
+    border-radius: 3px 3px 6px 6px;
 }

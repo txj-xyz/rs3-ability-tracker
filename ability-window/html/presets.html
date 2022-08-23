@@ -20,7 +20,17 @@
     <input style="opacity: 0; position: fixed; pointer-events: none;" autofocus="true" />
 
     <nav></nav>
-
+    <div popup>
+        <div mount>
+            <div info>
+                <p>Deleting this tab will also delete X binds!</p>
+            </div>
+            <div>
+                <div onclick="confirm()" button>Confirm</div>
+                <div onclick="$('[popup]').style.display = 'none';" button>Cancel</div>
+            </div>
+        </div>
+    </div>
     <div keys>
         <div pickerMount class="hide">
             <div imagePicker>
@@ -62,11 +72,14 @@
         <main>
             <section header>
                 <div>
-                    <div remove>Delete Tab</div>
+                    <div onclick="popup()" remove>Delete Tab</div>
                     <div name id="Preset Name">
-                        <input type="text" placeholder="Preset Name">
+                        Tab Name: <input type="text" placeholder="Preset Name" tabindex="-1"
+                            onkeydown="return /([a-z]|-|[\d]| )/i.test(event.key)">
                     </div>
-                    <div keybinds id="Keybind"><input type="text" placeholder="Keybind"></div>
+                    <div keybinds id="Keybind">
+                        Keybind: <input type="text" placeholder="Keybind" tabindex="-1">
+                    </div>
             </section>
 
             <section>
@@ -79,6 +92,52 @@
                     </div>
                 </div>
             </section>
+
+            <section>
+                <div class="section">
+                    <div title>
+                        Primary Bar
+                        <div min>&#x276F;</div>
+                        <div edit>Rename</div>
+                        <div clear>Clear Section</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section">
+                    <div title>
+                        Primary Bar
+                        <div min>&#x276F;</div>
+                        <div edit>Rename</div>
+                        <div clear>Clear Section</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section">
+                    <div title>
+                        Primary Bar
+                        <div min>&#x276F;</div>
+                        <div edit>Rename</div>
+                        <div clear>Clear Section</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section">
+                    <div title>
+                        Primary Bar
+                        <div min>&#x276F;</div>
+                        <div edit>Rename</div>
+                        <div clear>Clear Section</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section globalOnly></section>
         </main>
     </div>
 

@@ -27,7 +27,7 @@ $$('input[id]').forEach(input => {
         request('confListener', { id: input.id, value: input.value });
     };
 });
-$$('div[buttons] > div').forEach(button => (button.onclick = _ => request('mainListener', button.id)));
+$$('div[buttons] div[id]').forEach(button => (button.onclick = _ => request('mainListener', button.id)));
 
 const slider = $$$('numberOfIcons');
 $('b[label]').innerHTML = config.numberOfIcons;

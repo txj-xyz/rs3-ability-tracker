@@ -29,7 +29,6 @@ class Keybind {
             if (keycodes[e.code || e.key] === 'Backspace') {
                 this.key ? this.key = '' : this.modify = '';
                 this.input.value = `${this.modify ?? ''}${this.modify ? ' + ' : ''}${this.key}`;
-                this.input.hasAttribute('search') ? toggleClear() : void 0;
                 return
             }
             if (!keycodes[e.code || e.key]) return
@@ -40,20 +39,6 @@ class Keybind {
 
             // Update frontend.
             this.input.value = `${this.modify ?? ''}${this.modify ? ' + ' : ''}${this.key}`;
-
-
-            // Update save button.
-            if (this.input.hasAttribute('search')) {
-                toggleClear(true);
-                $$(`div[keys] > div[id]:not([search])`).forEach(element => {
-                    const query = element.querySelector(`div[${toggles.search}] input`)
-                    if (query.value !== this.input.value) query.parentNode.parentNode.classList.add('hide')
-                    else query.parentNode.parentNode.classList.contains('hide') ? query.parentNode.parentNode.classList.remove('hide') : void 0;
-                })
-            } else {
-                toggles.save ? toggle() : void 0;
-                toggles.order ? toggleOrder() : void 0;
-            }
         });
     }
 }

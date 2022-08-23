@@ -3,7 +3,7 @@ const [{ copyFileSync, unlinkSync }, { resolve }, { dialog }, Window] = ['fs', '
 module.exports = class Presets extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 700, height: 550, resizable: !0, minWidth: 700, minHeight: 550 }, true)
+            .create({ ...windows.properties, width: 880, height: 550, resizable: !0, minWidth: 880, minHeight: 550 }, true)
             .ipcLoader(this.presetsListener)
     }
 

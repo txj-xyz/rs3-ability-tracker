@@ -25,8 +25,12 @@ div.disable {
 }
 
 div[remove].disable,
-div[move].disable {
+div[move] {
     display: none !important;
+}
+
+[globalOnly] div[move]  {
+    display: flex !important;
 }
 
 div[slot] {
@@ -85,30 +89,58 @@ div[search]:before {
     padding: 2px 5px;
     background: var(--background);
     border-radius: 3px;
-    opacity: 1;
-    transition-duration: 0.5s;
-    transition-delay: 200ms;
-    margin-top: -10px;
+}
+
+[header] [keybinds] {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+[header] [name] {
+    white-space: nowrap;
+}
+
+main.global section:not([globalOnly]) {
+    display: none;
+}
+
+main.global section[globalOnly] {
+    display: block;
+}
+
+[globalOnly] {
+    display: none;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+[globalOnly] [name]:before {
+    margin-left: calc(100% - 500px);
+}
+
+[globalOnly] [keybinds]:before {
+    margin-left: calc(102px);
 }
 
 div[name]:before {
-    margin-left: calc(100% - 70px);
+    margin-left: calc(100% - 85px);
     white-space: nowrap;
     z-index: 4;
     color: var(--hover);
 }
 
 div[keybinds]:before {
-    margin-left: calc(100% - 45px);
+    margin-left: calc(100% - 47px);
     color: var(--hover);
 }
 
 [header] div[name]:before {
-    margin-left: calc(100% - 405px);
+    display: none;
 }
 
 [header] div[keybinds]:before {
-    margin-left: calc(100% - 525px);
+    display: none;
 }
 
 div[search]:before {
@@ -138,8 +170,9 @@ main > section > div input:focus {
 div[keys] div[name],
 div[keys] div[bars],
 main div[name],
-main div[bars] {
+main div[keybinds] {
     display: flex;
+    align-items: center;
 }
 
 div[name]:after,
@@ -149,7 +182,7 @@ div[bars]:after {
     pointer-events: none;
     padding: 0 6px;
     border-radius: 0 5px 5px;
-    margin: 1px 5px 2.5px -21px;
+    margin: 3px 5px 2.5px -21px;
     transform: rotate(180deg);
     color: var(--color);
     background: var(--elements);
@@ -230,7 +263,6 @@ div[image],
 div[search] > div {
     background: var(--blue);
     font-size: 12px;
-    text-shadow: 0.5px 0.5px black;
 }
 
 div[abilityIcon] {
@@ -240,7 +272,7 @@ div[abilityIcon] {
     background-repeat: no-repeat !important;
     background-size: contain !important;
     cursor: default !important;
-    border-radius: 5px;
+    border-radius: 3px;
     /* height: 18px;
     max-height: 18px;
     width: 12px;
@@ -583,6 +615,11 @@ section.tabs {
     scroll-behavior: smooth;
 }
 
+section.tabs > div.disable {
+    opacity: 0.5;
+    pointer-events: none !important;
+}
+
 section.tabs > div {
     padding: 3px 10px;
     cursor: pointer;
@@ -625,6 +662,11 @@ main {
     padding-top: 5px;
     overflow: hidden;
     overflow-y: auto;
+    position: relative;
+}
+
+main.global {
+    padding-top: 0 !important;
 }
 
 main > section:first-child > div div[perkMod],
@@ -694,10 +736,10 @@ div[title] {
 main > section.active {
     height: 605px !important;
     border-radius: 0 0 3px 3px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 7px !important;
 }
 
-main > section:not([header]) {
+main > section:not([header]):not([globalOnly]) {
     height: 100px;
     overflow: hidden;
     border-radius: 3px;
@@ -705,17 +747,22 @@ main > section:not([header]) {
     transition-duration: 200ms !important;
 }
 
-main > section:not([header]) > div:not(.section) > div {
+main > section[globalOnly] > div:first-child {
+    padding-top: 10px !important;
+    border-radius: 3px 3px 0 0;
+}
+
+main > section:not([header]):not([globalOnly]) > div:not(.section) > div {
     pointer-events: none;
     filter: blur(3px);
 }
 
 main > section.active > div:not(.section) > div {
     pointer-events: auto;
-    filter: blur(0px);
+    filter: blur(0px) !important;
 }
 
-main > section:not([header]) > div:nth-child(2) {
+main > section:not([header]):not([globalOnly]) > div:nth-child(2) {
     padding-top: 10px;
     border-radius: 0 3px 0 0;
 }
@@ -740,7 +787,7 @@ div.section div {
 div.section div[edit] {
     margin-left: 25px;
     margin-right: -175px;
-    margin-top: -10px;
+    margin-top: -15px;
     margin-bottom: -10px;
     display: flex;
     padding: 4px;
@@ -763,7 +810,7 @@ div[title]:hover div[edit] {
 div.section div[clear] {
     margin-left: 185px;
     margin-right: -165px;
-    margin-top: -10px;
+    margin-top: -15px;
     margin-bottom: -10px;
     display: flex;
     padding: 4px;
@@ -781,4 +828,78 @@ div.section div[clear] {
 div[title]:hover div[clear] {
     opacity: 1;
     transform: translateX(0px);
+}
+
+/* Popup styles. */
+div[popup] {
+    display: none;
+    transform: scale(1.5);
+    pointer-events: auto;
+    position: fixed;
+    backdrop-filter: blur(3px);
+    width: 100%;
+    height: calc(100% - 200px);
+    z-index: 100;
+    top: 0;
+    left: 0;
+    margin-top: 115px;
+}
+
+div[popup] div[mount] p {
+    white-space: break-spaces;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px;
+}
+
+div[popup] div[mount] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-height: 100px;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    width: 250px;
+    background: var(--color);
+    color: var(--background);
+    border-radius: 3px;
+}
+
+div[popup] div[mount] > div > div {
+    display: flex;
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: var(--elements);
+}
+
+div[popup] div[button]:first-child {
+    background: var(--red);
+    margin-right: 65px;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+div[popup] div[button]:first-child:before,
+div[popup] div[button]:first-child:after {
+    display: none;
+}
+
+div[popup] div[button]:last-child {
+    background: var(--blue);
+}
+
+div[popup] div[info] {
+    margin: 0;
+    display: block !important;
+}
+
+main > section {
+    margin-bottom: 13px !important;
 }
