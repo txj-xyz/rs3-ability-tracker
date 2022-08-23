@@ -613,6 +613,7 @@ section.tabs {
     width: 98.5%;
     /* scroll-snap-type: x mandatory; */
     scroll-behavior: smooth;
+    white-space: nowrap;
 }
 
 section.tabs > div.disable {
