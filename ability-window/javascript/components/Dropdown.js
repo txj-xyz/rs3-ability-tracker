@@ -44,7 +44,7 @@ class Dropdown {
             this.dropdown.innerHTML = !this.modifiers.includes(event.key) ? this.search(this.input.value) : this.dropdown.innerHTML;
             if (this.parent.hasAttribute('search')) {
                 toggleClear(true)
-                document.querySelectorAll(`div[keys] > div[id]:not([search])`).forEach(element => {
+                $$(`div[keys] > div[id]:not([search])`).forEach(element => {
                     const query = element.querySelector(`div[${toggles.search}] input`)
                     if (!query.value.toLowerCase().includes(this.input.value.toLowerCase())) query.parentNode.parentNode.classList.add('hide')
                     else query.parentNode.parentNode.classList.contains('hide') ? query.parentNode.parentNode.classList.remove('hide') : void 0;
@@ -61,6 +61,8 @@ class Dropdown {
             this.query ? this.parent.querySelector(`div[${this.query}]`).classList.add('active') : this.parent.parentNode.classList.add('active')
             this.parent.classList.contains('error') ? this.parent.classList.remove('error') : void 0;
             this.input.parentNode.classList.contains('error') ? this.input.parentNode.classList.remove('error') : void 0;
+
+            if (this.query === 'name' && this.input.value) this.dropdown.querySelector(`div[title="${this.input.value}"]`).scrollIntoView()
         })
 
         this.input.addEventListener('blur', _ => {
@@ -69,7 +71,7 @@ class Dropdown {
             setTimeout(_ => this.dropdown.classList.add('fade'), 150)
             setTimeout(_ => {
                 this.dropdown.style.display = 'none'
-                const index = this.list.map(word => word.toLowerCase()).indexOf(this.input.value.toLowerCase())
+                const index = this.list.map(word => word?.name ? word.name.toLowerCase() : word.toLowerCase()).indexOf(this.input.value.toLowerCase())
                 if (index === -1) {
                     if (this.input.value && !this.parent.hasAttribute('search')) {
                         if (this.query) {
@@ -87,6 +89,15 @@ class Dropdown {
                 }
             }, 300)
         });
+
+        this.dropdown.addEventListener('mouseleave', _ => {
+            if (this.dropdown.style.display === 'block') {
+                this.dropdown.style.display = 'none';
+                this.input.style.borderRadius = '3px';
+                this.input.blur()
+                this.query ? this.parent.querySelector(`div[${this.query}]`).classList.remove('active') : this.parent.parentNode.classList.remove('active');
+            }
+        });
     }
 
     search(query) {
@@ -96,7 +107,7 @@ class Dropdown {
 
     #resetDropdown() {
         this.dropdown.classList.contains('fade') ? this.dropdown.classList.remove('fade') : void 0;
-        this.dropdown.innerHTML = this.search()
+        this.dropdown.innerHTML = this.search();
         this.dropdown.scrollTop = 0
     }
 }

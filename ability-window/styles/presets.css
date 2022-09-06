@@ -5,6 +5,12 @@
 html {
     scroll-behavior: smooth;
 }
+
+body {
+    /* background: var(--elements); */
+    overflow: hidden;
+}
+
 /* Content styles. */
 
 div.hide {
@@ -14,18 +20,49 @@ div.hide {
 div.disable {
     opacity: 0.5 !important;
     user-select: none !important;
-    pointer-events: none;
+    pointer-events: none !important;
+    cursor: default !important;
+}
+
+div[remove].disable,
+div[move] {
+    display: none !important;
+}
+
+[globalOnly] div[move]  {
+    display: flex !important;
+}
+
+div[slot] {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    font-size: 15px;
+    background: var(--elements) !important;
+    color: var(--color) !important;
+    opacity: 0.5;
+    pointer-events: none !important;
 }
 
 /* Keybind styles. */
-div[keys] > div {
+div[keys] > div,
+main > section > div {
     display: flex;
     padding: 5px;
     transition-duration: 400ms;
 }
 
+main > section > div {
+    padding: 5px 5px;
+}
+
+main > section:first-child > div {
+    padding-top: 10px;
+}
+
 /* Input styles. */
-div[keys] > div input {
+div[keys] > div input,
+main > section > div input {
     border: 0;
     border-radius: 3px;
     padding: 1px 5px;
@@ -35,8 +72,9 @@ div[keys] > div input {
     color: var(--color);
 }
 
-div[keys] div[name] input {
-    width: 263px !important;
+main div[name],
+main div[name] input {
+    width: 100% !important;
 }
 
 div[name]:before,
@@ -51,17 +89,58 @@ div[search]:before {
     padding: 2px 5px;
     background: var(--background);
     border-radius: 3px;
-    opacity: 0;
-    transition-duration: 0.5s;
-    margin-top: -14px;
 }
 
-div[name]:hover:before,
-div[keybinds]:hover:before,
-div[bars]:hover:before,
-div[search]:hover:before {
-    opacity: 1;
-    margin-top: -10px;
+[header] [keybinds] {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+[header] [name] {
+    white-space: nowrap;
+}
+
+main.global section:not([globalOnly]) {
+    display: none;
+}
+
+main.global section[globalOnly] {
+    display: block;
+}
+
+[globalOnly] {
+    display: none;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+[globalOnly] [name]:before {
+    margin-left: calc(100% - 500px);
+}
+
+[globalOnly] [keybinds]:before {
+    margin-left: calc(102px);
+}
+
+div[name]:before {
+    margin-left: calc(100% - 85px);
+    white-space: nowrap;
+    z-index: 4;
+    color: var(--hover);
+}
+
+div[keybinds]:before {
+    margin-left: calc(100% - 47px);
+    color: var(--hover);
+}
+
+[header] div[name]:before {
+    display: none;
+}
+
+[header] div[keybinds]:before {
+    display: none;
 }
 
 div[search]:before {
@@ -69,21 +148,31 @@ div[search]:before {
 }
 
 div[keys] > div input {
+    height: 25px;
+}
+
+div[keys] > div input,
+main > section > div input {
     margin-left: 5px !important;
 }
 
-div[keys] > div input:nth-child(odd):focus {
+div[keys] > div input:nth-child(odd):focus,
+main > section > div input:nth-child(odd):focus {
     border-radius: 3px 3px 0 0;
 }
 
-div[keys] > div input:focus {
+div[keys] > div input:focus,
+main > section > div input:focus {
     outline: none;
 }
 
 /* Allow input styles to match. */
 div[keys] div[name],
-div[keys] div[bars] {
+div[keys] div[bars],
+main div[name],
+main div[keybinds] {
     display: flex;
+    align-items: center;
 }
 
 div[name]:after,
@@ -93,7 +182,7 @@ div[bars]:after {
     pointer-events: none;
     padding: 0 6px;
     border-radius: 0 5px 5px;
-    margin: 1px 5px 2.5px -21px;
+    margin: 3px 5px 2.5px -21px;
     transform: rotate(180deg);
     color: var(--color);
     background: var(--elements);
@@ -147,6 +236,9 @@ div[search] div[dropdown] {
 
 /* Action styles. */
 div[remove],
+div[move],
+div[rename],
+div[slot],
 div[button],
 div[image],
 div[abilityIcon],
@@ -158,9 +250,10 @@ div[search] > div {
     justify-content: center;
     align-items: center;
     padding: 3px 7px 4px 7px;
-    min-width: 12px;
     margin: 0 5px;
     line-height: 1;
+    font-size: 12px !important;
+    white-space: nowrap;
     background: var(--elements);
     color: var(--color);
     cursor: pointer;
@@ -170,21 +263,25 @@ div[image],
 div[search] > div {
     background: var(--blue);
     font-size: 12px;
-    padding: 5.5px 7px;
-    text-shadow: 0.5px 0.5px black;
 }
 
 div[abilityIcon] {
     min-width: 10px !important;
-    background-color: var(--hover) !important;
+    background: var(--hover);
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
     cursor: default !important;
+    border-radius: 3px;
+    /* height: 18px;
+    max-height: 18px;
+    width: 12px;
+    max-width: 12px; */
+    max-width: 12px !important;
 }
 
 div[perkMod] {
-    margin-left: 7px;
+    margin-left: 9px;
 }
 
 div[perkMod].active {
@@ -202,6 +299,7 @@ div[filter] {
 }
 
 div[keybinds] input {
+    width: 135px !important;
     border-radius: 3px !important;
 }
 
@@ -246,7 +344,7 @@ div[barselect] {
 }
 
 div[dropdown] {
-    width: 263px !important
+    width: 300px !important;
 }
 
 /* Input box error styles. */
@@ -352,6 +450,7 @@ div[list] {
     background: var(--elements);
     font-weight: 500;
     padding: 5px;
+    transition-delay: 200ms;
     transition-duration: 400ms;
     pointer-events: none;
 }
@@ -496,11 +595,312 @@ hr {
     border: none;
     height: 2px;
     background: var(--elements);
+    margin-block-end: 0;
+    margin-block-start: 0;
 }
 
 div[abilityIcon] img {
+    position: absolute;
     margin-bottom: -4px;
-    margin-top: -2px;
     max-width: 25px;
     max-height: 23px;
+}
+
+section.tabs {
+    margin-top: 7px;
+    display: flex;
+    overflow-x: auto;
+    width: 98.5%;
+    /* scroll-snap-type: x mandatory; */
+    scroll-behavior: smooth;
+    white-space: nowrap;
+}
+
+section.tabs > div.disable {
+    opacity: 0.5;
+    pointer-events: none !important;
+}
+
+section.tabs > div {
+    padding: 3px 10px;
+    cursor: pointer;
+    margin-right: 2px;
+    border-radius: 3px 3px 0 0;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+section.tabs > div:first-child {
+    margin-left: 10px;
+}
+
+section.tabs > div.active {
+    transform: scale(1);
+    background: var(--elements);
+}
+
+section.tabs > div:not(.active):hover {
+    background: var(--hover);
+}
+
+section.tabs > div.add {
+    margin: 2px 3px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: var(--background);
+}
+
+section.tabs > div.add:hover {
+    background: var(--hover);
+}
+
+main {
+    height: calc(100vh - 23px - 34px - 40px);
+    /* width: calc(100vw - 10px); */
+    /* margin: 0 5px; */
+    outline: 2px solid var(--elements);
+    /* border-radius: 3px 3px 6px 6px; */
+    background: var(--elements);
+    padding-top: 5px;
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+main.global {
+    padding-top: 0 !important;
+}
+
+main > section:first-child > div div[perkMod],
+main > section:first-child > div div[image],
+main > section:first-child > div div[name]:after {
+    opacity: 0;
+    display: none;
+    pointer-events: none;
+}
+
+main > section:first-child div[keybinds] input {
+    margin: 0 5px 0 8px !important;
+    width: 205px !important;
+}
+
+main > section:first-child > div div[abilityIcon] {
+    display: none;
+}
+
+main > section:first-child > div div[remove] {
+    padding: 0 10px;
+}
+
+main > section:first-child > div {
+    padding-bottom: 10px;
+    border-radius: 3px;
+    margin: 0 5px;
+}
+
+main > section > div {
+    background: var(--background);
+}
+
+main > section > div[manage] {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-radius: 0 0 5px 5px;
+}
+
+div.section {
+    margin-top: 10px;
+    border-radius: 3px 3px 0 0;
+    padding: 15px 15px 5px 15px;
+    width: max-content;
+    cursor: pointer;
+    line-height: 0.5;
+}
+
+div[min] {
+    margin-left: 10px;
+    transform: rotate(180deg);
+    transition-duration: 200ms;
+}
+
+div[title].active div[min] {
+    transform: rotate(90deg) !important;
+}
+
+div[title] {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin: -15px -15px -10px -15px;
+}
+
+main > section.active {
+    height: 605px !important;
+    border-radius: 0 0 3px 3px !important;
+    margin-bottom: 7px !important;
+}
+
+main > section:not([header]):not([globalOnly]) {
+    height: 100px;
+    overflow: hidden;
+    border-radius: 3px;
+    margin: 5px;
+    transition-duration: 200ms !important;
+}
+
+main > section[globalOnly] > div:first-child {
+    padding-top: 10px !important;
+    border-radius: 3px 3px 0 0;
+}
+
+main > section:not([header]):not([globalOnly]) > div:not(.section) > div {
+    pointer-events: none;
+    filter: blur(3px);
+}
+
+main > section.active > div:not(.section) > div {
+    pointer-events: auto;
+    filter: blur(0px) !important;
+}
+
+main > section:not([header]):not([globalOnly]) > div:nth-child(2) {
+    padding-top: 10px;
+    border-radius: 0 3px 0 0;
+}
+
+main > section:not([header]) > div:last-child {
+    padding-bottom: 10px;
+    border-radius: 0 0 3px 3px;
+}
+
+main > section:last-child {
+    margin-bottom: 10px;
+}
+
+main > section[header] input {
+    border-radius: 3px !important;
+}
+
+div.section div {
+    display: flex;
+}
+
+div.section div[edit] {
+    margin-left: 25px;
+    margin-right: -175px;
+    margin-top: -15px;
+    margin-bottom: -10px;
+    display: flex;
+    padding: 4px;
+    align-items: center;
+    height: 15px;
+    background: var(--blue);
+    border-radius: 3px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition-delay: 150ms;
+    transition-duration: 200ms;
+    font-size: 12px;
+}
+
+div[title]:hover div[edit] {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+div.section div[clear] {
+    margin-left: 185px;
+    margin-right: -165px;
+    margin-top: -15px;
+    margin-bottom: -10px;
+    display: flex;
+    padding: 4px;
+    align-items: center;
+    height: 15px;
+    background: var(--red);
+    border-radius: 3px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition-delay: 150ms;
+    transition-duration: 200ms;
+    font-size: 12px;
+}
+
+div[title]:hover div[clear] {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+/* Popup styles. */
+div[popup] {
+    display: none;
+    transform: scale(1.5);
+    pointer-events: auto;
+    position: fixed;
+    backdrop-filter: blur(3px);
+    width: 100%;
+    height: calc(100% - 200px);
+    z-index: 100;
+    top: 0;
+    left: 0;
+    margin-top: 115px;
+}
+
+div[popup] div[mount] p {
+    white-space: break-spaces;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px;
+}
+
+div[popup] div[mount] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-height: 100px;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    width: 250px;
+    background: var(--color);
+    color: var(--background);
+    border-radius: 3px;
+}
+
+div[popup] div[mount] > div > div {
+    display: flex;
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: var(--elements);
+}
+
+div[popup] div[button]:first-child {
+    background: var(--red);
+    margin-right: 65px;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+div[popup] div[button]:first-child:before,
+div[popup] div[button]:first-child:after {
+    display: none;
+}
+
+div[popup] div[button]:last-child {
+    background: var(--blue);
+}
+
+div[popup] div[info] {
+    margin: 0;
+    display: block !important;
+}
+
+main > section {
+    margin-bottom: 13px !important;
 }

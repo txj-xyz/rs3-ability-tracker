@@ -1,5 +1,5 @@
 // Import dependencies.
-const [{ readdirSync, existsSync, writeFileSync, mkdirSync, unlinkSync }, { resolve }, { app }] = ['fs', 'path', 'electron'].map(require);
+const [{ readdirSync, existsSync, writeFileSync, mkdirSync, unlinkSync }, { resolve }, { app }, Store] = ['fs', 'path', 'electron', 'electron-store'].map(require);
 
 // Load all modules into global.
 module.exports = class Manager {
@@ -12,6 +12,7 @@ module.exports = class Manager {
             show: false,
             titleBarStyle: 'hidden',
             webPreferences: {
+                // nodeIntegrationInWorker: true, Multithreading experimental
                 nodeIntegration: true,
                 contextIsolation: false,
             },
@@ -19,6 +20,18 @@ module.exports = class Manager {
     };
 
     static __userData = app.getPath('userData');
+
+    static checkCustomFolder(path) {
+        if (typeof path !== 'string') return new TypeError('path must be a string');
+        const customPath = resolve(this.__userData, path);
+        if (!existsSync(customPath)) {
+            mkdirSync(customPath);
+        }
+        return customPath;
+    }
+
+    // Load storage
+    // static __localStorage = new Store({ name: 'local_storage' });
 
     // Loading logic.
     static load() {
@@ -37,14 +50,6 @@ module.exports = class Manager {
         return this;
     }
 
-    static checkCustomFolder () {
-        const customPath = resolve(this.__userData, '.custom');
-        if(!existsSync(customPath)){
-            mkdirSync(customPath)
-        }
-        return customPath;
-    }
-    
     // Update AppData assets with new files from generated on build assets (aka: new icons)
     static checkAssets(oldAssets, newAssets) {
         let oldProps = oldAssets.map(set => set.name);
@@ -55,16 +60,22 @@ module.exports = class Manager {
 
         let oldDiff = oldProps.map(key => (!newMap.get(key) ? key : null)).filter(e => e);
         oldDiff.map(key => oldMap.delete(key));
-
         let newDiff = newProps.map(key => (!oldMap.get(key) ? key : null)).filter(e => e);
         newDiff.map(key => oldMap.set(key, newMap.get(key)));
 
         const merged = Array.from(oldMap.values());
 
-        readdirSync(this.checkCustomFolder()).map(file => {
-            const filepath = resolve(this.checkCustomFolder(), file).replace(/\\/g, '/');
+        merged.map(set => {
+            let newSet = newMap.get(set.name);
+            set.style = newSet.style;
+            set.icon = newSet.icon;
+            set.title = newSet.title;
+        });
+
+        readdirSync(this.checkCustomFolder('.custom')).map(file => {
+            const filepath = resolve(this.checkCustomFolder('.custom'), file).replace(/\\/g, '/');
             if (!merged.find(set => set.customIcon === filepath)) unlinkSync(filepath);
-        })
+        });
 
         return merged;
     }
@@ -78,16 +89,39 @@ module.exports = class Manager {
         let newDiff = newProps.filter(key => !oldProps.includes(key)) || [];
         newDiff.map(key => (oldConfig[key] = newConfig[key]));
 
-        if (oldConfig.referenceStorage.keybinds.length && oldConfig.referenceStorage.keybinds[0].key) {
+        // v1.3.0 NEW!!!
+        // convert 'keybinds' to new 'presets' with new data format
+        if (oldConfig.referenceStorage?.keybinds?.length && oldConfig.referenceStorage?.keybinds[0]?.keybind && !oldConfig.referenceStorage?.presets) {
+            // map each keybind to new layout
+            oldConfig.referenceStorage.keybinds.map(k => {
+                keybinds.push({ name: k.name, keybind: k.keybind, bar: k.bar, perk: null });
+            });
+
+            delete oldConfig.referenceStorage.keybinds
+            oldConfig.referenceStorage.bars = oldConfig.referenceStorage.bars.map(bar => ({ name: bar, key: null }));
+            oldConfig.referenceStorage.presets = [];
+            oldConfig.referenceStorage.global = keybinds;
+            keybinds = [];
+        }
+
+        // v1.2.4
+        // check if keybinds is an array and has 'key' instead of 'keybind'
+        // this also fixes a bug with improperly saved window resizing
+        else if (oldConfig.referenceStorage?.keybinds?.length && oldConfig.referenceStorage?.keybinds[0]?.key) {
             oldConfig.referenceStorage.keybinds.map(k => {
                 for (const entry of k.key) {
                     keybinds.push({ name: k.name.replace(/_/g, ' '), keybind: entry, bar: k.bar, perk: null });
                 }
             });
             oldConfig.referenceStorage.keybinds = keybinds;
-
             oldConfig.abilityWindow.width = 800;
             oldConfig.abilityWindow.height = 80;
+            keybinds = [];
+        }
+
+        // v1.2.1 old config && v1.3.0 convert to new object
+        else if (typeof oldConfig.referenceStorage.bars[0] === 'string' && !oldConfig.referenceStorage.bars[0]?.key) {
+            oldConfig.referenceStorage.bars = oldConfig.referenceStorage.bars.map(bar => ({ name: bar, key: null }));
         }
 
         return oldConfig;
@@ -141,15 +175,6 @@ module.exports = class Manager {
 
     // Default game configs.
     static rsOptions = {
-        gcdActive: true,
-        abilityTimingBuffer: 1000,
-        tickTime: 600,
-        duringGCDAbilities: ['Surge', 'Escape', 'Bladed Dive', 'Provoke'],
-        doubleUseAbils: [
-            { name: 'Surge', triggered: false },
-            { name: 'Escape', triggered: false },
-            { name: 'Bladed Dive', triggered: false },
-            { name: 'Provoke', triggered: false },
-        ],
+        spamCooldown: 2000,
     };
 };

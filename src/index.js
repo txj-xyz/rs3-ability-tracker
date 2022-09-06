@@ -7,7 +7,13 @@ for (const property in (manager = require(resolve(__dirname, './base/Manager.js'
 
 app
     // App ready event.
-    .on('ready', _ => new Taskbar())
+    .on('ready', _ => {
+        if(process.platform !== 'darwin') {
+            const updateApp = require('update-electron-app');
+            updateApp({ updateInterval: '1 hour', notifyUser: true });
+        }
+        new Taskbar();
+    })
 
     // App second instance event.
     .on('second-instance', _ => new Taskbar())

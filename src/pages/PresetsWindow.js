@@ -1,13 +1,13 @@
 const [{ copyFileSync, unlinkSync }, { resolve }, { dialog }, Window] = ['fs', 'path', 'electron', '../base/Window.js'].map(require)
 
-module.exports = class Keybinds extends Window {
+module.exports = class Presets extends Window {
     constructor() {
         super()
-            .create({ ...windows.properties, width: 635, height: 550 }, true)
-            .ipcLoader(this.keybindsListener)
+            .create({ ...windows.properties, width: 880, height: 550, resizable: !0, minWidth: 880, minHeight: 550 }, true)
+            .ipcLoader(this.presetsListener)
     }
 
-    keybindsListener = (event, param) => {
+    presetsListener = (event, param) => {
         switch (param.type) {
             case 'revertImage': {
                 unlinkSync(library.get(param.name).customIcon)
@@ -30,7 +30,7 @@ module.exports = class Keybinds extends Window {
                             const path = resolve(resolve(__userData, '.custom'), `${id}.${file.filePaths[0].toString().split('.').pop()}`);
                             copyFileSync(file.filePaths[0].toString(), path);
                             library.set(param.name, path.replace(/\\/g, '/'));
-                            windows.keybinds?.webContents.send('customIcon', { ...library.get(param.name), id: param.id });
+                            windows.presets?.webContents.send('customIcon', { ...library.get(param.name), id: param.id });
                         }
                     })
                     .catch(console.log);

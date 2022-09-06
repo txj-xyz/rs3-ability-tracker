@@ -16,13 +16,18 @@ module.exports = class Ability extends Window {
             alwaysOnTop: true,
             movable: !config.lockTrackerWindow,
         });
-        new Confirmation();
         this.fixBounds();
-        windows.ability?.on('ready-to-show', this.updateSize)
+        windows.ability?.on('ready-to-show', _ => {
+            this.updateSize();
+            tools.center(windows.ability);
+        });
         windows.ability?.on('moved', this.updateSize);
         windows.ability?.on('resized', this.updateSize);
+        __platform === 'win32' && windows.ability?.hookWindowMessage(0x0116, () => {
+            windows.ability?.setEnabled(false);
+            windows.ability?.setEnabled(true);
+        });
         windows.ability?.setAspectRatio(config.numberOfIcons);
-        
     }
 
     fixBounds = _ => {
@@ -30,15 +35,8 @@ module.exports = class Ability extends Window {
             if (windows.ability?.getSize()[0] !== config.abilityWindow.height * config.numberOfIcons) {
                 windows.ability?.setSize(config.abilityWindow.height * config.numberOfIcons, config.abilityWindow.height);
             }
-        }, 50);
+        }, 100);
     };
-
-    // updatePostition = _ => {
-    //     const [x, y] = windows.ability.getPosition();
-    //     config.abilityWindow.x = x;
-    //     config.abilityWindow.y = y;
-    //     this.fixBounds();
-    // };
 
     updateSize = _ => {
         // get position

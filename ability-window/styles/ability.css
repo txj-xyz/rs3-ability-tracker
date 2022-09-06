@@ -21,7 +21,7 @@ main > div {
 }
 
 main > div:last-child::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     width: inherit;
@@ -32,17 +32,17 @@ main > div:last-child::after {
     border-radius: 7px !important;
 }
 
-
+/* Abilities */
 img {
-    height: 80%;
-    width: 80%;
+    height: 90%;
+    width: 90%;
     object-fit: contain;
-    max-height: 80%;
-    max-width: 80%;
+    max-height: 90%;
+    max-width: 90%;
 }
 
-main > div > div > img {
 
+main > div > div > img {
     height: 100%;
     width: auto;
     object-fit: contain;
@@ -51,6 +51,7 @@ main > div > div > img {
     margin-left: 5px;
 }
 
+/* perk images */
 main > div > div {
     height: 50%;
     width: inherit;
@@ -60,5 +61,6 @@ main > div > div {
     object-fit: contain;
     display: block !important;
     position: absolute;
+    margin-left: 7%;
     z-index: 100;
 }

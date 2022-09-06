@@ -1,14 +1,15 @@
 {
   "name": "rs3-ability-tracker",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Ability Tracker for RuneScape 3",
   "type": "commonjs",
   "main": "src/index.js",
+  "repository": "https://github.com/txj-xyz/rs3-ability-tracker",
   "scripts": {
-    "icon-rebuild": "node ./tools/generate-abilities-json.js",
+    "prebuild": "node ./tools/generate-abilities-json.js",
     "startdev": "electron-forge start -- dev",
     "start": "electron-forge start",
-    "make": "electron-rebuild && electron-forge make"
+    "build": "electron-rebuild && electron-forge make"
   },
   "author": "TXJ + Kurasad",
   "license": "ISC",
@@ -26,52 +27,9 @@
   "dependencies": {
     "active-win": "^7.7.2",
     "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.0.2",
     "github-version-checker": "^2.3.0",
-    "uiohook-napi": "^1.2.0"
-  },
-  "config": {
-    "forge": {
-      "packagerConfig": {
-        "executableName": "RS3-Ability-Tracker",
-        "name": "RS3-Ability-Tracker",
-        "icon": "./src/icons/icon",
-        "asar": true
-      },
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "iconUrl": "https://raw.githubusercontent.com/txj-xyz/rs3-ability-tracker/totally-not-master/src/icons/icon.ico",
-            "setupIcon": "./src/icons/icon.ico",
-            "setupExe": "RS3-Ability-Tracker-Installer.exe",
-            "skipUpdateIcon": true,
-            "title": "RS3 Ability Tracker",
-            "name": "RS3AbilityTracker"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-dmg",
-          "config": {
-            "icon": "./src/icons/icon.icns",
-            "overwrite": true,
-            "background": "./src/icons/backgroundMacOS.png",
-            "additionalDMGOptions": {
-              "title": "RS3 Ability Tracker",
-              "icon": "./src/icons/icon.icns",
-              "background": "./src/icons/backgroundMacOS.png",
-              "window": {
-                "size": {
-                  "width": 700,
-                  "height": 520
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip"
-        }
-      ]
-    }
+    "uiohook-napi": "^1.2.0",
+    "update-electron-app": "^2.0.1"
   }
 }

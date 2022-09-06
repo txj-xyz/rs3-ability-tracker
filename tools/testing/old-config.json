@@ -1,0 +1,39 @@
+{
+    "minimizeToTray": false,
+    "toggleSwitching": false,
+    "lockTrackerWindow": false,
+    "numberOfIcons": 10,
+    "barsSelection": "Global",
+    "abilityWindow": {
+        "x": 737,
+        "y": 1080,
+        "width": 820,
+        "height": 82
+    },
+    "referenceStorage": {
+        "keybinds": [
+            {
+                "name": "2H Weapon",
+                "keybind": "Q",
+                "bar": "Global",
+                "perk": "Planted Feet"
+            },
+            {
+                "name": "Needle Strike",
+                "keybind": "A",
+                "bar": "asdf",
+                "perk": null
+            }
+        ],
+        "bars": [
+            {
+                "name": "asdf",
+                "key": "Shift + E"
+            },
+            {
+                "name": "adsfasdf",
+                "key": "Shift + Q"
+            }
+        ]
+    }
+}

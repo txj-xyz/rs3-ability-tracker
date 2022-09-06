@@ -73,3 +73,62 @@ div.disable {
     user-select: none !important;
     pointer-events: none;
 }
+
+/* div[config] {
+    display: none !important;
+} */
+
+div#ability {
+    background-color: var(--green) !important;
+}
+
+h2 {
+    margin: 0 -5px;
+    padding: 7px 0;
+    border-radius: 3px 3px 0 0;
+    font-size: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: center;
+    background: var(--elements);
+}
+
+div[buttons] > div:not(#ability) {
+    margin: 0 -5px;
+    padding: 0 5px 5px 5px;
+    background: var(--elements);
+    display: block;
+}
+
+div[buttons] div[actions] {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    background: var(--elements) !important;
+    padding: 0;
+    cursor: default;
+}
+
+div[buttons] div[actions] div {
+    background: var(--background);
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background);
+    border-radius: 3px;
+    user-select: none;
+    cursor: pointer;
+    padding: 9.5px;
+}
+
+div[buttons] div[actions] div:hover {
+    background: var(--hover);
+}
+
+div#open img {
+    content: url(../assets/folder.png);
+    height: 15px;
+    width: 17px;
+    transform: scale(1.5);
+}

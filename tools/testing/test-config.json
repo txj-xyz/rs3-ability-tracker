@@ -1,0 +1,418 @@
+{
+    "keybinds": [
+        {
+            "name": "Deflect Missiles",
+            "keybind": "1",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Deflect Melee",
+            "keybind": "2",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Deflect Magic",
+            "keybind": "3",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Soul Split",
+            "keybind": "4",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Noxious scythe (barrows)",
+            "keybind": "Ctrl + 1",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Kalphite defender",
+            "keybind": "Ctrl + 2",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Resonance",
+            "keybind": "Ctrl + 3",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Abyssal scourge",
+            "keybind": "Ctrl + 4",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Dark Ice Sliver",
+            "keybind": "Ctrl + 5",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Zaros godsword (Barrows)",
+            "keybind": "Ctrl + 6",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Dark Ice Shard",
+            "keybind": "Ctrl + 7",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Offhand drygore rapier",
+            "keybind": "Ctrl + 8",
+            "bar": "Melee Kera NM",
+            "perk": "Flanking Perk"
+        },
+        {
+            "name": "Masterwork spear of annihilation",
+            "keybind": "Ctrl + 9",
+            "bar": "Melee Kera NM",
+            "perk": "Lunging Perk"
+        },
+        {
+            "name": "Enhanced excalibur",
+            "keybind": "0",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Spiritual Prayer",
+            "keybind": "-",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Dragon battleaxe",
+            "keybind": "=",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Decimate",
+            "keybind": "Q",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Punish",
+            "keybind": "W",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Greater Fury",
+            "keybind": "E",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Havoc",
+            "keybind": "R",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Sever",
+            "keybind": "T",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Destroy",
+            "keybind": "A",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Assault",
+            "keybind": "S",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Greater Barge",
+            "keybind": "D",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Hurricane",
+            "keybind": "F",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Berserk",
+            "keybind": "G",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Forceful Backhand",
+            "keybind": "Z",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Backhand",
+            "keybind": "X",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Overpower",
+            "keybind": "V",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Weapon Special attack",
+            "keybind": "B",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Surge",
+            "keybind": "Shift + Q",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Bladed Dive",
+            "keybind": "Shift + W",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Escape",
+            "keybind": "Shift + E",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Vulnerability Bomb",
+            "keybind": "Shift + R",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Blood Tendrils",
+            "keybind": "Shift + A",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Dismember",
+            "keybind": "Shift + S",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Greater Flurry",
+            "keybind": "Shift + D",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Essence of Finality",
+            "keybind": "Shift + F",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Chaos Roar",
+            "keybind": "Shift + Z",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Spellbook Swap",
+            "keybind": "Shift + X",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Disruption Shield",
+            "keybind": "Shift + C",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Vengeance",
+            "keybind": "Shift + V",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Super restore",
+            "keybind": "Shift + B",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Natural Instinct",
+            "keybind": "Shift + N",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Target Cycle",
+            "keybind": "`",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Divert",
+            "keybind": "Alt + Q",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Preparation",
+            "keybind": "Alt + W",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Reprisal",
+            "keybind": "Alt + E",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Reflect",
+            "keybind": "Alt + R",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Freedom",
+            "keybind": "Alt + A",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Debilitate",
+            "keybind": "Alt + S",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Devotion",
+            "keybind": "Alt + D",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Anticipation",
+            "keybind": "Alt + F",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Barricade",
+            "keybind": "Alt + C",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Limitless",
+            "keybind": "F4",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Abyssal scourge",
+            "keybind": "[",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Enhanced excalibur",
+            "keybind": "]",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Pocket Slot",
+            "keybind": "N",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Spellbook Swap (Ancient)",
+            "keybind": "5",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Prism of Restoration",
+            "keybind": "6",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Wars Retreat Teleport",
+            "keybind": "O",
+            "bar": "Global",
+            "perk": null
+        },
+        {
+            "name": "Slaughter",
+            "keybind": "Shift + D",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Smash",
+            "keybind": "W",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Cleave",
+            "keybind": "Q",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Kick",
+            "keybind": "X",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Meteor Strike",
+            "keybind": "A",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Quake",
+            "keybind": "S",
+            "bar": "Melee Kera NM",
+            "perk": null
+        },
+        {
+            "name": "Assault",
+            "keybind": "R",
+            "bar": "Melee Kera NM",
+            "perk": null
+        }
+    ],
+    "bars": [
+        {
+            "name": "Melee Kera NM",
+            "key": ""
+        }
+    ]
+}
