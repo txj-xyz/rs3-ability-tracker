@@ -3,6 +3,26 @@ let inactiveTabs = _ => $$('.tabs > div:not(.active)');
 
 let currentlyEditing = {}
 
+const tabs = $('section.tabs');
+
+tabs.addEventListener('wheel', e => {
+});
+
+function detectTrackPad(e) {
+    var isTrackpad = false;
+    if (e.wheelDeltaY) {
+        if (e.wheelDeltaY === (e.deltaY * -3)) isTrackpad = true;
+    }
+    else if (e.deltaMode === 0) isTrackpad = true;
+
+    if (!isTrackpad) {
+        e.preventDefault();
+        tabs.scrollLeft += e.deltaY / 1.5
+    }
+}
+
+tabs.addEventListener("wheel", detectTrackPad, false);
+
 function addTab() {
     const tabMount = $('.tabs');
     $('.add', tabMount).remove()

@@ -446,9 +446,9 @@ function cancel() {
     if (!toggles.save) window.location.reload()
 }
 
-const tabs = $('section.tabs');
+// const tabs = $('section.tabs');
 
-tabs.addEventListener('wheel', e => {
-    e.preventDefault();
-    tabs.scrollLeft += e.deltaY / 2;
-});
+// tabs.addEventListener('wheel', e => {
+//     e.preventDefault();
+//     tabs.scrollLeft += e.deltaY / 2;
+// });
