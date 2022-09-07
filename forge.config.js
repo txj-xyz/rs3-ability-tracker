@@ -7,7 +7,7 @@ module.exports = {
         {
             name: '@electron-forge/maker-squirrel',
             config: {
-                loadingGif: "./src/icons/loading3.gif",
+                loadingGif: './src/icons/loading3.gif', // Loading GIF used for Windows Installer
                 iconUrl: 'https://raw.githubusercontent.com/txj-xyz/rs3-ability-tracker/totally-not-master/src/icons/icon.ico',
                 setupIcon: './src/icons/icon.ico',
                 setupExe: 'RS3-Ability-Tracker-Installer.exe',
