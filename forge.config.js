@@ -5,7 +5,7 @@ module.exports = {
     asar: true,
     makers: [
         {
-            name: '@electron-forge/maker-squirrel',
+            name: '@electron-forge/maker-squirrel',//Windows installer
             config: {
                 loadingGif: "./src/icons/loading3.gif",
                 iconUrl: 'https://raw.githubusercontent.com/txj-xyz/rs3-ability-tracker/totally-not-master/src/icons/icon.ico',
@@ -16,7 +16,7 @@ module.exports = {
             },
         },
         {
-            name: '@electron-forge/maker-dmg',
+            name: '@electron-forge/maker-dmg',//MacOS Installer
             config: {
                 icon: './src/icons/icon.icns',
                 overwrite: true,
