@@ -1,0 +1,7 @@
+Ability-Window  > Frontend
+Src >  Node side, Electron, Backend.
+Tools > Lingering - Doenst run with the application.
+
+Index.js  > Tray Component > Everything is independent. 
+
+Tray component > Calls Main.js

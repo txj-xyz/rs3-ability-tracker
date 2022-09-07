@@ -6,10 +6,10 @@ module.exports = class Config extends Manager {
     static init() {
         const path = resolve(super.__userData, 'config.json')
         const config = super.file(path)
-        if (config.barsSelection && !config.referenceStorage.bars.map(bar => bar?.name ? bar.name : bar).includes(config.barsSelection)) {
+        /*/if (config.barsSelection && !config.referenceStorage.bars.map(bar => bar?.name ? bar.name : bar).includes(config.barsSelection)) {
             config.barsSelection = 'Global'
             write()
-        }
+        }*/
 
         const handler = {
             set(data, prop, receiver) {
@@ -23,6 +23,8 @@ module.exports = class Config extends Manager {
         config.abilityWindow = new Proxy(config.abilityWindow, handler)
 
         return new Proxy(config, handler)
+        //We dont know what they do :shrug:
+        //Bind to objects(variables) and updating a value, it will update everywhere.
 
         function write() {
             writeFileSync(path, JSON.stringify(config, null, 2))
