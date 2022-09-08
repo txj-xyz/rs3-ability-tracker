@@ -7,6 +7,7 @@ module.exports = class Unregister extends Manager {
         return _ => {
             uIOhook.removeAllListeners('keydown');
             uIOhook.removeAllListeners('keyup');
+            //New global that removes all key 'keyup' and 'keydown' listeners.
         }
     }
 };
