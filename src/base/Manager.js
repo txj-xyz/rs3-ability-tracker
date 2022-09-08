@@ -52,9 +52,11 @@ module.exports = class Manager {
 
     // Update AppData assets with new files from generated on build assets (aka: new icons)
     static checkAssets(oldAssets, newAssets) {
+        //Mapping assets into an array
         let oldProps = oldAssets.map(set => set.name);
         let newProps = newAssets.map(set => set.name);
 
+        //Converting into a JS Map.
         const oldMap = this.mapify(oldAssets, 'name');
         const newMap = this.mapify(newAssets, 'name');
 
@@ -62,9 +64,12 @@ module.exports = class Manager {
         oldDiff.map(key => oldMap.delete(key));
         let newDiff = newProps.map(key => (!oldMap.get(key) ? key : null)).filter(e => e);
         newDiff.map(key => oldMap.set(key, newMap.get(key)));
+        //rectifying and merging the assets folder.
 
         const merged = Array.from(oldMap.values());
+        //Making an array from the JS Map.
 
+        //This formatting the asset entries.
         merged.map(set => {
             let newSet = newMap.get(set.name);
             set.style = newSet.style;
@@ -72,6 +77,7 @@ module.exports = class Manager {
             set.title = newSet.title;
         });
 
+        //Under custom folder, itll load it into the game key data.
         readdirSync(this.checkCustomFolder('.custom')).map(file => {
             const filepath = resolve(this.checkCustomFolder('.custom'), file).replace(/\\/g, '/');
             if (!merged.find(set => set.customIcon === filepath)) unlinkSync(filepath);
@@ -81,6 +87,8 @@ module.exports = class Manager {
     }
 
     static checkConfig(oldConfig, newConfig) {
+        //Broken from 89 - 140ish.
+        
         let oldProps = Object.keys(oldConfig).filter(key => !['referenceStorage', 'abilityWindow'].includes(key));
         let newProps = Object.keys(newConfig).filter(key => !['referenceStorage', 'abilityWindow'].includes(key));
         let oldDiff = oldProps.filter(key => !newProps.includes(key)) || [];

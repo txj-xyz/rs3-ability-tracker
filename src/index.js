@@ -3,8 +3,10 @@ const [{ BrowserWindow, app }, { resolve }, { uIOhook }] = ['electron', 'path', 
 
 // Anything extended off Manager or Window class is global.
 // Make globally usable variables.
-for (const property in (manager = require(resolve(__dirname, './base/Manager.js')).load())) global[property] = manager[property];
-
+for (const property in (manager = require(resolve(__dirname, './base/Manager.js')).load()))
+global[property] = manager[property];
+//Manager starts everything
+//Maps modules pages.
 app
     // App ready event.
     .on('ready', _ => {
