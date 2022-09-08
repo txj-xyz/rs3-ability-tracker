@@ -67,7 +67,7 @@ module.exports = class Window {
                 } else quitHandler()
                 //Options for closing/minimizing the tray
             } else {
-                //Couldnt find 'unregister'
+                //Creating a new Global[] found in src/modules/UnregisterManager.js
                 if (this.name === 'ability') unregister() 
                 new Main()
                 this.#emit('closed')
@@ -78,7 +78,7 @@ module.exports = class Window {
             windows.tray.reload()
             if (!windows.main?.isVisible() && !windows.presets && !windows.bars) quitHandler()
             return void 0
-            //Remove th event listener, refresh windows tray, and if window is not visible, and not 'presets' and not 'bars', quit Handler.
+            //This line emits events for each window if we need it
         })
     }
 
